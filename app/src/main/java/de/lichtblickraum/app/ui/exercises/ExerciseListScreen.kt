@@ -88,7 +88,11 @@ fun ExerciseCategoryScreen(categoryName: String, onStart: (String) -> Unit, onBa
                         LichtblickCard(onClick = { onStart(e.id) }) {
                             Text(e.title, style = MaterialTheme.typography.titleLarge)
                             Text(e.subtitle, style = MaterialTheme.typography.bodyMedium, color = LichtblickColors.TextMuted)
-                            Text(e.durationText, style = MaterialTheme.typography.labelMedium, color = LichtblickColors.GoldDark)
+                            Text(
+                                (if (e.together) "Zu zweit · " else "") + e.durationText,
+                                style = MaterialTheme.typography.labelMedium,
+                                color = LichtblickColors.GoldDark,
+                            )
                         }
                     }
                 }

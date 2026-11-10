@@ -777,12 +777,712 @@ object ExerciseCatalog {
         closing = "Deine Sorge ist ernst zu nehmen – und sie muss dich nicht die ganze Zeit begleiten.",
     )
 
+    // ── Aus Nataschas Workbooks („Crazy Ex“ und Beziehungs-Workbook) ──────────────
+
+    val wbKonfliktprotokoll = Exercise(
+        id = "konfliktprotokoll",
+        minutes = 10,
+        together = false,
+        category = ExerciseCategory.COUPLE,
+        title = "Das Konfliktprotokoll",
+        subtitle = "Einen Streit im Nachhinein bewusst verstehen",
+        durationText = "ca. 10 Minuten",
+        intro = "Wenn der erste Sturm vorbei ist, nimm dir zehn Minuten Zeit. Diese Übung gibt dir einen klaren Rahmen, um einen Streit im Nachhinein zu verstehen.\n\nDu kannst die vier Fragen allein beantworten oder zu zweit: Einer von euch beantwortet nacheinander die Fragen, der andere hört nur zu – ohne Unterbrechungen, ohne Rechtfertigungen. Danach wiederholt der Zuhörende mit eigenen Worten, was er verstanden hat. Anschließend wechselt ihr die Rollen.",
+        steps = listOf(
+            ExerciseStep(
+                "Wovor hatte ich Angst?",
+                "Wovor hatte ich in dieser Situation eigentlich Angst? Zum Beispiel davor, nicht gehört oder verlassen zu werden, Kontrolle zu verlieren oder abgelehnt zu werden.",
+                inputPrompt = "Wovor hattest du Angst?",
+            ),
+            ExerciseStep(
+                "Wofür habe ich mich geschämt?",
+                "Gab es etwas, wofür ich mich in dem Moment geschämt habe? Zum Beispiel, dass ich zu emotional reagiert habe, dass ich mich schwach fühlte oder dass ich meine Grenzen nicht klar gezeigt habe.",
+                inputPrompt = "Wofür hast du dich geschämt?",
+            ),
+            ExerciseStep(
+                "Was habe ich erwartet?",
+                "Was habe ich vom anderen erwartet? Zum Beispiel Verständnis, Nähe, Unterstützung, Sicherheit – dass er oder sie mich in den Arm nimmt oder einfach da bleibt.",
+                inputPrompt = "Was hast du erwartet?",
+            ),
+            ExerciseStep(
+                "Welches Bedürfnis war ungestillt?",
+                "Welches ungestillte Bedürfnis hatte ich? Zum Beispiel nach Zugehörigkeit, Wertschätzung, Ruhe, Klarheit, Respekt oder Geborgenheit.",
+                inputPrompt = "Dein ungestilltes Bedürfnis",
+            ),
+            ExerciseStep(
+                "Ein altes Gefühl? (freiwillig)",
+                "Wenn du magst, frag das jüngere Ich in dir: „Was hast du gerade gebraucht?“ Bei einem Streit meldet sich oft ein altes Gefühl, das viel älter ist als diese Beziehung.",
+                inputPrompt = "Was hättest du gebraucht?",
+            ),
+            ExerciseStep(
+                "Zu zweit: Wiederholen und tauschen",
+                "Wenn ihr die Übung zu zweit macht: Der Zuhörende fasst jetzt mit eigenen Worten zusammen, was er verstanden hat – ohne zu bewerten. Danach wechselt ihr die Rollen.",
+            ),
+        ),
+        closing = "Diese Übung entschleunigt, schafft Verständnis und bringt Klarheit über die tieferen Ebenen eines Streits.",
+    )
+
+    val wbFaktOderDeutung = Exercise(
+        id = "fakt-oder-deutung",
+        minutes = 8,
+        together = false,
+        category = ExerciseCategory.COUPLE,
+        title = "Fakt oder Deutung?",
+        subtitle = "Eine Deutung prüfen, ohne sie wegzuschieben",
+        durationText = "ca. 5–10 Minuten",
+        intro = "Was jemand sagt oder tut, wird schnell gedeutet. In dieser Übung prüfst du eine Deutung, ohne sie wegzuschieben. Wähle eine kleine, alltägliche Situation.",
+        steps = listOf(
+            ExerciseStep(
+                "Das ist passiert",
+                "Was ist passiert? Schreib nur auf, was man hätte sehen oder hören können – ohne Bewertung.",
+                inputPrompt = "Der Fakt",
+            ),
+            ExerciseStep(
+                "So habe ich es gedeutet",
+                "Wie hast du das Geschehene gedeutet? Was hast du daraus geschlossen?",
+                inputPrompt = "Deine Deutung",
+            ),
+            ExerciseStep(
+                "Was könnte es noch bedeuten?",
+                "Gibt es andere mögliche Erklärungen? Sammle ruhig mehrere, auch wenn sie dir zunächst unwahrscheinlich vorkommen.",
+                inputPrompt = "Andere Möglichkeiten",
+            ),
+            ExerciseStep(
+                "Wen könnte ich fragen?",
+                "Wen könntest du fragen, um mehr Klarheit zu bekommen – vielleicht dein Gegenüber selbst?",
+                inputPrompt = "Wen könntest du fragen?",
+            ),
+        ),
+        closing = "Eine Deutung ist ein Gedanke, keine Gewissheit. Schön, dass du ihr mit Neugier begegnet bist.",
+    )
+
+    val wbEtikettAbloesen = Exercise(
+        id = "etikett-abloesen",
+        minutes = 10,
+        together = false,
+        category = ExerciseCategory.SELF_WORTH,
+        title = "Das Etikett ablösen",
+        subtitle = "Ein Urteil über dich hinterfragen",
+        durationText = "ca. 10 Minuten",
+        intro = "Manchmal tragen wir ein Etikett mit uns herum – ein Urteil, das andere über uns gefällt haben oder das wir selbst über uns denken. Ein ruhiger Moment ist am besten für diese Übung.",
+        steps = listOf(
+            ExerciseStep(
+                "Mein Etikett",
+                "Welches Etikett trage ich oder trug ich? Wie lautet es genau? Zum Beispiel: „Du bist zu empfindlich.“",
+                inputPrompt = "Dein Etikett",
+            ),
+            ExerciseStep(
+                "Was es behauptet",
+                "Was sagt dieses Etikett über mich, was ein einzelner Moment gar nicht belegen kann? Etiketten machen aus einem Moment oft ein „immer“.",
+                inputPrompt = "Was behauptet es?",
+            ),
+            ExerciseStep(
+                "Was wahr ist",
+                "Was ist hinter diesem Etikett wahr, ohne dass es mich als Ganzes beschreibt? Zum Beispiel ein Verhalten, das ich ändern möchte.",
+                inputPrompt = "Was ist wahr daran?",
+            ),
+            ExerciseStep(
+                "Wer ich außerdem bin",
+                "Wer bin ich außerdem? Schreib mindestens fünf Eigenschaften auf, die das Etikett nicht kennt.",
+                inputPrompt = "Fünf Eigenschaften",
+            ),
+            ExerciseStep(
+                "Mein neuer Satz",
+                "Mein neuer Satz über mich beginnt mit: „Ich bin ein Mensch, der …“",
+                inputPrompt = "Dein neuer Satz",
+            ),
+        ),
+        closing = "Ein Etikett ist nie die ganze Geschichte. Du bist so viel mehr.",
+    )
+
+    val wbFaktOderUrteil = Exercise(
+        id = "fakt-oder-urteil",
+        minutes = 8,
+        together = false,
+        category = ExerciseCategory.SELF_WORTH,
+        title = "Fakt oder Urteil?",
+        subtitle = "Urteile über dich in Beschreibungen übersetzen",
+        durationText = "ca. 5–10 Minuten",
+        intro = "Ein Urteil erklärt einen ganzen Menschen. Ein Fakt beschreibt, was man hätte sehen können. In dieser Übung übersetzt du ein Urteil über dich in einen Fakt – und schaust, was darunter lag.",
+        steps = listOf(
+            ExerciseStep(
+                "Das Urteil",
+                "Schreib einen Satz auf, der über dich gesagt wurde oder den du über dich gedacht hast. Zum Beispiel: „Ich bin so chaotisch.“",
+                inputPrompt = "Das Urteil",
+            ),
+            ExerciseStep(
+                "Der Fakt",
+                "Übersetze das Urteil in einen Fakt – in das, was man hätte sehen können. Zum Beispiel: „Ich habe heute einen Termin vergessen.“",
+                inputPrompt = "Der Fakt",
+            ),
+            ExerciseStep(
+                "Was darunter lag",
+                "Was lag darunter? Vielleicht Angst, Ohnmacht, Traurigkeit, Scham oder Sehnsucht.",
+                inputPrompt = "Was lag darunter?",
+            ),
+            ExerciseStep(
+                "Nachspüren",
+                "Ein Fakt kann trotzdem etwas sein, das du ändern möchtest. Der Unterschied: Du benennst ein Verhalten, ohne dich als Mensch kleinzumachen.",
+            ),
+        ),
+        closing = "Du bist mehr als ein einzelner Moment. Danke, dass du genauer hingeschaut hast.",
+    )
+
+    val wbWertOhneBestaetigung = Exercise(
+        id = "wert-ohne-bestaetigung",
+        minutes = 10,
+        together = false,
+        category = ExerciseCategory.SELF_WORTH,
+        title = "Wer bin ich ohne Bestätigung?",
+        subtitle = "Den Blick wieder auf dich richten",
+        durationText = "ca. 10 Minuten",
+        intro = "Wenn andere lange mitbestimmt haben, wie wertvoll oder wichtig du dich fühlst, kann es ungewohnt sein, den Blick wieder auf dich zu richten. Schau auf das, was von dir bleibt, wenn für einen Moment niemand darüber entscheidet, ob du genug bist.",
+        steps = listOf(
+            ExerciseStep(
+                "Einfach weiterschreiben",
+                "Ergänze den Satz, möglichst ohne lange nachzudenken: „Wenn mich niemand auswählen müsste, um mir meinen Wert zu bestätigen, wäre ich …“",
+                inputPrompt = "Dein Satz",
+            ),
+            ExerciseStep(
+                "Was bleibt",
+                "Welche Eigenschaften an mir bleiben bestehen, auch wenn jemand sie nicht sieht oder schätzt?",
+                inputPrompt = "Was bleibt?",
+            ),
+            ExerciseStep(
+                "Was ich an mir mag",
+                "Was mag ich an mir, ohne dafür Bestätigung zu brauchen?",
+                inputPrompt = "Was magst du an dir?",
+            ),
+        ),
+        closing = "Dein Wert braucht keine Zustimmung von außen. Er ist da – auch jetzt.",
+    )
+
+    val wbMehrIchSein = Exercise(
+        id = "mehr-ich-sein",
+        minutes = 10,
+        together = false,
+        category = ExerciseCategory.SELF_WORTH,
+        title = "Mehr ich sein",
+        subtitle = "Dich selbst wieder besser kennenlernen",
+        durationText = "ca. 10 Minuten",
+        intro = "Die Frage „Wer bin ich?“ klingt groß. Wenn die Antwort nicht sofort da ist, lass das „Ich weiß es nicht“ erst mal stehen. Manches in dir war vielleicht nur lange leise. Schreib auch Kleines auf: „Ich mag morgens meine Ruhe“ sagt genauso viel über dich wie eine große Lebensentscheidung.",
+        steps = listOf(
+            ExerciseStep(
+                "Ein Tag nach mir",
+                "Wie sähe ein Tag aus, den ich ganz nach mir ausrichte?",
+                inputPrompt = "Dein Tag",
+            ),
+            ExerciseStep(
+                "Ganz ich selbst",
+                "Wann fühle ich mich am meisten wie ich selbst?",
+                inputPrompt = "Wann bist du ganz du?",
+            ),
+            ExerciseStep(
+                "Wieder oder neu",
+                "Was möchte ich wieder oder neu in mein Leben holen?",
+                inputPrompt = "Was möchtest du (wieder) mehr leben?",
+            ),
+            ExerciseStep(
+                "Ein kleiner Schritt",
+                "Was wäre ein kleiner Schritt, um mich besser kennenzulernen?",
+                inputPrompt = "Dein kleiner Schritt",
+            ),
+        ),
+        closing = "Du darfst dich immer wieder neu entdecken – in deinem Tempo.",
+    )
+
+    val wbBeduerfnisCheck = Exercise(
+        id = "beduerfnis-check",
+        minutes = 8,
+        together = false,
+        category = ExerciseCategory.SELF_WORTH,
+        title = "Mein Bedürfnis-Check",
+        subtitle = "Schauen, wo du gerade stehst",
+        durationText = "ca. 5–10 Minuten",
+        intro = "Keine Checkliste, die du vollständig erfüllen musst – nur ein Blick darauf, wo du gerade stehst. Wichtige Bedürfnisse sind zum Beispiel: Bindung (jemand, dem ich nicht gleichgültig bin), Orientierung (wissen, woran ich bin), Selbstwert, Wohlgefühl, Autonomie (selbst entscheiden), Kompetenz (etwas können und bewirken) und Eingebundenheit (dazugehören).",
+        steps = listOf(
+            ExerciseStep(
+                "Was gut erfüllt ist",
+                "Welche dieser Bedürfnisse sind gerade gut erfüllt? Wer oder was trägt dazu bei?",
+                inputPrompt = "Was ist gut erfüllt?",
+            ),
+            ExerciseStep(
+                "Was zu kurz kommt",
+                "Welches Bedürfnis kommt gerade zu kurz?",
+                inputPrompt = "Was kommt zu kurz?",
+            ),
+            ExerciseStep(
+                "Was ich mir selbst geben kann",
+                "Was könntest du dir selbst geben, um dieses Bedürfnis ein wenig zu nähren? Es darf klein sein.",
+                inputPrompt = "Was kannst du dir geben?",
+            ),
+        ),
+        closing = "Deine Bedürfnisse sind wichtig. Schon das Hinschauen ist ein Schritt der Fürsorge.",
+    )
+
+    val wbVerantwortungsWaage = Exercise(
+        id = "verantwortungs-waage",
+        minutes = 8,
+        together = false,
+        category = ExerciseCategory.BOUNDARIES,
+        title = "Die Verantwortungs-Waage",
+        subtitle = "Genau hinschauen, wer was getan hat",
+        durationText = "ca. 5–10 Minuten",
+        intro = "Verantwortung ist nicht automatisch fifty-fifty. In dieser Übung schaust du bei einer schwierigen Situation genau hin, wer was getan hat. Wähle eine Situation, die sich aushalten lässt.",
+        steps = listOf(
+            ExerciseStep(
+                "Das habe ich getan",
+                "Was habe ich in dieser Situation getan?",
+                inputPrompt = "Dein Teil",
+            ),
+            ExerciseStep(
+                "Das hat der andere getan",
+                "Was hat der andere getan?",
+                inputPrompt = "Der Teil des anderen",
+            ),
+            ExerciseStep(
+                "Was sich nicht verteilen lässt",
+                "Gibt es etwas, das sich gar nicht verteilen lässt – zum Beispiel Umstände, die niemand in der Hand hatte?",
+                inputPrompt = "Was lässt sich nicht verteilen?",
+            ),
+            ExerciseStep(
+                "Was mir gehört",
+                "Welche Verantwortung habe ich übernommen, die mir nicht gehört? Und welche möchte ich bewusst übernehmen?",
+                inputPrompt = "Deine Gedanken",
+            ),
+        ),
+        closing = "Klarheit über Verantwortung entlastet – von Schuld, die nicht deine ist, und für das, was du gestalten kannst.",
+    )
+
+    val wbHerzensraum = Exercise(
+        id = "herzensraum",
+        minutes = 8,
+        together = false,
+        category = ExerciseCategory.EMOTIONS,
+        title = "Der Weg zu deinem Herzensraum",
+        subtitle = "Einen ruhigen Ort in dir finden",
+        durationText = "ca. 5–10 Minuten",
+        intro = "Lies die Schritte in Ruhe und setz sie in deinem eigenen Tempo um. Setz oder leg dich gemütlich hin, sodass dein Körper Halt hat. Du musst nichts verändern, nicht tiefer atmen und nicht ruhiger werden.\n\nWenn die Aufmerksamkeit nach innen dich unruhig macht, öffne die Augen und drück die Füße in den Boden. Beende die Übung dann für heute. Auch das gehört zum Weg.",
+        steps = listOf(
+            ExerciseStep(
+                "Kontakt spüren",
+                "Spüre zuerst, wo dein Körper Kontakt hat: die Füße auf dem Boden, das Gewicht auf dem Stuhl, die Hände auf den Beinen.",
+            ),
+            ExerciseStep(
+                "Nach innen wandern",
+                "Wandere langsam nach innen – durch den Bauch, die Brust und den Rücken. Bleib überall nur so lange, wie es sich angenehm anfühlt.",
+            ),
+            ExerciseStep(
+                "Dein Herzensraum",
+                "Irgendwo in dir gibt es einen Ort, an dem es ruhiger ist als an den anderen Stellen. Er muss nicht groß sein und nicht im Herzen liegen. Nenne ihn „deinen Herzensraum“. Wo liegt er? Wie weit reicht er?",
+                inputPrompt = "Wo liegt dein Herzensraum?",
+            ),
+            ExerciseStep(
+                "Wie er sich anfühlt",
+                "Spürst du dort Weite oder Wärme, Licht oder Sanftheit? Oder etwas ganz anderes – Stilles, Schweres, Kleines? Was verändert sich, wenn du eine Weile dort bleibst?",
+                inputPrompt = "Was spürst du?",
+            ),
+            ExerciseStep(
+                "Nach der Übung",
+                "Woran erkennst du, dass du dich sicherer fühlst? Und welche Menschen, Orte oder Situationen unterstützen dieses Erleben? Es gibt keine richtige Beschreibung, nur deine.",
+                inputPrompt = "Deine Gedanken",
+            ),
+        ),
+        closing = "Du musst aus deinen Antworten noch nichts machen. Es reicht, deinen Herzensraum kennenzulernen – du kannst jederzeit zurückkehren.",
+    )
+
+    val wbWellenProtokoll = Exercise(
+        id = "wellen-protokoll",
+        minutes = 5,
+        together = false,
+        category = ExerciseCategory.EMOTIONS,
+        title = "Mein Wellen-Protokoll",
+        subtitle = "Gefühle als Wellen erleben",
+        durationText = "ca. 5 Minuten",
+        intro = "Gefühle kommen wie Wellen: Sie steigen, erreichen einen Höhepunkt und lassen von selbst wieder nach. Mit diesem Protokoll beobachtest du eine Welle – und lernst, dass sie vorübergeht.",
+        steps = listOf(
+            ExerciseStep(
+                "Der Auslöser",
+                "Was hat die Welle ausgelöst?",
+                inputPrompt = "Der Auslöser",
+            ),
+            ExerciseStep(
+                "Stärke zu Beginn",
+                "Wie stark ist das Gefühl gerade, von 0 bis 10?",
+                inputPrompt = "Stärke jetzt (0–10)",
+            ),
+            ExerciseStep(
+                "Was ich tue",
+                "Was tust du, während die Welle da ist? Zum Beispiel atmen, dich bewegen, jemanden anrufen oder einfach abwarten.",
+                inputPrompt = "Was tust du?",
+            ),
+            ExerciseStep(
+                "Nach 20 Minuten",
+                "Komm nach etwa 20 Minuten zurück: Wie stark ist das Gefühl jetzt, von 0 bis 10? Was hast du über deine Wellen gelernt?",
+                inputPrompt = "Stärke danach und was du gelernt hast",
+            ),
+        ),
+        closing = "Jede Welle, die du begleitest, zeigt dir: Gefühle verändern sich. Du kannst sie durchstehen.",
+    )
+
+    val wbAktivesZuhoeren = Exercise(
+        id = "aktives-zuhoeren",
+        minutes = 15,
+        together = true,
+        category = ExerciseCategory.COUPLE,
+        title = "Aktives Zuhören",
+        subtitle = "Einander wirklich hören",
+        durationText = "ca. 15 Minuten",
+        intro = "Eine Übung für euch zu zweit. Einer erzählt, der andere hört nur zu. Danach tauscht ihr die Rollen.",
+        steps = listOf(
+            ExerciseStep(
+                "Erzählen",
+                "Einer von euch erzählt fünf Minuten lang von etwas, das ihm oder ihr wichtig ist. Der andere hört nur zu – ohne zu unterbrechen, ohne Ratschläge.",
+            ),
+            ExerciseStep(
+                "Wiederholen",
+                "Der Zuhörende wiederholt danach mit eigenen Worten, was er verstanden hat. Der Erzählende darf ergänzen, was gefehlt hat.",
+            ),
+            ExerciseStep(
+                "Rollen tauschen",
+                "Jetzt tauscht ihr die Rollen.",
+            ),
+            ExerciseStep(
+                "Nachspüren",
+                "Wie hat es sich angefühlt, so zugehört zu bekommen? Was war ungewohnt?",
+                inputPrompt = "Was ist dir aufgefallen?",
+            ),
+        ),
+        closing = "Echtes Zuhören ist eines der schönsten Geschenke, die ihr euch machen könnt.",
+    )
+
+    val wbWertschaetzungsrunde = Exercise(
+        id = "wertschaetzungsrunde",
+        minutes = 10,
+        together = true,
+        category = ExerciseCategory.COUPLE,
+        title = "Wertschätzung sichtbar machen",
+        subtitle = "Einander sagen, was ihr schätzt",
+        durationText = "ca. 10 Minuten",
+        intro = "Eine Übung für euch zu zweit. Im Alltag bleibt oft unausgesprochen, was wir aneinander schätzen. Hier macht ihr es sichtbar.",
+        steps = listOf(
+            ExerciseStep(
+                "Aufschreiben",
+                "Jeder schreibt für sich drei Dinge auf, die er oder sie am anderen schätzt – zum Beispiel an seiner Art, an seiner Kommunikation (Geduld, Humor, Klarheit) oder an dem, was er für euch tut.",
+                inputPrompt = "Deine drei Dinge",
+            ),
+            ExerciseStep(
+                "Vorlesen",
+                "Lest euch eure Sätze gegenseitig vor. Der andere hört nur zu und lässt die Worte ankommen.",
+            ),
+            ExerciseStep(
+                "Nachspüren",
+                "Wie war es, Wertschätzung zu hören – und zu schenken?",
+                inputPrompt = "Wie war es für dich?",
+            ),
+        ),
+        closing = "Wertschätzung, die ausgesprochen wird, kommt an. Schön, dass ihr euch diesen Moment geschenkt habt.",
+    )
+
+    val wbKleinesGestaendnis = Exercise(
+        id = "kleines-gestaendnis",
+        minutes = 10,
+        together = true,
+        category = ExerciseCategory.COUPLE,
+        title = "Das kleine Geständnis",
+        subtitle = "Sich ein Stück verletzlich zeigen",
+        durationText = "ca. 10 Minuten",
+        intro = "Eine Übung für euch zu zweit. Nähe wächst, wenn wir uns zeigen, wie wir sind – auch mit unseren Unsicherheiten. Wählt etwas Kleines.",
+        steps = listOf(
+            ExerciseStep(
+                "Teilen",
+                "Jeder teilt eine kleine Sorge oder Unsicherheit, die er oder sie sonst lieber verschweigen würde. Auch ein Gedanke oder Gefühl, das ihr bisher zurückgehalten habt, ist möglich.",
+            ),
+            ExerciseStep(
+                "Nur zuhören",
+                "Der andere hört nur zu – ohne zu bewerten, ohne gleich eine Lösung anzubieten.",
+            ),
+            ExerciseStep(
+                "Danke sagen",
+                "Bedankt euch kurz beieinander für das Vertrauen.",
+            ),
+            ExerciseStep(
+                "Nachspüren",
+                "Wie hat es sich angefühlt, etwas Persönliches zu teilen?",
+                inputPrompt = "Wie war es für dich?",
+            ),
+        ),
+        closing = "Sich zu zeigen, braucht Mut. Und es schafft Nähe.",
+    )
+
+    val wbIchBrauche = Exercise(
+        id = "ich-brauche",
+        minutes = 5,
+        together = true,
+        category = ExerciseCategory.COUPLE,
+        title = "„Ich brauche …“",
+        subtitle = "Bedürfnisse aussprechen",
+        durationText = "ca. 5 Minuten",
+        intro = "Eine Übung für euch zu zweit. Viele Konflikte entstehen, weil Bedürfnisse unausgesprochen bleiben. Hier sprecht ihr sie aus – ohne Vorwürfe.",
+        steps = listOf(
+            ExerciseStep(
+                "Vorbereiten",
+                "Jeder überlegt sich mindestens einen Satz, der mit „Ich brauche …“ beginnt. Zum Beispiel: „Ich brauche abends ein paar Minuten Ruhe, bevor wir reden.“",
+                inputPrompt = "Dein Satz",
+            ),
+            ExerciseStep(
+                "Aussprechen",
+                "Sagt euch eure Sätze gegenseitig. Der andere hört zu und fragt höchstens nach, wenn etwas unklar ist.",
+            ),
+            ExerciseStep(
+                "Nachspüren",
+                "Was hast du über dein Gegenüber erfahren? Was über dich?",
+                inputPrompt = "Was hast du erfahren?",
+            ),
+        ),
+        closing = "Ein ausgesprochenes Bedürfnis ist eine Einladung, einander besser zu verstehen.",
+    )
+
+    val wbStillerBlickkontakt = Exercise(
+        id = "stiller-blickkontakt",
+        minutes = 3,
+        together = true,
+        category = ExerciseCategory.COUPLE,
+        title = "Stille Nähe",
+        subtitle = "Nähe ohne Worte spüren",
+        durationText = "ca. 3–5 Minuten",
+        intro = "Eine Übung für euch zu zweit. Manchmal sagt Nähe ohne Worte mehr als jedes Gespräch. Wenn sich etwas unangenehm anfühlt, dürft ihr jederzeit aufhören.",
+        steps = listOf(
+            ExerciseStep(
+                "Gegenüber sitzen",
+                "Setzt euch einander gegenüber, so dass ihr euch gut ansehen könnt.",
+            ),
+            ExerciseStep(
+                "Zwei Minuten Stille",
+                "Schaut euch zwei Minuten lang schweigend an. Wenn es sich stimmig anfühlt, legt eine Hand auf die Brust eures Gegenübers oder haltet euch an den Händen. Ihr könnt euch auch gemütlich nebeneinanderlegen, euch in den Arm nehmen und fünf Minuten gemeinsam schweigen und bewusst atmen.",
+            ),
+            ExerciseStep(
+                "Nachspüren",
+                "Wie hat sich Nähe ohne Worte angefühlt?",
+                inputPrompt = "Was hast du gespürt?",
+            ),
+        ),
+        closing = "Ein paar stille Minuten können verbinden – ganz ohne etwas sagen zu müssen.",
+    )
+
+    val wbStoppSignal = Exercise(
+        id = "stopp-signal",
+        minutes = 5,
+        together = true,
+        category = ExerciseCategory.COUPLE,
+        title = "Unser Stopp-Signal",
+        subtitle = "Einander liebevoll an neue Wege erinnern",
+        durationText = "ca. 5 Minuten",
+        intro = "Eine Übung für euch zu zweit. Alte Muster tauchen oft auf, bevor wir es merken. Ein gemeinsames Signal kann helfen, sie freundlich zu unterbrechen.",
+        steps = listOf(
+            ExerciseStep(
+                "Ein Signal finden",
+                "Vereinbart ein Signal, das ihr euch geben könnt, wenn ihr bemerkt, dass ein altes Muster gerade aktiv ist – ein Wort, eine Geste oder ein Zeichen.",
+                inputPrompt = "Euer Signal",
+            ),
+            ExerciseStep(
+                "Die Bedeutung",
+                "Das Signal soll liebevoll daran erinnern: „Stopp – wir probieren einen neuen Weg.“ Es ist kein Vorwurf, sondern eine Einladung.",
+            ),
+            ExerciseStep(
+                "Was danach passiert",
+                "Besprecht, was ihr tun möchtet, wenn das Signal kommt. Zum Beispiel kurz innehalten, durchatmen oder das Gespräch später fortsetzen.",
+                inputPrompt = "Was ihr dann tun möchtet",
+            ),
+        ),
+        closing = "Ein gemeinsames Signal zeigt: Ihr seid ein Team – auch gegen alte Muster.",
+    )
+
+    val wbNeueWahl = Exercise(
+        id = "neue-wahl",
+        minutes = 10,
+        together = true,
+        category = ExerciseCategory.COUPLE,
+        title = "Eine neue Wahl treffen",
+        subtitle = "Gemeinsam anders reagieren lernen",
+        durationText = "ca. 10 Minuten",
+        intro = "Eine Übung für euch zu zweit. Wählt eine konkrete Situation, in der ein altes Muster aufgetaucht ist – etwa Rückzug, Streit oder Anpassung. Bitte nehmt etwas Überschaubares.",
+        steps = listOf(
+            ExerciseStep(
+                "Die Situation",
+                "Beschreibt gemeinsam kurz die Situation. Was ist passiert?",
+                inputPrompt = "Die Situation",
+            ),
+            ExerciseStep(
+                "Das Muster",
+                "Welches Muster ist aufgetaucht? Wie habt ihr beide reagiert?",
+                inputPrompt = "Das Muster",
+            ),
+            ExerciseStep(
+                "Eine neue Wahl",
+                "Besprecht gemeinsam: „Wie hätten wir anders reagieren können?“ Sammelt ein, zwei Ideen.",
+                inputPrompt = "Eure Ideen",
+            ),
+        ),
+        closing = "Jedes Mal, wenn ihr ein Muster bemerkt, habt ihr eine neue Wahl. Das ist der Anfang von Veränderung.",
+    )
+
+    val wbHoffnungTeilen = Exercise(
+        id = "hoffnung-teilen",
+        minutes = 10,
+        together = true,
+        category = ExerciseCategory.COUPLE,
+        title = "Was uns Hoffnung gibt",
+        subtitle = "Den Blick auf das Tragende richten",
+        durationText = "ca. 10 Minuten",
+        intro = "Eine Übung für euch zu zweit. Gerade in schwierigen Phasen tut es gut, auf das zu schauen, was trägt.",
+        steps = listOf(
+            ExerciseStep(
+                "Für sich überlegen",
+                "Jeder überlegt für sich: Was gibt mir in unserer Beziehung gerade am meisten Hoffnung?",
+                inputPrompt = "Was gibt dir Hoffnung?",
+            ),
+            ExerciseStep(
+                "Teilen",
+                "Erzählt einander davon. Hört zu, ohne zu kommentieren.",
+            ),
+            ExerciseStep(
+                "Nähe",
+                "In welchen Momenten fühlt ihr euch einander am nächsten? Sammelt sie gemeinsam.",
+                inputPrompt = "Eure Momente",
+            ),
+        ),
+        closing = "Hoffnung ist eine leise Kraft. Schön, dass ihr sie miteinander geteilt habt.",
+    )
+
+    val wbSpracheDerLiebe = Exercise(
+        id = "sprache-der-liebe",
+        minutes = 10,
+        together = true,
+        category = ExerciseCategory.COUPLE,
+        title = "Die Sprache der Liebe entdecken",
+        subtitle = "Einander in der eigenen Sprache Liebe zeigen",
+        durationText = "ca. 10 Minuten",
+        intro = "Eine Übung für euch zu zweit. Menschen zeigen und spüren Liebe auf unterschiedliche Weise: durch Worte, Berührung, gemeinsame Zeit, kleine Aufmerksamkeiten oder Unterstützung im Alltag. Wenn ihr mögt, macht vorher beide den Selbsttest „Was ist meine Liebessprache?“.",
+        steps = listOf(
+            ExerciseStep(
+                "Für sich überlegen",
+                "Jeder überlegt für sich: Welche Liebessprache berührt mich am meisten?",
+                inputPrompt = "Deine Liebessprache",
+            ),
+            ExerciseStep(
+                "Teilen",
+                "Teilt euch eure Antworten gegenseitig mit.",
+            ),
+            ExerciseStep(
+                "In der Sprache des anderen",
+                "Überlegt dann: Wie kann ich dir in deiner Sprache Liebe zeigen? Sammelt ein, zwei konkrete Ideen.",
+                inputPrompt = "Deine Ideen",
+            ),
+            ExerciseStep(
+                "In den nächsten Tagen",
+                "Versucht in den nächsten Tagen bewusst, die Sprache des anderen zu sprechen.",
+            ),
+        ),
+        closing = "Wenn ihr die Sprache des anderen sprecht, kommt Liebe dort an, wo sie gebraucht wird.",
+    )
+
+    val wbNaeheRitual = Exercise(
+        id = "naehe-ritual",
+        minutes = 5,
+        together = true,
+        category = ExerciseCategory.COUPLE,
+        title = "Nähe-Ritual im Alltag",
+        subtitle = "Ein kleines tägliches Zeichen der Verbundenheit",
+        durationText = "ca. 5 Minuten",
+        intro = "Eine Übung für euch zu zweit. Kleine, regelmäßige Rituale schaffen im Alltag verlässliche Momente der Nähe.",
+        steps = listOf(
+            ExerciseStep(
+                "Ein Ritual wählen",
+                "Wählt gemeinsam ein kleines tägliches Ritual. Zum Beispiel ein Kuss am Morgen, eine Umarmung am Abend oder ein gemeinsamer Spaziergang.",
+                inputPrompt = "Euer Ritual",
+            ),
+            ExerciseStep(
+                "Wann und wo",
+                "Wann und wo passt es gut in euren Tag? Je selbstverständlicher es dazugehört, desto leichter bleibt es.",
+                inputPrompt = "Wann und wo",
+            ),
+            ExerciseStep(
+                "Nach einer Woche",
+                "Schaut nach einer Woche gemeinsam: Wie fühlt sich das Ritual an? Möchtet ihr es beibehalten oder verändern?",
+            ),
+        ),
+        closing = "Ein kleines Ritual kann jeden Tag sagen: Du bist mir wichtig.",
+    )
+
+    val wbWerteCheck = Exercise(
+        id = "werte-check",
+        minutes = 15,
+        together = true,
+        category = ExerciseCategory.COUPLE,
+        title = "Werte-Check",
+        subtitle = "Gemeinsamkeiten und Unterschiede entdecken",
+        durationText = "ca. 15 Minuten",
+        intro = "Eine Übung für euch zu zweit. Werte geben Orientierung – im Leben und in der Beziehung. Unterschiede sind dabei kein Problem, sondern eine Einladung, einander besser zu verstehen.",
+        steps = listOf(
+            ExerciseStep(
+                "Fünf Werte",
+                "Jeder schreibt fünf Werte auf, die ihm im Leben am wichtigsten sind – zum Beispiel Freiheit, Sicherheit, Familie oder Abenteuer.",
+                inputPrompt = "Deine fünf Werte",
+            ),
+            ExerciseStep(
+                "Vergleichen",
+                "Vergleicht eure Listen. Wo gibt es Gemeinsamkeiten, wo Unterschiede?",
+                inputPrompt = "Gemeinsamkeiten und Unterschiede",
+            ),
+            ExerciseStep(
+                "Im Alltag leben",
+                "Sprecht darüber: Wie können wir unsere Werte im Alltag leben – die gemeinsamen und die unterschiedlichen?",
+                inputPrompt = "Eure Ideen",
+            ),
+        ),
+        closing = "Wer die Werte des anderen kennt, versteht vieles leichter. Schön, dass ihr darüber gesprochen habt.",
+    )
+
+    val wbZeitFuereinander = Exercise(
+        id = "zeit-fuereinander",
+        minutes = 10,
+        together = true,
+        category = ExerciseCategory.COUPLE,
+        title = "Zeit füreinander planen",
+        subtitle = "Die 7er-Regel praktisch umsetzen",
+        durationText = "ca. 10 Minuten",
+        intro = "Eine Übung für euch zu zweit. Gemeinsame Zeit geht im Alltag schnell unter. Wenn ihr sie fest einplant, bekommt sie den Platz, den sie verdient.",
+        steps = listOf(
+            ExerciseStep(
+                "Ein Mini-Date",
+                "Plant gemeinsam ein Mini-Date für die kommende Woche.",
+                inputPrompt = "Euer Mini-Date",
+            ),
+            ExerciseStep(
+                "Ein Tagesdate",
+                "Sucht einen Termin für ein Tagesdate in den nächsten zwei Monaten.",
+                inputPrompt = "Euer Tagesdate",
+            ),
+            ExerciseStep(
+                "Ein paar Tage weg",
+                "Überlegt, wann ihr das nächste Mal für mehrere Tage wegfahren könnt.",
+                inputPrompt = "Eure Idee",
+            ),
+            ExerciseStep(
+                "In den Kalender",
+                "Schreibt die Termine in den Kalender und behandelt sie so verbindlich wie andere Verpflichtungen.",
+            ),
+        ),
+        closing = "Zeit füreinander ist eine Investition in eure Verbindung.",
+    )
+
     val all: List<Exercise> = listOf(
-        innerDialogue, strengths, innererUnterstuetzer, wertOhneLeistung,
-        boundaries, yesAndNo, energieCheck, neinVorbereiten,
-        appreciation, iMessage, denAnderenVerstehen, unsereRituale,
+        innerDialogue, strengths, innererUnterstuetzer, wertOhneLeistung, wbEtikettAbloesen, wbFaktOderUrteil, wbWertOhneBestaetigung, wbMehrIchSein, wbBeduerfnisCheck,
+        boundaries, yesAndNo, energieCheck, neinVorbereiten, wbVerantwortungsWaage,
+        appreciation, iMessage, denAnderenVerstehen, unsereRituale, wbKonfliktprotokoll, wbFaktOderDeutung, wbAktivesZuhoeren, wbWertschaetzungsrunde, wbKleinesGestaendnis, wbIchBrauche, wbStillerBlickkontakt, wbStoppSignal, wbNeueWahl, wbHoffnungTeilen, wbSpracheDerLiebe, wbNaeheRitual, wbWerteCheck, wbZeitFuereinander,
         oneThing, stimulusBreak, whatWorked, tagSortieren, vergesslichkeit,
-        orientation, nameFeeling, fuenfMinutenPause, sorgenParken,
+        orientation, nameFeeling, fuenfMinutenPause, sorgenParken, wbHerzensraum, wbWellenProtokoll,
     )
 
     val categories: List<ExerciseCategory> = ExerciseCategory.entries.filter { c -> all.any { it.category == c } }

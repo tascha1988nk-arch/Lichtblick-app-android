@@ -16,8 +16,9 @@ enum class ExerciseCategory(val title: String, val description: String, val note
     COUPLE(
         "Paarthemen",
         "Für dich allein: auf deine Beziehung schauen, ohne etwas klären zu müssen.",
-        note = "Diese Übungen machst du für dich allein. Du musst nichts davon mit deinem Partner " +
-            "oder deiner Partnerin besprechen.",
+        note = "Viele Übungen kannst du für dich allein machen – du musst nichts davon mit deinem " +
+            "Partner oder deiner Partnerin besprechen. Übungen, die für euch zu zweit gedacht sind, " +
+            "sind mit „Zu zweit“ markiert. Macht sie nur, wenn ihr beide Lust darauf habt.",
     ),
     ADHD(
         "ADHS im Alltag",
@@ -46,6 +47,8 @@ data class Exercise(
     val durationText: String,
     /** Ungefähre Dauer in Minuten (für "Wie viel Zeit hast du?"). */
     val minutes: Int = 5,
+    /** true = Übung für zwei Personen (z. B. Paare). */
+    val together: Boolean = false,
     val intro: String,
     val steps: List<ExerciseStep>,
     val closing: String,

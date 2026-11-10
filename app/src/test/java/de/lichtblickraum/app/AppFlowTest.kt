@@ -212,7 +212,7 @@ class AppFlowTest {
             rule.waitForIdle()
         }
         clickText("Paarthemen")
-        assertTextShown("Diese Übungen machst du für dich allein.", substring = true)
+        assertTextShown("sind mit „Zu zweit“ markiert", substring = true)
     }
 
     @Test

@@ -112,7 +112,11 @@ fun ExerciseScreen(exerciseId: String, container: AppContainer, onExit: () -> Un
 @Composable
 private fun Intro(exercise: Exercise, onStart: () -> Unit) {
     ScreenColumn {
-        Text(exercise.durationText, style = MaterialTheme.typography.labelLarge, color = LichtblickColors.GoldDark)
+        Text(
+            (if (exercise.together) "Zu zweit · " else "") + exercise.durationText,
+            style = MaterialTheme.typography.labelLarge,
+            color = LichtblickColors.GoldDark,
+        )
         Heading(exercise.subtitle)
         BodyText(exercise.intro)
         PrimaryButton("Übung beginnen", onStart)
