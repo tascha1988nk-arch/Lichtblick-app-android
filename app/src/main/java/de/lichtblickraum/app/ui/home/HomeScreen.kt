@@ -32,6 +32,7 @@ import de.lichtblickraum.app.ui.components.QuietButton
 import de.lichtblickraum.app.ui.components.SectionTitle
 import de.lichtblickraum.app.ui.mood.MoodLevelPicker
 import de.lichtblickraum.app.ui.mood.SupportCard
+import de.lichtblickraum.app.ui.about.PracticeHeaderPhoto
 import de.lichtblickraum.core.impulses.ImpulseStatus
 import de.lichtblickraum.core.journal.EntryKind
 import de.lichtblickraum.core.mood.MoodInsights
@@ -170,6 +171,7 @@ fun HomeScreen(
         )
 
         LichtblickCard {
+            PracticeHeaderPhoto(de.lichtblickraum.app.R.drawable.praxis_tisch, "Foto aus dem Beratungsraum von Lichtblick")
             Text("Persönliche Begleitung", style = MaterialTheme.typography.titleLarge)
             BodyText("Wenn du dir Unterstützung wünschst, kannst du einen Termin vereinbaren.")
             BookingButton()

@@ -68,6 +68,9 @@ fun AboutScreen(onOpenLegal: (String) -> Unit) {
         )
         ContentText(AboutContent.INTRODUCTION)
 
+        SectionTitle("So sieht es bei mir aus")
+        PracticeGallery()
+
         SectionTitle("Ausbildung und Qualifikationen")
         LichtblickCard {
             AboutContent.qualifications.forEach { q ->

@@ -374,6 +374,8 @@ class AppFlowTest {
     fun aboutShowsPortraitAndOffers() {
         clickNav(Routes.ABOUT)
         rule.onNodeWithContentDescription("Porträtfoto").assertExists()
+        assertTextShown("So sieht es bei mir aus")
+        rule.onNodeWithContentDescription("Foto der Praxis: Der Beratungsraum").assertExists()
         assertTextShown("Paarberatung")
         assertTextShown("Natascha Helbig")
         assertTextShown("Kennenlerngespräch")
