@@ -13,7 +13,8 @@ import kotlinx.coroutines.flow.asStateFlow
 class SettingsStore(context: Context) {
     private val prefs = context.getSharedPreferences("einstellungen", Context.MODE_PRIVATE)
 
-    private val _saveEntries = MutableStateFlow(prefs.getBoolean(KEY_SAVE, false))
+    // Standard: Speichern ist eingeschaltet (nur auf dem Gerät). Wer es ausschaltet, behält diese Wahl.
+    private val _saveEntries = MutableStateFlow(prefs.getBoolean(KEY_SAVE, true))
     val saveEntries: StateFlow<Boolean> = _saveEntries.asStateFlow()
 
     private val _impulsesPaused = MutableStateFlow(prefs.getBoolean(KEY_PAUSED, false))

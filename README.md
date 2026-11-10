@@ -14,8 +14,8 @@ Native Android-App mit **Kotlin** und **Jetpack Compose**. Stand: Prototyp, Vers
 | **Über** | Platz für Foto, Vorstellung und Angebote, Schwerpunkte, Website, Impressum, Datenschutz |
 
 **Datenschutz im Prototyp:** keine Registrierung, keine Werbung, kein Tracking, keine Internet-Berechtigung.
-Antworten aus Selbsttests werden nie gespeichert. Einträge aus Lichtblicken und Übungen werden nur gespeichert,
-wenn man das in der Rückschau ausdrücklich einschaltet. Dann liegen sie nur auf dem Gerät und sind
+Antworten aus Selbsttests werden nie gespeichert. Einträge aus Lichtblicken und Übungen werden standardmäßig
+nur auf dem Gerät gespeichert. Das lässt sich in der Rückschau jederzeit ausschalten. Einträge sind
 einzeln oder vollständig löschbar. Android-Sicherungen sind ausgeschlossen.
 **Die App ist nicht rechtlich geprüft.**
 

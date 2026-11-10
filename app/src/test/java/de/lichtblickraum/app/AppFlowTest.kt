@@ -3,6 +3,7 @@ package de.lichtblickraum.app
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsEnabled
 import androidx.compose.ui.test.assertIsNotEnabled
+import androidx.compose.ui.test.assertIsOn
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onFirst
@@ -183,7 +184,9 @@ class AppFlowTest {
 
         clickText("Rückschau ansehen")
         assertTextShown("Lichtblick für heute")
-        assertTextShown("Einträge auf diesem Gerät speichern")
+        // Speichern ist von Anfang an eingeschaltet, mit Hinweis zum Ausschalten
+        rule.onNodeWithText("Einträge auf diesem Gerät speichern").assertIsOn()
+        assertTextShown("Du kannst das Speichern hier jederzeit ausschalten.", substring = true)
     }
 
     @Test

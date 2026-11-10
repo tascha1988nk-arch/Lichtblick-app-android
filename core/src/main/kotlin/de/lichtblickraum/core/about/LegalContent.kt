@@ -47,9 +47,10 @@ object LegalContent {
         ),
         LegalSection(
             "Kleine Lichtblicke und Übungen",
-            "Erledigte Impulse und Übungen sowie freiwillige Notizen bleiben zunächst nur, " +
-                "solange die App geöffnet ist. Nur wenn du das Speichern ausdrücklich einschaltest, " +
-                "werden sie in einem geschützten Bereich der App auf deinem Gerät abgelegt. " +
+            "Erledigte Impulse und Übungen sowie freiwillige Notizen werden in einem geschützten " +
+                "Bereich der App auf deinem Gerät gespeichert, damit du sie in der Rückschau " +
+                "wiederfindest. Das Speichern ist zu Beginn eingeschaltet. In der Rückschau kannst " +
+                "du es jederzeit ausschalten; dann bleiben Einträge nur, solange die App geöffnet ist. " +
                 "Du kannst sie einzeln oder vollständig löschen. Beim Deinstallieren der App " +
                 "werden sie ebenfalls gelöscht. Die App schließt diese Daten von Android-Sicherungen aus.",
         ),

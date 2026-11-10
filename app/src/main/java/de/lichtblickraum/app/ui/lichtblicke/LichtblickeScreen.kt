@@ -90,7 +90,7 @@ private fun ActiveImpulses(container: AppContainer, onOpenReview: () -> Unit) {
             title = if (saving) "Speichern ist eingeschaltet" else "Nur für diese Sitzung",
             text = if (saving) {
                 "Erledigte Impulse und Notizen werden nur auf diesem Gerät gespeichert. " +
-                    "In der Rückschau kannst du sie jederzeit löschen."
+                    "In der Rückschau kannst du das Speichern ausschalten und Einträge jederzeit löschen."
             } else {
                 "Erledigte Impulse und Notizen bleiben nur, solange die App geöffnet ist. " +
                     "In der Rückschau kannst du das Speichern auf diesem Gerät einschalten."

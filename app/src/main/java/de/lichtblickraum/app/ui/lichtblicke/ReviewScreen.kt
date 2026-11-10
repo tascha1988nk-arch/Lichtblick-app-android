@@ -99,9 +99,11 @@ fun ReviewScreen(container: AppContainer, onBack: () -> Unit) {
                     Text(
                         if (saving) {
                             "Eingeschaltet: Deine Einträge liegen nur auf diesem Gerät. Sie werden nicht an " +
-                                "Lichtblick oder andere übermittelt und nicht in Sicherungen übernommen."
+                                "Lichtblick oder andere übermittelt und nicht in Sicherungen übernommen. " +
+                                "Du kannst das Speichern hier jederzeit ausschalten."
                         } else {
-                            "Ausgeschaltet: Deine Einträge bleiben nur, solange die App geöffnet ist."
+                            "Ausgeschaltet: Deine Einträge bleiben nur, solange die App geöffnet ist. " +
+                                "Du kannst das Speichern hier jederzeit wieder einschalten."
                         },
                         style = MaterialTheme.typography.bodyMedium,
                         color = LichtblickColors.TextMuted,
