@@ -48,9 +48,9 @@ object LegalContent {
         ),
         LegalSection(
             "Links nach außen",
-            "Wenn du auf „Termin buchen“ oder die Website tippst, öffnet sich dein Browser. " +
-                "Für die dort aufgerufenen Seiten (z. B. den Buchungsdienst) gelten deren eigene " +
-                "Datenschutzhinweise. [Platzhalter: Hinweis auf den Buchungsdienst ergänzen]",
+            "Wenn du auf „Termin vereinbaren“ oder die Website tippst, öffnet sich dein Browser " +
+                "mit der Website lichtblick-raum.de. Dort gelten die Datenschutzhinweise der Website. " +
+                "[Platzhalter: prüfen, ob ein dort eingebundener Buchungsdienst erwähnt werden muss]",
         ),
         LegalSection("Verantwortliche Stelle", "[Platzhalter: Name, Anschrift, Kontakt]"),
         LegalSection(

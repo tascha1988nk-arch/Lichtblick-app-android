@@ -22,6 +22,7 @@ class ContentTest {
         assertFalse(AppLinks.isUsable("http://unsicher.de"))
         assertTrue(AppLinks.isUsable(AppLinks.WEBSITE_URL))
         assertTrue(AboutContent.isPlaceholder(AboutContent.INTRODUCTION))
+        assertTrue(AppLinks.isBookingConfigured)
     }
 
     @Test

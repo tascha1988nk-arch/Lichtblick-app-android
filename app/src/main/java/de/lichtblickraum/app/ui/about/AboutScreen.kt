@@ -1,6 +1,7 @@
 package de.lichtblickraum.app.ui.about
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -22,6 +23,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import de.lichtblickraum.app.R
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
@@ -53,7 +57,7 @@ fun AboutScreen(onOpenLegal: (String) -> Unit) {
             color = LichtblickColors.GoldDark,
         )
 
-        PhotoPlaceholder(Modifier.align(Alignment.CenterHorizontally))
+        Portrait(Modifier.align(Alignment.CenterHorizontally))
         ContentText(AboutContent.COUNSELOR_NAME)
         ContentText(AboutContent.INTRODUCTION)
         ContentText(AboutContent.QUALIFICATIONS)
@@ -96,23 +100,18 @@ fun AboutScreen(onOpenLegal: (String) -> Unit) {
 }
 
 /**
- * Platz für dein Foto. Später: Bild als z. B. app/src/main/res/drawable/portrait.jpg ablegen
- * und hier durch Image(painterResource(R.drawable.portrait), ...) ersetzen.
+ * Dein Porträt. Austauschen: neues Bild als app/src/main/res/drawable-nodpi/portrait.jpg ablegen
+ * (quadratisch, Gesicht mittig).
  */
 @Composable
-private fun PhotoPlaceholder(modifier: Modifier = Modifier) {
-    Column(modifier, horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        Box(
-            Modifier
-                .size(160.dp)
-                .clip(CircleShape)
-                .background(LichtblickColors.CreamDeep)
-                .border(BorderStroke(2.dp, LichtblickColors.Gold), CircleShape)
-                .semantics { contentDescription = "Platzhalter für ein Foto" },
-            contentAlignment = Alignment.Center,
-        ) {
-            Icon(Icons.Filled.Person, contentDescription = null, tint = LichtblickColors.Gold, modifier = Modifier.size(80.dp))
-        }
-        Text("[Platzhalter: Foto]", style = MaterialTheme.typography.labelMedium, color = LichtblickColors.Placeholder)
-    }
+private fun Portrait(modifier: Modifier = Modifier) {
+    Image(
+        painter = painterResource(R.drawable.portrait),
+        contentDescription = "Porträtfoto",
+        contentScale = ContentScale.Crop,
+        modifier = modifier
+            .size(200.dp)
+            .clip(CircleShape)
+            .border(BorderStroke(3.dp, LichtblickColors.Gold), CircleShape),
+    )
 }

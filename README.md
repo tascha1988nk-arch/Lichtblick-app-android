@@ -7,7 +7,7 @@ Native Android-App mit **Kotlin** und **Jetpack Compose**. Stand: Prototyp, Vers
 
 | Bereich | Inhalt |
 |---|---|
-| **Start** | Begrüßung, Zugänge zu allen Bereichen, „Termin buchen“, Hinweis für Krisen |
+| **Start** | Begrüßung, Zugänge zu allen Bereichen, „Termin vereinbaren“, Hinweis für Krisen |
 | **Selbsttests** | Beispiel-Fragebogen (deutlich als unverbindliche Reflexion gekennzeichnet) mit Fortschritt und Auswertung; „Innerer Kritiker“, „People Pleasing“, „Selbstwert“ und „Grenzen“ sind als „In Vorbereitung“ angelegt |
 | **Übungen** | Ankommen im Hier und Jetzt · Meine Grenzen wahrnehmen · Ein freundlicherer innerer Dialog |
 | **Lichtblicke** | „Dein Lichtblick für heute“ (22 Impulse), „Dein Wochenimpuls“ (9 Impulse), Rückschau, Pause |
@@ -25,7 +25,7 @@ Alle Inhalte liegen getrennt von der Oberfläche im Ordner `core/src/main/kotlin
 
 | Was | Datei |
 |---|---|
-| **Calendly-Link** (Platzhalter, aktuell leer) und Website | `config/AppLinks.kt` → `BOOKING_URL` |
+| **Termin-Link** (Seite „Termin vereinbaren“ auf der Website) und Website | `config/AppLinks.kt` → `BOOKING_URL` |
 | Vorstellung, Name, Angebote, Begrüßung | `about/AboutContent.kt` |
 | Impressum, Datenschutz, Hinweise, Krisennummern | `about/LegalContent.kt` |
 | Selbsttests: Fragen, Antwortskala, Auswertungsbereiche | `selftest/SelfTestCatalog.kt` |
@@ -33,7 +33,7 @@ Alle Inhalte liegen getrennt von der Oberfläche im Ordner `core/src/main/kotlin
 | Tages- / Wochenimpulse | `impulses/DailyImpulses.kt`, `impulses/WeeklyImpulses.kt` |
 | Rückmeldungen nach einem Impuls | `impulses/Feedback.kt` |
 | Farben | `app/src/main/java/de/lichtblickraum/app/ui/theme/Color.kt` |
-| Foto | Platzhalter in `app/.../ui/about/AboutScreen.kt` (`PhotoPlaceholder`) |
+| Foto | `app/src/main/res/drawable-nodpi/portrait.jpg` (quadratisch, Gesicht mittig) |
 
 Alles, was noch fehlt, ist mit `[Platzhalter …]` markiert. In der App erscheint es farbig hervorgehoben.
 
@@ -80,7 +80,7 @@ app/    Android-Oberfläche (Jetpack Compose), Navigation, Speicherung auf dem G
 
 ## Vor einer Veröffentlichung im Play Store (noch nicht erledigt)
 
-- Platzhalter füllen: Foto, Vorstellung, Angebote, Calendly-Link, Impressum, Datenschutz
+- Platzhalter füllen: Name, Vorstellung, Beschreibungen der Angebote, Impressum, Datenschutz
 - Impressum und Datenschutzhinweise fachkundig prüfen lassen
 - Eigene Fragen und Auswertungsregeln für die Selbsttests einsetzen und den Beispiel-Fragebogen entfernen
 - Krisen-Telefonnummern in `LegalContent.kt` noch einmal prüfen

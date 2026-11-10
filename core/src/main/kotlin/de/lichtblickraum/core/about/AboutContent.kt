@@ -38,11 +38,11 @@ object AboutContent {
         "Emotionsregulation",
     )
 
-    /** PLATZHALTER: Angebote mit Format, Dauer, Ablauf, Kosten – bitte selbst ergänzen. */
+    /** Deine Angebote. Beschreibungen (Ablauf, Dauer, Kosten) bitte selbst ergänzen. */
     val offers: List<Offer> = listOf(
-        Offer("[Platzhalter: Angebot 1, z. B. Einzelberatung]", "[Platzhalter: kurze Beschreibung]"),
-        Offer("[Platzhalter: Angebot 2, z. B. Paarberatung]", "[Platzhalter: kurze Beschreibung]"),
-        Offer("[Platzhalter: Angebot 3, z. B. ADHS-Coaching]", "[Platzhalter: kurze Beschreibung]"),
+        Offer("Paarberatung", "[Platzhalter: kurze Beschreibung]"),
+        Offer("Erstberatung für Einzelcoaching", "[Platzhalter: kurze Beschreibung]"),
+        Offer("Psychologisches Einzelcoaching", "[Platzhalter: kurze Beschreibung]"),
     )
 
     const val APP_PURPOSE =

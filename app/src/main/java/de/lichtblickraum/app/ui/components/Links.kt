@@ -25,9 +25,9 @@ fun openInBrowser(context: Context, url: String) {
     }
 }
 
-/** "Termin buchen": öffnet den Calendly-Link – oder erklärt freundlich, dass er noch fehlt. */
+/** "Termin vereinbaren": öffnet die Terminseite der Website – oder erklärt freundlich, dass der Link fehlt. */
 @Composable
-fun BookingButton(modifier: Modifier = Modifier, text: String = "Termin buchen") {
+fun BookingButton(modifier: Modifier = Modifier, text: String = "Termin vereinbaren") {
     val context = LocalContext.current
     var showMissing by remember { mutableStateOf(false) }
     PrimaryButton(

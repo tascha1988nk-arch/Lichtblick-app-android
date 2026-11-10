@@ -15,7 +15,11 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import de.lichtblickraum.app.navigation.Routes
 import de.lichtblickraum.core.impulses.Feedback
 import de.lichtblickraum.core.selftest.SelfTestCatalog
+import android.content.Intent
+import de.lichtblickraum.core.config.AppLinks
+import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
+import org.robolectric.Shadows
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -53,7 +57,7 @@ class AppFlowTest {
         assertTextShown("Selbsttests")
         assertTextShown("Übungen")
         assertTextShown("Über Lichtblick")
-        assertTextShown("Termin buchen")
+        assertTextShown("Termin vereinbaren")
     }
 
     @Test
@@ -198,9 +202,19 @@ class AppFlowTest {
     }
 
     @Test
-    fun bookingWithoutLinkShowsFriendlyHint() {
-        clickText("Termin buchen")
-        rule.onNodeWithText("Terminbuchung folgt").assertIsDisplayed()
+    fun bookingOpensAppointmentPageInBrowser() {
+        clickText("Termin vereinbaren")
+        val intent = Shadows.shadowOf(rule.activity.application).nextStartedActivity
+        assertEquals(Intent.ACTION_VIEW, intent.action)
+        assertEquals(AppLinks.BOOKING_URL, intent.dataString)
+    }
+
+    @Test
+    fun aboutShowsPortraitAndOffers() {
+        clickNav(Routes.ABOUT)
+        rule.onNodeWithContentDescription("Porträtfoto").assertExists()
+        assertTextShown("Paarberatung")
+        assertTextShown("Psychologisches Einzelcoaching")
     }
 
     @Test
