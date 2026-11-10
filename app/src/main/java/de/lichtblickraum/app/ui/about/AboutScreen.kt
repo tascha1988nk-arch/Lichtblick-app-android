@@ -58,7 +58,12 @@ fun AboutScreen(onOpenLegal: (String) -> Unit) {
         )
 
         Portrait(Modifier.align(Alignment.CenterHorizontally))
-        ContentText(AboutContent.COUNSELOR_NAME)
+        Text(
+            AboutContent.COUNSELOR_NAME,
+            style = MaterialTheme.typography.headlineSmall,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth(),
+        )
         ContentText(AboutContent.INTRODUCTION)
         ContentText(AboutContent.QUALIFICATIONS)
 
@@ -76,7 +81,8 @@ fun AboutScreen(onOpenLegal: (String) -> Unit) {
         SectionTitle("Beratungsangebote")
         AboutContent.offers.forEach { offer ->
             LichtblickCard {
-                ContentText(offer.title)
+                Text(offer.title, style = MaterialTheme.typography.titleLarge)
+                Text(offer.tagline, style = MaterialTheme.typography.titleMedium, color = LichtblickColors.GoldDark)
                 ContentText(offer.description)
             }
         }

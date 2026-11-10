@@ -214,17 +214,21 @@ class AppFlowTest {
         clickNav(Routes.ABOUT)
         rule.onNodeWithContentDescription("Porträtfoto").assertExists()
         assertTextShown("Paarberatung")
-        assertTextShown("Psychologisches Einzelcoaching")
+        assertTextShown("Natascha Helbig")
+        assertTextShown("Kennenlerngespräch")
+        assertTextShown("Zeit für dich")
     }
 
     @Test
     fun legalPagesShowPlaceholders() {
         clickNav(Routes.ABOUT)
         clickText("Impressum")
-        assertTextShown("Entwurf", substring = true)
+        assertTextShown("Kurbrunnenstraße 11")
+        assertTextShown("Übernommen aus dem Impressum", substring = true)
         rule.onNodeWithContentDescription("Zurück").performClick()
         rule.waitForIdle()
         clickText("Datenschutzhinweise")
         assertTextShown("Kurz gesagt")
+        assertTextShown("Entwurf", substring = true)
     }
 }

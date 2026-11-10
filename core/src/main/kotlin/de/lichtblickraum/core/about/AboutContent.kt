@@ -17,13 +17,18 @@ object AboutContent {
         "Diese App lädt dich ein, dich selbst besser kennenzulernen und im Alltag " +
             "etwas freundlicher mit dir umzugehen – in deinem Tempo."
 
-    /** PLATZHALTER: z. B. "Ich bin Natascha …" – bitte selbst formulieren. */
-    const val COUNSELOR_NAME = "[Platzhalter: Dein Name]"
+    const val COUNSELOR_NAME = "Natascha Helbig"
 
-    /** PLATZHALTER: Deine persönliche Vorstellung. */
+    /** Vorstellung (Entwurf von Claude, von Natascha zu prüfen). */
     const val INTRODUCTION =
-        "[Platzhalter: Hier steht später deine persönliche Vorstellung – wer du bist, " +
-            "wie du arbeitest und was dir in der Begleitung wichtig ist.]"
+        "Ich bin Natascha Helbig und begleite bei Lichtblick in Bad Dürkheim Menschen, " +
+            "die sich selbst besser verstehen und liebevoller mit sich umgehen möchten.\n\n" +
+            "Gemeinsam schauen wir auf das, was dich gerade beschäftigt – in deiner Partnerschaft, " +
+            "im Alltag mit ADHS oder bei Themen wie Selbstwert, Grenzen, Beziehungsmustern und " +
+            "Gefühlen, die manchmal sehr groß werden.\n\n" +
+            "Mir ist wichtig, dass du dich bei mir angenommen fühlst, so wie du bist. Du bestimmst " +
+            "das Tempo. Diese App ist eine kleine Begleitung dafür – zwischen unseren Terminen " +
+            "oder ganz für dich allein."
 
     /** PLATZHALTER: Nur selbst geprüfte Angaben zu Ausbildung/Qualifikation eintragen. */
     const val QUALIFICATIONS = "[Platzhalter: Deine Ausbildung und Qualifikationen]"
@@ -38,11 +43,24 @@ object AboutContent {
         "Emotionsregulation",
     )
 
-    /** Deine Angebote. Beschreibungen (Ablauf, Dauer, Kosten) bitte selbst ergänzen. */
+    /** Deine Angebote: Name, kurzer Zusatz und Beschreibung. */
     val offers: List<Offer> = listOf(
-        Offer("Paarberatung", "[Platzhalter: kurze Beschreibung]"),
-        Offer("Erstberatung für Einzelcoaching", "[Platzhalter: kurze Beschreibung]"),
-        Offer("Psychologisches Einzelcoaching", "[Platzhalter: kurze Beschreibung]"),
+        Offer(
+            "Paarberatung", "Gemeinsam neu hinschauen",
+            "Für Paare, die festgefahrene Muster verstehen, wieder besser miteinander ins " +
+                "Gespräch kommen und gemeinsam neue Wege finden möchten.",
+        ),
+        Offer(
+            "Kennenlerngespräch", "Für das Einzelcoaching",
+            "Bevor wir mit dem Einzelcoaching beginnen, lernen wir uns in Ruhe kennen. Du " +
+                "erzählst, was dich beschäftigt, und wir schauen gemeinsam, ob und wie ich dich " +
+                "begleiten kann.",
+        ),
+        Offer(
+            "Einzelcoaching", "Zeit für dich",
+            "Raum für deine Themen – ob Selbstwert, Grenzen, Beziehungsmuster, Gefühle oder " +
+                "ADHS im Alltag. In deinem Tempo und mit einem wohlwollenden Blick auf dich.",
+        ),
     )
 
     const val APP_PURPOSE =
@@ -51,4 +69,4 @@ object AboutContent {
     fun isPlaceholder(text: String): Boolean = text.contains("[Platzhalter")
 }
 
-data class Offer(val title: String, val description: String)
+data class Offer(val title: String, val tagline: String, val description: String)

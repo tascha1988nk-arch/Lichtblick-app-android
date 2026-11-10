@@ -29,7 +29,7 @@ fun LegalScreen(type: String, onBack: () -> Unit) {
     ) { padding ->
         Column(Modifier.padding(padding).fillMaxSize()) {
             ScreenColumn {
-                PlaceholderText(LegalContent.DRAFT_NOTICE)
+                PlaceholderText(if (isImprint) LegalContent.IMPRINT_SOURCE_NOTICE else LegalContent.DRAFT_NOTICE)
                 sections.forEach { section ->
                     LichtblickCard {
                         Text(section.title, style = MaterialTheme.typography.titleMedium)

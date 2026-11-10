@@ -11,19 +11,29 @@ object LegalContent {
     const val DRAFT_NOTICE =
         "Entwurf – noch nicht rechtlich geprüft. Mit [Platzhalter] markierte Angaben fehlen noch."
 
+    const val IMPRINT_SOURCE_NOTICE =
+        "Übernommen aus dem Impressum von lichtblick-raum.de (Stand: 10.11.2026). " +
+            "Noch nicht rechtlich für die App geprüft."
+
+    /** Wortgleich von https://lichtblick-raum.de/impressum/ übernommen. */
     val imprint: List<LegalSection> = listOf(
         LegalSection(
-            "Angaben zur Anbieterin",
-            "[Platzhalter: Vor- und Nachname]\n[Platzhalter: Praxisname]\n" +
-                "[Platzhalter: Straße und Hausnummer]\n[Platzhalter: PLZ] Bad Dürkheim",
+            "Angaben gemäß § 5 TMG",
+            "Lichtblick\nNatascha Helbig\nKurbrunnenstraße 11\n67098 Bad Dürkheim",
         ),
-        LegalSection("Kontakt", "E-Mail: [Platzhalter]\nTelefon: [Platzhalter]"),
+        LegalSection("Kontakt", "Mobil: 01520-3981836\nE-Mail: kontakt@lichtblick-raum.de"),
+        LegalSection("Vertreten durch", "Natascha Helbig"),
         LegalSection(
-            "Berufsbezeichnung und weitere Pflichtangaben",
-            "[Platzhalter: Berufsbezeichnung, ggf. Aufsichtsbehörde/Kammer, Umsatzsteuer-ID " +
-                "o. Ä. – nur sofern zutreffend, bitte prüfen lassen]",
+            "EU-Streitschlichtung",
+            "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) " +
+                "bereit: https://ec.europa.eu/consumers/odr/. Unsere E-Mail-Adresse finden Sie " +
+                "oben im Impressum.",
         ),
-        LegalSection("Verantwortlich für den Inhalt", "[Platzhalter]"),
+        LegalSection(
+            "Verbraucherstreitbeilegung / Universalschlichtungsstelle",
+            "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer " +
+                "Verbraucherschlichtungsstelle teilzunehmen.",
+        ),
     )
 
     val privacy: List<LegalSection> = listOf(
@@ -52,7 +62,11 @@ object LegalContent {
                 "mit der Website lichtblick-raum.de. Dort gelten die Datenschutzhinweise der Website. " +
                 "[Platzhalter: prüfen, ob ein dort eingebundener Buchungsdienst erwähnt werden muss]",
         ),
-        LegalSection("Verantwortliche Stelle", "[Platzhalter: Name, Anschrift, Kontakt]"),
+        LegalSection(
+            "Verantwortliche Stelle",
+            "Lichtblick, Natascha Helbig\nKurbrunnenstraße 11, 67098 Bad Dürkheim\n" +
+                "E-Mail: kontakt@lichtblick-raum.de",
+        ),
         LegalSection(
             "Deine Rechte",
             "[Platzhalter: Hinweise zu Auskunft, Löschung, Beschwerderecht usw. – bitte " +
