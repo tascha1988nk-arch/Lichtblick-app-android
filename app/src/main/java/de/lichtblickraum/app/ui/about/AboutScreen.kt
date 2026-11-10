@@ -52,7 +52,7 @@ fun AboutScreen(onOpenLegal: (String) -> Unit) {
     ScreenColumn {
         Heading("Über Lichtblick")
         Text(
-            "Psychologische Beratung in ${AboutContent.LOCATION}",
+            "Psychologische Beratung in ${AboutContent.LOCATION} und online",
             style = MaterialTheme.typography.titleMedium,
             color = LichtblickColors.GoldDark,
         )
