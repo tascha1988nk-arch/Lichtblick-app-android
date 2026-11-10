@@ -32,7 +32,7 @@ class QuestionnaireTest {
 
     @Test
     fun innerCriticIsAvailableAndExampleHidden() {
-        assertEquals(listOf(SelfTestCatalog.innerCritic.id, SelfTestCatalog.selfRelationship.id), SelfTestCatalog.all.filter { it.isAvailable }.map { it.id })
+        assertEquals(listOf(SelfTestCatalog.innerCritic.id, SelfTestCatalog.selfRelationship.id, SelfTestCatalog.emotionalDependency.id), SelfTestCatalog.all.filter { it.isAvailable }.map { it.id })
         assertTrue(SelfTestCatalog.byId(example.id) == null)
     }
 

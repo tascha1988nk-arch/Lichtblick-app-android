@@ -482,9 +482,193 @@ object SelfTestCatalog {
         resultNote = "Dieser Test ist eine Einladung zur Selbstreflexion. Er ist kein wissenschaftlich " +
             "geprüftes Verfahren, keine Diagnose und ersetzt keine Beratung, Psychotherapie oder ärztliche Behandlung.",
     )
-    val emotionalDependency = inPreparation(
-        "emotionale-abhaengigkeit", "Wie emotional abhängig bin ich?",
-        "Wie sehr hängt dein inneres Gleichgewicht von anderen Menschen ab?",
+    private const val E_VA = "Verlustangst"
+    private const val E_BA = "Bestätigung von außen"
+    private const val E_SA = "Selbstaufgabe"
+    private const val E_AL = "Abgrenzung & Loslassen"
+
+    /**
+     * „Wie emotional abhängig bin ich?“ – eigene Fassung für die App.
+     * 40 Aussagen, 10 je Bereich (davon je 1 umgekehrt gewertet). Hoher Wert = stärker ausgeprägt.
+     * Gesamtwert über alle Aussagen, dazu ein Wert je Bereich, jeweils 0–100.
+     */
+    val emotionalDependency = Questionnaire(
+        id = "emotionale-abhaengigkeit",
+        title = "Wie emotional abhängig bin ich?",
+        shortDescription = "Wie sehr hängt dein inneres Gleichgewicht von anderen Menschen ab?",
+        intro = "Nähe und Verbundenheit gehören zu den schönsten Seiten des Lebens. Manchmal machen wir " +
+            "unser inneres Gleichgewicht aber so stark von einem anderen Menschen abhängig, dass wir uns " +
+            "selbst dabei verlieren. Dieser Test lädt dich ein, auf vier Seiten emotionaler Abhängigkeit zu schauen.\n\n" +
+            "Mit „deinem Gegenüber“ ist deine Partnerin, dein Partner oder ein Mensch gemeint, der dir sehr " +
+            "nahesteht. Wenn du gerade keine Partnerschaft hast, denk an deine letzte Beziehung oder an eine enge Bindung.\n\n" +
+            "Wähle bei jeder Aussage, wie sehr sie auf dich zutrifft: von 1 (stimmt gar nicht) bis 5 (stimmt total). " +
+            "Es gibt kein Richtig oder Falsch.",
+        status = QuestionnaireStatus.AVAILABLE,
+        isExample = false,
+        estimatedMinutes = 8,
+        options = fivePointScale,
+        questions = listOf(
+            Question("e01", "Ich habe oft Angst, dass mich ein Mensch, der mir nahesteht, verlassen könnte.", dimension = E_VA),
+            Question("e02", "Mein Selbstwertgefühl hängt stark davon ab, wie mein Gegenüber mich behandelt.", dimension = E_BA),
+            Question("e03", "Meine eigenen Bedürfnisse stelle ich oft hinter die meines Gegenübers.", dimension = E_SA),
+            Question("e04", "Die Stimmung meines Gegenübers beeinflusst meine eigene Stimmung sehr stark.", dimension = E_AL),
+            Question("e05", "Wenn sich mein Gegenüber nicht wie gewohnt meldet, werde ich schnell unruhig.", dimension = E_VA),
+            Question("e06", "Ich brauche häufig die Bestätigung, dass ich gemocht oder geliebt werde.", dimension = E_BA),
+            Question("e07", "Meine Meinungen und Interessen passe ich häufig an, um zu gefallen.", dimension = E_SA),
+            Question("e08", "Ich kann schwer unterscheiden, welche Gefühle meine eigenen sind und welche die meines Gegenübers.", dimension = E_AL),
+            Question("e09", "Kleine Veränderungen im Verhalten meines Gegenübers deute ich schnell als Zeichen, dass etwas nicht stimmt.", dimension = E_VA),
+            Question("e10", "Ohne Zuspruch aus meiner Beziehung fühle ich mich schnell wertlos.", dimension = E_BA),
+            Question("e11", "Für mein Gegenüber ändere ich oft meine eigenen Pläne.", dimension = E_SA),
+            Question("e12", "Ich fühle mich schnell dafür verantwortlich, dass es meinem Gegenüber gut geht.", dimension = E_AL),
+            Question("e13", "Der Gedanke, ohne meine Partnerin oder meinen Partner zu sein, macht mir große Angst.", dimension = E_VA),
+            Question("e14", "Ich suche oft nach Zeichen dafür, dass ich dem anderen wichtig bin.", dimension = E_BA),
+            Question("e15", "Hobbys oder Freundschaften vernachlässige ich, um mehr Zeit für meine Beziehung zu haben.", dimension = E_SA),
+            Question("e16", "Emotionalen Abstand in einer Beziehung kann ich nur schwer aushalten.", dimension = E_AL),
+            Question("e17", "Wenn mein Gegenüber Zeit ohne mich verbringt, fühle ich mich schnell zurückgesetzt.", dimension = E_VA),
+            Question("e18", "Wenn mein Gegenüber mit mir unzufrieden ist, zweifle ich an mir als Person.", dimension = E_BA),
+            Question("e19", "Meine wirklichen Gefühle oder Wünsche zeige ich lieber nicht, um keinen Ärger zu riskieren.", dimension = E_SA),
+            Question("e20", "Ich halte an Beziehungen fest, auch wenn sie mir nicht guttun.", dimension = E_AL),
+            Question("e21", "Ich brauche häufig die Versicherung, dass zwischen uns alles in Ordnung ist.", dimension = E_VA),
+            Question("e22", "Bevor ich etwas entscheide, brauche ich die Zustimmung meines Gegenübers.", dimension = E_BA),
+            Question("e23", "Konflikte spreche ich lieber nicht an, weil ich Angst vor Ablehnung habe.", dimension = E_SA),
+            Question("e24", "Eine Beziehung zu beenden, fällt mir sehr schwer – selbst wenn ich unglücklich bin.", dimension = E_AL),
+            Question("e25", "Nach einem Streit komme ich kaum zur Ruhe, bis wir uns wieder vertragen haben.", dimension = E_VA),
+            Question("e26", "Wenn ich wenig Aufmerksamkeit bekomme, fühle ich mich ungeliebt.", dimension = E_BA),
+            Question("e27", "Ich tue Dinge, die ich eigentlich nicht möchte, damit mein Gegenüber zufrieden ist.", dimension = E_SA),
+            Question("e28", "Nach einer Trennung komme ich emotional nur sehr schwer los.", dimension = E_AL),
+            Question("e29", "Ich habe Angst, nicht mehr geliebt zu werden, wenn ich Fehler mache.", dimension = E_VA),
+            Question("e30", "Ein Lob meines Gegenübers kann meinen ganzen Tag retten – und Kritik ihn genauso verderben.", dimension = E_BA),
+            Question("e31", "Ich habe das Gefühl, mich in Beziehungen selbst ein Stück zu verlieren.", dimension = E_SA),
+            Question("e32", "Klare Grenzen in einer Beziehung zu setzen, fällt mir schwer.", dimension = E_AL),
+            Question("e33", "In Beziehungen rechne ich innerlich oft damit, dass etwas schiefgeht.", dimension = E_VA),
+            Question("e34", "Ich fühle mich nur dann wirklich gut, wenn es in meiner Beziehung gut läuft.", dimension = E_BA),
+            Question("e35", "Es fällt mir schwer, in einer Beziehung Nein zu sagen.", dimension = E_SA),
+            Question("e36", "Wenn mein Gegenüber traurig oder wütend ist, kann ich kaum bei mir bleiben.", dimension = E_AL),
+            Question("e37", "Ich vertraue darauf, dass eine Beziehung auch Phasen mit weniger Nähe aushält.", reversed = true, dimension = E_VA),
+            Question("e38", "Ich weiß um meinen Wert, auch wenn ich gerade keine Bestätigung bekomme.", reversed = true, dimension = E_BA),
+            Question("e39", "Auch in einer engen Beziehung pflege ich meine eigenen Interessen und Freundschaften.", reversed = true, dimension = E_SA),
+            Question("e40", "Ich kann gut für mich sorgen, auch wenn es meinem Gegenüber gerade nicht gut geht.", reversed = true, dimension = E_AL),
+        ),
+        bands = listOf(
+            ResultBand(
+                0, 33, "Du bleibst in Beziehungen gut bei dir",
+                "Deine Antworten deuten an, dass du in nahen Beziehungen im Moment gut bei dir bleiben kannst. Du kannst Nähe genießen, ohne dich darin zu verlieren.\n\nVielleicht kennst du trotzdem Phasen, in denen das schwerer fällt – das ist menschlich.",
+                permission = "„Ich darf nah sein und trotzdem ich selbst bleiben.“",
+                reflection = "„Was hilft mir, in Beziehungen bei mir zu bleiben?“",
+            ),
+            ResultBand(
+                34, 66, "Manchmal machst du dich abhängiger, als dir guttut",
+                "Nähe und Verbundenheit sind dir sehr wichtig. In manchen Momenten richtest du dein inneres Gleichgewicht aber stark nach deinem Gegenüber aus – etwa, wenn du verunsichert bist oder Streit in der Luft liegt.\n\nDas ist verständlich. Der Blick auf die einzelnen Bereiche zeigt dir, wo du schon gut bei dir bist und wo du dir mehr Halt in dir selbst wünschst.",
+                permission = "„Mein Wohlbefinden darf auch von mir selbst kommen.“",
+                reflection = "„In welchen Situationen verliere ich mich am ehesten?“",
+            ),
+            ResultBand(
+                67, 100, "Dein Gleichgewicht hängt gerade stark von anderen ab",
+                "Deine Antworten deuten an, dass dein inneres Gleichgewicht im Moment sehr stark von deiner Beziehung abhängt. Das kann viel Angst, Unruhe und Erschöpfung mit sich bringen.\n\nOft steckt dahinter eine tiefe Sehnsucht nach Sicherheit und Zugehörigkeit – und manchmal alte Erfahrungen. Du darfst lernen, dir selbst mehr Halt zu geben. Eine Begleitung kann dabei sehr entlastend sein.",
+                permission = "„Ich bin auch für mich allein wertvoll und liebenswert.“",
+                reflection = "„Was gibt mir Halt, der nicht von einem anderen Menschen abhängt?“",
+            ),
+        ),
+        dimensions = listOf(
+            Dimension(
+                E_VA,
+                listOf(
+                    ResultBand(
+                        0, 33, "Du vertraust auf die Verbindung",
+                        "Deine Antworten deuten an, dass du im Moment wenig Angst hast, verlassen zu werden. Du kannst darauf vertrauen, dass eine Beziehung auch ruhigere Phasen aushält.",
+                        permission = "„Ich darf mich in Beziehungen sicher fühlen.“",
+                        reflection = "„Was stärkt mein Vertrauen in nahe Beziehungen?“",
+                    ),
+                    ResultBand(
+                        34, 66, "Die Angst vor Verlust meldet sich ab und zu",
+                        "Manchmal reagierst du empfindlich, wenn sich etwas verändert – eine Nachricht bleibt aus, dein Gegenüber wirkt distanzierter. Dann wird die Sorge schnell groß.\n\nDu darfst diese Angst ernst nehmen und dich gleichzeitig daran erinnern, was gerade wirklich passiert.",
+                        permission = "„Nicht jede Veränderung bedeutet Verlust.“",
+                        reflection = "„Woran merke ich, dass meine Angst gerade lauter ist als die Wirklichkeit?“",
+                    ),
+                    ResultBand(
+                        67, 100, "Die Angst vor Verlust ist gerade sehr präsent",
+                        "Deine Antworten deuten an, dass dich die Angst, verlassen zu werden, im Moment stark begleitet. Kleine Zeichen können dann große Unruhe auslösen.\n\nDiese Angst ist oft sehr alt und will dich schützen. Du verdienst es, dich sicherer zu fühlen – und es kann guttun, dir dabei Unterstützung zu holen.",
+                        permission = "„Ich kann mir selbst Sicherheit geben.“",
+                        reflection = "„Was beruhigt mich, wenn die Angst vor Verlust auftaucht?“",
+                    ),
+                ),
+            ),
+            Dimension(
+                E_BA,
+                listOf(
+                    ResultBand(
+                        0, 33, "Dein Wert kommt von innen",
+                        "Deine Antworten deuten an, dass du dich im Moment auch ohne ständige Bestätigung als wertvoll erlebst. Zuneigung tut dir gut, aber sie ist nicht die Grundlage deines Selbstwerts.",
+                        permission = "„Ich bin wertvoll, ganz unabhängig von Bestätigung.“",
+                        reflection = "„Was lässt mich meinen eigenen Wert spüren?“",
+                    ),
+                    ResultBand(
+                        34, 66, "Bestätigung ist dir manchmal sehr wichtig",
+                        "Oft kannst du gut in dir ruhen. Wenn aber Zuspruch ausbleibt oder Kritik kommt, gerät dein Selbstwert schnell ins Wanken.\n\nDas kennen viele Menschen. Es lohnt sich, dir selbst etwas von der Anerkennung zu schenken, die du dir von anderen wünschst.",
+                        permission = "„Ich darf mir selbst Anerkennung schenken.“",
+                        reflection = "„Welche Anerkennung könnte ich mir heute selbst geben?“",
+                    ),
+                    ResultBand(
+                        67, 100, "Dein Selbstwert hängt gerade stark an deinem Gegenüber",
+                        "Deine Antworten deuten an, dass du dich im Moment vor allem dann wertvoll fühlst, wenn dein Gegenüber dir das zeigt. Fehlt diese Bestätigung, fühlt es sich schnell an, als würdest du nicht genügen.\n\nDein Wert hängt aber nicht davon ab, wie andere dich gerade sehen. Schritt für Schritt darfst du lernen, ihn auch in dir selbst zu finden.",
+                        permission = "„Mein Wert gehört mir.“",
+                        reflection = "„Woran erkenne ich meinen Wert, wenn niemand ihn mir bestätigt?“",
+                    ),
+                ),
+            ),
+            Dimension(
+                E_SA,
+                listOf(
+                    ResultBand(
+                        0, 33, "Du bleibst dir in Beziehungen treu",
+                        "Deine Antworten deuten an, dass du im Moment auch in engen Beziehungen deine eigenen Wünsche, Meinungen und Interessen behältst. So kann Nähe entstehen, ohne dass du dich aufgibst.",
+                        permission = "„Ich darf ich selbst sein – auch in einer Beziehung.“",
+                        reflection = "„Was hilft mir, mir in Beziehungen treu zu bleiben?“",
+                    ),
+                    ResultBand(
+                        34, 66, "Manchmal stellst du dich selbst zurück",
+                        "Du möchtest, dass es deinem Gegenüber gut geht, und passt dich dafür immer wieder an – mit deinen Plänen, Meinungen oder Wünschen. Manchmal ist das ein Geschenk, manchmal kostet es dich mehr, als dir guttut.\n\nEs lohnt sich, freundlich hinzuschauen, wann aus Rücksicht Selbstaufgabe wird.",
+                        permission = "„Meine Wünsche haben auch in einer Beziehung Platz.“",
+                        reflection = "„Was habe ich zuletzt für mein Gegenüber zurückgestellt – und wie ging es mir damit?“",
+                    ),
+                    ResultBand(
+                        67, 100, "Du verlierst dich gerade leicht in Beziehungen",
+                        "Deine Antworten deuten an, dass du dich im Moment stark nach deinem Gegenüber richtest und dabei eigene Bedürfnisse, Interessen oder Freundschaften aus dem Blick verlierst.\n\nDahinter steht oft der Wunsch, die Beziehung zu schützen. Doch eine Beziehung wird nicht stabiler, wenn du weniger wirst. Du darfst dir selbst wieder mehr Raum geben.",
+                        permission = "„Ich darf Raum einnehmen, auch in meiner Beziehung.“",
+                        reflection = "„Was gehört zu mir, das ich gern wieder mehr leben möchte?“",
+                    ),
+                ),
+            ),
+            Dimension(
+                E_AL,
+                listOf(
+                    ResultBand(
+                        0, 33, "Du kannst gut bei dir bleiben",
+                        "Deine Antworten deuten an, dass du im Moment gut unterscheiden kannst, was zu dir gehört und was zu deinem Gegenüber. Du kannst mitfühlen, ohne dich in fremden Gefühlen zu verlieren.",
+                        permission = "„Ich darf mitfühlen und trotzdem bei mir bleiben.“",
+                        reflection = "„Woran merke ich, dass ich gut bei mir bin?“",
+                    ),
+                    ResultBand(
+                        34, 66, "Abgrenzen fällt dir nicht immer leicht",
+                        "Oft gelingt es dir, bei dir zu bleiben. Wenn es deinem Gegenüber aber schlecht geht oder es schwierig wird, übernimmst du schnell seine Stimmung oder fühlst dich verantwortlich.\n\nDas zeigt, wie sehr du mitfühlst. Gleichzeitig darfst du dich daran erinnern: Du bist nicht für alle Gefühle zuständig.",
+                        permission = "„Ich bin nicht für die Gefühle anderer verantwortlich.“",
+                        reflection = "„Welche Gefühle gehören gerade wirklich zu mir?“",
+                    ),
+                    ResultBand(
+                        67, 100, "Abgrenzen und Loslassen fallen dir gerade sehr schwer",
+                        "Deine Antworten deuten an, dass du die Gefühle deines Gegenübers im Moment stark mitträgst und es dir schwerfällt, Abstand zu halten oder loszulassen – selbst dann, wenn dir eine Beziehung nicht guttut.\n\nDas kann sehr belastend sein. Du darfst lernen, liebevoll Grenzen zu ziehen, und musst diesen Weg nicht allein gehen.",
+                        permission = "„Ich darf loslassen, was mir nicht guttut.“",
+                        reflection = "„Was würde ich mir raten, wenn ich von außen auf meine Situation schaue?“",
+                    ),
+                ),
+            ),
+        ),
+        strongestHint = "Am deutlichsten zeigt sich gerade:",
+        closingTitle = "Möchtest du genauer hinschauen?",
+        closingText = "Muster in Beziehungen haben oft eine lange Geschichte. In einer persönlichen Beratung " +
+            "können wir gemeinsam verstehen, woher sie kommen – und wie du in Beziehungen mehr bei dir bleiben kannst.",
+        resultNote = "Dieser Test ist eine Einladung zur Selbstreflexion. Er ist kein wissenschaftlich " +
+            "geprüftes Verfahren, keine Diagnose und ersetzt keine Beratung, Psychotherapie oder ärztliche Behandlung.",
     )
     val loveLanguage = inPreparation(
         "liebessprache", "Was ist meine Liebessprache?",

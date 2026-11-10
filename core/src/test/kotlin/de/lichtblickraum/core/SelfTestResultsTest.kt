@@ -151,4 +151,20 @@ class SelfTestResultsTest {
         val critic = SelfTestCatalog.innerCritic.questions.map { it.text }.toSet()
         assertTrue(q.questions.none { it.text in critic })
     }
+
+    @Test
+    fun emotionalDependencyIsComplete() {
+        val q = SelfTestCatalog.emotionalDependency
+        assertEquals(emptyList<String>(), QuestionnaireEvaluator.validate(q))
+        assertEquals(40, q.questions.size)
+        q.dimensions.forEach { d ->
+            assertEquals(10, q.questions.count { it.dimension == d.name })
+            assertEquals(1, q.questions.count { it.dimension == d.name && it.reversed })
+        }
+        val strongest = QuestionnaireEvaluator.evaluate(q, q.questions.associate { it.id to if (it.reversed) 1 else 5 })
+        assertEquals(100, strongest.percent)
+        assertEquals("Dein Gleichgewicht hängt gerade stark von anderen ab", strongest.band?.title)
+        val all = (SelfTestCatalog.all.flatMap { it.questions }).map { it.text }
+        assertEquals("keine doppelten Aussagen über alle Tests", all.size, all.toSet().size)
+    }
 }
