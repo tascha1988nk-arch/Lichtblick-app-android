@@ -15,20 +15,17 @@ object LegalContent {
         "Übernommen aus dem Impressum von lichtblick-raum.de (Stand: 10.11.2026). " +
             "Noch nicht rechtlich für die App geprüft."
 
-    /** Wortgleich von https://lichtblick-raum.de/impressum/ übernommen. */
+    /**
+     * Von https://lichtblick-raum.de/impressum/ übernommen, angepasst: § 5 DDG statt § 5 TMG,
+     * Absatz zur abgeschalteten EU-Streitschlichtungsplattform entfernt.
+     */
     val imprint: List<LegalSection> = listOf(
         LegalSection(
-            "Angaben gemäß § 5 TMG",
+            "Angaben gemäß § 5 DDG",
             "Lichtblick\nNatascha Helbig\nKurbrunnenstraße 11\n67098 Bad Dürkheim",
         ),
         LegalSection("Kontakt", "Mobil: 01520-3981836\nE-Mail: kontakt@lichtblick-raum.de"),
         LegalSection("Vertreten durch", "Natascha Helbig"),
-        LegalSection(
-            "EU-Streitschlichtung",
-            "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) " +
-                "bereit: https://ec.europa.eu/consumers/odr/. Unsere E-Mail-Adresse finden Sie " +
-                "oben im Impressum.",
-        ),
         LegalSection(
             "Verbraucherstreitbeilegung / Universalschlichtungsstelle",
             "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer " +
