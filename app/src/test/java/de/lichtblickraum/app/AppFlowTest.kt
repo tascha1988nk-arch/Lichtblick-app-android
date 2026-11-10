@@ -100,20 +100,23 @@ class AppFlowTest {
     @Test
     fun questionnaireCompleteFlowShowsResult() {
         clickNav(Routes.SELF_TESTS)
-        clickText(SelfTestCatalog.example.title)
+        clickText(SelfTestCatalog.innerCritic.title)
         clickText("Test beginnen")
 
-        val count = SelfTestCatalog.example.questions.size
+        val count = SelfTestCatalog.innerCritic.questions.size
         for (i in 1..count) {
             assertTextShown("Frage $i von $count")
             rule.onNodeWithText(if (i == count) "Zur Auswertung" else "Weiter").assertIsNotEnabled()
-            clickText("Trifft voll zu")
+            clickText("5 · Stimmt total")
             rule.onNodeWithText(if (i == count) "Zur Auswertung" else "Weiter").assertIsEnabled()
             clickText(if (i == count) "Zur Auswertung" else "Weiter")
         }
-        // 6 normale Aussagen * 4 + 2 umgepolte * 0 = 75 % -> oberer Bereich
-        assertTextShown("Oft gehst du schon freundlich mit dir um")
-        assertTextShown("BEISPIEL-AUSWERTUNG", substring = true)
+        // alle 5 -> jeder Bereich 100 -> obere Stufe, mit Erlauber und Reflexionsfrage
+        assertTextShown("Dein innerer Antreiber ist gerade sehr präsent")
+        assertTextShown("Perfektionist & Antreiber · 100 / 100")
+        assertTextShown("Dein Erlauber:")
+        assertTextShown("Reflexionsfrage:")
+        assertTextShown("Möchtest du genauer hinschauen?")
         assertTextShown("Dein Ergebnis ist auf diesem Gerät gespeichert", substring = true)
 
         clickText("Fertig")
@@ -121,7 +124,7 @@ class AppFlowTest {
     }
 
     private fun answerAll(option: String) {
-        val count = SelfTestCatalog.example.questions.size
+        val count = SelfTestCatalog.innerCritic.questions.size
         for (i in 1..count) {
             clickText(option)
             clickText(if (i == count) "Zur Auswertung" else "Weiter")
@@ -131,41 +134,41 @@ class AppFlowTest {
     @Test
     fun repeatedTestIsComparedWithPreviousResult() {
         clickNav(Routes.SELF_TESTS)
-        clickText(SelfTestCatalog.example.title)
+        clickText(SelfTestCatalog.innerCritic.title)
         clickText("Test beginnen")
-        answerAll("Trifft voll zu")          // 75
+        answerAll("5 · Stimmt total")        // 100
         clickText("Test noch einmal machen")
         clickText("Test beginnen")
-        answerAll("Teils, teils")            // 50
+        answerAll("3 · Teils, teils")        // 50
         assertTextShown("Im Vergleich zu deinem letzten Ergebnis")
-        assertTextShown("75 → 50", substring = true)
+        assertTextShown("100 → 50", substring = true)
         clickText("Fertig")
         assertTextShown("Deine Ergebnisse")
         rule.onAllNodesWithText("ansehen", substring = true).assertCountEquals(2)
         rule.onAllNodesWithText("ansehen", substring = true).onFirst().performScrollTo().performClick()
         rule.waitForIdle()
-        assertTextShown("Mal so, mal so")
+        assertTextShown("Dein innerer Antreiber ist spürbar aktiv")
     }
 
     @Test
     fun backInQuestionnaireKeepsAnswer() {
         clickNav(Routes.SELF_TESTS)
-        clickText(SelfTestCatalog.example.title)
+        clickText(SelfTestCatalog.innerCritic.title)
         clickText("Test beginnen")
-        clickText("Teils, teils")
+        clickText("3 · Teils, teils")
         clickText("Weiter")
-        assertTextShown("Frage 2 von 8")
+        assertTextShown("Frage 2 von 24")
         clickText("Zurück")
-        assertTextShown("Frage 1 von 8")
+        assertTextShown("Frage 1 von 24")
         rule.onNodeWithText("Weiter").assertIsEnabled()
     }
 
     @Test
     fun leavingTestAsksAndDiscardsAnswers() {
         clickNav(Routes.SELF_TESTS)
-        clickText(SelfTestCatalog.example.title)
+        clickText(SelfTestCatalog.innerCritic.title)
         clickText("Test beginnen")
-        clickText("Trifft eher zu")
+        clickText("4 · Stimmt eher")
         clickText("Weiter")
 
         rule.onNodeWithContentDescription("Test verlassen").performClick()
@@ -176,9 +179,9 @@ class AppFlowTest {
         assertTextShown("Zum Ausprobieren")
 
         // Neu starten: Antworten sind verworfen
-        clickText(SelfTestCatalog.example.title)
+        clickText(SelfTestCatalog.innerCritic.title)
         clickText("Test beginnen")
-        assertTextShown("Frage 1 von 8")
+        assertTextShown("Frage 1 von 24")
         rule.onNodeWithText("Weiter").assertIsNotEnabled()
     }
 
@@ -199,7 +202,7 @@ class AppFlowTest {
     fun inPreparationTestsAreMarked() {
         clickNav(Routes.SELF_TESTS)
         assertTextShown("In Vorbereitung")
-        assertTextShown("Innerer Kritiker")
+        assertTextShown("People Pleasing")
         assertTextShown("Folgt bald")
     }
 

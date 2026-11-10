@@ -22,7 +22,7 @@ class QuestionnaireTest {
 
     @Test
     fun catalogIsConsistent() {
-        SelfTestCatalog.all.forEach { q ->
+        (SelfTestCatalog.all + example).forEach { q ->
             assertEquals("Probleme in ${q.id}", emptyList<String>(), QuestionnaireEvaluator.validate(q))
         }
         assertEquals(SelfTestCatalog.all.size, SelfTestCatalog.all.map { it.id }.toSet().size)
@@ -31,8 +31,9 @@ class QuestionnaireTest {
     }
 
     @Test
-    fun onlyExampleIsAvailableForNow() {
-        assertEquals(listOf(example.id), SelfTestCatalog.all.filter { it.isAvailable }.map { it.id })
+    fun innerCriticIsAvailableAndExampleHidden() {
+        assertEquals(listOf(SelfTestCatalog.innerCritic.id), SelfTestCatalog.all.filter { it.isAvailable }.map { it.id })
+        assertTrue(SelfTestCatalog.byId(example.id) == null)
     }
 
     @Test
@@ -147,6 +148,6 @@ class QuestionnaireTest {
 
     @Test(expected = IllegalArgumentException::class)
     fun inPreparationCannotBeStarted() {
-        QuestionnaireSession(SelfTestCatalog.innerCritic)
+        QuestionnaireSession(SelfTestCatalog.peoplePleasing)
     }
 }

@@ -57,12 +57,37 @@ class SelfTestResultsTest {
     }
 
     @Test
-    fun innerCriticSkeletonIsConsistent() {
+    fun innerCriticIsCompleteAndBalanced() {
         val q = SelfTestCatalog.innerCritic
-        assertEquals(4, q.dimensions.size)
-        q.dimensions.forEach { d -> assertEquals(3, d.bands.size) }
-        // Bis die Fragen da sind, bleibt der Test in Vorbereitung
-        assertEquals(QuestionnaireStatus.IN_PREPARATION, q.status)
+        assertEquals(emptyList<String>(), QuestionnaireEvaluator.validate(q))
+        assertEquals(QuestionnaireStatus.AVAILABLE, q.status)
+        assertEquals(listOf(1, 2, 3, 4, 5), q.options.map { it.value })
+        assertEquals(24, q.questions.size)
+        q.dimensions.forEach { d ->
+            assertEquals(d.name, 6, q.questions.count { it.dimension == d.name })
+            assertEquals(3, d.bands.size)
+            d.bands.forEach { b ->
+                assertTrue(b.permission != null && b.reflection != null)
+                assertTrue("kein Platzhalter", !b.text.contains("[Platzhalter"))
+            }
+        }
+        assertEquals(q.questions.size, q.questions.map { it.text }.toSet().size)
+    }
+
+    @Test
+    fun innerCriticScoring() {
+        val q = SelfTestCatalog.innerCritic
+        fun all(v: Int) = QuestionnaireEvaluator.evaluate(q, q.questions.associate { it.id to v })
+        assertTrue(all(1).dimensions.all { it.percent == 0 })
+        assertTrue(all(3).dimensions.all { it.percent == 50 })
+        assertTrue(all(5).dimensions.all { it.percent == 100 })
+        assertNull(all(3).band)
+        assertEquals("Dein innerer Antreiber ist spürbar aktiv", all(3).dimensions.first().band?.title)
+        // nur Perfektionist hoch, Rest niedrig
+        val mixed = QuestionnaireEvaluator.evaluate(q, q.questions.associate { it.id to if (it.dimension == "Perfektionist & Antreiber") 5 else 2 })
+        assertEquals(listOf(100, 25, 25, 25), mixed.dimensions.map { it.percent })
+        assertEquals(mapOf("Perfektionist & Antreiber" to 100, "People Pleaser & Anpasser" to 25,
+            "Katastrophenplaner & Kontrolleur" to 25, "Abwerter & Zerstörer" to 25), SelfTestResults.toScores(q, mixed))
     }
 
     @Test

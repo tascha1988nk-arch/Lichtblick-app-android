@@ -241,6 +241,10 @@ fun ResultContent(q: Questionnaire, scores: Map<String, Int>, previousScores: Ma
                 )
             }
         }
+        val top = dims.maxByOrNull { it.percent }
+        if (dims.size > 1 && top != null && top.percent >= 34) {
+            NoteBox(text = "Am deutlichsten zeigt sich gerade: ${top.dimension}. Unten findest du zu jedem Bereich eine kurze Beschreibung.")
+        }
         dims.forEach { d ->
             val band = d.band ?: return@forEach
             LichtblickCard {
