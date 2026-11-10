@@ -10,6 +10,7 @@ import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
@@ -35,7 +36,11 @@ import de.lichtblickraum.app.ui.theme.LichtblickColors
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun LichtblickRoot(container: AppContainer, navController: NavHostController = rememberNavController()) {
+fun LichtblickRoot(
+    container: AppContainer,
+    navController: NavHostController = rememberNavController(),
+    openLichtblicke: Boolean = false,
+) {
     val backStack by navController.currentBackStackEntryAsState()
     val currentRoute = backStack?.destination?.route
     val showBottomBar = TopLevel.entries.any { it.route == currentRoute }
@@ -121,6 +126,10 @@ fun LichtblickRoot(container: AppContainer, navController: NavHostController = r
                     onBack = { navController.popBackStack() },
                 )
             }
+        }
+        // Nach dem Aufbau der Navigation: ggf. direkt zu den kleinen Lichtblicken (aus einer Erinnerung).
+        LaunchedEffect(openLichtblicke) {
+            if (openLichtblicke) goTopLevel(Routes.LICHTBLICKE)
         }
     }
 }

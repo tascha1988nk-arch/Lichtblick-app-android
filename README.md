@@ -10,7 +10,7 @@ Native Android-App mit **Kotlin** und **Jetpack Compose**. Stand: Prototyp, Vers
 | **Start** | Begrüßung, Zugänge zu allen Bereichen, „Termin vereinbaren“, Hinweis für Krisen |
 | **Selbsttests** | Beispiel-Fragebogen (deutlich als unverbindliche Reflexion gekennzeichnet) mit Fortschritt und Auswertung; „Innerer Kritiker“, „People Pleasing“, „Selbstwert“ und „Grenzen“ sind als „In Vorbereitung“ angelegt |
 | **Übungen** | Ankommen im Hier und Jetzt · Meine Grenzen wahrnehmen · Ein freundlicherer innerer Dialog |
-| **Lichtblicke** | „Dein Lichtblick für heute“ (60 Impulse), „Dein Wochenimpuls“ (9 Impulse), Rückschau, Pause. Jede Runde neu gemischt; kürzlich Erledigtes (3 Wochen bzw. 4 Wochen) wird übersprungen |
+| **Lichtblicke** | „Dein Lichtblick für heute“ (60 Impulse), „Dein Wochenimpuls“ (9 Impulse), Rückschau, Pause. Jede Runde neu gemischt; kürzlich Erledigtes (3 Wochen bzw. 4 Wochen) wird übersprungen. Freiwillige Erinnerungen (täglich/wöchentlich, Uhrzeit wählbar, standardmäßig aus) |
 | **Über** | Platz für Foto, Vorstellung und Angebote, Schwerpunkte, Website, Impressum, Datenschutz |
 
 **Datenschutz im Prototyp:** keine Registrierung, keine Werbung, kein Tracking, keine Internet-Berechtigung.
@@ -42,7 +42,7 @@ Alles, was noch fehlt, ist mit `[Platzhalter …]` markiert. In der App erschein
 in Prozent, lückenlos von 0 bis 100) füllen. Ein automatischer Test prüft, ob die Bereiche lückenlos sind
 und sich nicht überschneiden. Umgepolte Aussagen werden mit `reversed = true` markiert, Teilbereiche mit `dimension = "…"`.
 
-**Später: Erinnerungen** sind in `reminders/Reminders.kt` vorbereitet, in Version 1 aber nicht aktiv.
+**Erinnerungen:** Texte und Standardzeiten in `reminders/Reminders.kt`. Eine Erinnerung erscheint nur, wenn der Impuls noch offen ist und die Lichtblicke nicht pausiert sind.
 
 ## Projektaufbau
 

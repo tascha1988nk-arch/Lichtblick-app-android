@@ -97,6 +97,7 @@ private fun ActiveImpulses(container: AppContainer, onOpenReview: () -> Unit) {
             },
         )
         SecondaryButton("Rückschau ansehen", onOpenReview)
+        ReminderCard(container)
         QuietButton("Kleine Lichtblicke pausieren", { container.settings.setImpulsesPaused(true) })
     }
 }

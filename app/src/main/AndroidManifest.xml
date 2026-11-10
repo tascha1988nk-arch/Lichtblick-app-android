@@ -6,6 +6,9 @@
       Links (Termin, Website) öffnen sich im Browser des Geräts.
     -->
 
+    <!-- Nur für freiwillige Erinnerungen; wird erst beim Einschalten erfragt. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <application
         android:name=".LichtblickApplication"
         android:allowBackup="false"

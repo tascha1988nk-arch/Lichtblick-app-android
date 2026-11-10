@@ -4,6 +4,8 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsEnabled
 import androidx.compose.ui.test.assertIsNotEnabled
 import androidx.compose.ui.test.assertIsOn
+import androidx.compose.ui.test.assertIsOff
+import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onFirst
@@ -16,6 +18,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import de.lichtblickraum.app.navigation.Routes
 import de.lichtblickraum.core.impulses.Feedback
 import de.lichtblickraum.core.selftest.SelfTestCatalog
+import android.Manifest
 import android.content.Intent
 import de.lichtblickraum.core.config.AppLinks
 import org.junit.Assert.assertEquals
@@ -202,6 +205,26 @@ class AppFlowTest {
         clickText("Wieder einsteigen")
         assertTextShown(Feedback.WELCOME_BACK)
         assertTextShown("Dein Lichtblick für heute")
+    }
+
+    @Test
+    fun remindersAreOffByDefaultAndCanBeSwitchedOn() {
+        Shadows.shadowOf(rule.activity.application).grantPermissions(Manifest.permission.POST_NOTIFICATIONS)
+        clickNav(Routes.LICHTBLICKE)
+        assertTextShown("Sanfte Erinnerungen")
+        rule.onNodeWithText("Täglich an deinen Lichtblick erinnern").performScrollTo().assertIsOff()
+        rule.onAllNodesWithText("Uhrzeit:", substring = true).assertCountEquals(0)
+
+        clickText("Täglich an deinen Lichtblick erinnern")
+        rule.onNodeWithText("Täglich an deinen Lichtblick erinnern").assertIsOn()
+        assertTextShown("Uhrzeit: 09:00 Uhr")
+
+        clickText("Wöchentlich an deinen Wochenimpuls erinnern")
+        assertTextShown("Tag: Sonntag")
+        assertTextShown("Uhrzeit: 18:00 Uhr")
+
+        clickText("Täglich an deinen Lichtblick erinnern")
+        rule.onNodeWithText("Täglich an deinen Lichtblick erinnern").assertIsOff()
     }
 
     @Test

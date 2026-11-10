@@ -6,6 +6,7 @@ import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import de.lichtblickraum.app.navigation.LichtblickRoot
+import de.lichtblickraum.app.reminders.ReminderWorker
 import de.lichtblickraum.app.ui.theme.LichtblickTheme
 
 class MainActivity : ComponentActivity() {
@@ -15,9 +16,12 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge(statusBarStyle = light, navigationBarStyle = light)
         super.onCreate(savedInstanceState)
         val container = (application as LichtblickApplication).container
+        // Beim Antippen einer Erinnerung direkt die kleinen Lichtblicke öffnen.
+        val openLichtblicke = savedInstanceState == null &&
+            intent?.getStringExtra(ReminderWorker.EXTRA_TARGET) == ReminderWorker.TARGET_LICHTBLICKE
         setContent {
             LichtblickTheme {
-                LichtblickRoot(container)
+                LichtblickRoot(container, openLichtblicke = openLichtblicke)
             }
         }
     }

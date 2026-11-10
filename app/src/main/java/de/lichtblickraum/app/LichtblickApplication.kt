@@ -6,7 +6,9 @@ import de.lichtblickraum.app.data.SettingsStore
 import de.lichtblickraum.core.impulses.ImpulsePlanner
 import de.lichtblickraum.core.impulses.LichtblickeController
 import de.lichtblickraum.core.journal.Journal
-import de.lichtblickraum.core.reminders.NoReminderScheduler
+import de.lichtblickraum.app.reminders.ReminderStore
+import de.lichtblickraum.app.reminders.WorkReminderScheduler
+import de.lichtblickraum.core.reminders.ReminderSettings
 import de.lichtblickraum.core.reminders.ReminderScheduler
 import java.io.File
 import java.time.LocalDate
@@ -20,8 +22,14 @@ class AppContainer(app: Application) {
     )
     val lichtblicke = LichtblickeController(ImpulsePlanner(), journal)
 
-    /** Vorbereitet für spätere Erinnerungen – in Version 1 ohne Funktion. */
-    val reminders: ReminderScheduler = NoReminderScheduler
+    /** Freiwillige Erinnerungen (standardmäßig aus). */
+    val reminderStore = ReminderStore(app)
+    val reminders: ReminderScheduler = WorkReminderScheduler(app)
+
+    fun setReminders(settings: ReminderSettings) {
+        reminderStore.save(settings)
+        reminders.apply(settings)
+    }
 
     /** Austauschbar, z. B. für Tests. */
     var today: () -> LocalDate = { LocalDate.now() }

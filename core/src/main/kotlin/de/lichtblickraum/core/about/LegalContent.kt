@@ -55,6 +55,12 @@ object LegalContent {
                 "werden sie ebenfalls gelöscht. Die App schließt diese Daten von Android-Sicherungen aus.",
         ),
         LegalSection(
+            "Erinnerungen",
+            "Erinnerungen sind freiwillig und zu Beginn ausgeschaltet. Wenn du sie einschaltest, " +
+                "fragt Android nach der Erlaubnis für Benachrichtigungen. Die Erinnerungen werden " +
+                "direkt auf deinem Gerät geplant; dabei werden keine Daten übertragen.",
+        ),
+        LegalSection(
             "Links nach außen",
             "Wenn du auf „Termin vereinbaren“ oder die Website tippst, öffnet sich dein Browser " +
                 "mit der Website lichtblick-raum.de. Dort gelten die Datenschutzhinweise der Website. " +
