@@ -115,8 +115,8 @@ private fun Intro(exercise: Exercise, onStart: () -> Unit) {
         Text(exercise.durationText, style = MaterialTheme.typography.labelLarge, color = LichtblickColors.GoldDark)
         Heading(exercise.subtitle)
         BodyText(exercise.intro)
-        NoteBox(text = ExerciseCatalog.GENERAL_NOTE)
         PrimaryButton("Übung beginnen", onStart)
+        NoteBox(title = "Gut zu wissen", text = ExerciseCatalog.GENERAL_NOTE)
     }
 }
 

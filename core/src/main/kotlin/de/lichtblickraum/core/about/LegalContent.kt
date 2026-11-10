@@ -93,6 +93,9 @@ object LegalContent {
             "ersetzen keine Beratung, Psychotherapie oder ärztliche Behandlung. Wenn dich etwas " +
             "länger belastet, darfst du dir Unterstützung holen – das ist ein Zeichen von Fürsorge."
 
+    /** Ein gemeinsamer, kurzer Hinweis für Selbsttests (statt mehrerer Kästen). */
+    val SELF_TEST_GOOD_TO_KNOW: String get() = SELF_TEST_DISCLAIMER + "\n\n" + DATA_NOTICE_SELF_TEST
+
     const val DATA_NOTICE_SELF_TEST =
         "Deine einzelnen Antworten werden nicht gespeichert. Dein Ergebnis wird nur auf diesem " +
             "Gerät gespeichert, damit du es später wiederfinden und mit einer Wiederholung " +

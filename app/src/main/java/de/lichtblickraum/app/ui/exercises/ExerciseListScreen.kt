@@ -40,7 +40,6 @@ fun ExerciseListScreen(
     ScreenColumn {
         Heading("Übungen")
         BodyText("Kurze Übungen, die dich im Alltag begleiten können. Wähle ein Thema, das gerade zu dir passt.")
-        NoteBox(text = ExerciseCatalog.GENERAL_NOTE)
         if (suggested.isNotEmpty()) {
             SectionTitle("Für dich ausgewählt")
             suggested.take(3).forEach { e ->
@@ -65,6 +64,7 @@ fun ExerciseListScreen(
                 }
             }
         }
+        NoteBox(title = "Gut zu wissen", text = ExerciseCatalog.GENERAL_NOTE)
     }
 }
 

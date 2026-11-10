@@ -28,8 +28,6 @@ fun SelfTestListScreen(container: AppContainer, onStart: (String) -> Unit, onOpe
             "Kleine Fragebögen laden dich ein, genauer hinzuschauen: Wie geht es mir gerade " +
                 "mit mir selbst? Du entscheidest, wie weit du gehst.",
         )
-        NoteBox(title = "Zur Selbstreflexion", text = LegalContent.SELF_TEST_DISCLAIMER)
-        NoteBox(title = "Deine Ergebnisse bleiben bei dir", text = LegalContent.DATA_NOTICE_SELF_TEST)
 
         val available = SelfTestCatalog.all.filter { it.isAvailable }
         val upcoming = SelfTestCatalog.all.filterNot { it.isAvailable }
@@ -63,5 +61,6 @@ fun SelfTestListScreen(container: AppContainer, onStart: (String) -> Unit, onOpe
                 }
             }
         }
+        NoteBox(title = "Gut zu wissen", text = LegalContent.SELF_TEST_GOOD_TO_KNOW)
     }
 }
