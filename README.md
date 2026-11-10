@@ -10,7 +10,7 @@ Native Android-App mit **Kotlin** und **Jetpack Compose**. Stand: Prototyp, Vers
 | **Start** | Begrüßung, Zugänge zu allen Bereichen, „Termin vereinbaren“, Hinweis für Krisen |
 | **Selbsttests** | Beispiel-Fragebogen (deutlich als unverbindliche Reflexion gekennzeichnet) mit Fortschritt und Auswertung; „Innerer Kritiker“, „People Pleasing“, „Selbstwert“ und „Grenzen“ sind als „In Vorbereitung“ angelegt |
 | **Übungen** | Ankommen im Hier und Jetzt · Meine Grenzen wahrnehmen · Ein freundlicherer innerer Dialog |
-| **Lichtblicke** | „Dein Lichtblick für heute“ (22 Impulse), „Dein Wochenimpuls“ (9 Impulse), Rückschau, Pause |
+| **Lichtblicke** | „Dein Lichtblick für heute“ (60 Impulse), „Dein Wochenimpuls“ (9 Impulse), Rückschau, Pause. Jede Runde neu gemischt; kürzlich Erledigtes (3 Wochen bzw. 4 Wochen) wird übersprungen |
 | **Über** | Platz für Foto, Vorstellung und Angebote, Schwerpunkte, Website, Impressum, Datenschutz |
 
 **Datenschutz im Prototyp:** keine Registrierung, keine Werbung, kein Tracking, keine Internet-Berechtigung.

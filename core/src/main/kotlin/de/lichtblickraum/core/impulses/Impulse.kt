@@ -5,6 +5,7 @@ enum class ImpulseCadence { DAILY, WEEKLY }
 enum class ImpulseTheme(val label: String) {
     SELF_WORTH("Selbstwert"),
     SELF_COMPASSION("Selbstmitgefühl"),
+    SELF_RELATIONSHIP("Beziehung zu dir"),
     BOUNDARIES("Grenzen"),
     NEEDS("Bedürfnisse"),
     PERCEPTION("Wahrnehmung"),

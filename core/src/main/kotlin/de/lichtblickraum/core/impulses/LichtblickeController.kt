@@ -35,8 +35,17 @@ class LichtblickeController(
 
     fun state(today: LocalDate, choices: ImpulseChoices, entries: List<JournalEntry>): LichtblickeState {
         val week = ImpulsePlanner.weekKey(today)
-        val daily = planner.dailyFor(today, choices.dailySwaps[today] ?: 0)
-        val weekly = planner.weeklyFor(today, choices.weeklySwaps[week] ?: 0)
+        // Kürzlich erledigte Impulse (ohne heute bzw. diese Woche) nicht gleich wieder zeigen.
+        val recentDaily = entries
+            .filter { it.kind == EntryKind.DAILY && it.date < today && it.date >= today.minusDays(ImpulsePlanner.RECENT_DAYS) }
+            .map { it.itemId }.toSet()
+        val recentWeekly = entries
+            .filter {
+                it.kind == EntryKind.WEEKLY && ImpulsePlanner.weekKey(it.date).let { w -> w < week && w >= week - ImpulsePlanner.RECENT_WEEKS }
+            }
+            .map { it.itemId }.toSet()
+        val daily = planner.dailyFor(today, choices.dailySwaps[today] ?: 0, recentDaily)
+        val weekly = planner.weeklyFor(today, choices.weeklySwaps[week] ?: 0, recentWeekly)
 
         val dailyDone = entries.any { it.kind == EntryKind.DAILY && it.date == today }
         val weeklyDone = entries.any { it.kind == EntryKind.WEEKLY && ImpulsePlanner.weekKey(it.date) == week }
