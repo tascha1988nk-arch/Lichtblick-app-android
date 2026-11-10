@@ -226,6 +226,6 @@ fun LichtblickLogo(modifier: Modifier = Modifier) {
     androidx.compose.foundation.Image(
         painter = androidx.compose.ui.res.painterResource(de.lichtblickraum.app.R.drawable.logo),
         contentDescription = "Lichtblick – Psychologische Beratung",
-        modifier = modifier.width(240.dp),
+        modifier = modifier.width(260.dp),
     )
 }
