@@ -226,11 +226,13 @@ fun ResultContent(q: Questionnaire, scores: Map<String, Int>, previousScores: Ma
             Text("Gesamtwert: ${scores[SelfTestResults.OVERALL]} / 100", style = MaterialTheme.typography.titleMedium, color = LichtblickColors.GoldDark)
         }
         Heading(band.title)
-        BandText(band)
+        BandText(band, q)
     }
-    val dims = SelfTestResults.dimensionScores(q, scores)
+    val dims = SelfTestResults.dimensionScores(q, scores).let { list ->
+        if (q.rankDimensions) list.sortedByDescending { it.percent } else list
+    }
     if (dims.isNotEmpty()) {
-        Heading(if (overallBand != null) "Deine Bereiche" else q.title)
+        Heading(q.dimensionsHeading ?: if (overallBand != null) "Deine Bereiche" else q.title)
         LichtblickCard {
             dims.forEach { d ->
                 Row(Modifier.fillMaxWidth()) {
@@ -247,14 +249,15 @@ fun ResultContent(q: Questionnaire, scores: Map<String, Int>, previousScores: Ma
         }
         val top = dims.maxByOrNull { it.percent }
         if (q.strongestHint != null && dims.size > 1 && top != null && top.percent >= 34) {
-            NoteBox(text = "${q.strongestHint} ${top.dimension}. Unten findest du zu jedem Bereich eine kurze Beschreibung.")
+            val tops = dims.filter { it.percent == top.percent }.joinToString(" und ") { it.dimension }
+            NoteBox(text = "${q.strongestHint} $tops. Unten findest du zu jedem Bereich eine kurze Beschreibung.")
         }
         dims.forEach { d ->
             val band = d.band ?: return@forEach
             LichtblickCard {
                 Text("${d.dimension} · ${d.percent} / 100", style = MaterialTheme.typography.labelLarge, color = LichtblickColors.GoldDark)
                 Text(band.title, style = MaterialTheme.typography.titleLarge)
-                BandText(band)
+                BandText(band, q)
             }
         }
     }
@@ -291,14 +294,14 @@ fun ResultContent(q: Questionnaire, scores: Map<String, Int>, previousScores: Ma
 }
 
 @Composable
-private fun BandText(band: ResultBand) {
+private fun BandText(band: ResultBand, q: Questionnaire) {
     band.text.split("\n\n").forEach { ContentText(it) }
     band.permission?.let {
-        Text("Dein Erlauber:", style = MaterialTheme.typography.titleMedium, color = LichtblickColors.GoldDark)
+        Text(q.permissionLabel, style = MaterialTheme.typography.titleMedium, color = LichtblickColors.GoldDark)
         ContentText(it)
     }
     band.reflection?.let {
-        Text("Reflexionsfrage:", style = MaterialTheme.typography.titleMedium, color = LichtblickColors.GoldDark)
+        Text(q.reflectionLabel, style = MaterialTheme.typography.titleMedium, color = LichtblickColors.GoldDark)
         ContentText(it)
     }
 }

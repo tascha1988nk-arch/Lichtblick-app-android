@@ -62,6 +62,12 @@ data class Questionnaire(
     val closingTitle: String? = null,
     /** Satz vor dem ausgeprägtesten Bereich, z. B. „Am deutlichsten zeigt sich gerade:“ (null = nicht anzeigen). */
     val strongestHint: String? = null,
+    /** Bereiche nach Wert sortieren (z. B. Rangfolge der Liebessprachen). */
+    val rankDimensions: Boolean = false,
+    /** Überschrift über den Bereichen (null = Testtitel bzw. „Deine Bereiche“). */
+    val dimensionsHeading: String? = null,
+    val permissionLabel: String = "Dein Erlauber:",
+    val reflectionLabel: String = "Reflexionsfrage:",
     val closingText: String? = null,
     /** Wird unter jedem Ergebnis gezeigt. */
     val resultNote: String = "",

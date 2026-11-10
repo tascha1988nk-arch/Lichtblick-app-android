@@ -670,9 +670,134 @@ object SelfTestCatalog {
         resultNote = "Dieser Test ist eine Einladung zur Selbstreflexion. Er ist kein wissenschaftlich " +
             "geprüftes Verfahren, keine Diagnose und ersetzt keine Beratung, Psychotherapie oder ärztliche Behandlung.",
     )
-    val loveLanguage = inPreparation(
-        "liebessprache", "Was ist meine Liebessprache?",
-        "Auf welche Weise zeigst du Zuneigung – und wie möchtest du sie selbst erleben?",
+    private const val L_AN = "Anerkennung"
+    private const val L_ZW = "Zweisamkeit"
+    private const val L_UN = "Unterstützung"
+    private const val L_ZA = "Zärtlichkeit"
+    private const val L_KA = "Kleine Aufmerksamkeiten"
+
+    /**
+     * „Was ist meine Liebessprache?“ – eigene Fassung für die App.
+     * 35 Aussagen, 7 je Sprache. Keine Stufen, sondern eine Rangfolge der fünf Sprachen (je 0–100).
+     */
+    val loveLanguage = Questionnaire(
+        id = "liebessprache",
+        title = "Was ist meine Liebessprache?",
+        shortDescription = "Auf welche Weise zeigst du Zuneigung – und wie möchtest du sie selbst erleben?",
+        intro = "Menschen zeigen und erleben Zuneigung auf unterschiedliche Weise. Manche brauchen liebevolle " +
+            "Worte, andere gemeinsame Zeit, Unterstützung, körperliche Nähe oder kleine Aufmerksamkeiten. " +
+            "Dieser Test zeigt dir, was dir besonders wichtig ist – in der Partnerschaft, aber auch in " +
+            "Freundschaften und in der Familie.\n\n" +
+            "Wähle bei jeder Aussage, wie sehr sie auf dich zutrifft: von 1 (stimmt gar nicht) bis 5 " +
+            "(stimmt total). Es gibt kein Besser oder Schlechter – jede Liebessprache ist wertvoll.",
+        status = QuestionnaireStatus.AVAILABLE,
+        isExample = false,
+        estimatedMinutes = 6,
+        options = fivePointScale,
+        questions = listOf(
+            Question("l01", "Ich fühle mich geliebt, wenn ich höre, was jemand an mir schätzt.", dimension = L_AN),
+            Question("l02", "Ich fühle mich verbunden, wenn wir ungestört Zeit miteinander verbringen.", dimension = L_ZW),
+            Question("l03", "Ich fühle mich geliebt, wenn mir jemand im Alltag etwas abnimmt.", dimension = L_UN),
+            Question("l04", "Eine Umarmung sagt mir manchmal mehr als viele Worte.", dimension = L_ZA),
+            Question("l05", "Kleine Überraschungen zeigen mir, dass jemand an mich gedacht hat.", dimension = L_KA),
+            Question("l06", "Ein ehrliches Kompliment kann mir den ganzen Tag verschönern.", dimension = L_AN),
+            Question("l07", "Ungeteilte Aufmerksamkeit – ohne Handy, ohne Ablenkung – ist für mich ein Zeichen von Liebe.", dimension = L_ZW),
+            Question("l08", "Hilfe, um die ich nicht bitten musste, berührt mich besonders.", dimension = L_UN),
+            Question("l09", "Körperliche Nähe wie Händchenhalten oder Kuscheln gibt mir Geborgenheit.", dimension = L_ZA),
+            Question("l10", "Ein Geschenk, das mit Bedacht ausgewählt wurde, berührt mich sehr.", dimension = L_KA),
+            Question("l11", "Ermutigende Worte geben mir Kraft, wenn es gerade schwierig ist.", dimension = L_AN),
+            Question("l12", "Gemeinsame Erlebnisse schaffen für mich tiefe Nähe.", dimension = L_ZW),
+            Question("l13", "Wenn mir jemand bei praktischen Dingen zur Seite steht, fühle ich mich umsorgt.", dimension = L_UN),
+            Question("l14", "Sanfte Berührungen im Vorbeigehen machen mich glücklich.", dimension = L_ZA),
+            Question("l15", "Bei Geschenken kommt es mir nicht auf den Preis an, sondern auf die Geste dahinter.", dimension = L_KA),
+            Question("l16", "Ein „Danke“ für etwas, das ich getan habe, bedeutet mir viel.", dimension = L_AN),
+            Question("l17", "Ein gutes Gespräch, in dem wir einander wirklich zuhören, nährt mich sehr.", dimension = L_ZW),
+            Question("l18", "Taten sagen mir oft mehr als Worte.", dimension = L_UN),
+            Question("l19", "Ich fühle mich am wohlsten, wenn ich Zuneigung auch körperlich spüre.", dimension = L_ZA),
+            Question("l20", "Kleine Erinnerungsstücke bewahre ich gern lange auf.", dimension = L_KA),
+            Question("l21", "Liebevolle Nachrichten zwischendurch machen mich glücklich.", dimension = L_AN),
+            Question("l22", "Es bedeutet mir viel, wenn sich jemand bewusst Zeit für mich nimmt.", dimension = L_ZW),
+            Question("l23", "Es bedeutet mir viel, wenn jemand Zeit und Mühe investiert, um mir etwas leichter zu machen.", dimension = L_UN),
+            Question("l24", "Eine Hand auf meiner Schulter kann mich in schwierigen Momenten beruhigen.", dimension = L_ZA),
+            Question("l25", "Wenn mir jemand von unterwegs eine Kleinigkeit mitbringt, freue ich mich sehr.", dimension = L_KA),
+            Question("l26", "Es berührt mich, wenn mir jemand sagt: „Ich bin stolz auf dich.“", dimension = L_AN),
+            Question("l27", "Ich genieße es, einfach nur zusammen zu sein, ohne etwas Besonderes zu tun.", dimension = L_ZW),
+            Question("l28", "Ich freue mich, wenn jemand merkt, dass mir alles zu viel wird, und mit anpackt.", dimension = L_UN),
+            Question("l29", "Ohne körperliche Nähe fühle ich mich in einer Beziehung schnell einsam.", dimension = L_ZA),
+            Question("l30", "Geschenke sind für mich ein sichtbares Zeichen von Zuneigung.", dimension = L_KA),
+            Question("l31", "Wenn liebevolle Worte lange ausbleiben, fühle ich mich schnell weniger gesehen.", dimension = L_AN),
+            Question("l32", "Wenn wir lange keine Zeit füreinander haben, fühle ich mich schnell distanziert.", dimension = L_ZW),
+            Question("l33", "Wenn ich alles allein stemmen muss, fühle ich mich schnell wenig geliebt.", dimension = L_UN),
+            Question("l34", "Ich zeige meine Zuneigung selbst gern durch Berührungen.", dimension = L_ZA),
+            Question("l35", "Ich freue mich, wenn sich jemand merkt, was ich mag, und mir damit eine Freude macht.", dimension = L_KA),
+        ),
+        dimensions = listOf(
+            Dimension(
+                L_AN,
+                listOf(
+                    ResultBand(
+                        0, 100, "Anerkennung – liebevolle Worte",
+                        "Für dich sind Worte ein wichtiger Weg, Liebe zu spüren: ehrliche Komplimente, ein Danke, Ermutigung oder einfach ein „Ich hab dich lieb“. Sie zeigen dir, dass du gesehen wirst. Fehlen sie lange, kann sich Nähe schnell leer anfühlen.\n\nVielleicht zeigst du deine Zuneigung auch selbst gern mit Worten.",
+                        permission = "Sag deinem Gegenüber, welche Worte dir guttun – zum Beispiel: „Es freut mich, wenn du mir sagst, was du an mir magst.“",
+                        reflection = "„Welche Worte haben mich zuletzt besonders berührt?“",
+                    ),
+                ),
+            ),
+            Dimension(
+                L_ZW,
+                listOf(
+                    ResultBand(
+                        0, 100, "Zweisamkeit – gemeinsame Zeit",
+                        "Du fühlst dich verbunden, wenn ihr euch bewusst Zeit füreinander nehmt – ohne Ablenkung und mit echter Aufmerksamkeit. Gemeinsame Erlebnisse, gute Gespräche oder einfaches Beisammensein nähren dich.\n\nWenn der Alltag keinen Raum dafür lässt, fühlst du dich vielleicht schnell distanziert.",
+                        permission = "Plant kleine feste Inseln nur für euch – zum Beispiel einen Abend in der Woche ohne Handy.",
+                        reflection = "„Wann habe ich mich zuletzt wirklich mit jemandem verbunden gefühlt?“",
+                    ),
+                ),
+            ),
+            Dimension(
+                L_UN,
+                listOf(
+                    ResultBand(
+                        0, 100, "Unterstützung – hilfreiche Taten",
+                        "Für dich zeigt sich Liebe vor allem im Handeln: wenn dir jemand etwas abnimmt, mit anpackt oder dir den Alltag leichter macht. Taten sagen dir oft mehr als Worte.\n\nWenn du vieles allein tragen musst, kann sich das schnell lieblos anfühlen – auch wenn es nicht so gemeint ist.",
+                        permission = "Sag konkret, wobei dir Unterstützung guttun würde. Viele Menschen helfen gern, wenn sie wissen, wie.",
+                        reflection = "„Wobei würde mir Unterstützung gerade am meisten guttun?“",
+                    ),
+                ),
+            ),
+            Dimension(
+                L_ZA,
+                listOf(
+                    ResultBand(
+                        0, 100, "Zärtlichkeit – körperliche Nähe",
+                        "Körperliche Nähe gibt dir Geborgenheit: Umarmungen, Händchenhalten, eine Hand auf der Schulter. Durch Berührung spürst du Verbundenheit oft unmittelbarer als durch Worte.\n\nWenn Nähe lange fehlt, kann das ein Gefühl von Einsamkeit auslösen.",
+                        permission = "Zeigt einander, welche Berührungen ihr mögt – und achtet dabei immer auf die Wünsche und Grenzen von euch beiden.",
+                        reflection = "„Welche Form von Nähe tut mir gerade besonders gut?“",
+                    ),
+                ),
+            ),
+            Dimension(
+                L_KA,
+                listOf(
+                    ResultBand(
+                        0, 100, "Kleine Aufmerksamkeiten – Zeichen der Zuneigung",
+                        "Für dich sind kleine Aufmerksamkeiten sichtbare Zeichen dafür, dass jemand an dich denkt. Dabei geht es nicht um den Preis, sondern um die Geste – um das Gefühl: Du bist mir wichtig.\n\nSolche Zeichen bewahrst du vielleicht lange auf, weil an ihnen Erinnerungen hängen.",
+                        permission = "Erzähl deinem Gegenüber, worüber du dich freust – oft sind es die kleinen Dinge, die am meisten berühren.",
+                        reflection = "„Welche kleine Aufmerksamkeit hat mir zuletzt eine Freude gemacht?“",
+                    ),
+                ),
+            ),
+        ),
+        strongestHint = "Deine stärkste Liebessprache:",
+        rankDimensions = true,
+        dimensionsHeading = "Deine Liebessprachen",
+        permissionLabel = "Tipp für euch:",
+        closingTitle = "Möchtest du eure Liebessprachen besser verstehen?",
+        closingText = "Wenn zwei Menschen Zuneigung in verschiedenen Sprachen ausdrücken, entstehen leicht " +
+            "Missverständnisse. Vielleicht magst du auch dein Gegenüber einladen, den Test zu machen. In der " +
+            "Paarberatung können wir gemeinsam schauen, wie ihr euch noch besser versteht.",
+        resultNote = "Dieser Test ist eine Einladung zur Selbstreflexion. Er ist kein wissenschaftlich " +
+            "geprüftes Verfahren und keine Diagnose. Liebessprachen können sich im Leben auch verändern.",
     )
 
     /** Sichtbar in der App. Der Beispiel-Fragebogen [example] bleibt nur für Tests im Code. */

@@ -167,4 +167,21 @@ class SelfTestResultsTest {
         val all = (SelfTestCatalog.all.flatMap { it.questions }).map { it.text }
         assertEquals("keine doppelten Aussagen über alle Tests", all.size, all.toSet().size)
     }
+
+    @Test
+    fun loveLanguageRanksFiveLanguages() {
+        val q = SelfTestCatalog.loveLanguage
+        assertEquals(emptyList<String>(), QuestionnaireEvaluator.validate(q))
+        assertEquals(35, q.questions.size)
+        q.dimensions.forEach { d -> assertEquals(7, q.questions.count { it.dimension == d.name }) }
+        assertEquals(5, q.dimensions.size)
+        assertTrue(q.questions.none { it.reversed })
+        assertTrue(q.rankDimensions)
+        val r = QuestionnaireEvaluator.evaluate(q, q.questions.associate { it.id to if (it.dimension == "Zweisamkeit") 5 else 2 })
+        assertNull(r.band)
+        assertEquals(100, r.dimensions.first { it.dimension == "Zweisamkeit" }.percent)
+        assertEquals("Zweisamkeit – gemeinsame Zeit", r.dimensions.first { it.dimension == "Zweisamkeit" }.band?.title)
+        assertEquals("Zweisamkeit", r.dimensions.maxByOrNull { it.percent }?.dimension)
+        assertEquals(setOf("Zweisamkeit" to 100, "Anerkennung" to 25), r.dimensions.map { it.dimension to it.percent }.toSet().filter { it.first in setOf("Zweisamkeit", "Anerkennung") }.toSet())
+    }
 }

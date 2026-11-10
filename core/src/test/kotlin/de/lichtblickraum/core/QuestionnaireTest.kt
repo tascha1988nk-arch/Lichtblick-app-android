@@ -32,7 +32,7 @@ class QuestionnaireTest {
 
     @Test
     fun innerCriticIsAvailableAndExampleHidden() {
-        assertEquals(listOf(SelfTestCatalog.innerCritic.id, SelfTestCatalog.selfRelationship.id, SelfTestCatalog.emotionalDependency.id), SelfTestCatalog.all.filter { it.isAvailable }.map { it.id })
+        assertEquals(SelfTestCatalog.all.map { it.id }, SelfTestCatalog.all.filter { it.isAvailable }.map { it.id })
         assertTrue(SelfTestCatalog.byId(example.id) == null)
     }
 
@@ -148,6 +148,6 @@ class QuestionnaireTest {
 
     @Test(expected = IllegalArgumentException::class)
     fun inPreparationCannotBeStarted() {
-        QuestionnaireSession(SelfTestCatalog.loveLanguage)
+        QuestionnaireSession(SelfTestCatalog.innerCritic.copy(status = de.lichtblickraum.core.selftest.QuestionnaireStatus.IN_PREPARATION))
     }
 }

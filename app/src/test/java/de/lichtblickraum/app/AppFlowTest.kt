@@ -216,11 +216,26 @@ class AppFlowTest {
     }
 
     @Test
-    fun inPreparationTestsAreMarked() {
+    fun allFourTestsAreAvailable() {
         clickNav(Routes.SELF_TESTS)
-        assertTextShown("In Vorbereitung")
-        assertTextShown("Was ist meine Liebessprache?")
-        assertTextShown("Folgt bald")
+        SelfTestCatalog.all.forEach { assertTextShown(it.title) }
+        rule.onAllNodesWithText("Folgt bald").assertCountEquals(0)
+    }
+
+    @Test
+    fun loveLanguageShowsRanking() {
+        val q = SelfTestCatalog.loveLanguage
+        clickNav(Routes.SELF_TESTS)
+        clickText(q.title)
+        clickText("Test beginnen")
+        for (i in 1..q.questions.size) {
+            clickText(if (q.questions[i - 1].dimension == "Zärtlichkeit") "5 · Stimmt total" else "2 · Stimmt eher nicht")
+            clickText(if (i == q.questions.size) "Zur Auswertung" else "Weiter")
+        }
+        assertTextShown("Deine Liebessprachen")
+        assertTextShown("Deine stärkste Liebessprache: Zärtlichkeit", substring = true)
+        assertTextShown("Zärtlichkeit · 100 / 100")
+        assertTextShown("Tipp für euch:")
     }
 
     @Test
