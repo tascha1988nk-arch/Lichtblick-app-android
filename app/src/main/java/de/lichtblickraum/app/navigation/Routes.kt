@@ -24,6 +24,8 @@ object Routes {
     const val DIARY = "tagebuch"
     const val REFLECTION = "rueckblick"
     const val THEMES = "themen"
+    const val SELF_TEST_RESULT = "selbsttest-ergebnis/{entryId}"
+    fun selfTestResult(entryId: String) = "selbsttest-ergebnis/$entryId"
 
     fun mood(level: Int?) = if (level == null) "barometer" else "barometer?stufe=$level"
 

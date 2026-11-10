@@ -49,9 +49,20 @@ import de.lichtblickraum.app.ui.components.TouchHeight
 import de.lichtblickraum.app.ui.theme.LichtblickColors
 import de.lichtblickraum.core.about.LegalContent
 import de.lichtblickraum.core.selftest.SelfTestCatalog
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import de.lichtblickraum.app.AppContainer
+import de.lichtblickraum.app.ui.components.ContentText
+import de.lichtblickraum.app.ui.lichtblicke.formatDate
+import de.lichtblickraum.core.journal.EntryKind
+import de.lichtblickraum.core.selftest.Questionnaire
+import de.lichtblickraum.core.selftest.ResultBand
+import de.lichtblickraum.core.selftest.SelfTestResults
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 @Composable
-fun SelfTestScreen(questionnaireId: String, onExit: () -> Unit) {
+fun SelfTestScreen(questionnaireId: String, container: AppContainer, onExit: () -> Unit) {
     val questionnaire = SelfTestCatalog.byId(questionnaireId)?.takeIf { it.isAvailable }
     if (questionnaire == null) {
         ScreenColumn {
@@ -60,7 +71,14 @@ fun SelfTestScreen(questionnaireId: String, onExit: () -> Unit) {
         }
         return
     }
-    val vm: SelfTestViewModel = viewModel(key = "selftest-$questionnaireId") { SelfTestViewModel(questionnaire) }
+    val vm: SelfTestViewModel = viewModel(key = "selftest-$questionnaireId") {
+        SelfTestViewModel(questionnaire) { q, r ->
+            container.journal.add(
+                EntryKind.SELF_TEST, q.id, q.title, container.today(), null,
+                scores = SelfTestResults.toScores(q, r),
+            ).id
+        }
+    }
     var confirmExit by remember { mutableStateOf(false) }
 
     val askBeforeExit = vm.phase == SelfTestPhase.QUESTIONS && vm.hasAnswers
@@ -75,7 +93,7 @@ fun SelfTestScreen(questionnaireId: String, onExit: () -> Unit) {
             when (vm.phase) {
                 SelfTestPhase.INTRO -> Intro(vm)
                 SelfTestPhase.QUESTIONS -> Questions(vm)
-                SelfTestPhase.RESULT -> Result(vm, onExit)
+                SelfTestPhase.RESULT -> Result(vm, container, onExit)
             }
         }
     }
@@ -171,44 +189,134 @@ private fun Questions(vm: SelfTestViewModel) {
 }
 
 @Composable
-private fun Result(vm: SelfTestViewModel, onExit: () -> Unit) {
+private fun Result(vm: SelfTestViewModel, container: AppContainer, onExit: () -> Unit) {
     val result = vm.result ?: return
     val q = vm.questionnaire
+    val entries by container.journal.entries.collectAsStateWithLifecycle()
+    val saving by container.journal.isPersistent.collectAsStateWithLifecycle()
+    val entry = entries.firstOrNull { it.id == vm.savedEntryId }
+    val scores = entry?.scores ?: SelfTestResults.toScores(q, result)
+    val previous = entry?.let { SelfTestResults.previous(entries, it) }
     ScreenColumn {
-        Text("Deine Auswertung", style = MaterialTheme.typography.labelLarge, color = LichtblickColors.GoldDark)
-        if (q.isExample) {
-            Text("BEISPIEL-AUSWERTUNG · nicht fachlich geprüft", style = MaterialTheme.typography.labelMedium, color = LichtblickColors.Placeholder)
-        }
-        Heading(result.band.title)
-        BodyText(result.band.text)
+        ResultContent(q, scores, previous?.scores, previous?.date)
+        NoteBox(
+            title = if (saving) "Gespeichert" else "Nur für diese Sitzung",
+            text = if (saving) {
+                "Dein Ergebnis ist auf diesem Gerät gespeichert. Deine einzelnen Antworten wurden verworfen. " +
+                    "Du findest es unter „Selbsttests“ und in der Rückschau."
+            } else {
+                "Dein Ergebnis bleibt nur, solange die App geöffnet ist. Deine einzelnen Antworten wurden verworfen."
+            },
+        )
+        SecondaryButton("Test noch einmal machen", vm::restart)
+        PrimaryButton("Fertig", onExit)
+    }
+}
 
-        if (result.dimensions.isNotEmpty()) {
+/** Auswertung aus gespeicherten Werten – für das frische Ergebnis und für frühere Ergebnisse. */
+@Composable
+fun ResultContent(q: Questionnaire, scores: Map<String, Int>, previousScores: Map<String, Int>?, previousDate: LocalDate?) {
+    Text("Dein persönliches Ergebnis", style = MaterialTheme.typography.labelLarge, color = LichtblickColors.GoldDark)
+    if (q.isExample) {
+        Text("BEISPIEL-AUSWERTUNG · nicht fachlich geprüft", style = MaterialTheme.typography.labelMedium, color = LichtblickColors.Placeholder)
+    }
+    SelfTestResults.overallBand(q, scores)?.let { band ->
+        Heading(band.title)
+        BandText(band)
+    }
+    val dims = SelfTestResults.dimensionScores(q, scores)
+    if (dims.isNotEmpty()) {
+        Heading(q.title)
+        LichtblickCard {
+            dims.forEach { d ->
+                Row(Modifier.fillMaxWidth()) {
+                    Text(d.dimension, style = MaterialTheme.typography.titleMedium, modifier = Modifier.weight(1f))
+                    Text("${d.percent} / 100", style = MaterialTheme.typography.titleMedium, color = LichtblickColors.GoldDark)
+                }
+                LinearProgressIndicator(
+                    progress = { d.percent / 100f },
+                    modifier = Modifier.fillMaxWidth(),
+                    color = LichtblickColors.GoldDark,
+                    trackColor = LichtblickColors.GoldSoft,
+                )
+            }
+        }
+        dims.forEach { d ->
+            val band = d.band ?: return@forEach
             LichtblickCard {
-                Text("Einzelne Bereiche", style = MaterialTheme.typography.titleMedium)
-                result.dimensions.forEach { d ->
-                    Text(d.dimension, style = MaterialTheme.typography.bodyMedium)
-                    LinearProgressIndicator(
-                        progress = { d.percent / 100f },
-                        modifier = Modifier.fillMaxWidth(),
-                        color = LichtblickColors.GoldDark,
-                        trackColor = LichtblickColors.GoldSoft,
-                    )
+                Text("${d.dimension} · ${d.percent} / 100", style = MaterialTheme.typography.labelLarge, color = LichtblickColors.GoldDark)
+                Text(band.title, style = MaterialTheme.typography.titleLarge)
+                BandText(band)
+            }
+        }
+    }
+
+    if (previousScores != null) {
+        val changes = SelfTestResults.compare(previousScores, scores)
+        if (changes.isNotEmpty()) {
+            LichtblickCard(highlighted = true) {
+                Text("Im Vergleich zu deinem letzten Ergebnis", style = MaterialTheme.typography.titleLarge)
+                previousDate?.let {
+                    Text("vom ${it.format(DateTimeFormatter.ofPattern("d. MMMM yyyy", Locale.GERMAN))}", style = MaterialTheme.typography.bodyMedium, color = LichtblickColors.TextMuted)
+                }
+                changes.forEach { c ->
+                    val label = if (c.name == SelfTestResults.OVERALL) "Gesamt" else c.name
+                    Text(label, style = MaterialTheme.typography.titleMedium)
+                    Text("${c.before} → ${c.after} · ${SelfTestResults.describe(c)}", style = MaterialTheme.typography.bodyMedium)
+                }
+                Text(
+                    "Veränderungen sind weder gut noch schlecht. Sie können zeigen, was sich gerade in dir bewegt.",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = LichtblickColors.TextMuted,
+                )
+            }
+        }
+    }
+
+    NoteBox(title = "Bitte beachte", text = q.resultNote.ifBlank { LegalContent.SELF_TEST_DISCLAIMER })
+
+    LichtblickCard {
+        Text(q.closingTitle ?: "Magst du darüber sprechen?", style = MaterialTheme.typography.titleMedium)
+        ContentText(q.closingText ?: "In einem persönlichen Gespräch kannst du in Ruhe schauen, was dich bewegt.")
+        BookingButton(text = "Gespräch vereinbaren")
+    }
+}
+
+@Composable
+private fun BandText(band: ResultBand) {
+    band.text.split("\n\n").forEach { ContentText(it) }
+    band.permission?.let {
+        Text("Dein Erlauber:", style = MaterialTheme.typography.titleMedium, color = LichtblickColors.GoldDark)
+        ContentText(it)
+    }
+    band.reflection?.let {
+        Text("Reflexionsfrage:", style = MaterialTheme.typography.titleMedium, color = LichtblickColors.GoldDark)
+        ContentText(it)
+    }
+}
+
+/** Ein früheres, gespeichertes Ergebnis ansehen. */
+@Composable
+fun StoredResultScreen(entryId: String, container: AppContainer, onBack: () -> Unit) {
+    val entries by container.journal.entries.collectAsStateWithLifecycle()
+    val entry = entries.firstOrNull { it.id == entryId }
+    val q = entry?.let { SelfTestCatalog.byId(it.itemId) }
+    Scaffold(
+        containerColor = LichtblickColors.Cream,
+        topBar = { LichtblickTopBar(title = "Dein Ergebnis", onBack = onBack) },
+    ) { padding ->
+        Column(Modifier.padding(padding).fillMaxSize()) {
+            ScreenColumn {
+                if (entry == null || q == null) {
+                    BodyText("Dieses Ergebnis gibt es nicht mehr.")
+                    PrimaryButton("Zurück", onBack)
+                } else {
+                    Text("vom ${formatDate(entry.date)}", style = MaterialTheme.typography.bodyMedium, color = LichtblickColors.TextMuted)
+                    val previous = SelfTestResults.previous(entries, entry)
+                    ResultContent(q, entry.scores, previous?.scores, previous?.date)
+                    PrimaryButton("Zurück", onBack)
                 }
             }
         }
-
-        NoteBox(title = "Bitte beachte", text = q.resultNote.ifBlank { LegalContent.SELF_TEST_DISCLAIMER })
-        NoteBox(
-            title = "Nicht gespeichert",
-            text = "Dieses Ergebnis wird nicht gespeichert. Wenn du die Seite verlässt, ist es verworfen.",
-        )
-
-        LichtblickCard {
-            Text("Magst du darüber sprechen?", style = MaterialTheme.typography.titleMedium)
-            BodyText("In einem persönlichen Gespräch kannst du in Ruhe schauen, was dich bewegt.")
-            BookingButton(text = "Gespräch vereinbaren")
-        }
-        SecondaryButton("Test noch einmal machen", vm::restart)
-        PrimaryButton("Fertig", onExit)
     }
 }

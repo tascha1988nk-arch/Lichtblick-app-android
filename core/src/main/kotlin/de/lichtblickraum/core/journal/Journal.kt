@@ -13,6 +13,7 @@ enum class EntryKind(val label: String) {
     MOOD("Gefühlsbarometer"),
     DIARY("Gefühlstagebuch"),
     REFLECTION("Rückblick"),
+    SELF_TEST("Selbsttest"),
 }
 
 data class JournalEntry(
@@ -28,6 +29,8 @@ data class JournalEntry(
     val level: Int? = null,
     /** Nur beim Gefühlsbarometer: gewählte Gefühlswörter. */
     val tags: List<String> = emptyList(),
+    /** Nur bei Selbsttests: Ergebniswerte (0–100) je Bereich – keine einzelnen Antworten. */
+    val scores: Map<String, Int> = emptyMap(),
 )
 
 /** Dauerhafter Speicher auf dem Gerät (Umsetzung in der App, z. B. als Datei). */
@@ -69,6 +72,7 @@ class Journal(
         note: String?,
         level: Int? = null,
         tags: List<String> = emptyList(),
+        scores: Map<String, Int> = emptyMap(),
     ): JournalEntry {
         val entry = JournalEntry(
             id = UUID.randomUUID().toString(),
@@ -80,6 +84,7 @@ class Journal(
             createdAtMillis = clock(),
             level = level,
             tags = tags,
+            scores = scores,
         )
         update(_entries.value + entry)
         return entry

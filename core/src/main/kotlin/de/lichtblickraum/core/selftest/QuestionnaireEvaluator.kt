@@ -2,7 +2,7 @@ package de.lichtblickraum.core.selftest
 
 import kotlin.math.roundToInt
 
-data class DimensionScore(val dimension: String, val percent: Int)
+data class DimensionScore(val dimension: String, val percent: Int, val band: ResultBand? = null)
 
 data class QuestionnaireResult(
     val score: Int,
@@ -10,7 +10,8 @@ data class QuestionnaireResult(
     val maxScore: Int,
     /** 0–100, Lage des Gesamtwerts zwischen kleinst- und größtmöglichem Wert. */
     val percent: Int,
-    val band: ResultBand,
+    /** Gesamtbereich; null, wenn der Test nur Anteile auswertet. */
+    val band: ResultBand?,
     val dimensions: List<DimensionScore>,
 )
 
@@ -40,18 +41,22 @@ object QuestionnaireEvaluator {
         val maxScore = maxValue * questionnaire.questions.size
         val percent = toPercent(score, minScore, maxScore)
 
-        val band = questionnaire.bands.firstOrNull { percent in it.fromPercent..it.toPercent }
+        val band = if (questionnaire.bands.isEmpty()) null else questionnaire.bands.firstOrNull { percent in it.fromPercent..it.toPercent }
             ?: error("Kein Auswertungsbereich für $percent % in '${questionnaire.id}'.")
 
         val dimensions = questionnaire.questions
             .filter { it.dimension != null }
             .groupBy { it.dimension!! }
             .map { (name, qs) ->
+                val p = toPercent(qs.sumOf { scored(it) }, minValue * qs.size, maxValue * qs.size)
+                val def = questionnaire.dimensions.firstOrNull { it.name == name }
                 DimensionScore(
                     dimension = name,
-                    percent = toPercent(qs.sumOf { scored(it) }, minValue * qs.size, maxValue * qs.size),
+                    percent = p,
+                    band = def?.bands?.firstOrNull { p in it.fromPercent..it.toPercent },
                 )
             }
+            .sortedBy { d -> questionnaire.dimensions.indexOfFirst { it.name == d.dimension }.let { if (it < 0) Int.MAX_VALUE else it } }
 
         return QuestionnaireResult(score, minScore, maxScore, percent, band, dimensions)
     }
@@ -68,11 +73,24 @@ object QuestionnaireEvaluator {
         if (questionnaire.questions.map { it.id }.toSet().size != questionnaire.questions.size) {
             problems += "doppelte Fragen-IDs"
         }
-        for (p in 0..100) {
-            val hits = questionnaire.bands.count { p in it.fromPercent..it.toPercent }
-            if (hits == 0) problems += "kein Auswertungsbereich für $p %"
-            if (hits > 1) problems += "mehrere Auswertungsbereiche für $p %"
+        if (questionnaire.bands.isEmpty() && questionnaire.dimensions.isEmpty()) problems += "keine Auswertung"
+        fun checkBands(label: String, bands: List<ResultBand>) {
+            if (bands.isEmpty()) return
+            for (p in 0..100) {
+                val hits = bands.count { p in it.fromPercent..it.toPercent }
+                if (hits == 0) problems += "${label}kein Auswertungsbereich für $p %"
+                if (hits > 1) problems += "${label}mehrere Auswertungsbereiche für $p %"
+            }
         }
+        checkBands("", questionnaire.bands)
+        questionnaire.dimensions.forEach { d ->
+            if (d.bands.isEmpty()) problems += "${d.name}: keine Auswertungsbereiche"
+            checkBands("${d.name}: ", d.bands)
+            if (questionnaire.questions.none { it.dimension == d.name }) problems += "${d.name}: keine Fragen"
+        }
+        val names = questionnaire.dimensions.map { it.name }.toSet()
+        questionnaire.questions.filter { it.dimension != null && it.dimension !in names && questionnaire.dimensions.isNotEmpty() }
+            .forEach { problems += "Frage ${it.id}: unbekannter Bereich ${it.dimension}" }
         return problems.distinct()
     }
 }

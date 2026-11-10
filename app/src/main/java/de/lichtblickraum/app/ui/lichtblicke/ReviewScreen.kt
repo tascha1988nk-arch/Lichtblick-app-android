@@ -40,6 +40,7 @@ import de.lichtblickraum.app.ui.components.ScreenColumn
 import de.lichtblickraum.app.ui.components.SectionTitle
 import de.lichtblickraum.app.ui.components.TouchHeight
 import de.lichtblickraum.app.ui.theme.LichtblickColors
+import de.lichtblickraum.core.journal.EntryKind
 import de.lichtblickraum.core.journal.JournalEntry
 import de.lichtblickraum.core.mood.MoodLevel
 import java.time.LocalDate
@@ -57,7 +58,7 @@ private sealed interface Confirm {
 }
 
 @Composable
-fun ReviewScreen(container: AppContainer, onBack: () -> Unit) {
+fun ReviewScreen(container: AppContainer, onBack: () -> Unit, onOpenSelfTestResult: (String) -> Unit = {}) {
     val entries by container.journal.entries.collectAsStateWithLifecycle()
     val saving by container.journal.isPersistent.collectAsStateWithLifecycle()
     var confirm by remember { mutableStateOf<Confirm?>(null) }
@@ -117,7 +118,7 @@ fun ReviewScreen(container: AppContainer, onBack: () -> Unit) {
                     entries.groupBy { it.date }.forEach { (date, dayEntries) ->
                         SectionTitle(formatDate(date))
                         dayEntries.forEach { entry ->
-                            EntryCard(entry, onDelete = { confirm = Confirm.DeleteOne(entry) })
+                            EntryCard(entry, onDelete = { confirm = Confirm.DeleteOne(entry) }, onOpen = { onOpenSelfTestResult(entry.id) })
                         }
                     }
                     QuietButton("Alle Einträge löschen", { confirm = Confirm.DeleteAll })
@@ -164,7 +165,7 @@ fun ReviewScreen(container: AppContainer, onBack: () -> Unit) {
 }
 
 @Composable
-private fun EntryCard(entry: JournalEntry, onDelete: () -> Unit) {
+private fun EntryCard(entry: JournalEntry, onDelete: () -> Unit, onOpen: () -> Unit) {
     LichtblickCard {
         Row(verticalAlignment = Alignment.Top) {
             Column(Modifier.weight(1f)) {
@@ -180,6 +181,12 @@ private fun EntryCard(entry: JournalEntry, onDelete: () -> Unit) {
             Text(entry.tags.joinToString(" · "), style = MaterialTheme.typography.bodyMedium, color = LichtblickColors.TextMuted)
         }
         if (entry.note != null) BodyText(entry.note!!)
+        if (entry.kind == EntryKind.SELF_TEST) {
+            entry.scores.forEach { (name, value) ->
+                Text("$name: $value / 100", style = MaterialTheme.typography.bodyMedium)
+            }
+            QuietButton("Auswertung ansehen", onOpen)
+        }
     }
 }
 

@@ -42,8 +42,10 @@ object LegalContent {
         ),
         LegalSection(
             "Selbsttests",
-            "Deine Antworten werden nur auf deinem Gerät verarbeitet und nicht gespeichert. " +
-                "Sobald du einen Test verlässt, werden Antworten und Ergebnis verworfen.",
+            "Deine Antworten werden nur auf deinem Gerät verarbeitet. Die einzelnen Antworten " +
+                "werden nicht gespeichert. Dein Ergebnis (die Werte je Bereich) wird – wie deine " +
+                "anderen Einträge – nur auf dem Gerät gespeichert, solange das Speichern in der " +
+                "Rückschau eingeschaltet ist, und ist dort löschbar.",
         ),
         LegalSection(
             "Kleine Lichtblicke und Übungen",
@@ -92,8 +94,9 @@ object LegalContent {
             "länger belastet, darfst du dir Unterstützung holen – das ist ein Zeichen von Fürsorge."
 
     const val DATA_NOTICE_SELF_TEST =
-        "Deine Antworten bleiben auf deinem Gerät und werden nicht gespeichert. " +
-            "Wenn du den Test verlässt, werden sie verworfen."
+        "Deine einzelnen Antworten werden nicht gespeichert. Dein Ergebnis wird nur auf diesem " +
+            "Gerät gespeichert, damit du es später wiederfinden und mit einer Wiederholung " +
+            "vergleichen kannst. Du kannst es in der Rückschau jederzeit löschen."
 
     /** Eine Nummer für alle: TelefonSeelsorge (kostenfrei, anonym, rund um die Uhr). */
     const val CRISIS_TITLE = "Wenn es dir gerade sehr schlecht geht"

@@ -41,6 +41,7 @@ import de.lichtblickraum.app.ui.lichtblicke.LichtblickeScreen
 import de.lichtblickraum.app.ui.lichtblicke.ReviewScreen
 import de.lichtblickraum.app.ui.selftest.SelfTestListScreen
 import de.lichtblickraum.app.ui.selftest.SelfTestScreen
+import de.lichtblickraum.app.ui.selftest.StoredResultScreen
 import de.lichtblickraum.app.ui.theme.LichtblickColors
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -126,6 +127,13 @@ fun LichtblickRoot(
                     onOpenDiary = { navController.navigate(Routes.DIARY) },
                 )
             }
+            composable(Routes.SELF_TEST_RESULT) { entry ->
+                StoredResultScreen(
+                    entryId = entry.arguments?.getString("entryId").orEmpty(),
+                    container = container,
+                    onBack = { navController.popBackStack() },
+                )
+            }
             composable(Routes.DIARY) {
                 DiaryScreen(container = container, onBack = { navController.popBackStack() })
             }
@@ -136,11 +144,16 @@ fun LichtblickRoot(
                 OnboardingScreen(container = container, editMode = true, onDone = { navController.popBackStack() })
             }
             composable(Routes.SELF_TESTS) {
-                SelfTestListScreen(onStart = { navController.navigate(Routes.selfTest(it)) })
+                SelfTestListScreen(
+                    container = container,
+                    onStart = { navController.navigate(Routes.selfTest(it)) },
+                    onOpenResult = { navController.navigate(Routes.selfTestResult(it)) },
+                )
             }
             composable(Routes.SELF_TEST) { entry ->
                 SelfTestScreen(
                     questionnaireId = entry.arguments?.getString("id").orEmpty(),
+                    container = container,
                     onExit = { navController.popBackStack() },
                 )
             }
@@ -170,7 +183,11 @@ fun LichtblickRoot(
                 LichtblickeScreen(container = container, onOpenReview = { navController.navigate(Routes.REVIEW) })
             }
             composable(Routes.REVIEW) {
-                ReviewScreen(container = container, onBack = { navController.popBackStack() })
+                ReviewScreen(
+                    container = container,
+                    onBack = { navController.popBackStack() },
+                    onOpenSelfTestResult = { navController.navigate(Routes.selfTestResult(it)) },
+                )
             }
             composable(Routes.ABOUT) {
                 AboutScreen(onOpenLegal = { navController.navigate(Routes.legal(it)) })

@@ -26,6 +26,19 @@ data class ResultBand(
     val toPercent: Int,
     val title: String,
     val text: String,
+    /** Optional: ein erlaubender Satz („Dein Erlauber“). */
+    val permission: String? = null,
+    /** Optional: eine Frage zum Weiterdenken. */
+    val reflection: String? = null,
+)
+
+/**
+ * Ein Anteil/Bereich eines Tests (z. B. „Perfektionist & Antreiber“) mit eigener Auswertung.
+ * Fragen gehören über [Question.dimension] = [name] dazu.
+ */
+data class Dimension(
+    val name: String,
+    val bands: List<ResultBand>,
 )
 
 enum class QuestionnaireStatus { AVAILABLE, IN_PREPARATION }
@@ -41,7 +54,13 @@ data class Questionnaire(
     val estimatedMinutes: Int,
     val options: List<AnswerOption> = emptyList(),
     val questions: List<Question> = emptyList(),
+    /** Gesamtauswertung (optional, wenn der Test nur Anteile auswertet). */
     val bands: List<ResultBand> = emptyList(),
+    /** Anteile mit eigener Auswertung (optional). */
+    val dimensions: List<Dimension> = emptyList(),
+    /** Optionaler Abschluss unter dem Ergebnis, z. B. „Möchtest du genauer hinschauen?“ */
+    val closingTitle: String? = null,
+    val closingText: String? = null,
     /** Wird unter jedem Ergebnis gezeigt. */
     val resultNote: String = "",
 ) {

@@ -87,9 +87,61 @@ object SelfTestCatalog {
         estimatedMinutes = 0,
     )
 
-    val innerCritic = inPreparation(
-        "innerer-kritiker", "Innerer Kritiker",
-        "Wie spricht die kritische Stimme in dir – und wie laut ist sie gerade?",
+    private fun placeholderBands(part: String) = listOf(
+        ResultBand(0, 33, "[Platzhalter: $part 0–33 – Überschrift]", "[Platzhalter: Text]",
+            permission = "[Platzhalter: Erlauber]", reflection = "[Platzhalter: Reflexionsfrage]"),
+        ResultBand(34, 66, "[Platzhalter: $part 34–66 – Überschrift]", "[Platzhalter: Text]",
+            permission = "[Platzhalter: Erlauber]", reflection = "[Platzhalter: Reflexionsfrage]"),
+        ResultBand(67, 100, "[Platzhalter: $part 67–100 – Überschrift]", "[Platzhalter: Text]",
+            permission = "[Platzhalter: Erlauber]", reflection = "[Platzhalter: Reflexionsfrage]"),
+    )
+
+    /**
+     * Test von Natascha (bisher bei Formly). Struktur steht, Inhalte folgen:
+     * Antwortskala, 47 Aussagen mit Zuordnung zu den vier Bereichen und alle Auswertungstexte.
+     * Sobald alles eingetragen ist: status = AVAILABLE setzen.
+     */
+    val innerCritic = Questionnaire(
+        id = "innerer-kritiker",
+        title = "Wie stark ist dein innerer Kritiker?",
+        shortDescription = "Welche Seiten deines inneren Kritikers sind bei dir besonders aktiv?",
+        intro = "[Platzhalter: Einleitungstext]",
+        status = QuestionnaireStatus.IN_PREPARATION,
+        isExample = false,
+        estimatedMinutes = 10,
+        dimensions = listOf(
+            Dimension(
+                "Perfektionist & Antreiber",
+                placeholderBands("Perfektionist & Antreiber").toMutableList().also {
+                    it[1] = ResultBand(
+                        34, 66,
+                        "Dein innerer Perfektionist ist spürbar aktiv",
+                        "Du stellst hohe Ansprüche an dich und möchtest Dinge gerne richtig und gut machen. " +
+                            "Das kann eine große Stärke sein. Du bist vermutlich gewissenhaft, engagiert und " +
+                            "übernimmst Verantwortung. Gleichzeitig scheint dein innerer Antreiber sich immer " +
+                            "wieder einzumischen, besonders dann, wenn dir etwas wichtig ist oder du unter " +
+                            "Druck stehst.\n\n" +
+                            "Vielleicht fällt es dir dann schwer, mit deiner eigenen Leistung wirklich zufrieden " +
+                            "zu sein. Aus „Ich möchte das gut machen“ wird schnell ein „Ich muss das richtig " +
+                            "machen“. Fehler oder unerledigte Dinge beschäftigen dich dann möglicherweise länger, " +
+                            "als dir eigentlich guttut.\n" +
+                            "Es geht nicht darum, deine Ansprüche aufzugeben. Achte vielmehr darauf, wann dein " +
+                            "Ehrgeiz dich unterstützt und wann er beginnt, Druck zu erzeugen. Du darfst etwas " +
+                            "gut genug sein lassen.",
+                        permission = "„Ich darf gut genug sein, ohne perfekt zu sein.“",
+                        reflection = "„Wann helfen mir meine hohen Ansprüche wirklich und wann setze ich mich " +
+                            "damit selbst unter Druck?“",
+                    )
+                },
+            ),
+            Dimension("People Pleaser & Anpasser", placeholderBands("People Pleaser & Anpasser")),
+            Dimension("Katastrophenplaner & Kontrolleur", placeholderBands("Katastrophenplaner & Kontrolleur")),
+            Dimension("Abwerter & Zerstörer", placeholderBands("Abwerter & Zerstörer")),
+        ),
+        closingTitle = "Möchtest du genauer hinschauen?",
+        closingText = "[Platzhalter: Abschlusstext]",
+        resultNote = "Dieser Test lädt dich zur Selbstreflexion ein. Er ist keine Diagnose und ersetzt " +
+            "keine Beratung, Psychotherapie oder ärztliche Behandlung.",
     )
     val peoplePleasing = inPreparation(
         "people-pleasing", "People Pleasing",

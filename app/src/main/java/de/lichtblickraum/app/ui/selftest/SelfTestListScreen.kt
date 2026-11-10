@@ -12,9 +12,16 @@ import de.lichtblickraum.app.ui.components.SectionTitle
 import de.lichtblickraum.app.ui.theme.LichtblickColors
 import de.lichtblickraum.core.about.LegalContent
 import de.lichtblickraum.core.selftest.SelfTestCatalog
+import androidx.compose.runtime.getValue
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import de.lichtblickraum.app.AppContainer
+import de.lichtblickraum.app.ui.components.QuietButton
+import de.lichtblickraum.app.ui.lichtblicke.formatDate
+import de.lichtblickraum.core.selftest.SelfTestResults
 
 @Composable
-fun SelfTestListScreen(onStart: (String) -> Unit) {
+fun SelfTestListScreen(container: AppContainer, onStart: (String) -> Unit, onOpenResult: (String) -> Unit) {
+    val entries by container.journal.entries.collectAsStateWithLifecycle()
     ScreenColumn {
         Heading("Selbsttests")
         BodyText(
@@ -22,7 +29,7 @@ fun SelfTestListScreen(onStart: (String) -> Unit) {
                 "mit mir selbst? Du entscheidest, wie weit du gehst.",
         )
         NoteBox(title = "Zur Selbstreflexion", text = LegalContent.SELF_TEST_DISCLAIMER)
-        NoteBox(title = "Deine Antworten bleiben bei dir", text = LegalContent.DATA_NOTICE_SELF_TEST)
+        NoteBox(title = "Deine Ergebnisse bleiben bei dir", text = LegalContent.DATA_NOTICE_SELF_TEST)
 
         val available = SelfTestCatalog.all.filter { it.isAvailable }
         val upcoming = SelfTestCatalog.all.filterNot { it.isAvailable }
@@ -36,6 +43,13 @@ fun SelfTestListScreen(onStart: (String) -> Unit) {
                 Text(q.title, style = MaterialTheme.typography.titleLarge)
                 Text(q.shortDescription, style = MaterialTheme.typography.bodyMedium, color = LichtblickColors.TextMuted)
                 Text("ca. ${q.estimatedMinutes} Minuten · ${q.questions.size} Aussagen", style = MaterialTheme.typography.labelMedium, color = LichtblickColors.GoldDark)
+            }
+            val history = SelfTestResults.history(entries, q.id)
+            if (history.isNotEmpty()) {
+                Text("Deine Ergebnisse", style = MaterialTheme.typography.titleMedium)
+                history.reversed().forEach { e ->
+                    QuietButton("Ergebnis vom ${formatDate(e.date)} ansehen", { onOpenResult(e.id) })
+                }
             }
         }
 

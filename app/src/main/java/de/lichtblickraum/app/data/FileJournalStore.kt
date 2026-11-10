@@ -53,6 +53,7 @@ class FileJournalStore(private val file: File) : JournalStore {
         put("createdAt", createdAtMillis)
         if (level != null) put("level", level)
         if (tags.isNotEmpty()) put("tags", JSONArray(tags))
+        if (scores.isNotEmpty()) put("scores", JSONObject().apply { scores.forEach { (k, v) -> put(k, v) } })
     }
 
     private fun JSONObject.toEntry(): JournalEntry? = try {
@@ -66,6 +67,7 @@ class FileJournalStore(private val file: File) : JournalStore {
             createdAtMillis = getLong("createdAt"),
             level = if (has("level")) getInt("level") else null,
             tags = optJSONArray("tags")?.let { a -> (0 until a.length()).map { a.getString(it) } } ?: emptyList(),
+            scores = optJSONObject("scores")?.let { o -> o.keys().asSequence().associateWith { o.getInt(it) } } ?: emptyMap(),
         )
     } catch (e: Exception) {
         null

@@ -114,10 +114,37 @@ class AppFlowTest {
         // 6 normale Aussagen * 4 + 2 umgepolte * 0 = 75 % -> oberer Bereich
         assertTextShown("Oft gehst du schon freundlich mit dir um")
         assertTextShown("BEISPIEL-AUSWERTUNG", substring = true)
-        assertTextShown("Dieses Ergebnis wird nicht gespeichert", substring = true)
+        assertTextShown("Dein Ergebnis ist auf diesem Gerät gespeichert", substring = true)
 
         clickText("Fertig")
         assertTextShown("Zum Ausprobieren")
+    }
+
+    private fun answerAll(option: String) {
+        val count = SelfTestCatalog.example.questions.size
+        for (i in 1..count) {
+            clickText(option)
+            clickText(if (i == count) "Zur Auswertung" else "Weiter")
+        }
+    }
+
+    @Test
+    fun repeatedTestIsComparedWithPreviousResult() {
+        clickNav(Routes.SELF_TESTS)
+        clickText(SelfTestCatalog.example.title)
+        clickText("Test beginnen")
+        answerAll("Trifft voll zu")          // 75
+        clickText("Test noch einmal machen")
+        clickText("Test beginnen")
+        answerAll("Teils, teils")            // 50
+        assertTextShown("Im Vergleich zu deinem letzten Ergebnis")
+        assertTextShown("75 → 50", substring = true)
+        clickText("Fertig")
+        assertTextShown("Deine Ergebnisse")
+        rule.onAllNodesWithText("ansehen", substring = true).assertCountEquals(2)
+        rule.onAllNodesWithText("ansehen", substring = true).onFirst().performScrollTo().performClick()
+        rule.waitForIdle()
+        assertTextShown("Mal so, mal so")
     }
 
     @Test

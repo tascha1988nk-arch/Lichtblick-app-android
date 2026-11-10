@@ -43,7 +43,7 @@ class QuestionnaireTest {
         assertEquals(0, r.minScore)
         assertEquals(32, r.maxScore)
         assertEquals(75, r.percent)
-        assertEquals("Oft gehst du schon freundlich mit dir um", r.band.title)
+        assertEquals("Oft gehst du schon freundlich mit dir um", r.band?.title)
     }
 
     @Test
@@ -52,14 +52,14 @@ class QuestionnaireTest {
         val high = example.questions.associate { it.id to if (it.reversed) 0 else 4 }
         assertEquals(0, QuestionnaireEvaluator.evaluate(example, low).percent)
         assertEquals(100, QuestionnaireEvaluator.evaluate(example, high).percent)
-        assertEquals("Gerade bist du eher streng mit dir", QuestionnaireEvaluator.evaluate(example, low).band.title)
+        assertEquals("Gerade bist du eher streng mit dir", QuestionnaireEvaluator.evaluate(example, low).band?.title)
     }
 
     @Test
     fun middleAnswersGiveMiddleBand() {
         val r = QuestionnaireEvaluator.evaluate(example, answersAll(2))
         assertEquals(50, r.percent)
-        assertEquals("Mal so, mal so", r.band.title)
+        assertEquals("Mal so, mal so", r.band?.title)
     }
 
     @Test
@@ -71,10 +71,10 @@ class QuestionnaireTest {
             questions = listOf(Question("a", "a")),
             bands = listOf(ResultBand(0, 39, "low", ""), ResultBand(40, 69, "mid", ""), ResultBand(70, 100, "high", "")),
         )
-        assertEquals("low", QuestionnaireEvaluator.evaluate(q, mapOf("a" to 3)).band.title) // 30 %
-        assertEquals("mid", QuestionnaireEvaluator.evaluate(q, mapOf("a" to 4)).band.title) // 40 %
-        assertEquals("mid", QuestionnaireEvaluator.evaluate(q, mapOf("a" to 6)).band.title) // 60 %
-        assertEquals("high", QuestionnaireEvaluator.evaluate(q, mapOf("a" to 7)).band.title) // 70 %
+        assertEquals("low", QuestionnaireEvaluator.evaluate(q, mapOf("a" to 3)).band?.title) // 30 %
+        assertEquals("mid", QuestionnaireEvaluator.evaluate(q, mapOf("a" to 4)).band?.title) // 40 %
+        assertEquals("mid", QuestionnaireEvaluator.evaluate(q, mapOf("a" to 6)).band?.title) // 60 %
+        assertEquals("high", QuestionnaireEvaluator.evaluate(q, mapOf("a" to 7)).band?.title) // 70 %
     }
 
     @Test

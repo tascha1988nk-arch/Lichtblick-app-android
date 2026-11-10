@@ -15,12 +15,18 @@ enum class SelfTestPhase { INTRO, QUESTIONS, RESULT }
  * Hält den Testablauf nur im Arbeitsspeicher. Wird der Test verlassen,
  * räumt Android dieses Objekt weg und [onCleared] verwirft alle Antworten.
  */
-class SelfTestViewModel(questionnaire: Questionnaire) : ViewModel() {
+class SelfTestViewModel(
+    questionnaire: Questionnaire,
+    /** Speichert das Ergebnis (nur die Werte je Bereich) und gibt die Eintrags-ID zurück. */
+    private val onResult: (Questionnaire, QuestionnaireResult) -> String?,
+) : ViewModel() {
     private val session = QuestionnaireSession(questionnaire)
 
     var phase by mutableStateOf(SelfTestPhase.INTRO)
         private set
     var result by mutableStateOf<QuestionnaireResult?>(null)
+        private set
+    var savedEntryId by mutableStateOf<String?>(null)
         private set
 
     // Ändert sich bei jeder Aktion, damit die Oberfläche neu zeichnet.
@@ -42,7 +48,10 @@ class SelfTestViewModel(questionnaire: Questionnaire) : ViewModel() {
 
     fun next() {
         if (session.isLast && session.isComplete) {
-            result = session.result()
+            val r = session.result()
+            result = r
+            savedEntryId = onResult(session.questionnaire, r)
+            session.discard() // einzelne Antworten sofort verwerfen
             phase = SelfTestPhase.RESULT
         } else {
             session.next()
@@ -58,6 +67,7 @@ class SelfTestViewModel(questionnaire: Questionnaire) : ViewModel() {
     fun restart() {
         session.discard()
         result = null
+        savedEntryId = null
         phase = SelfTestPhase.INTRO
         version++
     }
