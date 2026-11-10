@@ -124,8 +124,8 @@ private fun Intro(vm: SelfTestViewModel) {
         BodyText(q.intro)
         Text("${q.questions.size} Aussagen · ca. ${q.estimatedMinutes} Minuten", style = MaterialTheme.typography.labelLarge, color = LichtblickColors.GoldDark)
         NoteBox(text = LegalContent.SELF_TEST_DISCLAIMER)
-        NoteBox(title = "Datenschutz", text = LegalContent.DATA_NOTICE_SELF_TEST)
         PrimaryButton("Test beginnen", vm::start)
+        NoteBox(title = "Datenschutz", text = LegalContent.DATA_NOTICE_SELF_TEST)
     }
 }
 
