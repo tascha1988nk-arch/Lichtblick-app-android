@@ -152,7 +152,7 @@ class AppFlowTest {
             rule.waitForIdle()
         }
         clickText("Paarthemen")
-        assertTextShown("116 016", substring = true)
+        assertTextShown("Diese Übungen machst du für dich allein.", substring = true)
     }
 
     @Test

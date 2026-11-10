@@ -17,9 +17,7 @@ enum class ExerciseCategory(val title: String, val description: String, val note
         "Paarthemen",
         "Für dich allein: auf deine Beziehung schauen, ohne etwas klären zu müssen.",
         note = "Diese Übungen machst du für dich allein. Du musst nichts davon mit deinem Partner " +
-            "oder deiner Partnerin besprechen. Wenn du dich in deiner Beziehung nicht sicher fühlst, " +
-            "sind diese Übungen gerade nicht das Richtige – dann hol dir bitte Unterstützung, zum " +
-            "Beispiel beim Hilfetelefon „Gewalt gegen Frauen“ unter 116 016 (kostenfrei, rund um die Uhr).",
+            "oder deiner Partnerin besprechen.",
     ),
     ADHD(
         "ADHS im Alltag",
