@@ -48,7 +48,7 @@ object AboutContent {
         Offer(
             "Paarberatung", "Gemeinsam neu hinschauen",
             "Für Paare, die festgefahrene Muster verstehen, wieder besser miteinander ins " +
-                "Gespräch kommen und gemeinsam neue Wege finden möchten.",
+                "Gespräch kommen und gemeinsam neue Wege zu echter Nähe und Verbindung finden möchten.",
         ),
         Offer(
             "Kennenlerngespräch", "Für das Einzelcoaching",
