@@ -6,10 +6,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -28,31 +24,23 @@ import de.lichtblickraum.app.ui.theme.LichtblickColors
  */
 data class PracticePhoto(@DrawableRes val res: Int, val caption: String, val aspect: Float)
 
-val practicePhotos = listOf(
-    PracticePhoto(R.drawable.praxis_raum, "Der Beratungsraum", 2f),
-    PracticePhoto(R.drawable.praxis_sessel, "Platz für dein Gespräch", 16f / 9f),
-    PracticePhoto(R.drawable.praxis_ankommen, "Ankommen", 9f / 16f),
-)
+/** Das Foto unter „So sieht es bei mir aus“. */
+val practicePhoto = PracticePhoto(R.drawable.praxis_raum, "Der Beratungsraum", 2f)
 
-/** Waagerecht wischbare Fotoreihe – Bilder werden nicht beschnitten. */
+/** Ein Foto der Praxis über die ganze Breite, mit abgerundeten Ecken. */
 @Composable
-fun PracticeGallery(modifier: Modifier = Modifier) {
-    val height = 220.dp
-    LazyRow(modifier = modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-        items(practicePhotos) { photo ->
-            Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                Image(
-                    painter = painterResource(photo.res),
-                    contentDescription = "Foto der Praxis: ${photo.caption}",
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier
-                        .height(height)
-                        .width(height * photo.aspect)
-                        .clip(RoundedCornerShape(16.dp)),
-                )
-                Text(photo.caption, style = MaterialTheme.typography.labelMedium, color = LichtblickColors.TextMuted)
-            }
-        }
+fun PracticeGallery(modifier: Modifier = Modifier, photo: PracticePhoto = practicePhoto) {
+    Column(modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+        Image(
+            painter = painterResource(photo.res),
+            contentDescription = "Foto der Praxis: ${photo.caption}",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .fillMaxWidth()
+                .aspectRatio(photo.aspect)
+                .clip(RoundedCornerShape(16.dp)),
+        )
+        Text(photo.caption, style = MaterialTheme.typography.labelMedium, color = LichtblickColors.TextMuted)
     }
 }
 
