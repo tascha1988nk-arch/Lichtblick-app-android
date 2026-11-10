@@ -295,21 +295,21 @@ object SelfTestCatalog {
             "geprüftes Verfahren, keine Diagnose und ersetzt keine Beratung, Psychotherapie oder ärztliche Behandlung.",
     )
 
-    val peoplePleasing = inPreparation(
-        "people-pleasing", "People Pleasing",
-        "Wie sehr richtest du dich nach den Erwartungen anderer?",
+    val selfRelationship = inPreparation(
+        "beziehung-zu-dir", "Wie ist deine Beziehung zu dir selbst?",
+        "Wie begegnest du dir selbst, wie stabil ist dein Selbstwert, und wie gut stehst du für dich ein?",
     )
-    val selfWorth = inPreparation(
-        "selbstwert", "Selbstwert",
-        "Wie begegnest du dir selbst – unabhängig von Leistung?",
+    val emotionalDependency = inPreparation(
+        "emotionale-abhaengigkeit", "Wie emotional abhängig bin ich?",
+        "Wie sehr hängt dein inneres Gleichgewicht von anderen Menschen ab?",
     )
-    val boundaries = inPreparation(
-        "grenzen", "Grenzen",
-        "Wie gut spürst und schützt du deine Grenzen?",
+    val loveLanguage = inPreparation(
+        "liebessprache", "Was ist meine Liebessprache?",
+        "Auf welche Weise zeigst du Zuneigung – und wie möchtest du sie selbst erleben?",
     )
 
     /** Sichtbar in der App. Der Beispiel-Fragebogen [example] bleibt nur für Tests im Code. */
-    val all: List<Questionnaire> = listOf(innerCritic, peoplePleasing, selfWorth, boundaries)
+    val all: List<Questionnaire> = listOf(innerCritic, selfRelationship, emotionalDependency, loveLanguage)
 
     fun byId(id: String): Questionnaire? = all.firstOrNull { it.id == id }
 }

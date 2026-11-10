@@ -148,6 +148,6 @@ class QuestionnaireTest {
 
     @Test(expected = IllegalArgumentException::class)
     fun inPreparationCannotBeStarted() {
-        QuestionnaireSession(SelfTestCatalog.peoplePleasing)
+        QuestionnaireSession(SelfTestCatalog.loveLanguage)
     }
 }

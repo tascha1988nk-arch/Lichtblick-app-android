@@ -202,7 +202,7 @@ class AppFlowTest {
     fun inPreparationTestsAreMarked() {
         clickNav(Routes.SELF_TESTS)
         assertTextShown("In Vorbereitung")
-        assertTextShown("People Pleasing")
+        assertTextShown("Was ist meine Liebessprache?")
         assertTextShown("Folgt bald")
     }
 
