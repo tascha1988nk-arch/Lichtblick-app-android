@@ -113,7 +113,7 @@ class ImpulseTest {
     @Test
     fun noShortRepeatsAcrossRoundBoundaries() {
         val n = DailyImpulses.all.size
-        val window = minOf(10, n / 4) + 1
+        val window = minOf(10, n / 3) + 1
         val seq = dailySequence(LocalDate.of(2026, 1, 1), 2000)
         seq.windowed(window).forEachIndexed { i, w ->
             assertEquals("Wiederholung innerhalb von $window Tagen ab Tag $i", w.size, w.toSet().size)

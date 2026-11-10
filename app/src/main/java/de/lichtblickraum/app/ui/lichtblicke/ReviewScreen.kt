@@ -41,6 +41,7 @@ import de.lichtblickraum.app.ui.components.SectionTitle
 import de.lichtblickraum.app.ui.components.TouchHeight
 import de.lichtblickraum.app.ui.theme.LichtblickColors
 import de.lichtblickraum.core.journal.JournalEntry
+import de.lichtblickraum.core.mood.MoodLevel
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale
@@ -173,6 +174,10 @@ private fun EntryCard(entry: JournalEntry, onDelete: () -> Unit) {
             IconButton(onClick = onDelete, modifier = Modifier.size(TouchHeight)) {
                 Icon(Icons.Filled.Delete, contentDescription = "Eintrag „${entry.title}“ löschen", tint = LichtblickColors.GoldDark)
             }
+        }
+        MoodLevel.of(entry.level)?.let { BodyText("${it.symbol} ${it.label}") }
+        if (entry.tags.isNotEmpty()) {
+            Text(entry.tags.joinToString(" · "), style = MaterialTheme.typography.bodyMedium, color = LichtblickColors.TextMuted)
         }
         if (entry.note != null) BodyText(entry.note!!)
     }

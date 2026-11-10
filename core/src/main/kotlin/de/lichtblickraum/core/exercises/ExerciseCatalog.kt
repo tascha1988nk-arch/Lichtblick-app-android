@@ -15,6 +15,7 @@ object ExerciseCatalog {
 
     val orientation = Exercise(
         id = "orientierung",
+        minutes = 3,
         category = ExerciseCategory.EMOTIONS,
         title = "Ankommen im Hier und Jetzt",
         subtitle = "Eine Orientierungsübung für stressige Momente",
@@ -58,6 +59,7 @@ object ExerciseCatalog {
 
     val boundaries = Exercise(
         id = "grenzen-reflexion",
+        minutes = 8,
         category = ExerciseCategory.BOUNDARIES,
         title = "Meine Grenzen wahrnehmen",
         subtitle = "Eine Reflexion zu persönlichen Grenzen",
@@ -100,6 +102,7 @@ object ExerciseCatalog {
 
     val innerDialogue = Exercise(
         id = "freundlicher-dialog",
+        minutes = 5,
         category = ExerciseCategory.SELF_WORTH,
         title = "Ein freundlicherer innerer Dialog",
         subtitle = "Eine Übung für einen wohlwollenderen Umgang mit dir",
@@ -142,6 +145,7 @@ object ExerciseCatalog {
 
     val strengths = Exercise(
         id = "staerken-entdecken",
+        minutes = 8,
         category = ExerciseCategory.SELF_WORTH,
         title = "Meine Stärken entdecken",
         subtitle = "Freundlich auf das schauen, was dich ausmacht",
@@ -182,6 +186,7 @@ object ExerciseCatalog {
 
     val yesAndNo = Exercise(
         id = "ja-und-nein",
+        minutes = 5,
         category = ExerciseCategory.BOUNDARIES,
         title = "Mein Ja und mein Nein spüren",
         subtitle = "Eine kleine Körperübung zu Zustimmung und Ablehnung",
@@ -222,6 +227,7 @@ object ExerciseCatalog {
 
     val appreciation = Exercise(
         id = "was-ich-an-uns-schaetze",
+        minutes = 8,
         category = ExerciseCategory.COUPLE,
         title = "Was ich an uns schätze",
         subtitle = "Den Blick auf das Verbindende richten",
@@ -259,6 +265,7 @@ object ExerciseCatalog {
 
     val iMessage = Exercise(
         id = "wunsch-in-ich-botschaften",
+        minutes = 10,
         category = ExerciseCategory.COUPLE,
         title = "Einen Wunsch in Ich-Botschaften",
         subtitle = "Ein Anliegen so formulieren, dass es gehört werden kann",
@@ -304,6 +311,7 @@ object ExerciseCatalog {
 
     val oneThing = Exercise(
         id = "eine-sache-zur-zeit",
+        minutes = 4,
         category = ExerciseCategory.ADHD,
         title = "Eine Sache zur Zeit",
         subtitle = "Den Anfang leichter machen",
@@ -339,6 +347,7 @@ object ExerciseCatalog {
 
     val stimulusBreak = Exercise(
         id = "reizpause",
+        minutes = 3,
         category = ExerciseCategory.ADHD,
         title = "Eine Reizpause",
         subtitle = "Wenn alles zu laut, zu viel, zu schnell ist",
@@ -374,6 +383,7 @@ object ExerciseCatalog {
 
     val whatWorked = Exercise(
         id = "was-heute-geklappt-hat",
+        minutes = 5,
         category = ExerciseCategory.ADHD,
         title = "Was heute geklappt hat",
         subtitle = "Ein freundlicher Blick zurück auf den Tag",
@@ -408,6 +418,7 @@ object ExerciseCatalog {
 
     val nameFeeling = Exercise(
         id = "gefuehl-begleiten",
+        minutes = 5,
         category = ExerciseCategory.EMOTIONS,
         title = "Ein Gefühl benennen und begleiten",
         subtitle = "Gefühlen mit Neugier statt mit Druck begegnen",

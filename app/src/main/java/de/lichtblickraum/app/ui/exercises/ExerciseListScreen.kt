@@ -25,16 +25,32 @@ import de.lichtblickraum.app.ui.components.NoteBox
 import de.lichtblickraum.app.ui.components.PrimaryButton
 import de.lichtblickraum.app.ui.components.ScreenColumn
 import de.lichtblickraum.app.ui.theme.LichtblickColors
+import de.lichtblickraum.app.ui.components.SectionTitle
+import de.lichtblickraum.core.exercises.Exercise
 import de.lichtblickraum.core.exercises.ExerciseCatalog
 import de.lichtblickraum.core.exercises.ExerciseCategory
 
 /** Übersicht: zuerst eine Kategorie wählen. */
 @Composable
-fun ExerciseListScreen(onOpenCategory: (ExerciseCategory) -> Unit) {
+fun ExerciseListScreen(
+    suggested: List<Exercise>,
+    onOpenCategory: (ExerciseCategory) -> Unit,
+    onStart: (String) -> Unit,
+) {
     ScreenColumn {
         Heading("Übungen")
         BodyText("Kurze Übungen, die dich im Alltag begleiten können. Wähle ein Thema, das gerade zu dir passt.")
         NoteBox(text = ExerciseCatalog.GENERAL_NOTE)
+        if (suggested.isNotEmpty()) {
+            SectionTitle("Für dich ausgewählt")
+            suggested.take(3).forEach { e ->
+                LichtblickCard(onClick = { onStart(e.id) }, highlighted = true) {
+                    Text(e.title, style = MaterialTheme.typography.titleLarge)
+                    Text("${e.category.title} · ${e.durationText}", style = MaterialTheme.typography.labelMedium, color = LichtblickColors.GoldDark)
+                }
+            }
+            SectionTitle("Alle Themen")
+        }
         ExerciseCatalog.categories.forEach { category ->
             val count = ExerciseCatalog.inCategory(category).size
             LichtblickCard(onClick = { onOpenCategory(category) }) {

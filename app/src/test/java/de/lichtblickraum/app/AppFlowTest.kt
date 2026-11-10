@@ -21,10 +21,15 @@ import de.lichtblickraum.core.selftest.SelfTestCatalog
 import android.Manifest
 import android.content.Intent
 import de.lichtblickraum.core.config.AppLinks
+import de.lichtblickraum.core.journal.EntryKind
+import de.lichtblickraum.core.thoughts.DailyThoughts
+import androidx.compose.ui.test.performTextInput
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.robolectric.Shadows
+import org.junit.Before
 import org.junit.Rule
+import de.lichtblickraum.core.profile.UserProfile
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.annotation.Config
@@ -39,6 +44,14 @@ class AppFlowTest {
 
     @get:Rule
     val rule = createAndroidComposeRule<MainActivity>()
+
+    private val container get() = (rule.activity.application as LichtblickApplication).container
+
+    @Before
+    fun skipOnboarding() {
+        rule.runOnIdle { container.saveProfile(UserProfile()) }
+        rule.waitForIdle()
+    }
 
     private fun clickText(text: String) {
         rule.onNodeWithText(text).performScrollTo().performClick()
@@ -240,6 +253,51 @@ class AppFlowTest {
 
         clickText("Täglich an deinen Lichtblick erinnern")
         rule.onNodeWithText("Täglich an deinen Lichtblick erinnern").assertIsOff()
+    }
+
+    @Test
+    fun moodCheckInFromHomeIsSaved() {
+        rule.onNodeWithContentDescription("Eher gut").performScrollTo().performClick()
+        rule.waitForIdle()
+        assertTextShown("Welche Gefühle sind da? (freiwillig)")
+        clickText("ruhig")
+        clickText("Speichern")
+        assertTextShown("Danke, dass du hingespürt hast")
+        clickText("Fertig")
+        assertTextShown("Heute eingetragen:", substring = true)
+        clickNav(Routes.LICHTBLICKE)
+        clickText("Rückschau ansehen")
+        assertTextShown("Gefühlsbarometer")
+        assertTextShown("ruhig")
+    }
+
+    @Test
+    fun supportHintAfterSeveralHardDays() {
+        rule.runOnIdle {
+            val today = container.today()
+            (0L..4L).forEach { container.journal.add(EntryKind.MOOD, "barometer", "Gefühlsbarometer", today.minusDays(it), null, level = 1) }
+        }
+        rule.waitForIdle()
+        assertTextShown("TelefonSeelsorge anrufen: 116 123")
+        clickText("Danke, jetzt nicht")
+        rule.onAllNodesWithText("TelefonSeelsorge anrufen: 116 123").assertCountEquals(0)
+    }
+
+    @Test
+    fun diaryEntryAppearsInReview() {
+        clickText("Gefühlstagebuch")
+        rule.onNodeWithText("Speichern").assertIsNotEnabled()
+        rule.onNodeWithText("Was ist passiert?").performScrollTo().performTextInput("Ein voller Tag")
+        clickText("Speichern")
+        assertTextShown("Festgehalten")
+    }
+
+    @Test
+    fun homeShowsThoughtLichtblickAndExerciseForToday() {
+        assertTextShown("Für heute")
+        assertTextShown(DailyThoughts.forDay(container.today(), emptySet()).text)
+        assertTextShown("Dein Lichtblick für heute")
+        assertTextShown("Eine Übung für dich")
     }
 
     @Test

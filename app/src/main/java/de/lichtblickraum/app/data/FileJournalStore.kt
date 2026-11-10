@@ -51,6 +51,8 @@ class FileJournalStore(private val file: File) : JournalStore {
         put("date", date.toString())
         if (note != null) put("note", note)
         put("createdAt", createdAtMillis)
+        if (level != null) put("level", level)
+        if (tags.isNotEmpty()) put("tags", JSONArray(tags))
     }
 
     private fun JSONObject.toEntry(): JournalEntry? = try {
@@ -62,6 +64,8 @@ class FileJournalStore(private val file: File) : JournalStore {
             date = LocalDate.parse(getString("date")),
             note = if (has("note")) getString("note") else null,
             createdAtMillis = getLong("createdAt"),
+            level = if (has("level")) getInt("level") else null,
+            tags = optJSONArray("tags")?.let { a -> (0 until a.length()).map { a.getString(it) } } ?: emptyList(),
         )
     } catch (e: Exception) {
         null

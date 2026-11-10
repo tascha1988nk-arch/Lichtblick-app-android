@@ -4,6 +4,7 @@ import android.content.Context
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import java.time.LocalDate
 
 /**
  * Kleine Einstellungen auf dem Gerät (keine Inhalte):
@@ -20,6 +21,17 @@ class SettingsStore(context: Context) {
     private val _impulsesPaused = MutableStateFlow(prefs.getBoolean(KEY_PAUSED, false))
     val impulsesPaused: StateFlow<Boolean> = _impulsesPaused.asStateFlow()
 
+    /** Bis zu diesem Tag (einschließlich) wird der Hilfe-Hinweis nicht gezeigt. */
+    private val _supportHiddenUntil = MutableStateFlow(
+        prefs.getLong(KEY_SUPPORT_HIDDEN, Long.MIN_VALUE).let { if (it == Long.MIN_VALUE) null else LocalDate.ofEpochDay(it) },
+    )
+    val supportHiddenUntil: StateFlow<LocalDate?> = _supportHiddenUntil.asStateFlow()
+
+    fun hideSupportUntil(date: LocalDate) {
+        prefs.edit().putLong(KEY_SUPPORT_HIDDEN, date.toEpochDay()).apply()
+        _supportHiddenUntil.value = date
+    }
+
     fun setSaveEntries(value: Boolean) {
         prefs.edit().putBoolean(KEY_SAVE, value).apply()
         _saveEntries.value = value
@@ -33,5 +45,6 @@ class SettingsStore(context: Context) {
     private companion object {
         const val KEY_SAVE = "rueckschau_speichern"
         const val KEY_PAUSED = "lichtblicke_pausiert"
+        const val KEY_SUPPORT_HIDDEN = "hilfe_hinweis_aus_bis"
     }
 }

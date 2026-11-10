@@ -10,6 +10,9 @@ enum class EntryKind(val label: String) {
     DAILY("Lichtblick für heute"),
     WEEKLY("Wochenimpuls"),
     EXERCISE("Übung"),
+    MOOD("Gefühlsbarometer"),
+    DIARY("Gefühlstagebuch"),
+    REFLECTION("Rückblick"),
 }
 
 data class JournalEntry(
@@ -21,6 +24,10 @@ data class JournalEntry(
     /** Freiwillige Notiz; null = ohne schriftliche Antwort abgeschlossen. */
     val note: String?,
     val createdAtMillis: Long,
+    /** Nur beim Gefühlsbarometer: Stufe 1–5. */
+    val level: Int? = null,
+    /** Nur beim Gefühlsbarometer: gewählte Gefühlswörter. */
+    val tags: List<String> = emptyList(),
 )
 
 /** Dauerhafter Speicher auf dem Gerät (Umsetzung in der App, z. B. als Datei). */
@@ -54,7 +61,15 @@ class Journal(
         if (persistent) _entries.value = sorted(store.load())
     }
 
-    fun add(kind: EntryKind, itemId: String, title: String, date: LocalDate, note: String?): JournalEntry {
+    fun add(
+        kind: EntryKind,
+        itemId: String,
+        title: String,
+        date: LocalDate,
+        note: String?,
+        level: Int? = null,
+        tags: List<String> = emptyList(),
+    ): JournalEntry {
         val entry = JournalEntry(
             id = UUID.randomUUID().toString(),
             kind = kind,
@@ -63,6 +78,8 @@ class Journal(
             date = date,
             note = note?.trim()?.takeIf { it.isNotEmpty() },
             createdAtMillis = clock(),
+            level = level,
+            tags = tags,
         )
         update(_entries.value + entry)
         return entry

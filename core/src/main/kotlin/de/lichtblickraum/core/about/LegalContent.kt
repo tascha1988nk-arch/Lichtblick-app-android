@@ -55,6 +55,14 @@ object LegalContent {
                 "werden sie ebenfalls gelöscht. Die App schließt diese Daten von Android-Sicherungen aus.",
         ),
         LegalSection(
+            "Eingangsfragen, Gefühlsbarometer und Gefühlstagebuch",
+            "Deine gewählten Themen und dein Wunsch („Kompass“) werden nur auf deinem Gerät " +
+                "gespeichert, damit die App passende Inhalte zeigen kann. Einträge im " +
+                "Gefühlsbarometer und Gefühlstagebuch werden wie alle Rückschau-Einträge " +
+                "behandelt: nur auf dem Gerät, abschaltbar und einzeln oder vollständig löschbar. " +
+                "Nichts davon wird übertragen.",
+        ),
+        LegalSection(
             "Erinnerungen",
             "Erinnerungen sind freiwillig und zu Beginn ausgeschaltet. Wenn du sie einschaltest, " +
                 "fragt Android nach der Erlaubnis für Benachrichtigungen. Die Erinnerungen werden " +
@@ -87,12 +95,11 @@ object LegalContent {
         "Deine Antworten bleiben auf deinem Gerät und werden nicht gespeichert. " +
             "Wenn du den Test verlässt, werden sie verworfen."
 
-    /** Allgemein bekannte, kostenfreie Hilfsangebote in Deutschland – bitte vor Veröffentlichung prüfen. */
+    /** Eine Nummer für alle: TelefonSeelsorge (kostenfrei, anonym, rund um die Uhr). */
     const val CRISIS_TITLE = "Wenn es dir gerade sehr schlecht geht"
     const val CRISIS_TEXT =
-        "Diese App ist nicht für Krisen gedacht. In akuten Notfällen wähle bitte 112. " +
-            "Die TelefonSeelsorge ist rund um die Uhr kostenfrei und anonym erreichbar: " +
-            "0800 111 0 111, 0800 111 0 222 oder 116 123."
+        "Diese App ist nicht für Krisen gedacht. Die TelefonSeelsorge ist rund um die Uhr für " +
+            "dich da – kostenfrei und anonym: 116 123."
 }
 
 data class LegalSection(val title: String, val body: String)

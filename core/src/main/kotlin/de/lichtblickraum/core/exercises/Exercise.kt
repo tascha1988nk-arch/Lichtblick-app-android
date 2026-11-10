@@ -44,6 +44,8 @@ data class Exercise(
     val title: String,
     val subtitle: String,
     val durationText: String,
+    /** Ungefähre Dauer in Minuten (für "Wie viel Zeit hast du?"). */
+    val minutes: Int = 5,
     val intro: String,
     val steps: List<ExerciseStep>,
     val closing: String,

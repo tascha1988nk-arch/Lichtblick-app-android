@@ -24,8 +24,26 @@ class ImpulsePlanner(
         require(daily.isNotEmpty() && weekly.isNotEmpty())
     }
 
-    fun dailyFor(date: LocalDate, swapCount: Int = 0, recentlyDone: Set<String> = emptySet()): Impulse =
-        pick(daily, date.toEpochDay(), swapCount, recentlyDone, SALT_DAILY)
+    /**
+     * @param preferred Themen aus den Eingangsfragen. Sie kommen an zwei von drei Tagen,
+     *                  die übrigen Themen am dritten Tag – so bleibt Abwechslung.
+     */
+    fun dailyFor(
+        date: LocalDate,
+        swapCount: Int = 0,
+        recentlyDone: Set<String> = emptySet(),
+        preferred: Set<ImpulseTheme> = emptySet(),
+    ): Impulse {
+        val pref = daily.filter { it.theme in preferred }
+        val other = daily.filter { it.theme !in preferred }
+        val day = date.toEpochDay()
+        if (pref.isEmpty() || other.isEmpty()) return pick(daily, day, swapCount, recentlyDone, SALT_DAILY)
+        val q = Math.floorDiv(day, 3L)
+        val r = Math.floorMod(day, 3L)
+        val (pool, slot, salt) = if (r < 2) Triple(pref, q * 2 + r, SALT_PREF) else Triple(other, q, SALT_OTHER)
+        val chosen = pick(pool, slot, swapCount, recentlyDone, salt)
+        return if (chosen.id in recentlyDone) pick(daily, day, swapCount, recentlyDone, SALT_DAILY) else chosen
+    }
 
     fun weeklyFor(date: LocalDate, swapCount: Int = 0, recentlyDone: Set<String> = emptySet()): Impulse =
         pick(weekly, weekKey(date), swapCount, recentlyDone, SALT_WEEKLY)
@@ -33,6 +51,16 @@ class ImpulsePlanner(
     companion object {
         private const val SALT_DAILY = 0x5EEDL
         private const val SALT_WEEKLY = 0x3EEDL
+        private const val SALT_PREF = 0x7EEDL
+        private const val SALT_OTHER = 0x9EEDL
+
+        /** Allgemeine Rotation (z. B. für Texte oder Übungen): jede Runde neu gemischt. */
+        fun <T> rotate(list: List<T>, slot: Long, salt: Long): T {
+            require(list.isNotEmpty())
+            val n = list.size
+            val order = roundOrder(n, Math.floorDiv(slot, n.toLong()), salt)
+            return list[order[Math.floorMod(slot, n.toLong()).toInt()]]
+        }
 
         /** So viele Tage zählt ein erledigter Tagesimpuls als "kürzlich". */
         const val RECENT_DAYS = 21L
@@ -47,7 +75,7 @@ class ImpulsePlanner(
         fun weekStart(date: LocalDate): LocalDate = date.with(DayOfWeek.MONDAY)
 
         /** Abstand am Rundenübergang, in dem sich nichts wiederholen darf. */
-        internal fun guard(n: Int): Int = if (n < 4) 0 else minOf(10, n / 4)
+        internal fun guard(n: Int): Int = if (n < 4) 0 else minOf(10, n / 3)
 
         internal fun <T> pick(list: List<T>, slot: Long, swapCount: Int, recent: Set<String>, salt: Long): T {
             val n = list.size

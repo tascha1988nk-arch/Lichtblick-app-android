@@ -33,7 +33,9 @@ class ReminderWorker(context: Context, params: WorkerParameters) : Worker(contex
 
         val paused = container.settings.impulsesPaused.value
         val today = container.today()
-        val state = container.lichtblicke.state(today, container.lichtblicke.choices.value, container.journal.entries.value)
+        val state = container.lichtblicke.state(
+            today, container.lichtblicke.choices.value, container.journal.entries.value, container.preferredThemes(),
+        )
         val card = if (kind == WorkReminderScheduler.KIND_DAILY) state.today else state.week
         if (!paused && card.status == ImpulseStatus.OPEN) {
             show(applicationContext, kind)

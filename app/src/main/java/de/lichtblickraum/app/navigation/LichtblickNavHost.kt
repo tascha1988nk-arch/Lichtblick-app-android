@@ -28,7 +28,15 @@ import de.lichtblickraum.app.ui.about.LegalScreen
 import de.lichtblickraum.app.ui.exercises.ExerciseCategoryScreen
 import de.lichtblickraum.app.ui.exercises.ExerciseListScreen
 import de.lichtblickraum.app.ui.exercises.ExerciseScreen
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavType
+import androidx.navigation.navArgument
 import de.lichtblickraum.app.ui.home.HomeScreen
+import de.lichtblickraum.app.ui.mood.DiaryScreen
+import de.lichtblickraum.app.ui.mood.MoodScreen
+import de.lichtblickraum.app.ui.mood.ReflectionScreen
+import de.lichtblickraum.app.ui.onboarding.OnboardingScreen
+import de.lichtblickraum.core.profile.Personalization
 import de.lichtblickraum.app.ui.lichtblicke.LichtblickeScreen
 import de.lichtblickraum.app.ui.lichtblicke.ReviewScreen
 import de.lichtblickraum.app.ui.selftest.SelfTestListScreen
@@ -42,6 +50,13 @@ fun LichtblickRoot(
     navController: NavHostController = rememberNavController(),
     openLichtblicke: Boolean = false,
 ) {
+    val profile by container.profileStore.profile.collectAsStateWithLifecycle()
+    if (!profile.onboardingDone) {
+        // Beim ersten Start: kurze, freiwillige Eingangsfragen.
+        OnboardingScreen(container = container, editMode = false, onDone = {})
+        return
+    }
+
     val backStack by navController.currentBackStackEntryAsState()
     val currentRoute = backStack?.destination?.route
     val showBottomBar = TopLevel.entries.any { it.route == currentRoute } || currentRoute == Routes.EXERCISE_CATEGORY
@@ -88,11 +103,37 @@ fun LichtblickRoot(
         ) {
             composable(Routes.HOME) {
                 HomeScreen(
+                    container = container,
                     onOpenSelfTests = { goTopLevel(Routes.SELF_TESTS) },
                     onOpenExercises = { goTopLevel(Routes.EXERCISES) },
                     onOpenLichtblicke = { goTopLevel(Routes.LICHTBLICKE) },
                     onOpenAbout = { goTopLevel(Routes.ABOUT) },
+                    onOpenMood = { navController.navigate(Routes.mood(it)) },
+                    onOpenDiary = { navController.navigate(Routes.DIARY) },
+                    onOpenReflection = { navController.navigate(Routes.REFLECTION) },
+                    onOpenExercise = { navController.navigate(Routes.exercise(it)) },
+                    onEditThemes = { navController.navigate(Routes.THEMES) },
                 )
+            }
+            composable(
+                Routes.MOOD,
+                arguments = listOf(navArgument("stufe") { type = NavType.IntType; defaultValue = 0 }),
+            ) { entry ->
+                MoodScreen(
+                    container = container,
+                    initialLevel = entry.arguments?.getInt("stufe")?.takeIf { it in 1..5 },
+                    onBack = { navController.popBackStack() },
+                    onOpenDiary = { navController.navigate(Routes.DIARY) },
+                )
+            }
+            composable(Routes.DIARY) {
+                DiaryScreen(container = container, onBack = { navController.popBackStack() })
+            }
+            composable(Routes.REFLECTION) {
+                ReflectionScreen(container = container, onBack = { navController.popBackStack() })
+            }
+            composable(Routes.THEMES) {
+                OnboardingScreen(container = container, editMode = true, onDone = { navController.popBackStack() })
             }
             composable(Routes.SELF_TESTS) {
                 SelfTestListScreen(onStart = { navController.navigate(Routes.selfTest(it)) })
@@ -104,7 +145,12 @@ fun LichtblickRoot(
                 )
             }
             composable(Routes.EXERCISES) {
-                ExerciseListScreen(onOpenCategory = { navController.navigate(Routes.exerciseCategory(it.name)) })
+                val profile by container.profileStore.profile.collectAsStateWithLifecycle()
+                ExerciseListScreen(
+                    suggested = if (profile.focus.isEmpty()) emptyList() else Personalization.suggestedExercises(profile),
+                    onOpenCategory = { navController.navigate(Routes.exerciseCategory(it.name)) },
+                    onStart = { navController.navigate(Routes.exercise(it)) },
+                )
             }
             composable(Routes.EXERCISE_CATEGORY) { entry ->
                 ExerciseCategoryScreen(

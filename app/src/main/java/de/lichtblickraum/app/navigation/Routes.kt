@@ -20,6 +20,12 @@ object Routes {
     const val EXERCISE_CATEGORY = "uebungen/thema/{name}"
     const val REVIEW = "rueckschau"
     const val LEGAL = "rechtliches/{type}"
+    const val MOOD = "barometer?stufe={stufe}"
+    const val DIARY = "tagebuch"
+    const val REFLECTION = "rueckblick"
+    const val THEMES = "themen"
+
+    fun mood(level: Int?) = if (level == null) "barometer" else "barometer?stufe=$level"
 
     fun selfTest(id: String) = "selbsttest/$id"
     fun exercise(id: String) = "uebung/$id"

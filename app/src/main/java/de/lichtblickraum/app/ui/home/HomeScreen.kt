@@ -23,7 +23,21 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
+import androidx.compose.runtime.getValue
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import de.lichtblickraum.app.AppContainer
 import de.lichtblickraum.app.ui.components.BodyText
+import de.lichtblickraum.app.ui.components.PrimaryButton
+import de.lichtblickraum.app.ui.components.QuietButton
+import de.lichtblickraum.app.ui.components.SectionTitle
+import de.lichtblickraum.app.ui.mood.MoodLevelPicker
+import de.lichtblickraum.app.ui.mood.SupportCard
+import de.lichtblickraum.core.impulses.ImpulseStatus
+import de.lichtblickraum.core.journal.EntryKind
+import de.lichtblickraum.core.mood.MoodInsights
+import de.lichtblickraum.core.mood.MoodLevel
+import de.lichtblickraum.core.profile.Personalization
+import de.lichtblickraum.core.thoughts.DailyThoughts
 import de.lichtblickraum.app.ui.components.BookingButton
 import de.lichtblickraum.app.ui.components.LichtblickCard
 import de.lichtblickraum.app.ui.components.NoteBox
@@ -42,11 +56,28 @@ private fun greetingFor(time: LocalTime): String = when (time.hour) {
 
 @Composable
 fun HomeScreen(
+    container: AppContainer,
     onOpenSelfTests: () -> Unit,
     onOpenExercises: () -> Unit,
     onOpenLichtblicke: () -> Unit,
     onOpenAbout: () -> Unit,
+    onOpenMood: (Int?) -> Unit,
+    onOpenDiary: () -> Unit,
+    onOpenReflection: () -> Unit,
+    onOpenExercise: (String) -> Unit,
+    onEditThemes: () -> Unit,
 ) {
+    val profile by container.profileStore.profile.collectAsStateWithLifecycle()
+    val entries by container.journal.entries.collectAsStateWithLifecycle()
+    val hiddenUntil by container.settings.supportHiddenUntil.collectAsStateWithLifecycle()
+    val choices by container.lichtblicke.choices.collectAsStateWithLifecycle()
+    val today = container.today()
+    val thought = DailyThoughts.forDay(today, profile.focus)
+    val exercise = Personalization.exerciseForDay(profile, today)
+    val todayImpulse = container.lichtblicke.state(today, choices, entries, Personalization.preferredThemes(profile)).today
+    val showSupport = MoodInsights.needsSupportHint(entries, today) && (hiddenUntil == null || today.isAfter(hiddenUntil))
+    val moodToday = entries.firstOrNull { it.kind == EntryKind.MOOD && it.date == today }
+
     ScreenColumn {
         Column(Modifier.padding(top = 12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
             Text(
@@ -59,27 +90,77 @@ fun HomeScreen(
                 style = MaterialTheme.typography.displaySmall,
                 modifier = Modifier.semantics { heading() },
             )
-            BodyText(AboutContent.HOME_SUBTITLE, color = LichtblickColors.TextMuted)
+            profile.wish?.let {
+                Text("Dein Kompass: „$it“", style = MaterialTheme.typography.bodyMedium, color = LichtblickColors.TextMuted)
+            }
         }
 
+        if (Personalization.reviewInviteDue(profile, today)) {
+            LichtblickCard(highlighted = true) {
+                Text("Magst du kurz zurückschauen?", style = MaterialTheme.typography.titleLarge)
+                BodyText("Ein paar Wochen sind vergangen. Ein kleiner Rückblick kann zeigen, was sich bewegt hat.")
+                PrimaryButton("Ja, gern", onOpenReflection)
+                QuietButton("Später", { container.postponeReview() })
+            }
+        }
+
+        LichtblickCard(highlighted = true) {
+            Text("Für heute", style = MaterialTheme.typography.labelLarge, color = LichtblickColors.GoldDark)
+            Text(thought.text, style = MaterialTheme.typography.titleLarge)
+        }
+
+        if (showSupport) SupportCard(onHide = { container.settings.hideSupportUntil(today.plusDays(7)) })
+
+        LichtblickCard {
+            Text("Wie geht es dir gerade?", style = MaterialTheme.typography.titleLarge)
+            if (moodToday != null) {
+                val level = MoodLevel.of(moodToday.level)
+                Text(
+                    "Heute eingetragen: ${level?.symbol.orEmpty()} ${level?.label.orEmpty()}",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = LichtblickColors.TextMuted,
+                )
+            } else {
+                Text("Antippen, wenn du magst.", style = MaterialTheme.typography.bodyMedium, color = LichtblickColors.TextMuted)
+            }
+            MoodLevelPicker(selected = null) { onOpenMood(it.value) }
+            QuietButton("Gefühlstagebuch", onOpenDiary)
+        }
+
+        LichtblickCard(onClick = onOpenLichtblicke) {
+            Text("Dein Lichtblick für heute", style = MaterialTheme.typography.labelLarge, color = LichtblickColors.GoldDark)
+            Text(todayImpulse.impulse.title, style = MaterialTheme.typography.titleLarge)
+            Text(
+                if (todayImpulse.status == ImpulseStatus.DONE) "Für heute schon gemacht." else todayImpulse.impulse.durationText,
+                style = MaterialTheme.typography.bodyMedium,
+                color = LichtblickColors.TextMuted,
+            )
+        }
+
+        LichtblickCard(onClick = { onOpenExercise(exercise.id) }) {
+            Text("Eine Übung für dich", style = MaterialTheme.typography.labelLarge, color = LichtblickColors.GoldDark)
+            Text(exercise.title, style = MaterialTheme.typography.titleLarge)
+            Text("${exercise.category.title} · ${exercise.durationText}", style = MaterialTheme.typography.bodyMedium, color = LichtblickColors.TextMuted)
+        }
+
+        SectionTitle("Alle Bereiche")
         EntryCard(
             icon = Icons.Filled.Star,
             title = "Kleine Lichtblicke",
             text = "Dein Impuls für heute und diese Woche – freiwillig und in deinem Tempo.",
             onClick = onOpenLichtblicke,
-            highlighted = true,
-        )
-        EntryCard(
-            icon = Icons.AutoMirrored.Filled.List,
-            title = "Selbsttests",
-            text = "Kleine Fragebögen zur Selbstreflexion – keine Diagnose.",
-            onClick = onOpenSelfTests,
         )
         EntryCard(
             icon = Icons.Filled.Favorite,
             title = "Übungen",
             text = "Kurze Übungen zu Selbstwert, Grenzen, Paarthemen, ADHS im Alltag sowie Gefühlen und Stress.",
             onClick = onOpenExercises,
+        )
+        EntryCard(
+            icon = Icons.AutoMirrored.Filled.List,
+            title = "Selbsttests",
+            text = "Kleine Fragebögen zur Selbstreflexion – keine Diagnose.",
+            onClick = onOpenSelfTests,
         )
         EntryCard(
             icon = Icons.Filled.Person,
@@ -94,6 +175,7 @@ fun HomeScreen(
             BookingButton()
         }
 
+        QuietButton("Deine Themen anpassen", onEditThemes)
         NoteBox(title = LegalContent.CRISIS_TITLE, text = LegalContent.CRISIS_TEXT)
         Spacer(Modifier.size(8.dp))
     }

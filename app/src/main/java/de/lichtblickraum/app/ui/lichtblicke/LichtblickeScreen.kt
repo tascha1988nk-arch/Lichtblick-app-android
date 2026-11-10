@@ -26,6 +26,7 @@ import de.lichtblickraum.app.ui.theme.LichtblickColors
 import de.lichtblickraum.core.impulses.Feedback
 import de.lichtblickraum.core.impulses.ImpulseCard
 import de.lichtblickraum.core.impulses.ImpulseStatus
+import de.lichtblickraum.core.profile.Personalization
 
 @Composable
 fun LichtblickeScreen(container: AppContainer, onOpenReview: () -> Unit) {
@@ -64,7 +65,8 @@ private fun ActiveImpulses(container: AppContainer, onOpenReview: () -> Unit) {
             color = LichtblickColors.TextMuted,
         )
 
-        val state = controller.state(today, choices, entries)
+        val profile by container.profileStore.profile.collectAsStateWithLifecycle()
+        val state = controller.state(today, choices, entries, Personalization.preferredThemes(profile))
 
         SectionTitle("Dein Lichtblick für heute")
         ImpulseCardView(
