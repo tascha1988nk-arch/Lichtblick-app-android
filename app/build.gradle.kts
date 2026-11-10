@@ -17,7 +17,22 @@ android {
         versionName = "0.1.0"
     }
 
+    signingConfigs {
+        // Fester Test-Schlüssel (nur für Debug-Versionen, nicht geheim), damit sich jede
+        // neue Testversion über die alte installieren lässt. Die Play-Store-Version bekommt
+        // später einen eigenen, geschützten Schlüssel.
+        getByName("debug") {
+            storeFile = file("debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+        }
+    }
+
     buildTypes {
+        debug {
+            signingConfig = signingConfigs.getByName("debug")
+        }
         release {
             isMinifyEnabled = true
             isShrinkResources = true
