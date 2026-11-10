@@ -123,4 +123,32 @@ class SelfTestResultsTest {
         assertEquals(mapOf(SelfTestResults.OVERALL to 50), scores)
         assertEquals("Mal so, mal so", SelfTestResults.overallBand(q, scores)?.title)
     }
+
+    @Test
+    fun selfRelationshipIsCompleteWithOverallAndParts() {
+        val q = SelfTestCatalog.selfRelationship
+        assertEquals(emptyList<String>(), QuestionnaireEvaluator.validate(q))
+        assertEquals(40, q.questions.size)
+        assertEquals(4, q.dimensions.size)
+        q.dimensions.forEach { d ->
+            assertEquals(10, q.questions.count { it.dimension == d.name })
+            assertEquals(1, q.questions.count { it.dimension == d.name && it.reversed })
+        }
+        assertEquals(3, q.bands.size)
+        fun eval(f: (de.lichtblickraum.core.selftest.Question) -> Int) =
+            QuestionnaireEvaluator.evaluate(q, q.questions.associate { it.id to f(it) })
+        val best = eval { if (it.reversed) 1 else 5 }
+        assertEquals(100, best.percent)
+        assertEquals("Du hast eine tragfähige Beziehung zu dir", best.band?.title)
+        val worst = eval { if (it.reversed) 5 else 1 }
+        assertEquals(0, worst.percent)
+        assertEquals("Deine Beziehung zu dir braucht gerade viel Zuwendung", worst.band?.title)
+        val scores = SelfTestResults.toScores(q, eval { 3 })
+        assertEquals(5, scores.size)
+        assertEquals(50, scores[SelfTestResults.OVERALL])
+        assertEquals("Deine Beziehung zu dir ist auf einem guten Weg", SelfTestResults.overallBand(q, scores)?.title)
+        assertEquals(4, SelfTestResults.dimensionScores(q, scores).size)
+        val critic = SelfTestCatalog.innerCritic.questions.map { it.text }.toSet()
+        assertTrue(q.questions.none { it.text in critic })
+    }
 }

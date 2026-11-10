@@ -220,13 +220,17 @@ fun ResultContent(q: Questionnaire, scores: Map<String, Int>, previousScores: Ma
     if (q.isExample) {
         Text("BEISPIEL-AUSWERTUNG · nicht fachlich geprüft", style = MaterialTheme.typography.labelMedium, color = LichtblickColors.Placeholder)
     }
-    SelfTestResults.overallBand(q, scores)?.let { band ->
+    val overallBand = SelfTestResults.overallBand(q, scores)
+    overallBand?.let { band ->
+        if (q.dimensions.isNotEmpty()) {
+            Text("Gesamtwert: ${scores[SelfTestResults.OVERALL]} / 100", style = MaterialTheme.typography.titleMedium, color = LichtblickColors.GoldDark)
+        }
         Heading(band.title)
         BandText(band)
     }
     val dims = SelfTestResults.dimensionScores(q, scores)
     if (dims.isNotEmpty()) {
-        Heading(q.title)
+        Heading(if (overallBand != null) "Deine Bereiche" else q.title)
         LichtblickCard {
             dims.forEach { d ->
                 Row(Modifier.fillMaxWidth()) {
@@ -242,8 +246,8 @@ fun ResultContent(q: Questionnaire, scores: Map<String, Int>, previousScores: Ma
             }
         }
         val top = dims.maxByOrNull { it.percent }
-        if (dims.size > 1 && top != null && top.percent >= 34) {
-            NoteBox(text = "Am deutlichsten zeigt sich gerade: ${top.dimension}. Unten findest du zu jedem Bereich eine kurze Beschreibung.")
+        if (q.strongestHint != null && dims.size > 1 && top != null && top.percent >= 34) {
+            NoteBox(text = "${q.strongestHint} ${top.dimension}. Unten findest du zu jedem Bereich eine kurze Beschreibung.")
         }
         dims.forEach { d ->
             val band = d.band ?: return@forEach

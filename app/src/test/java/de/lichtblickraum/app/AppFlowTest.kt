@@ -151,6 +151,23 @@ class AppFlowTest {
     }
 
     @Test
+    fun selfRelationshipShowsOverallAndParts() {
+        val q = SelfTestCatalog.selfRelationship
+        clickNav(Routes.SELF_TESTS)
+        clickText(q.title)
+        clickText("Test beginnen")
+        for (i in 1..q.questions.size) {
+            clickText("3 · Teils, teils")
+            clickText(if (i == q.questions.size) "Zur Auswertung" else "Weiter")
+        }
+        assertTextShown("Gesamtwert: 50 / 100")
+        assertTextShown("Deine Beziehung zu dir ist auf einem guten Weg")
+        assertTextShown("Deine Bereiche")
+        assertTextShown("Am stärksten ist gerade:", substring = true)
+        assertTextShown("Selbstmitgefühl · 50 / 100")
+    }
+
+    @Test
     fun backInQuestionnaireKeepsAnswer() {
         clickNav(Routes.SELF_TESTS)
         clickText(SelfTestCatalog.innerCritic.title)

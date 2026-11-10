@@ -288,6 +288,7 @@ object SelfTestCatalog {
                 ),
             ),
         ),
+        strongestHint = "Am deutlichsten zeigt sich gerade:",
         closingTitle = "Möchtest du genauer hinschauen?",
         closingText = "Dein innerer Kritiker hat oft eine lange Geschichte. In einer persönlichen Beratung " +
             "können wir gemeinsam verstehen, wofür er einmal gut war – und wie du ihm freundlicher begegnen kannst.",
@@ -295,9 +296,191 @@ object SelfTestCatalog {
             "geprüftes Verfahren, keine Diagnose und ersetzt keine Beratung, Psychotherapie oder ärztliche Behandlung.",
     )
 
-    val selfRelationship = inPreparation(
-        "beziehung-zu-dir", "Wie ist deine Beziehung zu dir selbst?",
-        "Wie begegnest du dir selbst, wie stabil ist dein Selbstwert, und wie gut stehst du für dich ein?",
+    private const val SW = "Selbstwert"
+    private const val SM = "Selbstmitgefühl"
+    private const val BS = "Bedürfnisse & Selbstfürsorge"
+    private const val GR = "Grenzen & für mich einstehen"
+
+    /**
+     * „Wie ist deine Beziehung zu dir selbst?“ – eigene Fassung für die App.
+     * 40 Aussagen, 10 je Bereich (davon je 1 umgekehrt gewertet). Hoher Wert = tragfähige Beziehung zu dir.
+     * Gesamtwert über alle Aussagen, dazu ein Wert je Bereich, jeweils 0–100.
+     */
+    val selfRelationship = Questionnaire(
+        id = "beziehung-zu-dir",
+        title = "Wie ist deine Beziehung zu dir selbst?",
+        shortDescription = "Wie begegnest du dir selbst, wie stabil ist dein Selbstwert, und wie gut stehst du für dich ein?",
+        intro = "Wie du mit dir selbst umgehst, prägt vieles: deine Beziehungen, deinen Alltag und dein " +
+            "Wohlbefinden. Dieser Test lädt dich ein, auf vier Seiten deiner Beziehung zu dir zu schauen: " +
+            "Selbstwert, Selbstmitgefühl, Bedürfnisse & Selbstfürsorge sowie Grenzen.\n\n" +
+            "Lies jede Aussage und wähle, wie sehr sie in letzter Zeit auf dich zutrifft: von " +
+            "1 (stimmt gar nicht) bis 5 (stimmt total). Es gibt kein Richtig oder Falsch.",
+        status = QuestionnaireStatus.AVAILABLE,
+        isExample = false,
+        estimatedMinutes = 8,
+        options = fivePointScale,
+        questions = listOf(
+            Question("b01", "Ich weiß, dass ich wertvoll bin – auch an Tagen, an denen mir wenig gelingt.", dimension = SW),
+            Question("b02", "Wenn mir ein Fehler passiert, kann ich mir verzeihen.", dimension = SM),
+            Question("b03", "Ich weiß, was mir guttut.", dimension = BS),
+            Question("b04", "Ich kann Nein sagen, wenn ich etwas nicht möchte.", dimension = GR),
+            Question("b05", "Ich mag mich, so wie ich bin.", dimension = SW),
+            Question("b06", "Auch unangenehme Gefühle dürfen bei mir sein.", dimension = SM),
+            Question("b07", "Ich nehme mir Zeit für Erholung, bevor ich völlig erschöpft bin.", dimension = BS),
+            Question("b08", "Ich sage meine Meinung, auch wenn sie nicht allen gefällt.", dimension = GR),
+            Question("b09", "Kritik kann ich mir anhören, ohne gleich an mir als Person zu zweifeln.", dimension = SW),
+            Question("b10", "In schweren Zeiten bin ich verständnisvoll mit mir.", dimension = SM),
+            Question("b11", "Ich achte auf die Signale meines Körpers.", dimension = BS),
+            Question("b12", "Wenn jemand meine Grenzen überschreitet, spreche ich das an.", dimension = GR),
+            Question("b13", "Ich kenne meine Stärken und kann sie benennen.", dimension = SW),
+            Question("b14", "Innerlich spreche ich freundlich mit mir.", dimension = SM),
+            Question("b15", "Meine Bedürfnisse sind mir genauso wichtig wie die anderer.", dimension = BS),
+            Question("b16", "Ich äußere meine Wünsche klar.", dimension = GR),
+            Question("b17", "Anerkennung tut mir gut, aber ich bin nicht auf sie angewiesen.", dimension = SW),
+            Question("b18", "Ich kann meine Schwächen annehmen, ohne mich dafür abzuwerten.", dimension = SM),
+            Question("b19", "Ich gönne mir regelmäßig Dinge, die mir Freude machen.", dimension = BS),
+            Question("b20", "Ich kann andere enttäuschen, ohne mich lange schuldig zu fühlen.", dimension = GR),
+            Question("b21", "Ich traue mir zu, auch schwierige Situationen zu meistern.", dimension = SW),
+            Question("b22", "Ich gehe mit mir so mitfühlend um wie mit einem lieben Menschen.", dimension = SM),
+            Question("b23", "Ich bitte um Unterstützung, wenn ich sie brauche.", dimension = BS),
+            Question("b24", "Ich erlaube mir, sichtbar zu sein und Raum einzunehmen.", dimension = GR),
+            Question("b25", "Ein Kompliment kann ich annehmen, ohne es kleinzureden.", dimension = SW),
+            Question("b26", "Ich kann mich selbst trösten, wenn es mir nicht gut geht.", dimension = SM),
+            Question("b27", "Ich achte darauf, genug Schlaf, Bewegung und gutes Essen zu bekommen.", dimension = BS),
+            Question("b28", "Ich stehe zu meinen Werten, auch wenn ich unter Druck gerate.", dimension = GR),
+            Question("b29", "Ich fühle mich anderen Menschen gegenüber gleichwertig.", dimension = SW),
+            Question("b30", "Ich erlaube mir, nicht perfekt zu sein.", dimension = SM),
+            Question("b31", "Ich kann Dinge tun, nur weil sie mir guttun – ohne schlechtes Gewissen.", dimension = BS),
+            Question("b32", "Ich bleibe bei meiner Entscheidung, auch wenn andere drängen.", dimension = GR),
+            Question("b33", "Mein Wert hängt für mich nicht davon ab, was ich leiste.", dimension = SW),
+            Question("b34", "Ich fühle mich in mir selbst sicher und geborgen.", dimension = SM),
+            Question("b35", "Ich merke, wenn mir etwas zu viel wird, und reagiere darauf.", dimension = BS),
+            Question("b36", "Ich kann um Bedenkzeit bitten, bevor ich zusage.", dimension = GR),
+            Question("b37", "Wenn ich mich mit anderen vergleiche, fühle ich mich schnell weniger wert.", reversed = true, dimension = SW),
+            Question("b38", "Wenn es mir schlecht geht, werfe ich mir vor, nicht besser damit umzugehen.", reversed = true, dimension = SM),
+            Question("b39", "Meine eigenen Bedürfnisse kommen bei mir meistens zuletzt.", reversed = true, dimension = BS),
+            Question("b40", "Ich sage oft Ja, obwohl ich eigentlich Nein meine.", reversed = true, dimension = GR),
+        ),
+        bands = listOf(
+            ResultBand(
+                0, 33, "Deine Beziehung zu dir braucht gerade viel Zuwendung",
+                "Deine Antworten deuten an, dass es dir im Moment schwerfällt, freundlich und unterstützend mit dir umzugehen. Das ist kein Versagen – oft haben wir früh gelernt, uns selbst hintanzustellen.\n\nDie Beziehung zu dir selbst kann wachsen, in kleinen Schritten. Und du musst das nicht allein tun.",
+                permission = "„Ich darf lernen, mich selbst gut zu behandeln.“",
+                reflection = "„Was wäre ein kleiner, freundlicher Schritt, den ich heute für mich tun kann?“",
+            ),
+            ResultBand(
+                34, 66, "Deine Beziehung zu dir ist auf einem guten Weg",
+                "Deine Antworten deuten an, dass dir ein freundlicher Umgang mit dir in manchen Bereichen schon gut gelingt und in anderen noch schwerer fällt. Das ist sehr menschlich.\n\nDer Blick auf die einzelnen Bereiche zeigt dir, wo du schon Halt findest – und wo du dir noch mehr Fürsorge schenken magst.",
+                permission = "„Ich darf mir selbst Schritt für Schritt näherkommen.“",
+                reflection = "„In welchem Bereich möchte ich mir gerade am meisten Freundlichkeit schenken?“",
+            ),
+            ResultBand(
+                67, 100, "Du hast eine tragfähige Beziehung zu dir",
+                "Deine Antworten deuten an, dass du dir im Moment häufig mit Wertschätzung, Verständnis und Fürsorge begegnest. Das ist eine wertvolle Grundlage – gerade für schwierigere Zeiten.\n\nAuch eine gute Beziehung zu sich selbst darf schwanken. Das gehört dazu.",
+                permission = "„Ich darf mich so annehmen, wie ich bin.“",
+                reflection = "„Was hilft mir, diese Verbindung zu mir auch an schweren Tagen zu halten?“",
+            ),
+        ),
+        dimensions = listOf(
+            Dimension(
+                SW,
+                listOf(
+                    ResultBand(
+                        0, 33, "Dein Selbstwert wackelt gerade",
+                        "Deine Antworten deuten an, dass du im Moment häufig an deinem Wert zweifelst – zum Beispiel, wenn du kritisiert wirst oder dich vergleichst.\n\nDein Wert hängt nicht davon ab, wie du gerade über dich denkst. Er ist da, auch wenn du ihn gerade schwer spürst.",
+                        permission = "„Ich bin wertvoll, auch wenn ich es gerade nicht fühle.“",
+                        reflection = "„Wer oder was hilft mir, mich wieder als wertvoll zu erleben?“",
+                    ),
+                    ResultBand(
+                        34, 66, "Dein Selbstwert ist da – mit Schwankungen",
+                        "Oft kannst du dich gut annehmen. In manchen Situationen, etwa bei Kritik oder Vergleichen, gerät dein Selbstwert aber ins Wanken. Das kennen viele Menschen.\n\nEs lohnt sich, freundlich hinzuschauen, welche Situationen dich besonders verunsichern.",
+                        permission = "„Mein Wert bleibt, auch wenn etwas schiefgeht.“",
+                        reflection = "„In welchen Momenten fühle ich mich besonders sicher in mir?“",
+                    ),
+                    ResultBand(
+                        67, 100, "Du ruhst gut in deinem Selbstwert",
+                        "Deine Antworten deuten an, dass du dich im Moment als wertvoll erlebst – unabhängig von Leistung oder Bestätigung. Das gibt dir Stabilität, auch wenn es einmal stürmisch wird.",
+                        permission = "„Ich darf zu mir stehen.“",
+                        reflection = "„Was nährt meinen Selbstwert – und wie kann ich es pflegen?“",
+                    ),
+                ),
+            ),
+            Dimension(
+                SM,
+                listOf(
+                    ResultBand(
+                        0, 33, "Mit dir selbst bist du gerade streng",
+                        "Deine Antworten deuten an, dass du dir im Moment wenig Verständnis schenkst, wenn etwas schwer ist oder schiefgeht. Vielen Menschen fällt es leichter, mit anderen mitfühlend zu sein als mit sich selbst.\n\nSelbstmitgefühl kann man üben – ganz behutsam und in kleinen Schritten.",
+                        permission = "„Ich darf mit mir so sanft sein wie mit einem lieben Menschen.“",
+                        reflection = "„Was würde ich einem lieben Menschen in meiner Situation sagen?“",
+                    ),
+                    ResultBand(
+                        34, 66, "Du kannst schon oft freundlich mit dir sein",
+                        "In vielen Momenten gelingt es dir, verständnisvoll mit dir umzugehen. In schwierigen Zeiten wird deine innere Stimme aber manchmal strenger.\n\nDas ist ganz normal – und ein guter Hinweis darauf, wo du dir noch mehr Wärme schenken kannst.",
+                        permission = "„Auch an schweren Tagen darf ich freundlich zu mir sein.“",
+                        reflection = "„Wann fällt es mir besonders schwer, mitfühlend mit mir zu sein?“",
+                    ),
+                    ResultBand(
+                        67, 100, "Du begegnest dir mit viel Mitgefühl",
+                        "Deine Antworten deuten an, dass du dir im Moment auch in schwierigen Situationen mit Wärme und Verständnis begegnest. Das kann dir helfen, schwere Gefühle zu tragen, ohne dich in ihnen zu verlieren.",
+                        permission = "„Ich darf mir selbst ein sicherer Ort sein.“",
+                        reflection = "„Wie zeigt sich mein Mitgefühl mit mir im Alltag?“",
+                    ),
+                ),
+            ),
+            Dimension(
+                BS,
+                listOf(
+                    ResultBand(
+                        0, 33, "Deine Bedürfnisse kommen gerade zu kurz",
+                        "Deine Antworten deuten an, dass du im Moment wenig auf das achtest, was du brauchst – vielleicht, weil anderes wichtiger scheint oder die Kraft fehlt.\n\nDeine Bedürfnisse sind kein Luxus. Schon kleine Momente der Fürsorge können einen Unterschied machen.",
+                        permission = "„Ich darf gut für mich sorgen.“",
+                        reflection = "„Welches Bedürfnis meldet sich bei mir gerade am lautesten?“",
+                    ),
+                    ResultBand(
+                        34, 66, "Du sorgst für dich – nicht immer, aber oft",
+                        "Du weißt meist, was dir guttut, und gönnst es dir auch immer wieder. In vollen Zeiten rutschen deine Bedürfnisse aber schnell nach hinten.\n\nEs kann helfen, ihnen einen festen kleinen Platz im Alltag zu geben.",
+                        permission = "„Meine Bedürfnisse dürfen einen festen Platz haben.“",
+                        reflection = "„Was brauche ich, damit Selbstfürsorge auch in stressigen Zeiten möglich bleibt?“",
+                    ),
+                    ResultBand(
+                        67, 100, "Du hast einen guten Draht zu deinen Bedürfnissen",
+                        "Deine Antworten deuten an, dass du im Moment gut spürst, was du brauchst, und es dir auch erlaubst. Das stärkt dich und schützt dich vor Erschöpfung.",
+                        permission = "„Ich darf mir Gutes tun, einfach so.“",
+                        reflection = "„Welche Form der Selbstfürsorge tut mir gerade am meisten gut?“",
+                    ),
+                ),
+            ),
+            Dimension(
+                GR,
+                listOf(
+                    ResultBand(
+                        0, 33, "Für dich einzustehen fällt dir gerade schwer",
+                        "Deine Antworten deuten an, dass es dir im Moment schwerfällt, Nein zu sagen, deine Meinung zu vertreten oder deine Grenzen zu zeigen. Oft steckt dahinter der Wunsch, Konflikte zu vermeiden oder dazuzugehören.\n\nGrenzen dürfen klein anfangen – zum Beispiel mit etwas Bedenkzeit.",
+                        permission = "„Ich darf Nein sagen und bin trotzdem in Ordnung.“",
+                        reflection = "„In welcher kleinen Situation könnte ich üben, für mich einzustehen?“",
+                    ),
+                    ResultBand(
+                        34, 66, "Du stehst für dich ein – manchmal noch mit Zögern",
+                        "In vielen Situationen kannst du deine Wünsche und Grenzen zeigen. Wenn dir jemand besonders wichtig ist oder Druck entsteht, gibst du aber noch öfter nach, als dir guttut.\n\nDas ist verständlich – und ein guter Ansatzpunkt.",
+                        permission = "„Meine Grenzen sind genauso wichtig wie die der anderen.“",
+                        reflection = "„Wann fällt es mir leichter, für mich einzustehen – und wann schwerer?“",
+                    ),
+                    ResultBand(
+                        67, 100, "Du kannst gut für dich einstehen",
+                        "Deine Antworten deuten an, dass du im Moment klar zeigen kannst, was du möchtest und was nicht. Das schützt dich und macht deine Beziehungen ehrlicher.",
+                        permission = "„Ich darf Raum einnehmen.“",
+                        reflection = "„Wie kann ich klar bleiben und dabei zugleich freundlich sein?“",
+                    ),
+                ),
+            ),
+        ),
+        strongestHint = "Am stärksten ist gerade:",
+        closingTitle = "Möchtest du genauer hinschauen?",
+        closingText = "Die Beziehung zu dir selbst ist die Grundlage für viele andere Beziehungen. In einer " +
+            "persönlichen Beratung können wir gemeinsam schauen, wie du sie weiter stärken kannst – in deinem Tempo.",
+        resultNote = "Dieser Test ist eine Einladung zur Selbstreflexion. Er ist kein wissenschaftlich " +
+            "geprüftes Verfahren, keine Diagnose und ersetzt keine Beratung, Psychotherapie oder ärztliche Behandlung.",
     )
     val emotionalDependency = inPreparation(
         "emotionale-abhaengigkeit", "Wie emotional abhängig bin ich?",

@@ -60,6 +60,8 @@ data class Questionnaire(
     val dimensions: List<Dimension> = emptyList(),
     /** Optionaler Abschluss unter dem Ergebnis, z. B. „Möchtest du genauer hinschauen?“ */
     val closingTitle: String? = null,
+    /** Satz vor dem ausgeprägtesten Bereich, z. B. „Am deutlichsten zeigt sich gerade:“ (null = nicht anzeigen). */
+    val strongestHint: String? = null,
     val closingText: String? = null,
     /** Wird unter jedem Ergebnis gezeigt. */
     val resultNote: String = "",
