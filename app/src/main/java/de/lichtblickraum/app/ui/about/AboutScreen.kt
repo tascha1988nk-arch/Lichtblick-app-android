@@ -36,6 +36,7 @@ import de.lichtblickraum.app.ui.components.BodyText
 import de.lichtblickraum.app.ui.components.BookingButton
 import de.lichtblickraum.app.ui.components.ContentText
 import de.lichtblickraum.app.ui.components.Heading
+import de.lichtblickraum.app.ui.components.LichtblickLogo
 import de.lichtblickraum.app.ui.components.LichtblickCard
 import de.lichtblickraum.app.ui.components.QuietButton
 import de.lichtblickraum.app.ui.components.ScreenColumn
@@ -50,6 +51,7 @@ import de.lichtblickraum.core.config.AppLinks
 fun AboutScreen(onOpenLegal: (String) -> Unit) {
     val context = LocalContext.current
     ScreenColumn {
+        LichtblickLogo(Modifier.align(Alignment.CenterHorizontally))
         Heading("Über Lichtblick")
         Text(
             "Psychologische Beratung in ${AboutContent.LOCATION} und online",
@@ -65,7 +67,17 @@ fun AboutScreen(onOpenLegal: (String) -> Unit) {
             modifier = Modifier.fillMaxWidth(),
         )
         ContentText(AboutContent.INTRODUCTION)
-        ContentText(AboutContent.QUALIFICATIONS)
+
+        SectionTitle("Ausbildung und Qualifikationen")
+        LichtblickCard {
+            AboutContent.qualifications.forEach { q ->
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Box(Modifier.size(8.dp).clip(CircleShape).background(LichtblickColors.Gold))
+                    Spacer(Modifier.width(12.dp))
+                    BodyText(q)
+                }
+            }
+        }
 
         SectionTitle("Schwerpunkte")
         LichtblickCard {

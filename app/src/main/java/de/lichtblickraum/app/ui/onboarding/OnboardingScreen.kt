@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import de.lichtblickraum.app.AppContainer
 import de.lichtblickraum.app.ui.components.BodyText
 import de.lichtblickraum.app.ui.components.Heading
+import de.lichtblickraum.app.ui.components.LichtblickLogo
 import de.lichtblickraum.app.ui.components.LichtblickTopBar
 import de.lichtblickraum.app.ui.components.NoteBox
 import de.lichtblickraum.app.ui.components.PrimaryButton
@@ -91,7 +92,7 @@ fun OnboardingScreen(container: AppContainer, editMode: Boolean, onDone: () -> U
                 }
                 when (page) {
                     0 -> {
-                        Spacer(Modifier.heightIn(min = 24.dp))
+                        LichtblickLogo(Modifier.align(Alignment.CenterHorizontally))
                         Heading("Willkommen bei ${AboutContent.PRACTICE_NAME}")
                         BodyText(
                             "Magst du mir kurz verraten, was dir gerade wichtig ist? Dann kann ich dir " +

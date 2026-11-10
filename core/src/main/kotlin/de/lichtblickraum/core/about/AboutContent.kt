@@ -30,8 +30,13 @@ object AboutContent {
             "das Tempo. Diese App ist eine kleine Begleitung dafür – zwischen unseren Terminen " +
             "oder ganz für dich allein."
 
-    /** PLATZHALTER: Nur selbst geprüfte Angaben zu Ausbildung/Qualifikation eintragen. */
-    const val QUALIFICATIONS = "[Platzhalter: Deine Ausbildung und Qualifikationen]"
+    /** Ausbildung und Qualifikationen (von Natascha angegeben). */
+    val qualifications: List<String> = listOf(
+        "Psychologische Beraterin",
+        "Zusatzqualifikation Paarberatung",
+        "Zusatzqualifikation ADHS-Coaching für Erwachsene",
+        "Zertifikat Neurodiversitäts-Coach",
+    )
 
     /** Von dir genannte Schwerpunkte. */
     val focusAreas: List<String> = listOf(
