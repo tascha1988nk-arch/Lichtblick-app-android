@@ -9,7 +9,7 @@ Native Android-App mit **Kotlin** und **Jetpack Compose**. Stand: Prototyp, Vers
 |---|---|
 | **Start** | Begrüßung, Zugänge zu allen Bereichen, „Termin vereinbaren“, Hinweis für Krisen |
 | **Selbsttests** | Beispiel-Fragebogen (deutlich als unverbindliche Reflexion gekennzeichnet) mit Fortschritt und Auswertung; „Innerer Kritiker“, „People Pleasing“, „Selbstwert“ und „Grenzen“ sind als „In Vorbereitung“ angelegt |
-| **Übungen** | Ankommen im Hier und Jetzt · Meine Grenzen wahrnehmen · Ein freundlicherer innerer Dialog |
+| **Übungen** | 11 Übungen in 5 Kategorien: Selbstwert · Grenzen · Paarthemen · ADHS im Alltag · Gefühle & Stress |
 | **Lichtblicke** | „Dein Lichtblick für heute“ (60 Impulse), „Dein Wochenimpuls“ (9 Impulse), Rückschau, Pause. Jede Runde neu gemischt; kürzlich Erledigtes (3 Wochen bzw. 4 Wochen) wird übersprungen. Freiwillige Erinnerungen (täglich/wöchentlich, Uhrzeit wählbar, standardmäßig aus) |
 | **Über** | Platz für Foto, Vorstellung und Angebote, Schwerpunkte, Website, Impressum, Datenschutz |
 
@@ -29,7 +29,7 @@ Alle Inhalte liegen getrennt von der Oberfläche im Ordner `core/src/main/kotlin
 | Vorstellung, Name, Angebote, Begrüßung | `about/AboutContent.kt` |
 | Impressum, Datenschutz, Hinweise, Krisennummern | `about/LegalContent.kt` |
 | Selbsttests: Fragen, Antwortskala, Auswertungsbereiche | `selftest/SelfTestCatalog.kt` |
-| Übungen | `exercises/ExerciseCatalog.kt` |
+| Übungen und Kategorien | `exercises/ExerciseCatalog.kt`, `exercises/Exercise.kt` |
 | Tages- / Wochenimpulse | `impulses/DailyImpulses.kt`, `impulses/WeeklyImpulses.kt` |
 | Rückmeldungen nach einem Impuls | `impulses/Feedback.kt` |
 | Farben | `app/src/main/java/de/lichtblickraum/app/ui/theme/Color.kt` |

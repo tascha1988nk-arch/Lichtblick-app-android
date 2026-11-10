@@ -11,9 +11,17 @@ import org.junit.Test
 class ContentTest {
 
     @Test
-    fun threeExercisesWithSteps() {
-        assertEquals(3, ExerciseCatalog.all.size)
+    fun exercisesAreGroupedInCategories() {
+        assertEquals(de.lichtblickraum.core.exercises.ExerciseCategory.entries.toList(), ExerciseCatalog.categories)
+        ExerciseCatalog.categories.forEach { c ->
+            assertTrue("mind. 2 Übungen in ${c.title}", ExerciseCatalog.inCategory(c).size >= 2)
+        }
+        assertEquals("IDs eindeutig", ExerciseCatalog.all.size, ExerciseCatalog.all.map { it.id }.toSet().size)
         ExerciseCatalog.all.forEach { assertTrue(it.steps.isNotEmpty()) }
+        // Bisherige Übungen bleiben erhalten (IDs stehen ggf. schon in der Rückschau)
+        listOf("orientierung", "grenzen-reflexion", "freundlicher-dialog").forEach {
+            assertTrue(ExerciseCatalog.byId(it) != null)
+        }
     }
 
     @Test

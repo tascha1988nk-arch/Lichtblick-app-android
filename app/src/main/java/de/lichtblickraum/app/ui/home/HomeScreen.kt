@@ -78,7 +78,7 @@ fun HomeScreen(
         EntryCard(
             icon = Icons.Filled.Favorite,
             title = "Übungen",
-            text = "Kurze Übungen für stressige Momente, Grenzen und einen freundlicheren inneren Dialog.",
+            text = "Kurze Übungen zu Selbstwert, Grenzen, Paarthemen, ADHS im Alltag sowie Gefühlen und Stress.",
             onClick = onOpenExercises,
         )
         EntryCard(

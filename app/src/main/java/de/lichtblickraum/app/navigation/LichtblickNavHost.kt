@@ -25,6 +25,7 @@ import androidx.navigation.compose.rememberNavController
 import de.lichtblickraum.app.AppContainer
 import de.lichtblickraum.app.ui.about.AboutScreen
 import de.lichtblickraum.app.ui.about.LegalScreen
+import de.lichtblickraum.app.ui.exercises.ExerciseCategoryScreen
 import de.lichtblickraum.app.ui.exercises.ExerciseListScreen
 import de.lichtblickraum.app.ui.exercises.ExerciseScreen
 import de.lichtblickraum.app.ui.home.HomeScreen
@@ -43,7 +44,7 @@ fun LichtblickRoot(
 ) {
     val backStack by navController.currentBackStackEntryAsState()
     val currentRoute = backStack?.destination?.route
-    val showBottomBar = TopLevel.entries.any { it.route == currentRoute }
+    val showBottomBar = TopLevel.entries.any { it.route == currentRoute } || currentRoute == Routes.EXERCISE_CATEGORY
 
     fun goTopLevel(route: String) {
         navController.navigate(route) {
@@ -59,7 +60,8 @@ fun LichtblickRoot(
             if (showBottomBar) {
                 NavigationBar(containerColor = LichtblickColors.CreamDeep) {
                     TopLevel.entries.forEach { item ->
-                        val selected = backStack?.destination?.hierarchy?.any { it.route == item.route } == true
+                        val selected = backStack?.destination?.hierarchy?.any { it.route == item.route } == true ||
+                            (item == TopLevel.EXERCISES && currentRoute == Routes.EXERCISE_CATEGORY)
                         NavigationBarItem(
                             selected = selected,
                             onClick = { goTopLevel(item.route) },
@@ -102,7 +104,14 @@ fun LichtblickRoot(
                 )
             }
             composable(Routes.EXERCISES) {
-                ExerciseListScreen(onStart = { navController.navigate(Routes.exercise(it)) })
+                ExerciseListScreen(onOpenCategory = { navController.navigate(Routes.exerciseCategory(it.name)) })
+            }
+            composable(Routes.EXERCISE_CATEGORY) { entry ->
+                ExerciseCategoryScreen(
+                    categoryName = entry.arguments?.getString("name").orEmpty(),
+                    onStart = { navController.navigate(Routes.exercise(it)) },
+                    onBack = { navController.popBackStack() },
+                )
             }
             composable(Routes.EXERCISE) { entry ->
                 ExerciseScreen(

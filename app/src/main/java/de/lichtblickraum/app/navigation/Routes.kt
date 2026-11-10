@@ -17,11 +17,13 @@ object Routes {
 
     const val SELF_TEST = "selbsttest/{id}"
     const val EXERCISE = "uebung/{id}"
+    const val EXERCISE_CATEGORY = "uebungen/thema/{name}"
     const val REVIEW = "rueckschau"
     const val LEGAL = "rechtliches/{type}"
 
     fun selfTest(id: String) = "selbsttest/$id"
     fun exercise(id: String) = "uebung/$id"
+    fun exerciseCategory(name: String) = "uebungen/thema/$name"
     fun legal(type: String) = "rechtliches/$type"
 
     const val LEGAL_IMPRINT = "impressum"

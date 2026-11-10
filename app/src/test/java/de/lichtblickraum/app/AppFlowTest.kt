@@ -69,7 +69,7 @@ class AppFlowTest {
         clickNav(Routes.SELF_TESTS)
         assertTextShown("Zum Ausprobieren")
         clickNav(Routes.EXERCISES)
-        assertTextShown("Ankommen im Hier und Jetzt")
+        assertTextShown("Paarthemen")
         clickNav(Routes.LICHTBLICKE)
         assertTextShown("Dein Lichtblick für heute")
         clickNav(Routes.ABOUT)
@@ -80,8 +80,8 @@ class AppFlowTest {
 
     @Test
     fun homeCardsOpenSections() {
-        clickText("Kurze Übungen für stressige Momente, Grenzen und einen freundlicheren inneren Dialog.")
-        assertTextShown("Meine Grenzen wahrnehmen")
+        clickText("Kurze Übungen zu Selbstwert, Grenzen, Paarthemen, ADHS im Alltag sowie Gefühlen und Stress.")
+        assertTextShown("ADHS im Alltag")
     }
 
     @Test
@@ -143,6 +143,19 @@ class AppFlowTest {
     }
 
     @Test
+    fun everyExerciseCategoryOpensWithItsExercises() {
+        clickNav(Routes.EXERCISES)
+        de.lichtblickraum.core.exercises.ExerciseCatalog.categories.forEach { category ->
+            clickText(category.title)
+            de.lichtblickraum.core.exercises.ExerciseCatalog.inCategory(category).forEach { assertTextShown(it.title) }
+            rule.onNodeWithContentDescription("Zurück").performClick()
+            rule.waitForIdle()
+        }
+        clickText("Paarthemen")
+        assertTextShown("116 016", substring = true)
+    }
+
+    @Test
     fun inPreparationTestsAreMarked() {
         clickNav(Routes.SELF_TESTS)
         assertTextShown("In Vorbereitung")
@@ -153,23 +166,25 @@ class AppFlowTest {
     @Test
     fun exerciseCanBeStartedAndEndedAnytime() {
         clickNav(Routes.EXERCISES)
+        clickText("Gefühle & Stress")
         clickText("Ankommen im Hier und Jetzt")
         clickText("Übung beginnen")
         assertTextShown("Schritt 1 von 5")
         clickText("Übung beenden")
-        assertTextShown("Meine Grenzen wahrnehmen")
+        assertTextShown("Ein Gefühl benennen und begleiten")
     }
 
     @Test
     fun exerciseCompletionAppearsInReview() {
         clickNav(Routes.EXERCISES)
+        clickText("Selbstwert")
         clickText("Ein freundlicherer innerer Dialog")
         clickText("Übung beginnen")
         repeat(3) { clickText("Weiter") }
         clickText("Zum Abschluss")
         clickText("In der Rückschau vermerken")
         assertTextShown("Vermerkt")
-        clickText("Zurück zu den Übungen")
+        clickText("Zurück zur Übersicht")
         clickNav(Routes.LICHTBLICKE)
         clickText("Rückschau ansehen")
         assertTextShown("Ein freundlicherer innerer Dialog")

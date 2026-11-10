@@ -190,7 +190,7 @@ private fun Done(onExit: () -> Unit) {
     ScreenColumn {
         Heading("Vermerkt")
         BodyText("Die Übung steht jetzt in deiner Rückschau. Danke, dass du dir diesen Moment genommen hast.")
-        PrimaryButton("Zurück zu den Übungen", onExit)
+        PrimaryButton("Zurück zur Übersicht", onExit)
     }
 }
 
