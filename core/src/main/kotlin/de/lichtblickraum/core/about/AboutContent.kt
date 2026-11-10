@@ -19,9 +19,9 @@ object AboutContent {
 
     const val COUNSELOR_NAME = "Natascha Helbig"
 
-    /** Vorstellung (Entwurf von Claude, von Natascha zu prüfen). */
+    /** Vorstellung (von Natascha freigegeben). */
     const val INTRODUCTION =
-        "Ich bin Natascha Helbig und begleite bei Lichtblick in Bad Dürkheim Menschen, " +
+        "Ich bin Natascha Helbig und begleite in meiner Praxis in Bad Dürkheim und online Menschen, " +
             "die sich selbst besser verstehen und liebevoller mit sich umgehen möchten.\n\n" +
             "Gemeinsam schauen wir auf das, was dich gerade beschäftigt – in deiner Partnerschaft, " +
             "im Alltag mit ADHS oder bei Themen wie Selbstwert, Grenzen, Beziehungsmustern und " +
