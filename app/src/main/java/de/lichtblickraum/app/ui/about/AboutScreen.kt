@@ -14,6 +14,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Icon
@@ -121,18 +123,20 @@ fun AboutScreen(onOpenLegal: (String) -> Unit) {
 }
 
 /**
- * Dein Porträt. Austauschen: neues Bild als app/src/main/res/drawable-nodpi/portrait.jpg ablegen
- * (quadratisch, Gesicht mittig).
+ * Dein Porträt im Querformat mit abgerundeten Ecken.
+ * Austauschen: neues Bild als app/src/main/res/drawable-nodpi/portrait.jpg ablegen (Querformat 3:2).
  */
 @Composable
 private fun Portrait(modifier: Modifier = Modifier) {
+    val shape = RoundedCornerShape(20.dp)
     Image(
         painter = painterResource(R.drawable.portrait),
         contentDescription = "Porträtfoto",
         contentScale = ContentScale.Crop,
         modifier = modifier
-            .size(200.dp)
-            .clip(CircleShape)
-            .border(BorderStroke(3.dp, LichtblickColors.Gold), CircleShape),
+            .fillMaxWidth()
+            .aspectRatio(3f / 2f)
+            .clip(shape)
+            .border(BorderStroke(2.dp, LichtblickColors.GoldSoft), shape),
     )
 }

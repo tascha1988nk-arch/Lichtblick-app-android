@@ -29,7 +29,7 @@ import de.lichtblickraum.app.ui.theme.LichtblickColors
 data class PracticePhoto(@DrawableRes val res: Int, val caption: String, val aspect: Float)
 
 val practicePhotos = listOf(
-    PracticePhoto(R.drawable.praxis_raum, "Der Beratungsraum", 16f / 9f),
+    PracticePhoto(R.drawable.praxis_raum, "Der Beratungsraum", 2f),
     PracticePhoto(R.drawable.praxis_sessel, "Platz für dein Gespräch", 16f / 9f),
     PracticePhoto(R.drawable.praxis_ankommen, "Ankommen", 9f / 16f),
 )
