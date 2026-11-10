@@ -67,7 +67,7 @@ class PersonalizationTest {
         assertTrue(list.all { it.category == ExerciseCategory.ADHD || it.category == ExerciseCategory.COUPLE })
         assertTrue("kurze zuerst", list.first().minutes <= 5)
         assertTrue(Personalization.exerciseForDay(p, day).minutes <= 5)
-        assertEquals(11, Personalization.suggestedExercises(UserProfile()).size)
+        assertEquals(de.lichtblickraum.core.exercises.ExerciseCatalog.all.size, Personalization.suggestedExercises(UserProfile()).size)
     }
 
     @Test

@@ -454,12 +454,335 @@ object ExerciseCatalog {
         closing = "Du hast deinem Gefühl zugehört, statt es wegzuschieben. Das ist eine Form von Fürsorge.",
     )
 
+    // ── Ergänzung: zwei weitere Übungen je Thema ─────────────────────────────────
+
+    val innererUnterstuetzer = Exercise(
+        id = "innerer-unterstuetzer",
+        minutes = 5,
+        category = ExerciseCategory.SELF_WORTH,
+        title = "Mein innerer Unterstützer",
+        subtitle = "Eine freundliche Stimme in dir stärken",
+        durationText = "ca. 5 Minuten",
+        intro = "Neben der kritischen Stimme gibt es in uns auch eine wohlwollende. Manchmal ist sie leise. In dieser Übung gibst du ihr ein Gesicht und eine Stimme.",
+        steps = listOf(
+            ExerciseStep(
+                "Eine wohlwollende Gestalt",
+                "Denk an einen Menschen, ein Wesen oder eine Gestalt, die dir freundlich gesinnt ist – real oder vorgestellt. Zum Beispiel eine warmherzige Großmutter, ein guter Freund oder eine Figur aus einem Buch.",
+                inputPrompt = "Wer begleitet dich in dieser Übung?",
+            ),
+            ExerciseStep(
+                "Wie sie dich sieht",
+                "Stell dir vor, diese Gestalt schaut dich gerade an – mit Wärme und ohne Urteil. Was sieht sie an dir, das du selbst manchmal übersiehst?",
+                inputPrompt = "Was sieht sie an dir?",
+            ),
+            ExerciseStep(
+                "Was sie dir sagt",
+                "Was würde sie dir heute sagen, vielleicht zu etwas, das dich gerade beschäftigt?",
+                inputPrompt = "Ihr Satz an dich",
+            ),
+            ExerciseStep(
+                "Mitnehmen",
+                "Du kannst diese Stimme jederzeit wieder einladen – besonders dann, wenn die kritische Stimme laut wird.",
+            ),
+        ),
+        closing = "Die freundliche Stimme gehört auch zu dir. Je öfter du ihr zuhörst, desto vertrauter wird sie.",
+    )
+
+    val wertOhneLeistung = Exercise(
+        id = "wert-ohne-leistung",
+        minutes = 8,
+        category = ExerciseCategory.SELF_WORTH,
+        title = "Wert ohne Leistung",
+        subtitle = "Entdecken, was dich jenseits von Erfolg ausmacht",
+        durationText = "ca. 5–10 Minuten",
+        intro = "Oft messen wir unseren Wert an dem, was wir schaffen. Diese Übung lädt dich ein, einmal auf das zu schauen, was bleibt, wenn alle Leistungen beiseitegelegt sind.",
+        steps = listOf(
+            ExerciseStep(
+                "Leistungen beiseitelegen",
+                "Stell dir vor, du legst für einen Moment alles ab, was du leistest: Arbeit, Aufgaben, Rollen. Was bleibt von dir übrig?",
+            ),
+            ExerciseStep(
+                "Was dich ausmacht",
+                "Welche Eigenschaften, Werte oder Eigenheiten gehören zu dir – ganz unabhängig davon, was du tust? Zum Beispiel Humor, Neugier oder deine Art zuzuhören.",
+                inputPrompt = "Was macht dich aus?",
+            ),
+            ExerciseStep(
+                "Gemocht, einfach so",
+                "Erinnere dich an einen Moment, in dem dich jemand einfach gern bei sich hatte – ohne dass du etwas leisten musstest.",
+                inputPrompt = "Dein Moment",
+            ),
+            ExerciseStep(
+                "Ein Satz für dich",
+                "Formuliere einen Satz, der dich daran erinnert. Zum Beispiel: „Ich bin wertvoll, auch an Tagen, an denen ich wenig schaffe.“",
+                inputPrompt = "Dein Satz",
+            ),
+        ),
+        closing = "Dein Wert war schon da, bevor du etwas geleistet hast. Und er bleibt.",
+    )
+
+    val energieCheck = Exercise(
+        id = "energie-check",
+        minutes = 5,
+        category = ExerciseCategory.BOUNDARIES,
+        title = "Mein Energie-Check",
+        subtitle = "Spüren, was dir Kraft gibt und was sie kostet",
+        durationText = "ca. 5 Minuten",
+        intro = "Grenzen haben viel mit Energie zu tun. Wer weiß, was Kraft kostet, kann leichter für sich sorgen. Diese Übung hilft dir, deinen Tag mit diesem Blick anzuschauen.",
+        steps = listOf(
+            ExerciseStep(
+                "Dein Energielevel",
+                "Wie voll ist dein innerer Akku gerade – eher leer, halb voll oder gut geladen? Es gibt keine falsche Antwort.",
+                inputPrompt = "Wie voll ist dein Akku?",
+            ),
+            ExerciseStep(
+                "Was Kraft gekostet hat",
+                "Was hat dich heute oder in den letzten Tagen besonders viel Energie gekostet? Denk an Aufgaben, Begegnungen oder Gedanken.",
+                inputPrompt = "Was hat Kraft gekostet?",
+            ),
+            ExerciseStep(
+                "Was Kraft gegeben hat",
+                "Und was hat dir Energie geschenkt – auch wenn es nur ein kleiner Moment war?",
+                inputPrompt = "Was hat Kraft gegeben?",
+            ),
+            ExerciseStep(
+                "Eine kleine Grenze",
+                "Gibt es eine kleine Grenze, die deine Energie in den nächsten Tagen schützen könnte? Zum Beispiel eine Pause einplanen oder eine Anfrage später beantworten.",
+                inputPrompt = "Deine kleine Grenze",
+            ),
+        ),
+        closing = "Auf deine Energie zu achten, ist kein Egoismus. Es ist eine Form von Fürsorge – für dich und für die Menschen um dich.",
+    )
+
+    val neinVorbereiten = Exercise(
+        id = "nein-vorbereiten",
+        minutes = 8,
+        category = ExerciseCategory.BOUNDARIES,
+        title = "Ein Nein vorbereiten",
+        subtitle = "Ein freundliches, klares Nein in Ruhe vorbereiten",
+        durationText = "ca. 5–10 Minuten",
+        intro = "Ein Nein fällt leichter, wenn wir es nicht spontan finden müssen. In dieser Übung bereitest du eines für eine kleine, alltägliche Situation vor. Ob du es aussprichst, entscheidest du.",
+        steps = listOf(
+            ExerciseStep(
+                "Die Situation",
+                "Denk an eine kleine Bitte oder Anfrage, die bald auf dich zukommen könnte und zu der du eigentlich Nein sagen möchtest.",
+                inputPrompt = "Welche Situation ist es?",
+            ),
+            ExerciseStep(
+                "Was du möchtest",
+                "Was möchtest du stattdessen – oder was brauchst du? Zum Beispiel Zeit für dich, Ruhe oder weniger Verpflichtungen.",
+                inputPrompt = "Was möchtest du?",
+            ),
+            ExerciseStep(
+                "Deine Worte",
+                "Ein freundliches Nein kann aus drei Teilen bestehen: Wertschätzung, ein klares Nein und – wenn du magst – eine Alternative. Zum Beispiel: „Danke, dass du an mich denkst. Diesmal schaffe ich es nicht. Nächste Woche könnte ich helfen.“",
+                inputPrompt = "Dein freundliches Nein",
+            ),
+            ExerciseStep(
+                "Ausprobieren",
+                "Wenn du magst, sprich deinen Satz einmal leise oder laut aus. Wie fühlt er sich an? Du darfst ihn so lange anpassen, bis er zu dir passt.",
+            ),
+        ),
+        closing = "Ein vorbereitetes Nein ist wie ein Werkzeug, das du bei dir trägst. Du darfst es nutzen, wenn du bereit bist.",
+    )
+
+    val denAnderenVerstehen = Exercise(
+        id = "den-anderen-verstehen",
+        minutes = 8,
+        category = ExerciseCategory.COUPLE,
+        title = "Den Blick des anderen verstehen",
+        subtitle = "Eine kleine Meinungsverschiedenheit aus zwei Richtungen sehen",
+        durationText = "ca. 5–10 Minuten",
+        intro = "Bei Missverständnissen hilft es oft, für einen Moment die Perspektive zu wechseln. Wähle dafür bitte eine kleine, alltägliche Meinungsverschiedenheit – kein großes Streitthema.",
+        steps = listOf(
+            ExerciseStep(
+                "Die Situation",
+                "Beschreibe kurz und möglichst neutral eine kleine Meinungsverschiedenheit aus der letzten Zeit.",
+                inputPrompt = "Was ist passiert?",
+            ),
+            ExerciseStep(
+                "Was dir wichtig war",
+                "Was war dir in diesem Moment wichtig? Welches Bedürfnis stand bei dir dahinter?",
+                inputPrompt = "Dein Bedürfnis",
+            ),
+            ExerciseStep(
+                "Was dem anderen wichtig gewesen sein könnte",
+                "Stell dir vor, du schaust durch die Augen deines Gegenübers. Was könnte ihm oder ihr wichtig gewesen sein?",
+                inputPrompt = "Sein oder ihr mögliches Bedürfnis",
+            ),
+            ExerciseStep(
+                "Was verbinden könnte",
+                "Gibt es etwas, das beide Bedürfnisse berücksichtigt? Es muss keine Lösung sein – manchmal reicht schon ein neues Verständnis.",
+                inputPrompt = "Deine Gedanken",
+            ),
+        ),
+        closing = "Verständnis heißt nicht, dass du deine Sicht aufgibst. Es öffnet nur eine Tür, durch die ihr beide gehen könnt.",
+    )
+
+    val unsereRituale = Exercise(
+        id = "unsere-rituale",
+        minutes = 5,
+        category = ExerciseCategory.COUPLE,
+        title = "Unsere kleinen Rituale",
+        subtitle = "Schauen, was euch im Alltag verbindet",
+        durationText = "ca. 5 Minuten",
+        intro = "Kleine Rituale können in einer Partnerschaft viel Nähe schaffen: der Kaffee am Morgen, ein Gruß zum Abschied, der Spaziergang am Sonntag. In dieser Übung schaust du darauf, was euch verbindet.",
+        steps = listOf(
+            ExerciseStep(
+                "Was es schon gibt",
+                "Welche kleinen Gewohnheiten oder Rituale teilt ihr bereits? Auch Unscheinbares zählt.",
+                inputPrompt = "Eure Rituale",
+            ),
+            ExerciseStep(
+                "Was dir guttut",
+                "Welches davon ist dir besonders wichtig – und warum?",
+                inputPrompt = "Was dir guttut",
+            ),
+            ExerciseStep(
+                "Was du vermisst",
+                "Gibt es etwas, das es früher gab oder das du dir wünschst?",
+                inputPrompt = "Was du dir wünschst",
+            ),
+            ExerciseStep(
+                "Eine kleine Idee",
+                "Gibt es ein kleines, leicht umsetzbares Ritual, das du vorschlagen möchtest? Du entscheidest, ob und wann du es ansprichst.",
+                inputPrompt = "Deine Idee",
+            ),
+        ),
+        closing = "Nähe entsteht oft in kleinen, wiederkehrenden Momenten. Schön, dass du darauf geschaut hast.",
+    )
+
+    val tagSortieren = Exercise(
+        id = "tag-sortieren",
+        minutes = 5,
+        category = ExerciseCategory.ADHD,
+        title = "Den Tag sortieren",
+        subtitle = "Den Kopf leeren und eine machbare Auswahl treffen",
+        durationText = "ca. 5 Minuten",
+        intro = "Wenn der Kopf voller Aufgaben ist, wirkt alles gleich wichtig. Diese Übung hilft dir, die Gedanken nach außen zu holen und eine freundliche Auswahl zu treffen.",
+        steps = listOf(
+            ExerciseStep(
+                "Alles raus",
+                "Schreib alles auf, was dir gerade durch den Kopf geht – Aufgaben, Termine, Gedanken. Ohne Ordnung, ohne Bewertung.",
+                inputPrompt = "Alles, was gerade da ist",
+            ),
+            ExerciseStep(
+                "Drei für heute",
+                "Wähle höchstens drei Dinge aus, die heute wirklich dran sind. Kleine Dinge zählen genauso.",
+                inputPrompt = "Deine drei Dinge",
+            ),
+            ExerciseStep(
+                "Was warten darf",
+                "Was darf ausdrücklich warten – auf morgen, nächste Woche oder auf später?",
+                inputPrompt = "Was warten darf",
+            ),
+            ExerciseStep(
+                "Ein freundlicher Satz",
+                "Sag dir zum Abschluss zum Beispiel: „Ich muss nicht alles auf einmal schaffen. Eins nach dem anderen.“",
+            ),
+        ),
+        closing = "Dein Kopf darf jetzt etwas leichter sein. Alles andere wartet geduldig auf seinen Moment.",
+    )
+
+    val vergesslichkeit = Exercise(
+        id = "vergesslichkeit",
+        minutes = 3,
+        category = ExerciseCategory.ADHD,
+        title = "Freundlich mit Vergesslichkeit",
+        subtitle = "Wenn wieder etwas untergegangen ist",
+        durationText = "ca. 3 Minuten",
+        intro = "Etwas vergessen zu haben, kann schnell Ärger über sich selbst auslösen. Diese kurze Übung hilft dir, freundlicher damit umzugehen – und einen kleinen Schritt nach vorn zu finden.",
+        steps = listOf(
+            ExerciseStep(
+                "Bemerken",
+                "Was ist untergegangen? Und was sagt deine innere Stimme gerade dazu? Vielleicht etwas wie: „Typisch, schon wieder.“",
+                inputPrompt = "Was ist passiert?",
+            ),
+            ExerciseStep(
+                "Freundlich antworten",
+                "Antworte dieser Stimme so, wie du einem lieben Menschen antworten würdest. Zum Beispiel: „Das passiert. Mein Kopf hatte gerade viel zu tragen.“",
+                inputPrompt = "Deine freundliche Antwort",
+            ),
+            ExerciseStep(
+                "Eine kleine Hilfe",
+                "Gibt es eine kleine Hilfe für das nächste Mal? Etwa eine Erinnerung im Handy, ein fester Platz für den Schlüssel oder ein Zettel an der Tür.",
+                inputPrompt = "Deine kleine Hilfe",
+            ),
+            ExerciseStep(
+                "Weitergehen",
+                "Du darfst den Moment jetzt loslassen. Ein Fehler sagt nichts über deinen Wert.",
+            ),
+        ),
+        closing = "Vergesslichkeit ist kein Charakterfehler. Schön, dass du dir mit Verständnis begegnet bist.",
+    )
+
+    val fuenfMinutenPause = Exercise(
+        id = "fuenf-minuten-pause",
+        minutes = 5,
+        category = ExerciseCategory.EMOTIONS,
+        title = "Die Fünf-Minuten-Pause",
+        subtitle = "Kurz innehalten, wenn es viel ist",
+        durationText = "ca. 5 Minuten",
+        intro = "Manchmal reicht eine kurze Pause, um wieder etwas Boden unter den Füßen zu spüren. Diese Übung führt dich in wenigen Schritten durch den Körper.",
+        steps = listOf(
+            ExerciseStep(
+                "Füße und Boden",
+                "Spüre deine Füße auf dem Boden. Vielleicht magst du die Zehen kurz bewegen.",
+            ),
+            ExerciseStep(
+                "Schultern und Kiefer",
+                "Lass deine Schultern ein wenig sinken. Spüre, ob dein Kiefer angespannt ist, und lass ihn weich werden.",
+            ),
+            ExerciseStep(
+                "Der Atem",
+                "Atme ein paar Mal in deinem eigenen Rhythmus. Wenn es sich gut anfühlt, lass den Ausatem etwas länger werden.",
+            ),
+            ExerciseStep(
+                "Der nächste Schritt",
+                "Frag dich: Was ist jetzt ein kleiner, guter nächster Schritt?",
+                inputPrompt = "Dein nächster Schritt",
+            ),
+        ),
+        closing = "Fünf Minuten für dich sind eine kleine Insel im Tag. Du kannst jederzeit wieder dorthin zurück.",
+    )
+
+    val sorgenParken = Exercise(
+        id = "sorgen-parken",
+        minutes = 8,
+        category = ExerciseCategory.EMOTIONS,
+        title = "Sorgen parken",
+        subtitle = "Kreisende Gedanken sortieren und zur Seite stellen",
+        durationText = "ca. 5–10 Minuten",
+        intro = "Sorgen können sich anfühlen wie ein Karussell, das nicht anhält. In dieser Übung schreibst du sie auf, sortierst sie und gibst ihnen einen Parkplatz. Wähle eine Sorge, die sich gerade aushalten lässt.",
+        steps = listOf(
+            ExerciseStep(
+                "Die Sorge",
+                "Schreib die Sorge auf, die dich gerade am meisten beschäftigt.",
+                inputPrompt = "Deine Sorge",
+            ),
+            ExerciseStep(
+                "Was in deiner Hand liegt",
+                "Was davon kannst du beeinflussen – und was nicht?",
+                inputPrompt = "Was du beeinflussen kannst",
+            ),
+            ExerciseStep(
+                "Der kleinste Schritt",
+                "Gibt es einen kleinen Schritt, den du tun kannst? Wenn nicht, ist das auch in Ordnung.",
+                inputPrompt = "Dein kleinster Schritt",
+            ),
+            ExerciseStep(
+                "Parken",
+                "Stell dir vor, du legst die Sorge an einen sicheren Ort. Du kannst später zu ihr zurückkehren, zum Beispiel zu einer festen Zeit am Abend. Bis dahin darf sie dort warten.",
+            ),
+        ),
+        closing = "Deine Sorge ist ernst zu nehmen – und sie muss dich nicht die ganze Zeit begleiten.",
+    )
+
     val all: List<Exercise> = listOf(
-        innerDialogue, strengths,
-        boundaries, yesAndNo,
-        appreciation, iMessage,
-        oneThing, stimulusBreak, whatWorked,
-        orientation, nameFeeling,
+        innerDialogue, strengths, innererUnterstuetzer, wertOhneLeistung,
+        boundaries, yesAndNo, energieCheck, neinVorbereiten,
+        appreciation, iMessage, denAnderenVerstehen, unsereRituale,
+        oneThing, stimulusBreak, whatWorked, tagSortieren, vergesslichkeit,
+        orientation, nameFeeling, fuenfMinutenPause, sorgenParken,
     )
 
     val categories: List<ExerciseCategory> = ExerciseCategory.entries.filter { c -> all.any { it.category == c } }

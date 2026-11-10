@@ -14,7 +14,7 @@ class ContentTest {
     fun exercisesAreGroupedInCategories() {
         assertEquals(de.lichtblickraum.core.exercises.ExerciseCategory.entries.toList(), ExerciseCatalog.categories)
         ExerciseCatalog.categories.forEach { c ->
-            assertTrue("mind. 2 Übungen in ${c.title}", ExerciseCatalog.inCategory(c).size >= 2)
+            assertTrue("mind. 4 Übungen in ${c.title}", ExerciseCatalog.inCategory(c).size >= 4)
         }
         assertEquals("IDs eindeutig", ExerciseCatalog.all.size, ExerciseCatalog.all.map { it.id }.toSet().size)
         ExerciseCatalog.all.forEach { assertTrue(it.steps.isNotEmpty()) }
