@@ -103,7 +103,8 @@ object SelfTestCatalog {
 
     /**
      * „Wie stark ist dein innerer Kritiker?“ – eigene Fassung für die App.
-     * Werte je Bereich: Summe der 6 Antworten (6–30), umgerechnet auf 0–100.
+     * 40 Aussagen, 10 je Bereich (davon je 1 umgekehrt gewertet).
+     * Werte je Bereich: Summe der 10 Antworten (10–50), umgerechnet auf 0–100.
      * Reflexionsangebot, kein wissenschaftlich geprüftes Verfahren.
      */
     val innerCritic = Questionnaire(
@@ -117,7 +118,7 @@ object SelfTestCatalog {
             "1 (stimmt gar nicht) bis 5 (stimmt total). Es gibt kein Richtig oder Falsch.",
         status = QuestionnaireStatus.AVAILABLE,
         isExample = false,
-        estimatedMinutes = 5,
+        estimatedMinutes = 8,
         options = fivePointScale,
         questions = listOf(
             Question("k01", "Ich habe das Gefühl, etwas erst dann abschließen zu dürfen, wenn es wirklich perfekt ist.", dimension = PERFECT),
@@ -144,6 +145,22 @@ object SelfTestCatalog {
             Question("k22", "Ich passe mich lieber an, als anzuecken.", dimension = PLEASER),
             Question("k23", "Ich mache mir Sorgen, auch wenn es eigentlich keinen konkreten Anlass gibt.", dimension = CONTROL),
             Question("k24", "Nach einem Fehler fällt es mir schwer, freundlich mit mir zu sein.", dimension = DEVALUE),
+            Question("k25", "Bevor ich etwas abgebe, überarbeite ich es oft noch mehrmals.", dimension = PERFECT),
+            Question("k26", "Ich entschuldige mich oft, auch wenn ich nichts falsch gemacht habe.", dimension = PLEASER),
+            Question("k27", "Wenn ich länger nichts von jemandem höre, male ich mir schnell aus, dass etwas passiert sein könnte.", dimension = CONTROL),
+            Question("k28", "Ich denke oft, dass andere mehr können als ich.", dimension = DEVALUE),
+            Question("k29", "Ich habe das Gefühl, mir Erholung erst verdienen zu müssen.", dimension = PERFECT),
+            Question("k30", "Ich spüre schnell, was andere brauchen – meine eigenen Bedürfnisse bemerke ich oft erst später.", dimension = PLEASER),
+            Question("k31", "Spontane Planänderungen fallen mir schwer.", dimension = CONTROL),
+            Question("k32", "Erfolge schreibe ich eher dem Zufall oder Glück zu als mir selbst.", dimension = DEVALUE),
+            Question("k33", "Selbst kleine Aufgaben möchte ich besonders gut machen.", dimension = PERFECT),
+            Question("k34", "Ich übernehme Aufgaben, um andere nicht zu enttäuschen.", dimension = PLEASER),
+            Question("k35", "Ich überprüfe Dinge lieber mehrfach, um ganz sicher zu sein.", dimension = CONTROL),
+            Question("k36", "Wenn ich an mich denke, fallen mir zuerst meine Schwächen ein.", dimension = DEVALUE),
+            Question("k37", "Ich kann mit meiner Arbeit zufrieden sein, auch wenn sie nicht perfekt ist.", reversed = true, dimension = PERFECT),
+            Question("k38", "Ich sage meine Meinung, auch wenn andere sie nicht teilen.", reversed = true, dimension = PLEASER),
+            Question("k39", "Ich kann gut damit leben, nicht zu wissen, wie etwas ausgeht.", reversed = true, dimension = CONTROL),
+            Question("k40", "Ich kann gut annehmen, dass ich Stärken und Schwächen habe.", reversed = true, dimension = DEVALUE),
         ),
         dimensions = listOf(
             Dimension(

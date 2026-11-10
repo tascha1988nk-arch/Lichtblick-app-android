@@ -111,9 +111,9 @@ class AppFlowTest {
             rule.onNodeWithText(if (i == count) "Zur Auswertung" else "Weiter").assertIsEnabled()
             clickText(if (i == count) "Zur Auswertung" else "Weiter")
         }
-        // alle 5 -> jeder Bereich 100 -> obere Stufe, mit Erlauber und Reflexionsfrage
+        // alle 5 -> jeder Bereich 90 (je eine umgekehrte Aussage) -> obere Stufe
         assertTextShown("Dein innerer Antreiber ist gerade sehr präsent")
-        assertTextShown("Perfektionist & Antreiber · 100 / 100")
+        assertTextShown("Perfektionist & Antreiber · 90 / 100")
         assertTextShown("Dein Erlauber:")
         assertTextShown("Reflexionsfrage:")
         assertTextShown("Möchtest du genauer hinschauen?")
@@ -136,12 +136,12 @@ class AppFlowTest {
         clickNav(Routes.SELF_TESTS)
         clickText(SelfTestCatalog.innerCritic.title)
         clickText("Test beginnen")
-        answerAll("5 · Stimmt total")        // 100
+        answerAll("5 · Stimmt total")        // 90
         clickText("Test noch einmal machen")
         clickText("Test beginnen")
         answerAll("3 · Teils, teils")        // 50
         assertTextShown("Im Vergleich zu deinem letzten Ergebnis")
-        assertTextShown("100 → 50", substring = true)
+        assertTextShown("90 → 50", substring = true)
         clickText("Fertig")
         assertTextShown("Deine Ergebnisse")
         rule.onAllNodesWithText("ansehen", substring = true).assertCountEquals(2)
@@ -157,9 +157,9 @@ class AppFlowTest {
         clickText("Test beginnen")
         clickText("3 · Teils, teils")
         clickText("Weiter")
-        assertTextShown("Frage 2 von 24")
+        assertTextShown("Frage 2 von 40")
         clickText("Zurück")
-        assertTextShown("Frage 1 von 24")
+        assertTextShown("Frage 1 von 40")
         rule.onNodeWithText("Weiter").assertIsEnabled()
     }
 
@@ -181,7 +181,7 @@ class AppFlowTest {
         // Neu starten: Antworten sind verworfen
         clickText(SelfTestCatalog.innerCritic.title)
         clickText("Test beginnen")
-        assertTextShown("Frage 1 von 24")
+        assertTextShown("Frage 1 von 40")
         rule.onNodeWithText("Weiter").assertIsNotEnabled()
     }
 

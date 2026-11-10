@@ -62,9 +62,10 @@ class SelfTestResultsTest {
         assertEquals(emptyList<String>(), QuestionnaireEvaluator.validate(q))
         assertEquals(QuestionnaireStatus.AVAILABLE, q.status)
         assertEquals(listOf(1, 2, 3, 4, 5), q.options.map { it.value })
-        assertEquals(24, q.questions.size)
+        assertEquals(40, q.questions.size)
         q.dimensions.forEach { d ->
-            assertEquals(d.name, 6, q.questions.count { it.dimension == d.name })
+            assertEquals(d.name, 10, q.questions.count { it.dimension == d.name })
+            assertEquals(d.name, 1, q.questions.count { it.dimension == d.name && it.reversed })
             assertEquals(3, d.bands.size)
             d.bands.forEach { b ->
                 assertTrue(b.permission != null && b.reflection != null)
@@ -77,17 +78,20 @@ class SelfTestResultsTest {
     @Test
     fun innerCriticScoring() {
         val q = SelfTestCatalog.innerCritic
-        fun all(v: Int) = QuestionnaireEvaluator.evaluate(q, q.questions.associate { it.id to v })
-        assertTrue(all(1).dimensions.all { it.percent == 0 })
-        assertTrue(all(3).dimensions.all { it.percent == 50 })
-        assertTrue(all(5).dimensions.all { it.percent == 100 })
-        assertNull(all(3).band)
-        assertEquals("Dein innerer Antreiber ist spürbar aktiv", all(3).dimensions.first().band?.title)
-        // nur Perfektionist hoch, Rest niedrig
-        val mixed = QuestionnaireEvaluator.evaluate(q, q.questions.associate { it.id to if (it.dimension == "Perfektionist & Antreiber") 5 else 2 })
-        assertEquals(listOf(100, 25, 25, 25), mixed.dimensions.map { it.percent })
-        assertEquals(mapOf("Perfektionist & Antreiber" to 100, "People Pleaser & Anpasser" to 25,
-            "Katastrophenplaner & Kontrolleur" to 25, "Abwerter & Zerstörer" to 25), SelfTestResults.toScores(q, mixed))
+        fun eval(f: (de.lichtblickraum.core.selftest.Question) -> Int) = QuestionnaireEvaluator.evaluate(q, q.questions.associate { it.id to f(it) })
+        // stärkste Zustimmung zum Kritiker (umgekehrte Aussagen = 1) -> 100
+        assertTrue(eval { if (it.reversed) 1 else 5 }.dimensions.all { it.percent == 100 })
+        assertTrue(eval { if (it.reversed) 5 else 1 }.dimensions.all { it.percent == 0 })
+        // überall 3 -> 50, überall 5 -> 90 (die umgekehrte Aussage zählt dann 1)
+        assertTrue(eval { 3 }.dimensions.all { it.percent == 50 })
+        assertTrue(eval { 5 }.dimensions.all { it.percent == 90 })
+        assertNull(eval { 3 }.band)
+        assertEquals("Dein innerer Antreiber ist spürbar aktiv", eval { 3 }.dimensions.first().band?.title)
+        // nur Perfektionist hoch
+        val mixed = eval { if (it.dimension == "Perfektionist & Antreiber") (if (it.reversed) 1 else 5) else 2 }
+        assertEquals(mapOf("Perfektionist & Antreiber" to 100, "People Pleaser & Anpasser" to 30,
+            "Katastrophenplaner & Kontrolleur" to 30, "Abwerter & Zerstörer" to 30), SelfTestResults.toScores(q, mixed))
+        assertEquals("Dein innerer Antreiber ist gerade sehr präsent", mixed.dimensions.first().band?.title)
     }
 
     @Test
