@@ -18,6 +18,8 @@ import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Scaffold
@@ -56,13 +58,14 @@ import de.lichtblickraum.core.profile.TimePreference
 fun OnboardingScreen(container: AppContainer, editMode: Boolean, onDone: () -> Unit) {
     val current = container.profileStore.profile.value
     var page by remember { mutableIntStateOf(if (editMode) 1 else 0) }
+    var name by remember { mutableStateOf(current.name.orEmpty()) }
     var focus by remember { mutableStateOf(current.focus) }
     var wish by remember { mutableStateOf(current.wish.orEmpty()) }
     var time by remember { mutableStateOf(current.time) }
-    val lastPage = 3
+    val lastPage = 4
 
     fun finish() {
-        container.saveProfile(current.copy(focus = focus, wish = wish.trim().ifEmpty { null }, time = time))
+        container.saveProfile(current.copy(name = name.trim().ifEmpty { null }, focus = focus, wish = wish.trim().ifEmpty { null }, time = time))
         onDone()
     }
 
@@ -99,13 +102,37 @@ fun OnboardingScreen(container: AppContainer, editMode: Boolean, onDone: () -> U
                                 "passende Gedanken, Lichtblicke und Übungen zeigen.",
                         )
                         NoteBox(
-                            text = "Drei kurze Fragen, ganz freiwillig. Das ist kein Test und keine Diagnose. " +
+                            text = "Vier kurze Fragen, ganz freiwillig. Das ist kein Test und keine Diagnose. " +
                                 "Deine Antworten bleiben auf deinem Gerät, und du kannst sie jederzeit ändern.",
                         )
                         PrimaryButton("Los geht's", { page = 1 })
                         QuietButton("Überspringen", ::skip)
                     }
                     1 -> {
+                        Heading("Wie darf ich dich ansprechen?")
+                        BodyText(
+                            "Wenn du magst, schreib deinen Vornamen oder einen Namen, mit dem du gern " +
+                                "begrüßt werden möchtest. Du kannst das Feld auch leer lassen.",
+                            color = LichtblickColors.TextMuted,
+                        )
+                        OutlinedTextField(
+                            value = name,
+                            onValueChange = { name = it.take(40) },
+                            label = { Text("Dein Name (freiwillig)") },
+                            singleLine = true,
+                            modifier = Modifier.fillMaxWidth(),
+                            colors = OutlinedTextFieldDefaults.colors(
+                                focusedBorderColor = LichtblickColors.GoldDark,
+                                unfocusedBorderColor = LichtblickColors.Gold,
+                                focusedLabelColor = LichtblickColors.GoldDark,
+                                cursorColor = LichtblickColors.GoldDark,
+                                focusedContainerColor = LichtblickColors.CreamLight,
+                                unfocusedContainerColor = LichtblickColors.CreamLight,
+                            ),
+                        )
+                        PrimaryButton("Weiter", { page = 2 })
+                    }
+                    2 -> {
                         Heading("Was ist dir gerade wichtig?")
                         BodyText("Du kannst mehrere Themen wählen – oder keines.", color = LichtblickColors.TextMuted)
                         Focus.entries.forEach { f ->
@@ -134,9 +161,10 @@ fun OnboardingScreen(container: AppContainer, editMode: Boolean, onDone: () -> U
                                 }
                             }
                         }
-                        PrimaryButton("Weiter", { page = 2 })
+                        PrimaryButton("Weiter", { page = 3 })
+                        QuietButton("Zurück", { page = 1 })
                     }
-                    2 -> {
+                    3 -> {
                         Heading("Was wünschst du dir?")
                         BodyText(
                             "Wenn du magst, beschreib in deinen Worten, wohin es für dich gehen soll. " +
@@ -144,10 +172,10 @@ fun OnboardingScreen(container: AppContainer, editMode: Boolean, onDone: () -> U
                             color = LichtblickColors.TextMuted,
                         )
                         NoteField(value = wish, onValueChange = { wish = it }, label = "z. B. „Ich möchte freundlicher mit mir sein.“")
-                        PrimaryButton("Weiter", { page = 3 })
-                        QuietButton("Zurück", { page = 1 })
+                        PrimaryButton("Weiter", { page = 4 })
+                        QuietButton("Zurück", { page = 2 })
                     }
-                    else -> {
+                    4 -> {
                         Heading("Wie viel Zeit hast du meistens?")
                         TimePreference.entries.forEach { t ->
                             val selected = t == time
@@ -175,7 +203,7 @@ fun OnboardingScreen(container: AppContainer, editMode: Boolean, onDone: () -> U
                             color = LichtblickColors.TextMuted,
                         )
                         PrimaryButton(if (editMode) "Speichern" else "Fertig", ::finish)
-                        QuietButton("Zurück", { page = 2 })
+                        QuietButton("Zurück", { page = 3 })
                     }
                 }
             }

@@ -35,6 +35,8 @@ class OnboardingTest {
     fun answersPersonaliseStartPage() {
         rule.onNodeWithText("Willkommen bei Lichtblick").assertExists()
         clickText("Los geht's")
+        rule.onNodeWithText("Dein Name (freiwillig)").performTextInput("Mia")
+        clickText("Weiter")
         clickText("ADHS im Alltag")
         clickText("Weiter")
         rule.onNodeWithText("z. B. „Ich möchte freundlicher mit mir sein.“").performTextInput("Mehr Ruhe im Kopf")
@@ -42,6 +44,8 @@ class OnboardingTest {
         clickText("Fertig")
 
         assertEquals(setOf(Focus.ADHD), container.profileStore.profile.value.focus)
+        assertEquals("Mia", container.profileStore.profile.value.name)
+        rule.onAllNodesWithText(", Mia.", substring = true).onFirst().assertExists()
         rule.onAllNodesWithText("Dein Kompass: „Mehr Ruhe im Kopf“").onFirst().assertExists()
         rule.onAllNodesWithText(DailyThoughts.forDay(container.today(), setOf(Focus.ADHD)).text).onFirst().assertExists()
     }
@@ -57,6 +61,7 @@ class OnboardingTest {
     fun themesCanBeChangedLater() {
         clickText("Überspringen")
         clickText("Deine Themen anpassen")
+        clickText("Weiter")
         clickText("Grenzen")
         clickText("Weiter")
         clickText("Weiter")

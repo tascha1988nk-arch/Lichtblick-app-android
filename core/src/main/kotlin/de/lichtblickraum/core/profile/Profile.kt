@@ -47,6 +47,8 @@ enum class TimePreference(val label: String, val maxMinutes: Int) {
  */
 data class UserProfile(
     val onboardingDone: Boolean = false,
+    /** Wie die App dich ansprechen darf (optional). */
+    val name: String? = null,
     val focus: Set<Focus> = emptySet(),
     /** "Dein Kompass": der eigene Wunsch in eigenen Worten (optional). */
     val wish: String? = null,

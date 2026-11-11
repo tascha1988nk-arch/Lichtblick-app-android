@@ -19,6 +19,7 @@ class ProfileStore(context: Context) {
     fun save(profile: UserProfile) {
         prefs.edit()
             .putBoolean("fertig", profile.onboardingDone)
+            .putString("name", profile.name)
             .putStringSet("themen", profile.focus.map { it.name }.toSet())
             .putString("wunsch", profile.wish)
             .putString("zeit", profile.time.name)
@@ -30,6 +31,7 @@ class ProfileStore(context: Context) {
     private fun load(): UserProfile = try {
         UserProfile(
             onboardingDone = prefs.getBoolean("fertig", false),
+            name = prefs.getString("name", null)?.takeIf { it.isNotBlank() },
             focus = prefs.getStringSet("themen", emptySet()).orEmpty()
                 .mapNotNull { n -> Focus.entries.firstOrNull { it.name == n } }.toSet(),
             wish = prefs.getString("wunsch", null)?.takeIf { it.isNotBlank() },

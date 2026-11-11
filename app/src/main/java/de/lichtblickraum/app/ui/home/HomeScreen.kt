@@ -87,7 +87,7 @@ fun HomeScreen(
                 color = LichtblickColors.GoldDark,
             )
             Text(
-                "${greetingFor(LocalTime.now())}.\n${AboutContent.HOME_GREETING}",
+                "${greetingFor(LocalTime.now())}${profile.name?.let { ", $it" }.orEmpty()}.\n${AboutContent.HOME_GREETING}",
                 style = MaterialTheme.typography.displaySmall,
                 modifier = Modifier.semantics { heading() },
             )

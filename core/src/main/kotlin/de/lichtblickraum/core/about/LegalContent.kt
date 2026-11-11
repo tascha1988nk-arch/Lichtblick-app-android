@@ -58,7 +58,7 @@ object LegalContent {
         ),
         LegalSection(
             "Eingangsfragen, Gefühlsbarometer und Gefühlstagebuch",
-            "Deine gewählten Themen und dein Wunsch („Kompass“) werden nur auf deinem Gerät " +
+            "Dein Name (falls du ihn angibst), deine gewählten Themen und dein Wunsch („Kompass“) werden nur auf deinem Gerät " +
                 "gespeichert, damit die App passende Inhalte zeigen kann. Einträge im " +
                 "Gefühlsbarometer und Gefühlstagebuch werden wie alle Rückschau-Einträge " +
                 "behandelt: nur auf dem Gerät, abschaltbar und einzeln oder vollständig löschbar. " +
