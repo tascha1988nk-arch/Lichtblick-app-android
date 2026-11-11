@@ -89,7 +89,7 @@ fun ExerciseCategoryScreen(categoryName: String, onStart: (String) -> Unit, onBa
                             Text(e.title, style = MaterialTheme.typography.titleLarge)
                             Text(e.subtitle, style = MaterialTheme.typography.bodyMedium, color = LichtblickColors.TextMuted)
                             Text(
-                                (if (e.together) "Zu zweit · " else "") + e.durationText,
+                                (if (e.together) "Zu zweit · " else "") + (if (e.guided) "Angeleitet · " else "") + e.durationText,
                                 style = MaterialTheme.typography.labelMedium,
                                 color = LichtblickColors.GoldDark,
                             )

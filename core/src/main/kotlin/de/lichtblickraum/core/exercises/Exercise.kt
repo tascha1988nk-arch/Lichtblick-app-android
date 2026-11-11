@@ -30,6 +30,13 @@ enum class ExerciseCategory(val title: String, val description: String, val note
         "Gefühle & Stress",
         "Wenn es innen gerade viel ist: ankommen, benennen, begleiten.",
     ),
+    CALMING(
+        "Beruhigen & Halt finden",
+        "Angeleitete Übungen mit ruhigen Klängen – behutsam und traumasensibel.",
+        note = "Diese Übungen helfen dir, dich zu beruhigen und Halt zu finden. Du entscheidest, was du " +
+            "tust: Die Augen dürfen offen bleiben, und du kannst jederzeit aufhören. Die Übungen " +
+            "ersetzen keine Traumatherapie. Wenn alte Erinnerungen sehr stark werden, hol dir bitte Unterstützung.",
+    ),
 }
 
 /** Ein Schritt einer Übung. Mit [inputPrompt] erscheint ein freiwilliges Textfeld. */
@@ -37,6 +44,8 @@ data class ExerciseStep(
     val title: String,
     val text: String,
     val inputPrompt: String? = null,
+    /** Nur bei angeleiteten Übungen: Pause nach dem Vorlesen, in Sekunden. */
+    val pauseSeconds: Int = 0,
 )
 
 data class Exercise(
@@ -49,6 +58,8 @@ data class Exercise(
     val minutes: Int = 5,
     /** true = Übung für zwei Personen (z. B. Paare). */
     val together: Boolean = false,
+    /** true = angeleitete Übung mit Vorlesestimme und Hintergrundklang. */
+    val guided: Boolean = false,
     val intro: String,
     val steps: List<ExerciseStep>,
     val closing: String,

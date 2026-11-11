@@ -63,6 +63,10 @@ fun ExerciseScreen(exerciseId: String, container: AppContainer, onExit: () -> Un
         ScreenColumn { BodyText("Diese Übung gibt es nicht."); PrimaryButton("Zurück", onExit) }
         return
     }
+    if (exercise.guided) {
+        GuidedExerciseScreen(exercise, container, onExit)
+        return
+    }
     val vm: ExerciseViewModel = viewModel(key = "exercise-$exerciseId") { ExerciseViewModel() }
     var confirmExit by remember { mutableStateOf(false) }
     val n = exercise.steps.size

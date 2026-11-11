@@ -65,6 +65,11 @@ object LegalContent {
                 "Nichts davon wird übertragen.",
         ),
         LegalSection(
+            "Angeleitete Übungen",
+            "Bei angeleiteten Übungen liest die Sprachausgabe deines Geräts die Anleitung vor. " +
+                "Die Hintergrundklänge werden direkt in der App erzeugt. Dabei werden keine Daten übertragen.",
+        ),
+        LegalSection(
             "Erinnerungen",
             "Erinnerungen sind freiwillig und zu Beginn ausgeschaltet. Wenn du sie einschaltest, " +
                 "fragt Android nach der Erlaubnis für Benachrichtigungen. Die Erinnerungen werden " +

@@ -44,4 +44,18 @@ class ContentTest {
         listOf("heilt", "heilung", "garantiert", "streak", "serie verloren", "du musst unbedingt")
             .forEach { assertFalse("Unerwünschte Formulierung: $it", texts.contains(it)) }
     }
+
+    @Test
+    fun calmingExercisesAreGuidedAndGentle() {
+        val calm = ExerciseCatalog.inCategory(de.lichtblickraum.core.exercises.ExerciseCategory.CALMING)
+        assertEquals(8, calm.size)
+        calm.forEach { e ->
+            assertTrue(e.guided)
+            assertTrue("${e.id}: jeder Schritt hat eine Pause", e.steps.all { it.pauseSeconds >= 0 })
+            val all = (e.intro + e.steps.joinToString { it.text }).lowercase()
+            listOf("halte den atem", "luft anhalten", "du musst dich erinnern", "geh zurück zu dem moment")
+                .forEach { assertFalse("${e.id}: $it", all.contains(it)) }
+        }
+        assertTrue(ExerciseCatalog.all.none { it.guided && it.category != de.lichtblickraum.core.exercises.ExerciseCategory.CALMING })
+    }
 }
