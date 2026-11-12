@@ -250,22 +250,9 @@ class AppFlowTest {
     }
 
     @Test
-    fun guidedCalmingExerciseCanBeStoppedAnytime() {
+    fun guidedExercisesAreHiddenForNow() {
         clickNav(Routes.EXERCISES)
-        clickText("Beruhigen & Halt finden")
-        clickText("Füße und Halt spüren")
-        assertTextShown("Anleitung vorlesen")
-        clickText("Stille")
-        clickText("Übung beginnen")
-        assertTextShown("Schritt 1 von 5")
-        clickText("Weiter")
-        assertTextShown("Schritt 2 von 5")
-        clickText("Wenn es gerade zu viel wird")
-        assertTextShown("Benenne drei Dinge", substring = true)
-        clickText("Weitermachen, wenn es wieder geht")
-        assertTextShown("Schritt 2 von 5")
-        clickText("Übung beenden")
-        assertTextShown("Ein Ort, an dem es dir gut geht")
+        assertTrue(rule.onAllNodesWithText("Beruhigen & Halt finden").fetchSemanticsNodes().isEmpty())
     }
 
     @Test

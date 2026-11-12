@@ -12,7 +12,7 @@ class ContentTest {
 
     @Test
     fun exercisesAreGroupedInCategories() {
-        assertEquals(de.lichtblickraum.core.exercises.ExerciseCategory.entries.toList(), ExerciseCatalog.categories)
+        assertEquals(de.lichtblickraum.core.exercises.ExerciseCategory.entries.filter { it != de.lichtblickraum.core.exercises.ExerciseCategory.CALMING }, ExerciseCatalog.categories)
         ExerciseCatalog.categories.forEach { c ->
             assertTrue("mind. 4 Übungen in ${c.title}", ExerciseCatalog.inCategory(c).size >= 4)
         }
@@ -46,8 +46,9 @@ class ContentTest {
     }
 
     @Test
-    fun calmingExercisesAreGuidedAndGentle() {
-        val calm = ExerciseCatalog.inCategory(de.lichtblickraum.core.exercises.ExerciseCategory.CALMING)
+    fun calmingExercisesAreHiddenButKeptGentle() {
+        assertTrue("vorerst ausgeblendet", ExerciseCatalog.all.none { it.guided })
+        val calm = de.lichtblickraum.core.exercises.CalmingExercises.all
         assertEquals(8, calm.size)
         calm.forEach { e ->
             assertTrue(e.guided)

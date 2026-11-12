@@ -1483,7 +1483,8 @@ object ExerciseCatalog {
         appreciation, iMessage, denAnderenVerstehen, unsereRituale, wbKonfliktprotokoll, wbFaktOderDeutung, wbAktivesZuhoeren, wbWertschaetzungsrunde, wbKleinesGestaendnis, wbIchBrauche, wbStillerBlickkontakt, wbStoppSignal, wbNeueWahl, wbHoffnungTeilen, wbSpracheDerLiebe, wbNaeheRitual, wbWerteCheck, wbZeitFuereinander,
         oneThing, stimulusBreak, whatWorked, tagSortieren, vergesslichkeit,
         orientation, nameFeeling, fuenfMinutenPause, sorgenParken, wbHerzensraum, wbWellenProtokoll,
-    ) + CalmingExercises.all
+    )
+    // Angeleitete Übungen (CalmingExercises) sind vorerst ausgeblendet – die Vorlesestimme passt noch nicht.
 
     val categories: List<ExerciseCategory> = ExerciseCategory.entries.filter { c -> all.any { it.category == c } }
 

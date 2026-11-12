@@ -64,11 +64,7 @@ object LegalContent {
                 "behandelt: nur auf dem Gerät, abschaltbar und einzeln oder vollständig löschbar. " +
                 "Nichts davon wird übertragen.",
         ),
-        LegalSection(
-            "Angeleitete Übungen",
-            "Bei angeleiteten Übungen liest die Sprachausgabe deines Geräts die Anleitung vor. " +
-                "Die Hintergrundklänge werden direkt in der App erzeugt. Dabei werden keine Daten übertragen.",
-        ),
+        // Abschnitt „Angeleitete Übungen“ wieder einfügen, sobald die angeleiteten Übungen zurückkommen.
         LegalSection(
             "Erinnerungen",
             "Erinnerungen sind freiwillig und zu Beginn ausgeschaltet. Wenn du sie einschaltest, " +
