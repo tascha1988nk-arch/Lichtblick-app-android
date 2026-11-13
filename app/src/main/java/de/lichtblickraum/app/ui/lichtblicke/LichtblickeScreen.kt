@@ -35,6 +35,11 @@ fun LichtblickeScreen(container: AppContainer, onOpenReview: () -> Unit) {
 
     ScreenColumn {
         Heading("Kleine Lichtblicke")
+        de.lichtblickraum.app.ui.about.PracticeHeaderPhoto(
+            de.lichtblickraum.app.R.drawable.lichtblicke_regal,
+            "Foto: kleines Regal mit Pflanze und Trockenblumen im warmen Licht",
+            aspect = 1536f / 1024f,
+        )
 
         if (paused) {
             LichtblickCard(highlighted = true) {

@@ -46,14 +46,19 @@ fun PracticeGallery(modifier: Modifier = Modifier, photo: PracticePhoto = practi
 
 /** Ein ruhiges Foto als Kopf einer Karte. */
 @Composable
-fun PracticeHeaderPhoto(@DrawableRes res: Int, description: String, modifier: Modifier = Modifier) {
+fun PracticeHeaderPhoto(
+    @DrawableRes res: Int,
+    description: String,
+    modifier: Modifier = Modifier,
+    aspect: Float = 16f / 9f,
+) {
     Image(
         painter = painterResource(res),
         contentDescription = description,
         contentScale = ContentScale.Crop,
         modifier = modifier
             .fillMaxWidth()
-            .aspectRatio(16f / 9f)
+            .aspectRatio(aspect)
             .clip(RoundedCornerShape(16.dp)),
     )
 }
