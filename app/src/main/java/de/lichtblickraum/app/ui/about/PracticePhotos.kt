@@ -25,7 +25,7 @@ import de.lichtblickraum.app.ui.theme.LichtblickColors
 data class PracticePhoto(@DrawableRes val res: Int, val caption: String, val aspect: Float)
 
 /** Das Foto unter „So sieht es bei mir aus“. */
-val practicePhoto = PracticePhoto(R.drawable.praxis_raum, "Der Beratungsraum", 2f)
+val practicePhoto = PracticePhoto(R.drawable.praxis_raum, "Der Beratungsraum", 1672f / 941f)
 
 /** Ein Foto der Praxis über die ganze Breite, mit abgerundeten Ecken. */
 @Composable
