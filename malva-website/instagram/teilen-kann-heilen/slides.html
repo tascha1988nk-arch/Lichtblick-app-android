@@ -4,127 +4,102 @@
 @font-face{font-family:Outfit;font-weight:400;src:url(../../src/assets/fonts/outfit-latin-400-normal.woff2)}
 @font-face{font-family:Outfit;font-weight:500;src:url(../../src/assets/fonts/outfit-latin-500-normal.woff2)}
 @font-face{font-family:Outfit;font-weight:600;src:url(../../src/assets/fonts/outfit-latin-600-normal.woff2)}
-:root{--g:#1F3D33;--c:#F4F2EE;--m:#4E5A55;--l:#A58BEA;--ll:#C3B1F2;--lt:#6A4BC4;--s:#7FAF8E;--sl:#9CCBA8;--gt:#2F6B48}
+:root{--g:#1F3D33;--c:#F4F2EE;--m:#4E5A55;--ll:#C3B1F2;--lt:#7B5CD6;--sl:#9CCBA8}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Outfit,sans-serif;background:#888}
-.slide{width:1080px;height:1350px;position:relative;overflow:hidden;padding:110px 96px;display:flex;flex-direction:column;justify-content:center}
-.story{height:1920px;padding:200px 96px}
-.dark{background:var(--g);color:var(--c)}
-.light{background:var(--c);color:var(--g)}
-.tint{background:#ECE9F6;color:var(--g)}
-h1{font-weight:600;font-size:150px;line-height:.98;letter-spacing:-.035em}
-h2{font-weight:600;font-size:92px;line-height:1.04;letter-spacing:-.03em}
-.kicker{font-weight:500;font-size:40px;margin-bottom:34px}
-.dark .kicker{color:var(--ll)} .light .kicker,.tint .kicker{color:var(--lt)}
-.sub{font-size:44px;line-height:1.35;margin-top:44px}
-.dark .sub{color:var(--sl)} .light .sub,.tint .sub{color:var(--m)}
-.big{font-size:54px;line-height:1.35;font-weight:500}
-.lilac{color:var(--ll)} .light .lilac,.tint .lilac{color:var(--lt)}
-.sage{color:var(--sl)} .light .sage{color:var(--gt)}
-.brand{position:absolute;right:96px;bottom:84px;display:flex;align-items:center;gap:12px;font-weight:600;font-size:44px;letter-spacing:-.03em}
-.brand svg{height:54px;width:auto}
-.num{position:absolute;left:96px;bottom:92px;font-size:30px;font-weight:500;opacity:.6}
-.swipe{position:absolute;right:96px;top:96px;font-size:32px;font-weight:500;opacity:.75}
-.leaves{position:absolute;right:-80px;top:120px;width:620px;opacity:1}
-.list{list-style:none;margin-top:56px;display:flex;flex-direction:column;gap:38px}
-.list li{font-size:48px;line-height:1.3;padding-left:76px;position:relative}
-.list li::before{content:"";position:absolute;left:0;top:10px;width:40px;height:40px;border-radius:50% 0;transform:rotate(45deg);background:var(--sl)}
-.light .list li::before,.tint .list li::before{background:var(--s)}
-.list li:nth-child(2)::before{background:var(--ll)}
-.light .list li:nth-child(2)::before,.tint .list li:nth-child(2)::before{background:var(--l)}
-.list b{font-weight:600}
-.photo{width:220px;height:220px;border-radius:50%;object-fit:cover;border:6px solid var(--sl);margin-bottom:48px}
-.bar{border-left:10px solid var(--s);padding-left:40px;margin-top:56px}
-.note{font-size:30px;line-height:1.4;margin-top:60px;opacity:.8}
-.pill{display:inline-block;border:4px solid currentColor;border-radius:999px;padding:18px 44px;font-size:46px;font-weight:600;margin-top:64px}
+.slide{width:1080px;height:1350px;position:relative;overflow:hidden;padding:0 100px 150px;display:flex;flex-direction:column;justify-content:center}
+.story{height:1920px}
+.dark{background:var(--g);color:var(--c)} .light{background:var(--c);color:var(--g)}
+.hl{color:var(--ll)} .light .hl{color:var(--lt)}
+.kicker{font-weight:600;font-size:36px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:40px;color:var(--ll)}
+.light .kicker{color:var(--lt)}
+h1{font-weight:600;font-size:150px;line-height:1.02;letter-spacing:-.035em}
+h2{font-weight:600;font-size:82px;line-height:1.12;letter-spacing:-.025em}
+.body{font-size:44px;line-height:1.45;margin-top:56px;font-weight:500}
+.dark .body{color:#E4E8E2} .light .body{color:var(--m)}
+.sage{color:var(--sl);font-weight:600;font-size:52px;line-height:1.3;margin-top:56px}
+.light .sage{color:#2F6B48}
+.sig{color:var(--ll);font-size:40px;font-weight:500;margin-top:22px}
+.foot{position:absolute;left:100px;right:96px;bottom:84px;display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:22px;font-weight:600;font-size:44px;letter-spacing:-.03em}
+.brand svg{height:58px;width:auto}
+.num{font-size:38px;font-weight:500;opacity:.75}
+.more{font-size:40px;font-weight:500;color:var(--ll)}
+.light .more{color:var(--lt)}
+.list{list-style:none;margin-top:30px;display:flex;flex-direction:column;gap:64px}
+.list li{font-size:50px;line-height:1.3;font-weight:500;display:grid;grid-template-columns:56px 1fr;gap:44px;align-items:start}
+.list li svg{width:56px;height:56px;margin-top:2px}
+.photo{width:240px;height:240px;border-radius:50%;object-fit:cover;border:6px solid var(--sl);margin-bottom:56px}
+.mark-top{width:200px;margin-bottom:90px}
 .center{text-align:center;align-items:center}
 </style></head><body>
-
-<!-- Bildmarke als Vorlage -->
 <template id="mark-d"><svg viewBox="0 0 200 200"><path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#C3B1F2" fill-opacity=".92"/><path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#9CCBA8" fill-opacity=".85"/></svg></template>
 <template id="mark-h"><svg viewBox="0 0 200 200"><path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#A58BEA" fill-opacity=".9"/><path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#7FAF8E" fill-opacity=".82"/></svg></template>
 
-<section class="slide dark" id="s1">
-  <div class="leaves" data-mark="d"></div>
-  <p class="kicker">Malva · Verein in Gründung</p>
-  <h1>Teilen<br>kann<br>heilen.</h1>
-  <p class="sub">Warum wir gemeinsam mehr<br>schaffen, als jede:r allein.</p>
-  <span class="swipe">wischen →</span>
-  <div class="brand" data-mark="d"><span>malva</span></div>
+<section class="slide dark center" id="s1">
+  <div class="mark-top" data-mark="d"></div>
+  <h1>Teilen kann<br><span class="hl">heilen.</span></h1>
+  <div class="foot"><div class="brand" data-mark="d"><span>malva</span></div><span class="more">Mehr erfahren →</span></div>
 </section>
 
 <section class="slide light" id="s2">
-  <p class="kicker">Die Realität</p>
-  <h2>Monate warten auf einen Therapieplatz.</h2>
-  <p class="sub">Privat bezahlen? Für viele Menschen unmöglich. So wird psychologische Hilfe zum Luxus.</p>
-  <span class="num">2 / 7</span>
-  <div class="brand" data-mark="h"><span>malva</span></div>
+  <img class="photo" src="natascha-helbig-rund.webp" alt="">
+  <p class="kicker">Woran ich glaube</p>
+  <h2>Ich vertraue auf <span class="hl">Gemeinschaft.</span></h2>
+  <p class="body">Wir leben hier alle miteinander, und wir können füreinander da sein. Niemand muss alles allein schaffen.</p>
+  <p class="sig">– Natascha</p>
+  <div class="foot"><div class="brand" data-mark="h"><span>malva</span></div><span class="num">2/7</span></div>
 </section>
 
 <section class="slide dark" id="s3">
-  <h2>Psychische Gesundheit darf <span class="lilac">keine Frage</span> des Geldes sein.</h2>
-  <p class="sub">Dafür gründen wir Malva.</p>
-  <span class="num">3 / 7</span>
-  <div class="brand" data-mark="d"><span>malva</span></div>
-</section>
-
-<section class="slide tint" id="s4">
-  <img class="photo" src="natascha-helbig-rund.webp" alt="">
-  <p class="kicker">Woran ich glaube</p>
-  <p class="big">„Ich vertraue auf Gemeinschaft. Wir leben hier alle miteinander, und wir können füreinander da sein. Niemand muss alles allein schaffen.“</p>
-  <p class="sub">Natascha, Gründerin von Malva</p>
-  <span class="num">4 / 7</span>
-  <div class="brand" data-mark="h"><span>malva</span></div>
-</section>
-
-<section class="slide light" id="s5">
   <p class="kicker">Mit wenig viel erreichen</p>
   <ul class="list">
-    <li>Die Nachbarin, die <b>einfach zuhört.</b></li>
-    <li>Der Freund, der <b>einen Kontakt weitergibt.</b></li>
-    <li>Ein paar Euro hier, <b>eine geteilte Nachricht da.</b></li>
+    <li><span data-mark="d"></span><span>Die Nachbarin, die einfach zuhört.</span></li>
+    <li><span data-mark="d"></span><span>Der Freund, der einen Kontakt weitergibt.</span></li>
+    <li><span data-mark="d"></span><span>Ein paar Euro hier, eine geteilte Nachricht da.</span></li>
   </ul>
-  <div class="bar"><p class="big">Jeder Beitrag für sich ist klein. Zusammen wird daraus etwas Großes.</p></div>
-  <span class="num">5 / 7</span>
-  <div class="brand" data-mark="h"><span>malva</span></div>
+  <div class="foot"><div class="brand" data-mark="d"><span>malva</span></div><span class="num">3/7</span></div>
 </section>
 
-<section class="slide dark" id="s6">
-  <p class="kicker">So wollen wir helfen</p>
-  <ul class="list">
-    <li><b>Kosten übernehmen</b> für Therapie und Beratung</li>
-    <li><b>Begleiten</b> bei Anträgen und auf dem Weg zur Krankenkasse</li>
-    <li><b>Vermitteln</b> an qualifizierte Fachleute</li>
-  </ul>
-  <p class="note">Malva bietet selbst keine Therapie an. Start als Pilotprojekt in Rheinland-Pfalz.</p>
-  <span class="num">6 / 7</span>
-  <div class="brand" data-mark="d"><span>malva</span></div>
+<section class="slide light" id="s4">
+  <h2 style="font-size:96px">Jeder Beitrag für sich ist klein.</h2>
+  <h2 style="font-size:96px;margin-top:40px">Zusammen wird daraus <span class="hl">etwas Großes.</span></h2>
+  <div class="foot"><div class="brand" data-mark="h"><span>malva</span></div><span class="num">4/7</span></div>
 </section>
 
-<section class="slide light" id="s7">
+<section class="slide dark" id="s5">
+  <p class="kicker">Warum Malva?</p>
+  <h2>Die Malve ist eine alte <span class="hl">Heilpflanze.</span></h2>
+  <p class="body">Ihre Schleimstoffe legen sich wie ein schützender Film über gereizte Schleimhäute. Darum trinkt man Malventee traditionell bei Halsschmerzen.</p>
+  <p class="sage">Sie schützt, sie lindert und sie wächst einfach am Wegesrand. Für alle.</p>
+  <div class="foot"><div class="brand" data-mark="d"><span>malva</span></div><span class="num">5/7</span></div>
+</section>
+
+<section class="slide light" id="s6">
   <p class="kicker">Du kannst teilen</p>
   <ul class="list">
-    <li><b>Spenden</b> über den Link in der Bio</li>
-    <li><b>Diesen Beitrag teilen</b> in deiner Story</li>
-    <li><b>Weitersagen</b> an alle, die helfen wollen</li>
+    <li><span data-mark="h"></span><span><b style="font-weight:600">Spenden</b> über den Link in unserer Bio</span></li>
+    <li><span data-mark="h"></span><span><b style="font-weight:600">Diesen Beitrag teilen</b> in deiner Story</span></li>
+    <li><span data-mark="h"></span><span><b style="font-weight:600">Weitersagen</b> an alle, die helfen wollen</span></li>
   </ul>
-  <p class="pill">Teilen kann heilen.</p>
-  <span class="num">7 / 7</span>
-  <div class="brand" data-mark="h"><span>malva</span></div>
+  <div class="foot"><div class="brand" data-mark="h"><span>malva</span></div><span class="num">6/7</span></div>
+</section>
+
+<section class="slide dark" id="s7">
+  <h2 style="font-size:104px">Darauf baut Malva: auf Menschen, die geben, was sie <span class="hl">können.</span></h2>
+  <p class="sage">Teilen kann heilen.</p>
+  <p class="body">Folge @malva.ev und sei von Anfang an dabei.</p>
+  <div class="foot"><div class="brand" data-mark="d"><span>malva</span></div><span class="num">7/7</span></div>
 </section>
 
 <section class="slide dark story center" id="story">
-  <div style="width:360px;margin-bottom:80px" data-mark="d"></div>
-  <h1 style="font-size:170px">Teilen<br>kann<br>heilen.</h1>
-  <p class="sub" style="margin-top:70px">Psychische Gesundheit darf keine<br>Frage des Geldes sein.</p>
-  <p class="pill" style="color:var(--ll)">Link in Bio · @malva.ev</p>
-  <p class="note" style="position:absolute;bottom:200px;left:0;right:0">Malva · Verein in Gründung · Bad Dürkheim</p>
+  <div class="mark-top" style="width:260px" data-mark="d"></div>
+  <h1 style="font-size:160px">Teilen kann<br><span class="hl">heilen.</span></h1>
+  <p class="body" style="margin-top:80px">Psychische Gesundheit darf<br>keine Frage des Geldes sein.</p>
+  <p class="sage" style="margin-top:90px">Link in Bio · @malva.ev</p>
+  <div class="foot" style="bottom:200px;justify-content:center"><div class="brand" data-mark="d"><span>malva</span></div></div>
 </section>
-
 <script>
-document.querySelectorAll('[data-mark]').forEach(el=>{
-  const svg=document.getElementById('mark-'+el.dataset.mark).content.cloneNode(true);
-  el.prepend(svg);
-});
+document.querySelectorAll('[data-mark]').forEach(el=>el.prepend(document.getElementById('mark-'+el.dataset.mark).content.cloneNode(true)));
 </script>
 </body></html>
