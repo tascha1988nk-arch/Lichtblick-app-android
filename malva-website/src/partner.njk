@@ -6,15 +6,9 @@ description: Partner und Unterstützer von Malva.
 # Partner: einfach weitere Einträge ergänzen.
 # url ist optional, logo optional (Pfad in src/assets/img/).
 partner:
-  - name: "[PARTNER 1]"
+  - name: "[NAME DER PARTNERIN]"
     text: "[KURZE BESCHREIBUNG]"
-    url: ""
-  - name: "[PARTNER 2]"
-    text: "[KURZE BESCHREIBUNG]"
-    url: ""
-  - name: "[PARTNER 3]"
-    text: "[KURZE BESCHREIBUNG]"
-    url: ""
+    url: "https://share.google/bUGyNFybHPtcKfPZe"
 ---
 {% import "macros.njk" as m %}
 
@@ -31,11 +25,13 @@ partner:
       {% for p in partner %}
       <li class="partner">
         {% if p.logo %}<img src="{{ p.logo }}" alt="Logo {{ p.name }}" loading="lazy">{% endif %}
-        <h2 class="h3">{% if p.url %}<a href="{{ p.url }}" rel="noopener">{{ p.name }}</a>{% else %}{{ m.val(p.name) }}{% endif %}</h2>
+        <h2 class="h3">{{ m.val(p.name) }}</h2>
         <p>{{ m.val(p.text) }}</p>
+        {% if p.url %}<p><a href="{{ p.url }}" rel="noopener" class="text-link">Mehr erfahren →</a></p>{% endif %}
       </li>
       {% endfor %}
     </ul>
+    <p class="section__more">Hier entstehen in nächster Zeit noch tolle Partnerschaften.</p>
   </div>
 </section>
 

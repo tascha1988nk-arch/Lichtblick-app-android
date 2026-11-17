@@ -305,3 +305,10 @@ main:focus { outline: none; }
 }
 .site-footer__legal p { margin: 0; }
 .site-footer__legal ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.25rem; }
+
+/* Fotos */
+.photo { margin: 0; }
+.photo img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius); }
+.person__photo .placeholder { font-size: 0.9rem; }
+.person--invite { border: 2px dashed var(--malva-sage); background: transparent; }
+.section__more { margin-top: 2rem; font-size: 1.15rem; color: var(--malva-text-muted); }

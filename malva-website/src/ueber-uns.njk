@@ -4,16 +4,13 @@ title: Über uns
 permalink: /ueber-uns/
 description: Lerne die Gründerin und die Gründungsmitglieder von Malva kennen.
 # Gründungsmitglieder: einfach weitere Einträge ergänzen.
-# foto: Pfad zu einem Bild in src/assets/img/ (am besten .webp), z. B. /assets/img/max.webp
+# foto: Pfad zu einem Bild in src/assets/img/ (am besten .webp, quadratisch), z. B. /assets/img/jennifer.webp
 mitglieder:
-  - name: "[NAME]"
-    rolle: "[ROLLE, z. B. Gründungsmitglied]"
+  - name: "Jennifer Rebelein"
+    rolle: "Stellvertretende Vorsitzende (geplant)"
     text: "[KURZE VORSTELLUNG]"
-  - name: "[NAME]"
-    rolle: "[ROLLE]"
-    text: "[KURZE VORSTELLUNG]"
-  - name: "[NAME]"
-    rolle: "[ROLLE]"
+  - name: "Christine Franz"
+    rolle: "Kassenwartin (geplant)"
     text: "[KURZE VORSTELLUNG]"
 ---
 {% import "macros.njk" as m %}
@@ -27,8 +24,8 @@ mitglieder:
 
 <section class="section section--first">
   <div class="container split">
-    <figure class="photo-placeholder" aria-label="Platzhalter für ein Foto">
-      <span class="placeholder">[FOTO NATASCHA HELBIG]</span>
+    <figure class="photo">
+      <img src="/assets/img/natascha-helbig.webp" alt="Porträt von Natascha Helbig" width="800" height="1000">
     </figure>
     <div>
       <p class="eyebrow">Die Gründerin</p>
@@ -37,7 +34,6 @@ mitglieder:
       <blockquote class="quote">
         <p>„Eine Hilfsorganisation zu gründen, war schon immer mein Traum. In meiner Praxis erlebe ich immer öfter, dass Menschen aus finanziellen Gründen keine Hilfe bekommen. Das möchte ich ändern.“</p>
       </blockquote>
-      <p><span class="placeholder">[OPTIONAL: WEITERER TEXT ÜBER NATASCHA]</span></p>
     </div>
   </div>
 </section>
@@ -45,19 +41,25 @@ mitglieder:
 <section class="section section--tint">
   <div class="container">
     <h2>Die Gründungsmitglieder</h2>
+    <p>Diese Seite ist noch im Aufbau. Bald stellen wir hier alle Gründungsmitglieder vor.</p>
     <ul class="people">
       {% for p in mitglieder %}
       <li class="person">
         {% if p.foto %}
         <img src="{{ p.foto }}" alt="Porträt von {{ p.name }}" loading="lazy" width="400" height="400">
         {% else %}
-        <div class="person__photo" aria-hidden="true">{{ m.mark("hell") }}</div>
+        <div class="person__photo"><span class="placeholder">[FOTO]</span></div>
         {% endif %}
         <h3>{{ m.val(p.name) }}</h3>
         <p class="muted">{{ m.val(p.rolle) }}</p>
         <p>{{ m.val(p.text) }}</p>
       </li>
       {% endfor %}
+      <li class="person person--invite">
+        <div class="person__photo" aria-hidden="true">{{ m.mark("hell") }}</div>
+        <h3>Hier könntest du stehen</h3>
+        <p>Du möchtest Malva mitgründen? Wir freuen uns über deine E-Mail an {{ m.email(site.email) }}.</p>
+      </li>
     </ul>
   </div>
 </section>
