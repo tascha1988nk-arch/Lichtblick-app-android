@@ -1,0 +1,51 @@
+---
+layout: base.njk
+title: Team
+permalink: /team/
+description: Die Gründungsmitglieder von Malva.
+# Gründungsmitglieder: einfach weitere Einträge ergänzen.
+# foto: quadratisches Bild in src/assets/img/ (am besten .webp), z. B. /assets/img/jennifer.webp
+# zitat: ein, zwei Sätze, warum die Person bei Malva dabei ist.
+mitglieder:
+  - name: "Natascha Helbig"
+    rolle: "Gründerin"
+    foto: "/assets/img/natascha-helbig-rund.webp"
+    zitat: "In meiner Praxis erlebe ich immer öfter, dass Menschen aus finanziellen Gründen keine Hilfe bekommen. Das möchte ich ändern."
+  - name: "Jennifer Rebelein"
+    rolle: "Stellvertretende Vorsitzende (geplant)"
+    zitat: "[ZITAT: WARUM BIST DU BEI MALVA?]"
+  - name: "Christine Franz"
+    rolle: "Kassenwartin (geplant)"
+    zitat: "[ZITAT: WARUM BIST DU BEI MALVA?]"
+---
+{% import "macros.njk" as m %}
+
+<section class="page-head">
+  <div class="container narrow">
+    <h1>Team</h1>
+    <p class="lead">Hinter Malva stehen Menschen, die finden: Psychische Gesundheit darf keine Frage des Geldes sein.</p>
+  </div>
+</section>
+
+<section class="section section--first">
+  <div class="container">
+    <h2>Die Gründungsmitglieder</h2>
+    <p>Diese Seite ist noch im Aufbau. Bald stellen wir hier alle Gründungsmitglieder vor.</p>
+    {% call m.carousel("Gründungsmitglieder", "team-karussell") %}
+      {% for p in mitglieder %}{{ m.profileCard(p) }}{% endfor %}
+      {{ m.profileCard({ name: "Hier könntest du stehen", einladung: true, html: "Du möchtest Malva mitgründen? Wir freuen uns über deine E-Mail an " + m.email(site.email) + "." }) }}
+    {% endcall %}
+  </div>
+</section>
+
+<section class="section section--tint">
+  <div class="container narrow">
+    <h2>Was uns wichtig ist</h2>
+    <ul class="check-list">
+      <li>Malva bietet selbst keine Therapie an. Wir finanzieren und vermitteln.</li>
+      <li>Wir arbeiten mit qualifizierten Fachleuten zusammen.</li>
+      <li>Wir starten in Rheinland-Pfalz und wollen später bundesweit helfen.</li>
+    </ul>
+    <p><a href="/warum-malva/" class="text-link">Warum es Malva gibt →</a></p>
+  </div>
+</section>

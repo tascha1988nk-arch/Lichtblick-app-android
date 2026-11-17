@@ -59,7 +59,8 @@ export default {
 
   nav: [
     { url: "/", label: "Start" },
-    { url: "/ueber-uns/", label: "Über uns" },
+    { url: "/warum-malva/", label: "Warum Malva" },
+    { url: "/team/", label: "Team" },
     { url: "/hilfe-beantragen/", label: "Hilfe beantragen" },
     { url: "/partner/", label: "Partner" },
     { url: "/spenden/", label: "Spenden", button: true },

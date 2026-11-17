@@ -8,7 +8,8 @@ Keine Cookies, kein Tracking, Schrift lokal eingebunden.
 | Seite | Datei |
 |---|---|
 | Startseite (inkl. Instagram/Facebook, Fahrplan, Kontakt) | `src/index.njk` |
-| Über uns (Gründerin + Gründungsmitglieder) | `src/ueber-uns.njk` |
+| Warum Malva (Idee, Geschichte der Gründerin) | `src/warum-malva.njk` |
+| Team (Gründungsmitglieder, Karussell) | `src/team.njk` |
 | Hilfe beantragen (noch im Aufbau) | `src/hilfe-beantragen.njk` |
 | Partner | `src/partner.njk` |
 | Spenden (GoFundMe, später Spendenkonto) | `src/spenden.njk` |
@@ -19,7 +20,7 @@ Keine Cookies, kein Tracking, Schrift lokal eingebunden.
 - **Fast alles Wichtige** steht in `src/_data/site.js`: E-Mail, Social-Links, GoFundMe-Link, Spendenkonto, Fahrplan-Status, Impressumsdaten.
 - **Nach der Eintragung ins Vereinsregister:** in `site.js` `eingetragen = true` setzen. Dann steht überall „Malva e. V.“, und das Impressum zeigt Vorstand und Register.
 - **Spendenkonto statt GoFundMe:** in `site.js` `kontoAktiv: true` setzen und IBAN usw. eintragen.
-- **Gründungsmitglieder / Partner:** oben in `src/ueber-uns.njk` bzw. `src/partner.njk` (Liste im Kopf der Datei).
+- **Gründungsmitglieder / Partner:** oben in `src/team.njk` bzw. `src/partner.njk` (Liste im Kopf der Datei).
 - **Fotos:** als `.webp` nach `src/assets/img/` legen.
 - **Farben und Gestaltung:** `src/assets/css/style.css`.
 

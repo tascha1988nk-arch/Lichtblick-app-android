@@ -4,10 +4,12 @@ title: Partner
 permalink: /partner/
 description: Partner und Unterstützer von Malva.
 # Partner: einfach weitere Einträge ergänzen.
-# url ist optional, logo optional (Pfad in src/assets/img/).
+# name = Ansprechperson, firma = Unternehmen/Organisation (optional),
+# foto und logo optional (Pfad in src/assets/img/), zitat = warum sie Malva unterstützen.
 partner:
   - name: "[NAME DER PARTNERIN]"
-    text: "[KURZE BESCHREIBUNG]"
+    rolle: "[FIRMA / TÄTIGKEIT]"
+    zitat: "[ZITAT: WARUM UNTERSTÜTZT SIE MALVA?]"
     url: "https://share.google/bUGyNFybHPtcKfPZe"
 ---
 {% import "macros.njk" as m %}
@@ -21,16 +23,9 @@ partner:
 
 <section class="section section--first">
   <div class="container">
-    <ul class="partners">
-      {% for p in partner %}
-      <li class="partner">
-        {% if p.logo %}<img src="{{ p.logo }}" alt="Logo {{ p.name }}" loading="lazy">{% endif %}
-        <h2 class="h3">{{ m.val(p.name) }}</h2>
-        <p>{{ m.val(p.text) }}</p>
-        {% if p.url %}<p><a href="{{ p.url }}" rel="noopener" class="text-link">Mehr erfahren →</a></p>{% endif %}
-      </li>
-      {% endfor %}
-    </ul>
+    {% call m.carousel("Partner", "partner-karussell") %}
+      {% for p in partner %}{{ m.profileCard(p) }}{% endfor %}
+    {% endcall %}
     <p class="section__more">Hier entstehen in nächster Zeit noch tolle Partnerschaften.</p>
   </div>
 </section>

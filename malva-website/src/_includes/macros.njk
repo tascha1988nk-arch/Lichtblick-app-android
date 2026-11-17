@@ -32,3 +32,35 @@
   <li>{% if site.social.facebook.url | isPlaceholder %}<span class="placeholder">{{ iconFacebook() }} Facebook {{ site.social.facebook.url }}</span>{% else %}<a href="{{ site.social.facebook.url }}" rel="noopener">{{ iconFacebook() }}<span>Facebook <span class="social__handle">{{ site.social.facebook.handle }}</span></span></a>{% endif %}</li>
 </ul>
 {% endmacro %}
+
+{# Karussell: am Handy zum Wischen, am Computer nebeneinander.
+   Pfeile erscheinen automatisch, sobald nicht alle Karten Platz haben. #}
+{% macro carousel(label, id) %}
+<div class="carousel" role="region" aria-roledescription="Karussell" aria-label="{{ label }}" id="{{ id }}">
+  <ul class="carousel__track" tabindex="0">
+    {{ caller() }}
+  </ul>
+  <div class="carousel__controls" hidden>
+    <button type="button" class="carousel__btn" data-dir="-1" aria-controls="{{ id }}" aria-label="Zurück">←</button>
+    <span class="carousel__count" aria-live="polite"></span>
+    <button type="button" class="carousel__btn" data-dir="1" aria-controls="{{ id }}" aria-label="Weiter">→</button>
+  </div>
+</div>
+{% endmacro %}
+
+{# Karte für Person oder Partner #}
+{% macro profileCard(p) %}
+<li class="profile">
+  {% if p.logo %}<div class="profile__logo"><img src="{{ p.logo }}" alt="Logo {{ p.firma or p.name }}" loading="lazy"></div>{% endif %}
+  <div class="profile__photo">
+    {% if p.foto %}<img src="{{ p.foto }}" alt="Porträt von {{ p.name }}" loading="lazy" width="320" height="320">
+    {% elif p.einladung %}{{ mark("hell") }}
+    {% else %}<span class="placeholder">[FOTO]</span>{% endif %}
+  </div>
+  <h3 class="profile__name">{{ val(p.name) }}</h3>
+  {% if p.rolle %}<p class="profile__role">{{ val(p.rolle) }}</p>{% endif %}
+  {% if p.zitat %}<p class="profile__quote">{% if p.zitat | isPlaceholder %}{{ val(p.zitat) }}{% else %}„{{ p.zitat }}“{% endif %}</p>{% endif %}
+  {% if p.html %}<p>{{ p.html | safe }}</p>{% endif %}
+  {% if p.url %}<p><a href="{{ p.url }}" rel="noopener" class="text-link">Mehr erfahren →</a></p>{% endif %}
+</li>
+{% endmacro %}
