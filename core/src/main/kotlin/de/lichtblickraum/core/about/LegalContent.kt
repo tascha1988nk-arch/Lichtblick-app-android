@@ -78,14 +78,25 @@ object LegalContent {
                 "[Platzhalter: prüfen, ob ein dort eingebundener Buchungsdienst erwähnt werden muss]",
         ),
         LegalSection(
+            "Google Play",
+            "Beim Herunterladen über Google Play verarbeitet Google Daten in eigener Verantwortung, " +
+                "z. B. die Daten deines Google-Kontos. Wenn du in deinem Gerät erlaubt hast, Diagnosedaten " +
+                "an Google zu senden, kann Google zusammengefasste Statistiken, etwa zu Abstürzen, " +
+                "bereitstellen. Daraus lassen sich keine einzelnen Personen erkennen.",
+        ),
+        LegalSection(
             "Verantwortliche Stelle",
             "Lichtblick, Natascha Helbig\nKurbrunnenstraße 11, 67098 Bad Dürkheim\n" +
                 "E-Mail: kontakt@lichtblick-raum.de",
         ),
         LegalSection(
             "Deine Rechte",
-            "[Platzhalter: Hinweise zu Auskunft, Löschung, Beschwerderecht usw. – bitte " +
-                "fachkundig formulieren lassen]",
+            "Nach der DSGVO hast du das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung " +
+                "der Verarbeitung, Widerspruch und Datenübertragbarkeit (Art. 15 bis 21 DSGVO). Die Daten " +
+                "aus der App liegen nur auf deinem Gerät – du kannst sie dort jederzeit selbst ansehen und " +
+                "löschen. Bei Fragen schreib gern an kontakt@lichtblick-raum.de. Du hast außerdem das Recht, " +
+                "dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren (Art. 77 DSGVO), in Rheinland-Pfalz " +
+                "beim Landesbeauftragten für den Datenschutz und die Informationsfreiheit.",
         ),
     )
 
