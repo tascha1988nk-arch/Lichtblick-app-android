@@ -18,7 +18,7 @@ export default {
   url: "https://malva-ev.de",
   ort: "Bad Dürkheim, Rheinland-Pfalz",
 
-  email: "[E-MAIL EINFÜGEN, z. B. info@malva-ev.de]",
+  email: "info@malva-ev.de",
 
   social: {
     instagram: { handle: "@malva.ev", url: "https://www.instagram.com/malva.ev/" },
