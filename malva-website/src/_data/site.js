@@ -49,8 +49,8 @@ export default {
   ],
 
   impressum: {
-    name: "[NAME]",
-    anschrift: "[ANSCHRIFT]",
+    name: "Natascha Helbig",
+    anschrift: "Kurbrunnenstraße 11, 67098 Bad Dürkheim",
     // Erst nach Eintragung ausfüllen und eingetragen = true setzen:
     vorstand: "[VERTRETUNGSBERECHTIGTER VORSTAND]",
     registergericht: "[REGISTERGERICHT]",
