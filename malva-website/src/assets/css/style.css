@@ -350,3 +350,7 @@ main:focus { outline: none; }
 .profile__role { color: var(--malva-green-text); font-weight: 500; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.9rem; }
 .profile__quote { color: var(--malva-text-muted); }
 .profile > :last-child { margin-bottom: 0; }
+
+/* Geschichte auf „Warum Malva“ */
+.section--story { padding-top: 0; }
+.prose-story p { font-size: 1.15rem; line-height: 1.7; }

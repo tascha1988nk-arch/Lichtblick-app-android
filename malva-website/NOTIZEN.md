@@ -27,6 +27,12 @@ Vorbild, das Natascha gefallen hat: Antragsseite von nefesch.org (nur als Ideeng
 ## Sonst offen
 - Name und Beschreibung der ersten Partnerin (Link: https://share.google/bUGyNFybHPtcKfPZe)
 - Fotos (quadratisch) und Zitate von Jennifer Rebelein und Christine Franz (src/team.njk)
-- „Warum Malva“: Nataschas Geschichte, ggf. weitere Werte, Bedeutung des Namens
+- „Warum Malva“: ggf. weitere Werte (Platzhalter)
 - Datenschutzerklärung (Generator)
 - Hosting für die Website (Domainpaket hat keinen Webspace)
+
+## Rechtliche Grundlagen für „Hilfe beantragen“ (zum späteren Einbauen, vorher prüfen lassen)
+- **§ 13 Abs. 3 SGB V – Kostenerstattung:** Die Krankenkasse muss die Kosten einer Psychotherapie in einer Privatpraxis erstatten, wenn sie die Behandlung nicht rechtzeitig über Kassenpraxen ermöglichen kann („Systemversagen“). Nur für approbierte Psychotherapeutinnen und Psychotherapeuten, nicht für Heilpraktiker oder Berater. Antrag **vor** Therapiebeginn, Absagen von Kassenpraxen dokumentieren (Datum, Praxis, Grund), bei Ablehnung Widerspruch.
+- **§ 75 Abs. 1a SGB V – Terminservicestelle (116 117):** vermittelt Termine für die psychotherapeutische Sprechstunde und Akutbehandlung. Kontakt dort gehört zu den Nachweisen für den Kostenerstattungsantrag.
+- **Psychotherapie-Richtlinie (G-BA):** regelt Sprechstunde, Akutbehandlung, probatorische Sitzungen.
+- Quellen u. a.: Ratgeber Kostenerstattung der Bundespsychotherapeutenkammer, betanet.de
