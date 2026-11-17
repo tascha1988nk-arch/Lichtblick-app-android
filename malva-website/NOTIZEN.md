@@ -36,3 +36,11 @@ Vorbild, das Natascha gefallen hat: Antragsseite von nefesch.org (nur als Ideeng
 - **§ 75 Abs. 1a SGB V – Terminservicestelle (116 117):** vermittelt Termine für die psychotherapeutische Sprechstunde und Akutbehandlung. Kontakt dort gehört zu den Nachweisen für den Kostenerstattungsantrag.
 - **Psychotherapie-Richtlinie (G-BA):** regelt Sprechstunde, Akutbehandlung, probatorische Sitzungen.
 - Quellen u. a.: Ratgeber Kostenerstattung der Bundespsychotherapeutenkammer, betanet.de
+
+## Instagram: eigener Post zur Malve (in den nächsten Tagen)
+Text-Ideen (Quelle: Apotheken Umschau, AGES):
+- „Warum Malva? Die Malve ist eine alte Heilpflanze.“
+- Ihre Schleimstoffe legen sich wie ein schützender Film über gereizte Schleimhäute, darum trinkt man Malventee traditionell bei Halsschmerzen und Reizhusten.
+- „Sie schützt, sie lindert und sie wächst einfach am Wegesrand. Für alle.“
+- Verbindung zu Malva: Hilfe, die schützt und lindert, bis es wieder besser geht, und für alle da ist.
+- Text steht auch auf der Website unter „Warum Malva“ → „Warum der Name Malva?“
