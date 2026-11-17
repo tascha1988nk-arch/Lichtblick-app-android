@@ -1,0 +1,34 @@
+{# Bildmarke: variant = "hell" (auf Creme) oder "dunkel" (auf Dunkelgrün) #}
+{% macro mark(variant="hell", label="") %}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" {% if label %}role="img" aria-label="{{ label }}"{% else %}aria-hidden="true" focusable="false"{% endif %}>
+  {% if variant == "dunkel" %}
+  <path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#C3B1F2" fill-opacity="0.92"/>
+  <path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#9CCBA8" fill-opacity="0.85"/>
+  {% else %}
+  <path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#A58BEA" fill-opacity="0.9"/>
+  <path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#7FAF8E" fill-opacity="0.82"/>
+  {% endif %}
+</svg>
+{% endmacro %}
+
+{# Link, der sich bei einem Platzhalter-Wert als markierter Platzhalter zeigt #}
+{% macro link(url, text, cls="") %}
+{% if url | isPlaceholder %}<span class="placeholder" title="Platzhalter – vor dem Livegang ersetzen">{{ text }} {{ url }}</span>{% else %}<a href="{{ url }}" class="{{ cls }}" rel="noopener">{{ text }}</a>{% endif %}
+{% endmacro %}
+
+{# Wert anzeigen, Platzhalter markieren #}
+{% macro val(v) %}{% if v | isPlaceholder %}<span class="placeholder">{{ v }}</span>{% else %}{{ v }}{% endif %}{% endmacro %}
+
+{% macro email(addr) %}{% if addr | isPlaceholder %}<span class="placeholder">{{ addr }}</span>{% else %}<a href="mailto:{{ addr }}">{{ addr }}</a>{% endif %}{% endmacro %}
+
+{% macro iconInstagram() %}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg>{% endmacro %}
+
+{% macro iconFacebook() %}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H8v3h2.5V21h3Z" fill="currentColor"/></svg>{% endmacro %}
+
+{# Social-Links (keine Einbettung, nur einfache Links – datenschutzfreundlich) #}
+{% macro socialLinks(site, cls="social") %}
+<ul class="{{ cls }}">
+  <li>{% if site.social.instagram.url | isPlaceholder %}<span class="placeholder">Instagram {{ site.social.instagram.url }}</span>{% else %}<a href="{{ site.social.instagram.url }}" rel="noopener">{{ iconInstagram() }}<span>Instagram <span class="social__handle">{{ site.social.instagram.handle }}</span></span></a>{% endif %}</li>
+  <li>{% if site.social.facebook.url | isPlaceholder %}<span class="placeholder">{{ iconFacebook() }} Facebook {{ site.social.facebook.url }}</span>{% else %}<a href="{{ site.social.facebook.url }}" rel="noopener">{{ iconFacebook() }}<span>Facebook <span class="social__handle">{{ site.social.facebook.handle }}</span></span></a>{% endif %}</li>
+</ul>
+{% endmacro %}

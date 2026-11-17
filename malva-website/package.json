@@ -1,0 +1,17 @@
+{
+  "name": "malva-website",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.8",
+    "@fontsource/outfit": "^5.3.0"
+  },
+  "type": "module",
+  "private": true
+}

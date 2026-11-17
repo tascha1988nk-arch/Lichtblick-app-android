@@ -1,0 +1,38 @@
+---
+layout: base.njk
+title: Impressum
+permalink: /impressum/
+robots: noindex
+---
+{% import "macros.njk" as m %}
+
+<section class="page-head">
+  <div class="container narrow"><h1>Impressum</h1></div>
+</section>
+
+<section class="section section--first">
+  <div class="container narrow prose">
+    <h2>Angaben gemäß § 5 DDG</h2>
+    <p>
+      {{ site.nameLang }}<br>
+      {{ m.val(site.impressum.name) }}<br>
+      {{ m.val(site.impressum.anschrift) }}
+    </p>
+
+    <h2>Kontakt</h2>
+    <p>E-Mail: {{ m.email(site.email) }}</p>
+
+    {% if site.eingetragen %}
+    <h2>Vertretungsberechtigter Vorstand</h2>
+    <p>{{ m.val(site.impressum.vorstand) }}</p>
+
+    <h2>Registereintrag</h2>
+    <p>
+      Registergericht: {{ m.val(site.impressum.registergericht) }}<br>
+      Registernummer: {{ m.val(site.impressum.registernummer) }}
+    </p>
+    {% else %}
+    <p class="hint">Malva befindet sich in Gründung und ist noch nicht ins Vereinsregister eingetragen.</p>
+    {% endif %}
+  </div>
+</section>

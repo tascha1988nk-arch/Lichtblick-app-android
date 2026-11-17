@@ -1,0 +1,110 @@
+---
+layout: base.njk
+---
+{% import "macros.njk" as m %}
+
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__text">
+      <p class="badge">{{ site.nameLang }}</p>
+      <h1>{{ site.leitsatz }}</h1>
+      <p class="lead">Malva setzt sich dafür ein, dass Menschen mit wenig Geld psychologische Hilfe bekommen: durch finanzielle Unterstützung, Hilfe bei Anträgen und die Vermittlung an qualifizierte Fachleute.</p>
+      <div class="btn-row">
+        <a href="/spenden/" class="btn btn--primary">Jetzt unterstützen</a>
+        <a href="#problem" class="btn btn--secondary">Mehr erfahren</a>
+      </div>
+    </div>
+    <div class="hero__mark">{{ m.mark("hell") }}</div>
+  </div>
+</section>
+
+<section id="problem" class="section">
+  <div class="container narrow">
+    <h2>Das Problem</h2>
+    <p class="lead">Wer psychologische Hilfe braucht, wartet oft monatelang auf einen Therapieplatz. Privat bezahlen können viele nicht. Für sie wird Hilfe damit zum Luxus.</p>
+    <p>Genau hier wollen wir ansetzen: Niemand soll auf Unterstützung verzichten müssen, nur weil das Geld fehlt.</p>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="container">
+    <h2>So wollen wir helfen</h2>
+    <p class="section__intro">Malva bietet selbst keine Therapie an. Wir finanzieren und vermitteln, damit du die passende Hilfe bekommst.</p>
+    <ol class="cards">
+      <li class="card card--dark">
+        <span class="card__num" aria-hidden="true">1</span>
+        <h3>Kosten übernehmen</h3>
+        <p>Wir wollen Kosten für Therapie und Beratung übernehmen, wenn du sie selbst nicht tragen kannst.</p>
+      </li>
+      <li class="card card--dark">
+        <span class="card__num" aria-hidden="true">2</span>
+        <h3>Bei Anträgen unterstützen</h3>
+        <p>Wir wollen dich auf dem Weg zur Krankenkasse begleiten und bei Anträgen helfen.</p>
+      </li>
+      <li class="card card--dark">
+        <span class="card__num" aria-hidden="true">3</span>
+        <h3>Passende Fachleute vermitteln</h3>
+        <p>Wir wollen dich an qualifizierte Fachleute vermitteln, die zu dir und deinem Anliegen passen.</p>
+      </li>
+    </ol>
+    <p class="section__note">Wir starten als Pilotprojekt in Rheinland-Pfalz, später soll Malva bundesweit helfen.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split">
+    <div>
+      <h2>Über Malva</h2>
+      <blockquote class="quote">
+        <p>„Eine Hilfsorganisation zu gründen, war schon immer mein Traum. In meiner Praxis erlebe ich immer öfter, dass Menschen aus finanziellen Gründen keine Hilfe bekommen. Das möchte ich ändern.“</p>
+        <footer>Natascha Helbig, psychologische Beraterin und Gründerin von Malva</footer>
+      </blockquote>
+      <a href="/ueber-uns/" class="text-link">Lerne uns kennen →</a>
+    </div>
+    <figure class="photo-placeholder" aria-label="Platzhalter für ein Foto">
+      <span class="placeholder">[FOTO NATASCHA HELBIG]</span>
+    </figure>
+  </div>
+</section>
+
+<section class="section section--tint">
+  <div class="container narrow">
+    <h2>Aktueller Stand</h2>
+    <p>Malva ist ein Verein in Gründung. Diese Schritte liegen vor uns:</p>
+    <ol class="roadmap">
+      {% for item in site.fahrplan %}
+      <li class="roadmap__item roadmap__item--{{ item.status | replace(' ', '-') }}">
+        <span class="roadmap__dot" aria-hidden="true"></span>
+        <span class="roadmap__label">{{ item.schritt }}</span>
+        <span class="roadmap__status">{{ item.status }}</span>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container narrow center">
+    <h2>Folge Malva</h2>
+    <p>Auf Instagram und Facebook erzählen wir, wie es mit Malva vorangeht.</p>
+    {{ m.socialLinks(site, "social social--large") }}
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="container narrow center">
+    <h2>Unterstütze Malva</h2>
+    <p>Mit deiner Spende hilfst du, Malva aufzubauen.</p>
+    <div class="btn-row btn-row--center">
+      <a href="/spenden/" class="btn btn--light">Zur Spendenseite</a>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt" class="section">
+  <div class="container narrow center">
+    <h2>Kontakt</h2>
+    <p>Du hast Fragen, möchtest mitmachen oder Partner werden? Schreib uns:</p>
+    <p class="big-link">{{ m.email(site.email) }}</p>
+  </div>
+</section>

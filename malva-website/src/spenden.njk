@@ -1,0 +1,52 @@
+---
+layout: base.njk
+title: Spenden
+permalink: /spenden/
+description: So kannst du Malva mit einer Spende unterstützen.
+---
+{% import "macros.njk" as m %}
+
+<section class="page-head">
+  <div class="container narrow">
+    <h1>Spenden</h1>
+    <p class="lead">Mit deiner Spende hilfst du, Malva aufzubauen, damit psychologische Hilfe keine Frage des Geldes mehr ist.</p>
+  </div>
+</section>
+
+<section class="section section--first">
+  <div class="container narrow">
+    {% if site.spenden.kontoAktiv %}
+    <div class="panel">
+      <h2>Spendenkonto</h2>
+      <dl class="data-list">
+        <dt>Kontoinhaber</dt><dd>{{ m.val(site.spenden.konto.inhaber) }}</dd>
+        <dt>IBAN</dt><dd>{{ m.val(site.spenden.konto.iban) }}</dd>
+        <dt>BIC</dt><dd>{{ m.val(site.spenden.konto.bic) }}</dd>
+        <dt>Bank</dt><dd>{{ m.val(site.spenden.konto.bank) }}</dd>
+        <dt>Verwendungszweck</dt><dd>{{ m.val(site.spenden.konto.verwendungszweck) }}</dd>
+      </dl>
+      <p>Für deine Spende erhältst du eine Spendenquittung. Bitte gib dafür im Verwendungszweck deine Anschrift an.</p>
+    </div>
+    {% else %}
+    <div class="panel">
+      <h2>Spenden über GoFundMe</h2>
+      <p>Solange Malva in Gründung ist, sammeln wir Spenden über GoFundMe.</p>
+      <p>{{ m.link(site.spenden.gofundme, "Zur GoFundMe-Seite", "btn btn--primary") }}</p>
+      <p class="hint"><strong>Gut zu wissen:</strong> Für Spenden über GoFundMe können wir keine Spendenquittung ausstellen.</p>
+    </div>
+
+    <div class="panel panel--soft">
+      <h2>Bald: Spendenkonto und Mitgliedschaft</h2>
+      <p>Sobald Malva ins Vereinsregister eingetragen und als gemeinnützig anerkannt ist, kannst du direkt auf unser Vereinskonto spenden und erhältst eine Spendenquittung. Dann kannst du auch Mitglied werden.</p>
+    </div>
+    {% endif %}
+
+    <h2>Weitere Wege, Malva zu unterstützen</h2>
+    <ul class="check-list">
+      <li>Erzähl anderen von Malva.</li>
+      <li>Folge uns und teile unsere Beiträge.</li>
+      <li>Du möchtest dich als Fachperson oder Organisation einbringen? <a href="/partner/">Werde Partner.</a></li>
+    </ul>
+    {{ m.socialLinks(site) }}
+  </div>
+</section>

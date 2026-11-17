@@ -1,0 +1,48 @@
+---
+layout: base.njk
+title: Partner
+permalink: /partner/
+description: Partner und Unterstützer von Malva.
+# Partner: einfach weitere Einträge ergänzen.
+# url ist optional, logo optional (Pfad in src/assets/img/).
+partner:
+  - name: "[PARTNER 1]"
+    text: "[KURZE BESCHREIBUNG]"
+    url: ""
+  - name: "[PARTNER 2]"
+    text: "[KURZE BESCHREIBUNG]"
+    url: ""
+  - name: "[PARTNER 3]"
+    text: "[KURZE BESCHREIBUNG]"
+    url: ""
+---
+{% import "macros.njk" as m %}
+
+<section class="page-head">
+  <div class="container narrow">
+    <h1>Partner</h1>
+    <p class="lead">Gemeinsam erreichen wir mehr. Diese Partner unterstützen Malva.</p>
+  </div>
+</section>
+
+<section class="section section--first">
+  <div class="container">
+    <ul class="partners">
+      {% for p in partner %}
+      <li class="partner">
+        {% if p.logo %}<img src="{{ p.logo }}" alt="Logo {{ p.name }}" loading="lazy">{% endif %}
+        <h2 class="h3">{% if p.url %}<a href="{{ p.url }}" rel="noopener">{{ p.name }}</a>{% else %}{{ m.val(p.name) }}{% endif %}</h2>
+        <p>{{ m.val(p.text) }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="container narrow center">
+    <h2>Partner werden</h2>
+    <p>Du bist Fachperson, Praxis, Unternehmen oder Organisation und möchtest Malva unterstützen? Wir freuen uns auf deine Nachricht.</p>
+    <p class="big-link">{{ m.email(site.email) }}</p>
+  </div>
+</section>

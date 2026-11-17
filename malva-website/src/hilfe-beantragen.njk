@@ -1,0 +1,47 @@
+---
+layout: base.njk
+title: Hilfe beantragen
+permalink: /hilfe-beantragen/
+description: So kannst du bei Malva Unterstützung beantragen.
+---
+{% import "macros.njk" as m %}
+
+<section class="page-head">
+  <div class="container narrow">
+    <h1>Hilfe beantragen</h1>
+    <p class="lead">Hier erfährst du bald, wie du bei Malva Unterstützung beantragen kannst.</p>
+  </div>
+</section>
+
+<section class="section section--first">
+  <div class="container narrow">
+    <div class="panel panel--soft">
+      <h2>Diese Seite ist noch im Aufbau</h2>
+      <p>Malva ist ein Verein in Gründung. Sobald wir Hilfe anbieten können, beschreiben wir hier Schritt für Schritt, wie es abläuft.</p>
+    </div>
+
+    {# Platzhalter-Gliederung: Inhalte folgen #}
+    <h2>Wer kann Hilfe bekommen?</h2>
+    <p><span class="placeholder">[TEXT FOLGT]</span></p>
+
+    <h2>So läuft es ab</h2>
+    <ol class="steps">
+      <li><span class="placeholder">[SCHRITT 1]</span></li>
+      <li><span class="placeholder">[SCHRITT 2]</span></li>
+      <li><span class="placeholder">[SCHRITT 3]</span></li>
+    </ol>
+
+    <h2>Fragen?</h2>
+    <p>Schreib uns gern: {{ m.email(site.email) }}</p>
+
+    <aside class="crisis" aria-labelledby="krise">
+      <h2 id="krise">Du brauchst jetzt sofort Hilfe?</h2>
+      <p>Malva ist keine Notfall-Anlaufstelle. In einer akuten Krise erreichst du rund um die Uhr:</p>
+      <ul>
+        <li>Notruf: <a href="tel:112">112</a></li>
+        <li>Ärztlicher Bereitschaftsdienst: <a href="tel:116117">116 117</a></li>
+        <li>TelefonSeelsorge (kostenlos, anonym): <a href="tel:08001110111">0800 111 0 111</a> oder <a href="tel:08001110222">0800 111 0 222</a></li>
+      </ul>
+    </aside>
+  </div>
+</section>

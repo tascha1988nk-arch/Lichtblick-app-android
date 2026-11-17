@@ -1,0 +1,81 @@
+{% import "macros.njk" as m %}<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title %}{{ title }} – {% endif %}{{ site.name }}</title>
+  <meta name="description" content="{{ description or (site.leitsatz + ' ' + site.nameLang + ' aus ' + site.ort + '.') }}">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/outfit-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/outfit-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  {% if robots %}<meta name="robots" content="{{ robots }}">{% endif %}
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="/" class="malva-logo malva-logo--header" aria-label="Malva – zur Startseite">
+        {{ m.mark("hell") }}
+        <span class="malva-logo__text"><span class="malva-logo__name">malva</span></span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="hauptmenue">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span class="nav-toggle__label">Menü</span>
+      </button>
+
+      <nav id="hauptmenue" class="site-nav" aria-label="Hauptmenü">
+        <ul>
+          {% for item in site.nav %}
+          <li><a href="{{ item.url }}" class="{% if item.button %}btn btn--primary btn--small{% endif %}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inhalt" tabindex="-1">
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div>
+        <a href="/" class="malva-logo malva-logo--footer" aria-label="Malva – zur Startseite">
+          {{ m.mark("dunkel") }}
+          <span class="malva-logo__text">
+            <span class="malva-logo__name">malva</span>
+            <span class="malva-logo__claim">{{ site.slogan }}</span>
+          </span>
+        </a>
+        <p class="site-footer__status">{{ site.nameLang }} · {{ site.ort }}</p>
+      </div>
+
+      <nav aria-label="Weitere Seiten">
+        <h2 class="site-footer__heading">Seiten</h2>
+        <ul class="site-footer__links">
+          {% for item in site.nav %}<li><a href="{{ item.url }}">{{ item.label }}</a></li>{% endfor %}
+        </ul>
+      </nav>
+
+      <div>
+        <h2 class="site-footer__heading">Folge uns</h2>
+        {{ m.socialLinks(site, "social social--footer") }}
+        <h2 class="site-footer__heading">Kontakt</h2>
+        <p>{{ m.email(site.email) }}</p>
+      </div>
+    </div>
+    <div class="container site-footer__legal">
+      <p>© {{ year }} {{ site.name }}</p>
+      <ul>
+        <li><a href="/impressum/">Impressum</a></li>
+        <li><a href="/datenschutz/">Datenschutz</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/assets/js/nav.js" defer></script>
+</body>
+</html>

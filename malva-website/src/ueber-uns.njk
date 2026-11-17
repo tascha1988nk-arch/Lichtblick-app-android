@@ -1,0 +1,74 @@
+---
+layout: base.njk
+title: Über uns
+permalink: /ueber-uns/
+description: Lerne die Gründerin und die Gründungsmitglieder von Malva kennen.
+# Gründungsmitglieder: einfach weitere Einträge ergänzen.
+# foto: Pfad zu einem Bild in src/assets/img/ (am besten .webp), z. B. /assets/img/max.webp
+mitglieder:
+  - name: "[NAME]"
+    rolle: "[ROLLE, z. B. Gründungsmitglied]"
+    text: "[KURZE VORSTELLUNG]"
+  - name: "[NAME]"
+    rolle: "[ROLLE]"
+    text: "[KURZE VORSTELLUNG]"
+  - name: "[NAME]"
+    rolle: "[ROLLE]"
+    text: "[KURZE VORSTELLUNG]"
+---
+{% import "macros.njk" as m %}
+
+<section class="page-head">
+  <div class="container narrow">
+    <h1>Über uns</h1>
+    <p class="lead">Hinter Malva stehen Menschen, die finden: Psychische Gesundheit darf keine Frage des Geldes sein.</p>
+  </div>
+</section>
+
+<section class="section section--first">
+  <div class="container split">
+    <figure class="photo-placeholder" aria-label="Platzhalter für ein Foto">
+      <span class="placeholder">[FOTO NATASCHA HELBIG]</span>
+    </figure>
+    <div>
+      <p class="eyebrow">Die Gründerin</p>
+      <h2>Natascha Helbig</h2>
+      <p class="muted">Psychologische Beraterin</p>
+      <blockquote class="quote">
+        <p>„Eine Hilfsorganisation zu gründen, war schon immer mein Traum. In meiner Praxis erlebe ich immer öfter, dass Menschen aus finanziellen Gründen keine Hilfe bekommen. Das möchte ich ändern.“</p>
+      </blockquote>
+      <p><span class="placeholder">[OPTIONAL: WEITERER TEXT ÜBER NATASCHA]</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tint">
+  <div class="container">
+    <h2>Die Gründungsmitglieder</h2>
+    <ul class="people">
+      {% for p in mitglieder %}
+      <li class="person">
+        {% if p.foto %}
+        <img src="{{ p.foto }}" alt="Porträt von {{ p.name }}" loading="lazy" width="400" height="400">
+        {% else %}
+        <div class="person__photo" aria-hidden="true">{{ m.mark("hell") }}</div>
+        {% endif %}
+        <h3>{{ m.val(p.name) }}</h3>
+        <p class="muted">{{ m.val(p.rolle) }}</p>
+        <p>{{ m.val(p.text) }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container narrow">
+    <h2>Was uns wichtig ist</h2>
+    <ul class="check-list">
+      <li>Malva bietet selbst keine Therapie an. Wir finanzieren und vermitteln.</li>
+      <li>Wir arbeiten mit qualifizierten Fachleuten zusammen.</li>
+      <li>Wir starten in Rheinland-Pfalz und wollen später bundesweit helfen.</li>
+    </ul>
+  </div>
+</section>

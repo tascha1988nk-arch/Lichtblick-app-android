@@ -1,0 +1,38 @@
+# Malva – Website
+
+Statische Website für Malva (Verein in Gründung), gebaut mit [Eleventy](https://www.11ty.dev/).
+Keine Cookies, kein Tracking, Schrift lokal eingebunden.
+
+## Seiten
+
+| Seite | Datei |
+|---|---|
+| Startseite (inkl. Instagram/Facebook, Fahrplan, Kontakt) | `src/index.njk` |
+| Über uns (Gründerin + Gründungsmitglieder) | `src/ueber-uns.njk` |
+| Hilfe beantragen (noch im Aufbau) | `src/hilfe-beantragen.njk` |
+| Partner | `src/partner.njk` |
+| Spenden (GoFundMe, später Spendenkonto) | `src/spenden.njk` |
+| Impressum / Datenschutz | `src/impressum.njk`, `src/datenschutz.njk` |
+
+## Was ändere ich wo?
+
+- **Fast alles Wichtige** steht in `src/_data/site.js`: E-Mail, Social-Links, GoFundMe-Link, Spendenkonto, Fahrplan-Status, Impressumsdaten.
+- **Nach der Eintragung ins Vereinsregister:** in `site.js` `eingetragen = true` setzen. Dann steht überall „Malva e. V.“, und das Impressum zeigt Vorstand und Register.
+- **Spendenkonto statt GoFundMe:** in `site.js` `kontoAktiv: true` setzen und IBAN usw. eintragen.
+- **Gründungsmitglieder / Partner:** oben in `src/ueber-uns.njk` bzw. `src/partner.njk` (Liste im Kopf der Datei).
+- **Fotos:** als `.webp` nach `src/assets/img/` legen.
+- **Farben und Gestaltung:** `src/assets/css/style.css`.
+
+Platzhalter stehen in eckigen Klammern `[ … ]` und sind auf der Seite gestrichelt lila markiert. Beim Bauen listet Eleventy auf, wo noch welche offen sind.
+
+## Lokal ansehen und bauen
+
+```bash
+npm install
+npm start        # Vorschau unter http://localhost:8080
+npm run build    # fertige Website im Ordner _site/
+```
+
+## Veröffentlichen (z. B. Strato)
+
+Den **Inhalt** des Ordners `_site/` per SFTP in das Webverzeichnis der Domain malva-ev.de hochladen.
