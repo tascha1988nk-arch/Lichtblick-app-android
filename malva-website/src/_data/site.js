@@ -22,12 +22,12 @@ export default {
 
   social: {
     instagram: { handle: "@malva.ev", url: "https://www.instagram.com/malva.ev/" },
-    facebook: { handle: "Malva", url: "[FACEBOOK-LINK EINFÜGEN]" },
+    facebook: { handle: "Malva", url: "https://www.facebook.com/share/1epeksnani/" },
   },
 
   spenden: {
     // Aktuell: GoFundMe. Später: Spendenkonto (siehe unten).
-    gofundme: "[GOFUNDME-LINK EINFÜGEN]",
+    gofundme: "https://gofund.me/ce77e6c6f",
     // Sobald es das Vereinskonto gibt, auf true setzen und Daten eintragen.
     kontoAktiv: false,
     konto: {
