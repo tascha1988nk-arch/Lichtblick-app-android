@@ -27,7 +27,7 @@ Vorbild, das Natascha gefallen hat: Antragsseite von nefesch.org (nur als Ideeng
 ## Sonst offen
 - Name und Beschreibung der ersten Partnerin (Link: https://share.google/bUGyNFybHPtcKfPZe)
 - Fotos (quadratisch) und Zitate von Jennifer Rebelein und Christine Franz (src/team.njk)
-- „Warum Malva“: ggf. weitere Werte (Platzhalter)
+
 - Datenschutzerklärung (Generator)
 - Hosting für die Website (Domainpaket hat keinen Webspace)
 
