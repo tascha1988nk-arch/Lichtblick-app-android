@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Outfit;font-weight:400;src:url(../../src/assets/fonts/outfit-latin-400-normal.woff2)}
+@font-face{font-family:Outfit;font-weight:500;src:url(../../src/assets/fonts/outfit-latin-500-normal.woff2)}
+@font-face{font-family:Outfit;font-weight:600;src:url(../../src/assets/fonts/outfit-latin-600-normal.woff2)}
+:root{--g:#1F3D33;--c:#F4F2EE;--m:#4E5A55;--ll:#C3B1F2;--lt:#7B5CD6;--sl:#9CCBA8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Outfit,sans-serif;background:#888}
+.slide{width:1080px;height:1350px;position:relative;overflow:hidden;padding:0 100px 150px;display:flex;flex-direction:column;justify-content:center}
+.story{height:1920px}
+.dark{background:var(--g);color:var(--c)} .light{background:var(--c);color:var(--g)}
+.hl{color:var(--ll)} .light .hl{color:var(--lt)}
+.kicker{font-weight:600;font-size:36px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:40px;color:var(--ll)}
+.light .kicker{color:var(--lt)}
+h1{font-weight:600;font-size:150px;line-height:1.02;letter-spacing:-.035em}
+h2{font-weight:600;font-size:82px;line-height:1.12;letter-spacing:-.025em}
+.body{font-size:44px;line-height:1.45;margin-top:56px;font-weight:500}
+.dark .body{color:#E4E8E2} .light .body{color:var(--m)}
+.sage{color:var(--sl);font-weight:600;font-size:52px;line-height:1.3;margin-top:56px}
+.light .sage{color:#2F6B48}
+.sig{color:var(--ll);font-size:40px;font-weight:500;margin-top:22px}
+.foot{position:absolute;left:100px;right:96px;bottom:84px;display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:22px;font-weight:600;font-size:44px;letter-spacing:-.03em}
+.brand svg{height:58px;width:auto}
+.num{font-size:38px;font-weight:500;opacity:.75}
+.more{font-size:40px;font-weight:500;color:var(--ll)}
+.light .more{color:var(--lt)}
+.list{list-style:none;margin-top:30px;display:flex;flex-direction:column;gap:64px}
+.list li{font-size:50px;line-height:1.3;font-weight:500;display:grid;grid-template-columns:56px 1fr;gap:44px;align-items:start}
+.list li svg{width:56px;height:56px;margin-top:2px}
+.photo{width:240px;height:240px;border-radius:50%;object-fit:cover;border:6px solid var(--sl);margin-bottom:56px}
+.mark-top{width:200px;margin-bottom:90px}
+.center{text-align:center;align-items:center}
+.list{gap:52px}.list li{font-size:46px}.small{font-size:34px;font-weight:400;opacity:.85;display:block;margin-top:8px}
+</style></head><body>
+<template id="mark-d"><svg viewBox="0 0 200 200"><path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#C3B1F2" fill-opacity=".92"/><path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#9CCBA8" fill-opacity=".85"/></svg></template>
+<template id="mark-h"><svg viewBox="0 0 200 200"><path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#A58BEA" fill-opacity=".9"/><path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#7FAF8E" fill-opacity=".82"/></svg></template>
+
+
+<section class="slide dark center" id="s1">
+  <div class="mark-top" data-mark="d"></div>
+  <p class="kicker">Partner:innen gesucht</p>
+  <h1 style="font-size:132px">Wir suchen<br><span class="hl">dich!</span></h1>
+  <p class="body">in Bad Dürkheim und Umgebung</p>
+  <div class="foot"><div class="brand" data-mark="d"><span>malva</span></div><span class="more">Mehr erfahren →</span></div>
+</section>
+
+<section class="slide dark" id="s2">
+  <p class="kicker">Warum wir dich brauchen</p>
+  <h2>Hilfe braucht Menschen, <span class="hl">die helfen.</span></h2>
+  <p class="body">Malva will Kosten für Therapie und Beratung übernehmen und an passende Fachleute vermitteln. Dafür bauen wir ein Netzwerk vor Ort auf.</p>
+  <div class="foot"><div class="brand" data-mark="d"><span>malva</span></div><span class="num">2/6</span></div>
+</section>
+
+<section class="slide light" id="s3">
+  <p class="kicker">Wir suchen Fachleute</p>
+  <ul class="list">
+    <li><span data-mark="h"></span><span>Psychotherapeut:innen mit Privatpraxis</span></li>
+    <li><span data-mark="h"></span><span>Heilpraktiker:innen für Psychotherapie</span></li>
+    <li><span data-mark="h"></span><span>Coaches und Berater:innen<span class="small">z. B. Paar- und Familienberatung, Trauer, Trauma, Sucht, Kinder und Jugendliche</span></span></li>
+    <li><span data-mark="h"></span><span>Sozialberatung<span class="small">für Anträge und den Weg zur Krankenkasse</span></span></li>
+  </ul>
+  <div class="foot"><div class="brand" data-mark="h"><span>malva</span></div><span class="num">3/6</span></div>
+</section>
+
+<section class="slide dark" id="s4">
+  <p class="kicker">Und Unterstützer:innen</p>
+  <ul class="list">
+    <li><span data-mark="d"></span><span>Unternehmen und Sponsor:innen aus der Region</span></li>
+    <li><span data-mark="d"></span><span>Arztpraxen und Apotheken, die auf Malva hinweisen</span></li>
+    <li><span data-mark="d"></span><span>Expert:innen für Recht, Steuern und Finanzen</span></li>
+    <li><span data-mark="d"></span><span>Kreative für Foto, Video und Design</span></li>
+  </ul>
+  <div class="foot"><div class="brand" data-mark="d"><span>malva</span></div><span class="num">4/6</span></div>
+</section>
+
+<section class="slide light" id="s5">
+  <p class="kicker">Gemeinsam mehr erreichen</p>
+  <h2>Jede:r gibt, was er oder sie kann. <span class="hl">Zusammen wird daraus Hilfe.</span></h2>
+  <p class="body">Als Partner:in bist du von Anfang an dabei und wirst auf unserer Website vorgestellt.</p>
+  <div class="foot"><div class="brand" data-mark="h"><span>malva</span></div><span class="num">5/6</span></div>
+</section>
+
+<section class="slide dark" id="s6">
+  <p class="kicker">Lust mitzumachen?</p>
+  <h1 style="font-size:132px">Schreib uns eine <span class="hl">DM.</span></h1>
+  <p class="body">oder eine Mail an info@malva-ev.de</p>
+  <p class="sage">Du kennst jemanden, der passt? Teile diesen Beitrag.</p>
+  <div class="foot"><div class="brand" data-mark="d"><span>malva</span></div><span class="num">6/6</span></div>
+</section>
+
+<section class="slide dark story center" id="story">
+  <div class="mark-top" style="width:260px" data-mark="d"></div>
+  <p class="kicker">Partner:innen gesucht</p>
+  <h1 style="font-size:150px">Wir suchen<br><span class="hl">dich!</span></h1>
+  <p class="body" style="margin-top:80px">Therapie, Beratung, Coaching<br>oder Unterstützung aus der Region</p>
+  <p class="sage" style="margin-top:90px">Schreib uns eine DM · @malva.ev</p>
+  <div class="foot" style="bottom:200px;justify-content:center"><div class="brand" data-mark="d"><span>malva</span></div></div>
+</section>
+<script>
+document.querySelectorAll('[data-mark]').forEach(el=>el.prepend(document.getElementById('mark-'+el.dataset.mark).content.cloneNode(true)));
+</script>
+</body></html>
