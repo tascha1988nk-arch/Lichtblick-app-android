@@ -55,3 +55,10 @@ Text-Ideen (Quelle: Apotheken Umschau, AGES):
 7. **Satzung** als PDF auf der Website veröffentlichen, sobald sie fertig ist (Transparenz).
 
 Reihenfolge laut Natascha: erst Homepage fertig, dann Satzung fürs Finanzamt.
+
+## Reiter „Hilfe“ ausbauen (statt nur „Hilfe beantragen“)
+- Antrag stellen (eigenes Online-Formular nach Eintragung, siehe oben)
+- Sofort-Hilfe: alle Notfall- und Krisennummern gesammelt (112, 116 117, TelefonSeelsorge, 116 016, 116 111 …)
+- Selbsthilfegruppen: Verweis auf Selbsthilfe-Kontaktstellen (z. B. NAKOS-Datenbank, regionale Kontaktstellen in RLP)
+- Weitere Anlaufstellen: Beratungsstellen, Diakonie, Caritas, Frauenhäuser, Terminservicestelle 116 117
+- FAQ
