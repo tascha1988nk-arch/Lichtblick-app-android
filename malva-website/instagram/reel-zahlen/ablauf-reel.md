@@ -56,7 +56,7 @@ Quellen: Bundespsychotherapeutenkammer (Wartezeit, Daten 2019), DGPPN (17,8 Mio.
 |---|---|---|---|
 | 142 Tage (≈ 4,7 Monate) | Ø Wartezeit Erstgespräch → Therapiebeginn | BPtK, Versichertendaten 2019 | Krankenkassen rechnen anders und kommen auf kürzere Werte |
 | 17,8 Mio. / 27,8 % | Erwachsene mit psychischer Erkrankung pro Jahr | DGPPN nach RKI-Survey 2009–2012 | Erhebung ist älter, wird aber bis heute genannt |
-| 7.000 | zusätzlich nötige psychotherapeutische Kassensitze (Forderung, kein amtlicher Bedarf) | Bundespsychotherapeutenkammer, Forderungen 2023 | GKV-Spitzenverband sieht das anders; 2025 gab es 41.937 Psychotherapeut:innen mit Kassenzulassung |
+| 7.000 | zusätzlich nötige psychotherapeutische Kassensitze (Forderung, kein amtlicher Bedarf) | Bundespsychotherapeutenkammer, Forderungen 2023 | Forderung der Kammer; zum Vergleich: 2025 gab es 41.937 Psychotherapeut:innen mit Kassenzulassung |
 | 41 % | Anteil psychischer Erkrankungen an neuen Erwerbsminderungsrenten | Bundestag-Drucksache 21/2263, Daten 2020 | seit Jahren stabil um 40 % |
 
 Wie viele Menschen gerade insgesamt auf einen Therapieplatz warten, wird nicht offiziell gezählt – dazu gibt es keine verlässliche Zahl.
