@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Outfit;font-weight:400;src:url(../../src/assets/fonts/outfit-latin-400-normal.woff2)}
+@font-face{font-family:Outfit;font-weight:500;src:url(../../src/assets/fonts/outfit-latin-500-normal.woff2)}
+@font-face{font-family:Outfit;font-weight:600;src:url(../../src/assets/fonts/outfit-latin-600-normal.woff2)}
+:root{--g:#1F3D33;--c:#F4F2EE;--m:#4E5A55;--ll:#C3B1F2;--lt:#7B5CD6;--sl:#9CCBA8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Outfit,sans-serif;background:#888}
+.slide{width:1080px;height:1350px;position:relative;overflow:hidden;padding:0 100px 150px;display:flex;flex-direction:column;justify-content:center}
+.story{height:1920px}
+.dark{background:var(--g);color:var(--c)} .light{background:var(--c);color:var(--g)}
+.hl{color:var(--ll)} .light .hl{color:var(--lt)}
+.kicker{font-weight:600;font-size:36px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:40px;color:var(--ll)}
+.light .kicker{color:var(--lt)}
+h1{font-weight:600;font-size:150px;line-height:1.02;letter-spacing:-.035em}
+h2{font-weight:600;font-size:82px;line-height:1.12;letter-spacing:-.025em}
+.body{font-size:44px;line-height:1.45;margin-top:56px;font-weight:500}
+.dark .body{color:#E4E8E2} .light .body{color:var(--m)}
+.sage{color:var(--sl);font-weight:600;font-size:52px;line-height:1.3;margin-top:56px}
+.light .sage{color:#2F6B48}
+.sig{color:var(--ll);font-size:40px;font-weight:500;margin-top:22px}
+.foot{position:absolute;left:100px;right:96px;bottom:84px;display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:22px;font-weight:600;font-size:44px;letter-spacing:-.03em}
+.brand svg{height:58px;width:auto}
+.num{font-size:38px;font-weight:500;opacity:.75}
+.more{font-size:40px;font-weight:500;color:var(--ll)}
+.light .more{color:var(--lt)}
+.list{list-style:none;margin-top:30px;display:flex;flex-direction:column;gap:64px}
+.list li{font-size:50px;line-height:1.3;font-weight:500;display:grid;grid-template-columns:56px 1fr;gap:44px;align-items:start}
+.list li svg{width:56px;height:56px;margin-top:2px}
+.photo{width:240px;height:240px;border-radius:50%;object-fit:cover;border:6px solid var(--sl);margin-bottom:56px}
+.mark-top{width:200px;margin-bottom:90px}
+.center{text-align:center;align-items:center}
+.ws{width:1080px;height:1920px;padding:220px 96px 380px;justify-content:flex-start}
+.ws .p{font-size:46px;line-height:1.4;font-weight:500;margin-top:34px}
+.ws .p b{font-weight:600;color:var(--ll)} .light.ws .p b{color:var(--lt)}
+.ws h1{font-size:118px;line-height:1.02;letter-spacing:-.035em}
+.ws .list li{font-size:46px}
+.ws .list{gap:40px;margin-top:20px}
+.me{display:flex;align-items:center;gap:34px;margin-bottom:60px}
+.me img{width:200px;height:200px;border-radius:50%;object-fit:cover;border:7px solid var(--sl)}
+.me span{font-size:40px;line-height:1.3;font-weight:500}
+.me small{display:block;font-size:32px;color:var(--sl);font-weight:400}
+.ig{display:flex;align-items:center;gap:26px;margin-top:70px;padding:34px 44px;border-radius:40px;background:var(--g);color:var(--c)}
+.ig svg{width:84px;height:84px;flex:none}
+.ig b{font-size:58px;display:block;letter-spacing:-.02em}
+.ig span{font-size:36px;color:var(--sl)}
+.down{position:absolute;left:0;right:0;bottom:240px;text-align:center;font-size:40px;font-weight:600;color:var(--lt)}
+.down svg{width:56px;height:56px;display:block;margin:12px auto 0}
+.logo-t{display:flex;align-items:center;gap:16px;margin-bottom:70px;font-weight:600;font-size:56px;letter-spacing:-.03em}
+.logo-t svg{height:72px;width:auto}
+</style></head><body>
+<template id="mark-d"><svg viewBox="0 0 200 200"><path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#C3B1F2" fill-opacity=".92"/><path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#9CCBA8" fill-opacity=".85"/></svg></template>
+<template id="mark-h"><svg viewBox="0 0 200 200"><path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#A58BEA" fill-opacity=".9"/><path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#7FAF8E" fill-opacity=".82"/></svg></template>
+
+
+<section class="slide dark ws" id="s1">
+  <div class="logo-t" data-mark="d"><span>malva</span></div>
+  <div class="me"><img src="../teilen-kann-heilen/natascha-helbig-rund.webp" alt=""><span>Natascha Helbig<small>psychologische Beraterin, Bad Dürkheim</small></span></div>
+  <p class="kicker" style="font-size:40px">Etwas Neues</p>
+  <h1>Ich gründe einen <span class="hl">gemeinnützigen Verein.</span></h1>
+  <p class="p">In meiner Praxis erlebe ich immer wieder: Menschen warten monatelang auf einen Therapieplatz, und privat bezahlen können viele nicht.</p>
+  <p class="p"><b>Psychische Gesundheit darf keine Frage des Geldes sein.</b> Deshalb gibt es bald Malva.</p>
+</section>
+
+<section class="slide light ws" id="s2">
+  <div class="logo-t" data-mark="h"><span>malva</span></div>
+  <p class="kicker" style="font-size:40px">Das haben wir vor</p>
+  <ul class="list">
+    <li><span data-mark="h"></span><span><b>Kosten übernehmen</b> für Therapie, Beratung und Coaching</span></li>
+    <li><span data-mark="h"></span><span><b>Begleiten</b> bei Anträgen für Krankenkasse und Ämter</span></li>
+    <li><span data-mark="h"></span><span><b>Vermitteln</b> an qualifizierte Fachleute</span></li>
+  </ul>
+  <p class="p" style="margin-top:60px">Dafür suchen wir <b>Partner, Sponsoren</b> und Menschen, die mitmachen. Teilen kann heilen.</p>
+  <div class="ig"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="#C3B1F2" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="#C3B1F2" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="#C3B1F2"/></svg><div><b>@malva.ev</b><span>Folge uns auf Instagram</span></div></div>
+  <p class="down">Link unten<svg viewBox="0 0 24 24"><path d="M12 4v15m0 0l-6-6m6 6l6-6" fill="none" stroke="#6A4BC4" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+</section>
+<script>
+document.querySelectorAll('[data-mark]').forEach(el=>el.prepend(document.getElementById('mark-'+el.dataset.mark).content.cloneNode(true)));
+</script></body></html>
