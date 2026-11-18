@@ -81,3 +81,8 @@ Reihenfolge laut Natascha: erst Homepage fertig, dann Satzung fürs Finanzamt.
 - Traum schon in der MTA-Ausbildung: Organisation, die ausgemusterte Laborgeräte aus Deutschland in afrikanische Länder bringt.
 - Liebt Tiere und Kinder; sieht bei Erwachsenen in der Praxis die hilflosen kindlichen Anteile, denen sie helfen will.
 - Kernbotschaft: Malva ist aus ihrem Herzen entstanden; mentale Gesundheit darf kein Privileg von Kontostand sein; alle haben ein erfülltes Leben verdient.
+
+## Vergabeausschuss (Satzung § 11a, Stand 18.11.2026)
+- 4 Personen: Natascha (Vorsitz), Christine (Kasse) + 2 weitere ordentliche Mitglieder ohne Vorstandsamt (von der Mitgliederversammlung gewählt) – Namen folgen.
+- Mehrheit; jede Bewilligung braucht mindestens eine Zustimmung von außerhalb des Vorstands. Befangene wirken nicht mit. Schweigepflicht schriftlich.
+- Vorstand macht Vergaberichtlinien und zahlt aus.
