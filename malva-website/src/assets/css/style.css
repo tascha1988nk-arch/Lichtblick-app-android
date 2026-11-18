@@ -473,3 +473,6 @@ main:focus { outline: none; }
 .sponsors li { background: var(--white); border-radius: 999px; padding: 0.6rem 1.2rem; font-weight: 500; }
 .reports { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.25rem; }
 .report h2 { margin-bottom: 0.5rem; }
+
+.profile__text { font-size: 0.98rem; line-height: 1.55; }
+.profile__from { font-size: 0.9rem; color: var(--malva-lilac-text); font-weight: 500; }
