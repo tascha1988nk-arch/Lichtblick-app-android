@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Outfit;font-weight:400;src:url(../../src/assets/fonts/outfit-latin-400-normal.woff2)}
+@font-face{font-family:Outfit;font-weight:500;src:url(../../src/assets/fonts/outfit-latin-500-normal.woff2)}
+@font-face{font-family:Outfit;font-weight:600;src:url(../../src/assets/fonts/outfit-latin-600-normal.woff2)}
+:root{--g:#1F3D33;--c:#F4F2EE;--m:#4E5A55;--ll:#C3B1F2;--lt:#7B5CD6;--sl:#9CCBA8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Outfit,sans-serif;background:#888}
+.slide{width:1080px;height:1350px;position:relative;overflow:hidden;padding:0 100px 150px;display:flex;flex-direction:column;justify-content:center}
+.story{height:1920px}
+.dark{background:var(--g);color:var(--c)} .light{background:var(--c);color:var(--g)}
+.hl{color:var(--ll)} .light .hl{color:var(--lt)}
+.kicker{font-weight:600;font-size:36px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:40px;color:var(--ll)}
+.light .kicker{color:var(--lt)}
+h1{font-weight:600;font-size:150px;line-height:1.02;letter-spacing:-.035em}
+h2{font-weight:600;font-size:82px;line-height:1.12;letter-spacing:-.025em}
+.body{font-size:44px;line-height:1.45;margin-top:56px;font-weight:500}
+.dark .body{color:#E4E8E2} .light .body{color:var(--m)}
+.sage{color:var(--sl);font-weight:600;font-size:52px;line-height:1.3;margin-top:56px}
+.light .sage{color:#2F6B48}
+.sig{color:var(--ll);font-size:40px;font-weight:500;margin-top:22px}
+.foot{position:absolute;left:100px;right:96px;bottom:84px;display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:22px;font-weight:600;font-size:44px;letter-spacing:-.03em}
+.brand svg{height:58px;width:auto}
+.num{font-size:38px;font-weight:500;opacity:.75}
+.more{font-size:40px;font-weight:500;color:var(--ll)}
+.light .more{color:var(--lt)}
+.list{list-style:none;margin-top:30px;display:flex;flex-direction:column;gap:64px}
+.list li{font-size:50px;line-height:1.3;font-weight:500;display:grid;grid-template-columns:56px 1fr;gap:44px;align-items:start}
+.list li svg{width:56px;height:56px;margin-top:2px}
+.photo{width:240px;height:240px;border-radius:50%;object-fit:cover;border:6px solid var(--sl);margin-bottom:56px}
+.mark-top{width:200px;margin-bottom:90px}
+.center{text-align:center;align-items:center}
+.r{width:1080px;height:1920px;padding:0 110px 200px}
+.num{font-weight:600;font-size:330px;line-height:.95;letter-spacing:-.04em}
+.unit{font-size:120px;letter-spacing:-.02em}
+.lbl{font-size:62px;line-height:1.25;font-weight:500;margin-top:50px}
+.src{font-size:34px;opacity:.7;margin-top:60px}
+.safe{position:absolute;left:0;right:0;bottom:330px;text-align:center}
+</style></head><body>
+<template id="mark-d"><svg viewBox="0 0 200 200"><path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#C3B1F2" fill-opacity=".92"/><path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#9CCBA8" fill-opacity=".85"/></svg></template>
+<template id="mark-h"><svg viewBox="0 0 200 200"><path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#A58BEA" fill-opacity=".9"/><path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#7FAF8E" fill-opacity=".82"/></svg></template>
+
+
+<section class="slide dark story r center" id="cover">
+  <div class="mark-top" style="width:240px" data-mark="d"></div>
+  <p class="kicker" style="font-size:44px">Warum es Malva gibt</p>
+  <h1 style="font-size:150px">Hilfe ist<br>kein <span class="hl">Luxus.</span></h1>
+  <p class="body" style="margin-top:70px;font-size:50px">Psychische Gesundheit darf<br>keine Frage des Geldes sein.</p>
+  <div class="foot" style="bottom:200px;justify-content:center"><div class="brand" data-mark="d"><span>malva</span></div></div>
+</section>
+
+<section class="slide dark story r center" id="z1">
+  <p class="kicker" style="font-size:44px">Wartezeit</p>
+  <p class="num hl">142</p>
+  <p class="unit">Tage</p>
+  <p class="lbl">warten Patient:innen im Schnitt zwischen Erstgespräch und Therapiebeginn.<br><span class="hl">Das sind fast fünf Monate.</span></p>
+  <p class="src">Quelle: Bundespsychotherapeutenkammer, Daten 2019</p>
+  <div class="foot" style="bottom:200px;justify-content:center"><div class="brand" data-mark="d"><span>malva</span></div></div>
+</section>
+
+<section class="slide light story r center" id="z2">
+  <p class="kicker" style="font-size:44px">Betroffen</p>
+  <p class="num hl">17,8</p>
+  <p class="unit">Millionen</p>
+  <p class="lbl">Erwachsene in Deutschland haben jedes Jahr eine psychische Erkrankung.<br><span class="hl">Mehr als jede vierte Person.</span></p>
+  <p class="src">Quelle: DGPPN, nach RKI-Gesundheitssurvey</p>
+  <div class="foot" style="bottom:200px;justify-content:center"><div class="brand" data-mark="h"><span>malva</span></div></div>
+</section>
+
+<section class="slide dark story r center" id="z3">
+  <p class="kicker" style="font-size:44px">Folgen</p>
+  <p class="num hl">41&nbsp;%</p>
+  <p class="lbl">aller neuen Frührenten wegen Erwerbsminderung gehen auf psychische Erkrankungen zurück.</p>
+  <p class="src">Quelle: Bundesregierung, Daten der Rentenversicherung 2020</p>
+  <div class="foot" style="bottom:200px;justify-content:center"><div class="brand" data-mark="d"><span>malva</span></div></div>
+</section>
+
+<section class="slide light story r center" id="ende">
+  <div class="mark-top" style="width:220px" data-mark="h"></div>
+  <h1 style="font-size:150px">Teilen kann<br><span class="hl">heilen.</span></h1>
+  <p class="body" style="margin-top:70px;font-size:50px">Wir suchen Partner:innen,<br>Sponsoren und Mitglieder.</p>
+  <p class="sage" style="margin-top:80px;font-size:56px">Link in Bio · @malva.ev</p>
+  <div class="foot" style="bottom:200px;justify-content:center"><div class="brand" data-mark="h"><span>malva</span></div></div>
+</section>
+<script>
+document.querySelectorAll('[data-mark]').forEach(el=>el.prepend(document.getElementById('mark-'+el.dataset.mark).content.cloneNode(true)));
+</script>
+</body></html>
