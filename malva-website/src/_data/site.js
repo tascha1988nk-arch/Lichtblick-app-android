@@ -26,7 +26,7 @@ export default {
   },
 
   // Externes Werkzeug für den Kostenerstattungsantrag (nur Link, nicht eingebunden)
-  kever: "[KEVER-LINK EINFÜGEN]",
+  kever: "https://derkever.de/",
 
   spenden: {
     // Aktuell: GoFundMe. Später: Spendenkonto (siehe unten).
