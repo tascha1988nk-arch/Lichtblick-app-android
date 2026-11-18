@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Outfit;font-weight:400;src:url(../src/assets/fonts/outfit-latin-400-normal.woff2)}
+@font-face{font-family:Outfit;font-weight:500;src:url(../src/assets/fonts/outfit-latin-500-normal.woff2)}
+@font-face{font-family:Outfit;font-weight:600;src:url(../src/assets/fonts/outfit-latin-600-normal.woff2)}
+@page{size:105mm 210mm;margin:0}
+:root{--g:#1F3D33;--c:#F4F2EE;--m:#4E5A55;--l:#A58BEA;--ll:#C3B1F2;--lt:#6A4BC4;--s:#7FAF8E;--sl:#9CCBA8;--gt:#2F6B48;--tint:#ECE9F6}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:Outfit,sans-serif}
+/* 1 mm = 3.7795px bei 96 dpi; Seite 105x210mm */
+.page{width:105mm;height:210mm;position:relative;overflow:hidden;page-break-after:always;display:flex;flex-direction:column}
+.dark{background:var(--g);color:var(--c)} .light{background:var(--c);color:var(--g)}
+.pad{padding:11mm 9mm}
+.logo{display:flex;align-items:center;gap:2.2mm}
+.logo svg{height:11mm;width:auto}
+.logo .name{font-weight:600;font-size:9.5mm;letter-spacing:-.03em;line-height:.9}
+.logo .claim{font-weight:500;font-size:2.9mm;margin-top:1mm}
+.dark .claim{color:var(--sl)} .light .claim{color:var(--m)}
+.badge{display:inline-block;border:.35mm solid currentColor;border-radius:99px;padding:.9mm 3mm;font-size:2.8mm;font-weight:500}
+h1{font-weight:600;font-size:9.6mm;line-height:1.05;letter-spacing:-.03em}
+h2{font-weight:600;font-size:6.4mm;line-height:1.1;letter-spacing:-.02em}
+.hl{color:var(--ll)} .light .hl{color:var(--lt)}
+p{font-size:3.55mm;line-height:1.5}
+.muted{color:var(--sl)} .light .muted{color:var(--m)}
+.kicker{font-weight:600;font-size:2.7mm;letter-spacing:.14em;text-transform:uppercase;color:var(--sl);margin-bottom:2.5mm}
+.light .kicker{color:var(--lt)}
+.list{list-style:none;display:flex;flex-direction:column;gap:3.2mm}
+.list li{display:grid;grid-template-columns:5.5mm 1fr;gap:2.6mm;font-size:3.5mm;line-height:1.4}
+.list li svg{width:5.5mm;height:5.5mm;margin-top:.2mm}
+.list b{font-weight:600}
+.small{font-size:2.9mm;line-height:1.4;display:block;margin-top:.4mm;opacity:.85}
+.leaves{position:absolute;right:-20mm;bottom:-14mm;width:66mm;opacity:.16}
+.card{background:var(--tint);border-radius:3.5mm;padding:4mm}
+.photo{width:17mm;height:17mm;border-radius:50%;object-fit:cover;border:.8mm solid var(--sl);flex:none}
+.contact{display:flex;flex-direction:column;gap:2.2mm;font-size:3.6mm;font-weight:500}
+.contact span{display:flex;align-items:center;gap:2.4mm}
+.contact svg{width:4.6mm;height:4.6mm;flex:none}
+.claimbig{font-weight:600;font-size:7.4mm;letter-spacing:-.02em;line-height:1.05}
+.foot{font-size:2.6mm;opacity:.8}
+.mt1{margin-top:2mm}.mt2{margin-top:4mm}.mt3{margin-top:6mm}.mt4{margin-top:8mm}
+.grow{flex:1}
+</style></head><body>
+<template id="mark-d"><svg viewBox="0 0 200 200"><path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#C3B1F2" fill-opacity=".92"/><path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#9CCBA8" fill-opacity=".85"/></svg></template>
+<template id="mark-h"><svg viewBox="0 0 200 200"><path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#A58BEA" fill-opacity=".9"/><path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#7FAF8E" fill-opacity=".82"/></svg></template>
+
+<!-- VORDERSEITE -->
+<section class="page dark pad" id="vorne">
+  <div class="leaves" data-mark="d"></div>
+  <div class="logo"><span data-mark="d"></span><span><div class="name">malva</div><div class="claim">Weil Hilfe kein Luxus sein sollte.</div></span></div>
+  <div class="mt4"><span class="badge" style="color:var(--sl)">Verein in Gründung · Bad Dürkheim</span></div>
+  <h1 class="mt3">Psychische Gesundheit darf <span class="hl">keine Frage des Geldes</span> sein.</h1>
+  <p class="mt3">Monatelang auf einen Therapieplatz warten, und privat bezahlen geht nicht? Für viele Menschen ist psychologische Hilfe damit ein Luxus. Das wollen wir ändern.</p>
+  <p class="kicker mt4">So wollen wir helfen</p>
+  <ul class="list">
+    <li><span data-mark="d"></span><span><b>Kosten übernehmen</b> für Therapie, Beratung und Coaching</span></li>
+    <li><span data-mark="d"></span><span><b>Begleiten</b> bei Anträgen für Krankenkasse und Ämter</span></li>
+    <li><span data-mark="d"></span><span><b>Vermitteln</b> an qualifizierte Fachleute</span></li>
+  </ul>
+  <div class="grow"></div>
+  <p class="claimbig">Teilen kann <span class="hl">heilen.</span></p>
+  <p class="foot mt1">Start in Rheinland-Pfalz und online · Malva bietet selbst keine Therapie an.</p>
+</section>
+
+<!-- RÜCKSEITE -->
+<section class="page light pad" id="hinten">
+  <p class="kicker">Mach mit</p>
+  <h2>Wir suchen <span class="hl">dich!</span></h2>
+  <ul class="list mt3">
+    <li><span data-mark="h"></span><span><b>Partner:innen</b><span class="small">Psychotherapeut:innen, Heilpraktiker:innen für Psychotherapie, Berater:innen, Coaches und Sozialberatung</span></span></li>
+    <li><span data-mark="h"></span><span><b>Sponsoren</b><span class="small">Praxen, Unternehmen und Organisationen aus der Region, die uns als Förderpartner unterstützen</span></span></li>
+    <li><span data-mark="h"></span><span><b>Mitglieder</b><span class="small">Fördermitglied werden ab 5 € im Monat (bald möglich, jetzt unverbindlich vormerken)</span></span></li>
+    <li><span data-mark="h"></span><span><b>Unterstützer:innen</b><span class="small">Weitersagen, teilen und spenden, jeder Beitrag zählt</span></span></li>
+  </ul>
+  <div class="card mt3" style="display:flex;gap:3mm;align-items:center">
+    <img class="photo" src="natascha-helbig-rund.webp" alt="">
+    <p style="font-size:3.2mm;line-height:1.45">„Ich vertraue auf Gemeinschaft. Niemand muss alles allein schaffen.“<br><span style="color:var(--lt);font-weight:500">Natascha Helbig, Gründerin</span></p>
+  </div>
+  <div class="grow"></div>
+  <!-- Platz für den QR-Code in der Druckversion -->
+  <p class="claimbig" style="font-size:6.2mm">Lust mitzumachen?</p>
+  <p class="mt1" style="color:var(--m)">Schreib uns eine Nachricht. Wir freuen uns auf dich!</p>
+  <div class="grow"></div>
+  <p class="kicker">Kontakt</p>
+  <div class="contact">
+    <span><svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5" fill="none" stroke="#1F3D33" stroke-width="1.8"/><path d="M3 6.5l9 6.5 9-6.5" fill="none" stroke="#1F3D33" stroke-width="1.8"/></svg>info@malva-ev.de</span>
+    <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2" fill="none" stroke="#1F3D33" stroke-width="1.8"/><path d="M2.8 12h18.4M12 2.8c2.6 2.6 3.8 5.6 3.8 9.2s-1.2 6.6-3.8 9.2c-2.6-2.6-3.8-5.6-3.8-9.2S9.4 5.4 12 2.8z" fill="none" stroke="#1F3D33" stroke-width="1.6"/></svg>www.malva-ev.de <span style="font-weight:400;color:var(--m);font-size:2.9mm">(bald online)</span></span>
+    <span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="#1F3D33" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="#1F3D33" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="#1F3D33"/></svg>@malva.ev</span>
+    <span><svg viewBox="0 0 24 24"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H8v3h2.5V21h3Z" fill="#1F3D33"/></svg>Malva</span>
+  </div>
+  <div class="logo mt3" style="justify-content:space-between;border-top:.3mm solid #D9D5CC;padding-top:3.5mm">
+    <span class="logo"><span data-mark="h" style="display:flex"></span><span class="name" style="font-size:6mm">malva</span></span>
+    <span class="foot" style="text-align:right">Verein in Gründung<br>Bad Dürkheim</span>
+  </div>
+</section>
+<script>
+document.querySelectorAll('[data-mark]').forEach(el=>el.prepend(document.getElementById('mark-'+el.dataset.mark).content.cloneNode(true)));
+document.querySelectorAll('.logo span[data-mark] svg').forEach(s=>{s.style.height=s.closest('.mt3')?'8mm':'11mm'});
+</script>
+</body></html>

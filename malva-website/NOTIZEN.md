@@ -69,3 +69,7 @@ Reihenfolge laut Natascha: erst Homepage fertig, dann Satzung fürs Finanzamt.
 - Regel zu Vermittlungen an Vorstands-/Gründungsmitglieder (Selbstlosigkeit).
 - Fördermitglieder (ohne Stimmrecht) aufnehmen; Beiträge in eigener Beitragsordnung (privat ab 5 €/Monat, ermäßigt 3 €; Förderpartner Keimling ab 250 €, Blatt ab 500 €, Blüte ab 1.000 €/Jahr). Förderpartner nur namentlich nennen, keine Links (Sponsoring-Steuerfrage mit Finanzamt klären).
 - Idee: Kooperation statt Konkurrenz mit anderen Vereinen (z. B. Aktion Therapie, nur Therapie).
+
+## Flyer (DIN lang, 10,5 × 21 cm) – `flyer/`
+- Digitale Version fertig (PNG vorne/hinten + PDF) zum Teilen per WhatsApp, ohne QR-Code.
+- Druckversion später: QR-Code zur Website in die Lücke über „Kontakt“ auf der Rückseite (Kommentar in `flyer.html`), „(bald online)“ entfernen, ggf. 3 mm Beschnitt je Seite für die Druckerei.
