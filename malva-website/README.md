@@ -10,7 +10,7 @@ Keine Cookies, kein Tracking, Schrift lokal eingebunden.
 | Startseite (inkl. Instagram/Facebook, Fahrplan, Kontakt) | `src/index.njk` |
 | Warum Malva (Idee, Geschichte der Gründerin) | `src/warum-malva.njk` |
 | Team (Gründungsmitglieder, Karussell) | `src/team.njk` |
-| Hilfe beantragen (noch im Aufbau) | `src/hilfe-beantragen.njk` |
+| Hilfe (Notfallnummern, Wege zur Therapie, Wartezeit, FAQ) | `src/hilfe.njk` |
 | Partner | `src/partner.njk` |
 | Spenden (GoFundMe, später Spendenkonto) | `src/spenden.njk` |
 | Impressum / Datenschutz | `src/impressum.njk`, `src/datenschutz.njk` |

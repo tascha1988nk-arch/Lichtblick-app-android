@@ -1,0 +1,147 @@
+---
+layout: base.njk
+title: Hilfe
+permalink: /hilfe/
+description: Notfallnummern, Wege zu einem Therapieplatz und Unterstützung in der Wartezeit – gesammelt von Malva.
+stand: "November 2026"
+---
+{% import "macros.njk" as m %}
+
+{# Telefonkarte: Nummer groß, Beschreibung klein #}
+{% macro phone(nr, tel, text) %}
+<li class="phone"><a href="tel:{{ tel }}" class="phone__nr">{{ nr }}</a><span class="phone__text">{{ text }}</span></li>
+{% endmacro %}
+
+<section class="page-head">
+  <div class="container narrow">
+    <p class="eyebrow">Hilfe finden</p>
+    <h1>Du suchst Unterstützung?</h1>
+    <p class="lead">Der Weg zu psychologischer Hilfe ist oft unübersichtlich. Hier findest du die wichtigsten Anlaufstellen: für den Notfall, für den ersten Termin und für die Zeit, in der du wartest.</p>
+    <nav class="jump" aria-label="Auf dieser Seite">
+      <a href="#notfall">Notfall</a>
+      <a href="#ersttermin">Erster Termin</a>
+      <a href="#kostenerstattung">Kostenerstattung</a>
+      <a href="#wartezeit">In der Wartezeit</a>
+      <a href="#kinder">Kinder &amp; Familien</a>
+      <a href="#malva">Malva</a>
+      <a href="#fragen">Fragen</a>
+    </nav>
+  </div>
+</section>
+
+<section class="section section--first">
+  <div class="container narrow stack">
+
+    <section id="notfall" class="block block--alert" aria-labelledby="h-notfall">
+      <h2 id="h-notfall">Du brauchst jetzt sofort Hilfe?</h2>
+      <p>Wenn du in einer akuten Krise bist oder daran denkst, dir das Leben zu nehmen: Bitte warte nicht. Diese Stellen sind rund um die Uhr für dich da.</p>
+      <ul class="phones">
+        {{ phone("112", "112", "Notruf – Rettungsdienst und Notarzt") }}
+        {{ phone("0800 111 0 111", "08001110111", "TelefonSeelsorge – kostenlos und anonym, auch 0800 111 0 222 oder 116 123, Chat und Mail auf telefonseelsorge.de") }}
+        {{ phone("116 117", "116117", "Ärztlicher Bereitschaftsdienst – wenn deine Praxis geschlossen ist") }}
+        {{ phone("116 016", "116016", "Hilfetelefon Gewalt gegen Frauen – kostenlos, anonym, in vielen Sprachen, hilft auch bei der Suche nach einem Frauenhausplatz") }}
+        {{ phone("0800 22 55 530", "08002255530", "Hilfetelefon Sexueller Missbrauch – kostenlos und anonym") }}
+      </ul>
+      <p class="hint">Du kannst dich auch jederzeit direkt an die Notaufnahme der nächsten psychiatrischen Klinik wenden. Malva selbst ist keine Notfall-Anlaufstelle.</p>
+    </section>
+
+    <section id="ersttermin" class="block" aria-labelledby="h-ersttermin">
+      <h2 id="h-ersttermin">Der erste Schritt: ein Termin über die 116 117</h2>
+      <p>Als gesetzlich versicherte Person hast du Anspruch auf ein Erstgespräch, die <strong>psychotherapeutische Sprechstunde</strong>. Dort wird geklärt, welche Unterstützung du brauchst und wie dringend sie ist.</p>
+      <ul class="check-list">
+        <li>Die <strong>Terminservicestelle</strong> vermittelt dir diesen Termin: telefonisch unter <a href="tel:116117">116 117</a> oder online auf <a href="https://www.116117.de" rel="noopener">116117.de</a>. Sie soll dir innerhalb von vier Wochen einen Termin anbieten.</li>
+        <li>Am Ende der Sprechstunde bekommst du ein Formular mit der Empfehlung (<strong>PTV 11</strong>). Heb es gut auf, du brauchst es später, zum Beispiel für die Kostenerstattung.</li>
+        <li>Ist schnelle Hilfe nötig, kann eine <strong>Akutbehandlung</strong> empfohlen werden. Auch die vermittelt die Terminservicestelle.</li>
+      </ul>
+      <p class="hint">Die Sprechstunde ist ein Ersttermin, noch kein Therapieplatz.</p>
+    </section>
+
+    <section id="kostenerstattung" class="block" aria-labelledby="h-kosten">
+      <h2 id="h-kosten">Kein Kassenplatz frei? Die Kostenerstattung</h2>
+      <p>Findest du trotz intensiver Suche keinen Platz bei einer Kassenpraxis, kann deine Krankenkasse eine Therapie in einer <strong>Privatpraxis</strong> bezahlen (§ 13 Abs. 3 SGB V). Das gilt für approbierte Psychotherapeut:innen. So gehst du vor:</p>
+      <ol class="steps-num">
+        <li><strong>Sprechstunde besuchen</strong> und dir die Notwendigkeit einer Therapie bescheinigen lassen (PTV 11).</li>
+        <li><strong>Absagen sammeln:</strong> Frag bei mehreren Kassenpraxen nach und notiere jedes Mal Praxis, Datum und Antwort oder Wartezeit. Praxen findest du über die Arztsuche der 116 117.</li>
+        <li><strong>Privatpraxis finden,</strong> die dich bald aufnehmen kann, und dir das schriftlich bestätigen lassen.</li>
+        <li><strong>Dringlichkeit belegen:</strong> Eine Bescheinigung deiner Hausarztpraxis, dass die Behandlung dringend ist, hilft zusätzlich.</li>
+        <li><strong>Antrag stellen, bevor die Therapie beginnt.</strong> Frag deine Krankenkasse vorher, welche Unterlagen sie genau sehen möchte.</li>
+        <li><strong>Entscheidung abwarten:</strong> Die Kasse muss in der Regel innerhalb von drei Wochen entscheiden, mit Gutachten innerhalb von fünf Wochen. Wird der Antrag abgelehnt, kannst du innerhalb eines Monats Widerspruch einlegen.</li>
+      </ol>
+      <div class="panel panel--soft">
+        <h3>Hilfe beim Ausfüllen: der KEVER</h3>
+        <p>Der KEVER ist ein kostenloses Online-Werkzeug, das dich Schritt für Schritt durch den Antrag führt und dir am Ende fertige Unterlagen zum Ausdrucken erstellt. Es ist ein externes Angebot, Malva ist dafür nicht verantwortlich.</p>
+        <p>{{ m.link(site.kever, "Zum KEVER →", "text-link") }}</p>
+      </div>
+      <p class="hint">Jede Krankenkasse handhabt das Verfahren etwas anders, und es gibt keine feste Zahl an nötigen Absagen. Diese Übersicht ersetzt keine Rechtsberatung. Bei Fragen helfen dir deine Krankenkasse, Beratungsstellen oder die Privatpraxis selbst.</p>
+    </section>
+
+    <section id="wartezeit" class="block" aria-labelledby="h-wartezeit">
+      <h2 id="h-wartezeit">Was dir in der Wartezeit helfen kann</h2>
+      <p>Bis zum Therapiebeginn kann es dauern. Diese Angebote können dich in der Zeit stärken:</p>
+
+      <h3>Selbsthilfegruppen</h3>
+      <p>Mit Menschen zu sprechen, die Ähnliches erleben, entlastet viele. Es gibt Gruppen zu fast jedem Thema, manche auch für Menschen, die auf einen Therapieplatz warten. Eine Gruppe in deiner Nähe findest du über die örtliche <strong>Selbsthilfe-Kontaktstelle</strong> oder bundesweit über <a href="https://www.nakos.de" rel="noopener">NAKOS (nakos.de)</a>.</p>
+
+      <h3>Beratungsstellen</h3>
+      <p>Psychosoziale Beratungsstellen, zum Beispiel von Diakonie, Caritas oder deiner Stadt, und der <strong>Sozialpsychiatrische Dienst</strong> deines Gesundheitsamts bieten kostenlose Gespräche an, oft ohne lange Wartezeit.</p>
+
+      <h3>Deine Hausarztpraxis</h3>
+      <p>Deine Hausärztin oder dein Hausarzt kann dich in der Wartezeit begleiten, wenn nötig an Fachärzt:innen überweisen und die Dringlichkeit bescheinigen.</p>
+
+      <h3>Hochschul- und Ausbildungsambulanzen</h3>
+      <p>Psychotherapeutische Ambulanzen an Universitäten und Ausbildungsinstituten rechnen mit der Krankenkasse ab und haben manchmal kürzere Wartezeiten. Fragen lohnt sich.</p>
+
+      <h3>Apps auf Rezept</h3>
+      <p>Für einige psychische Erkrankungen gibt es geprüfte <strong>digitale Gesundheitsanwendungen (DiGA)</strong>. Ärzt:innen und Psychotherapeut:innen können sie verschreiben, die Krankenkasse übernimmt die Kosten. Eine Übersicht findest du im <a href="https://diga.bfarm.de" rel="noopener">DiGA-Verzeichnis des BfArM</a>.</p>
+
+      <h3>Am Telefon</h3>
+      <ul class="phones">
+        {{ phone("0800 33 44 533", "08003344533", "Info-Telefon Depression der Stiftung Deutsche Depressionshilfe – Informationen zu Anlaufstellen") }}
+      </ul>
+    </section>
+
+    <section id="kinder" class="block" aria-labelledby="h-kinder">
+      <h2 id="h-kinder">Für Kinder, Jugendliche und Eltern</h2>
+      <ul class="phones">
+        {{ phone("116 111", "116111", "Nummer gegen Kummer – Kinder- und Jugendtelefon, kostenlos und anonym") }}
+        {{ phone("0800 111 0 550", "08001110550", "Nummer gegen Kummer – Elterntelefon, kostenlos und anonym") }}
+      </ul>
+    </section>
+
+    <section id="malva" class="block block--malva" aria-labelledby="h-malva">
+      <h2 id="h-malva">Und wenn das alles nicht reicht?</h2>
+      <p>Genau dafür gründen wir Malva. Wir wollen Menschen mit wenig Geld unterstützen, die keinen Platz finden oder sich die Kosten nicht leisten können, und zwar nicht nur bei Therapie, sondern auch bei Beratung und Coaching. Wir wollen Kosten übernehmen, bei Anträgen für Krankenkasse und Ämter helfen und an passende Fachleute vermitteln.</p>
+      <p><strong>Sobald Malva eingetragen und als gemeinnützig anerkannt ist, kannst du hier deinen Antrag direkt online stellen.</strong> Folge uns auf Instagram oder Facebook, dann erfährst du als Erstes, wenn es losgeht.</p>
+      {{ m.socialLinks(site) }}
+    </section>
+
+    <section id="fragen" class="block" aria-labelledby="h-fragen">
+      <h2 id="h-fragen">Häufige Fragen</h2>
+      <div class="faq">
+        <details>
+          <summary>Bietet Malva selbst Therapie oder Beratung an?</summary>
+          <p>Nein. Malva vermittelt an qualifizierte Fachleute und will die Kosten übernehmen, wenn das Geld fehlt. Die Behandlung oder Beratung selbst machen die Fachleute aus unserem Netzwerk.</p>
+        </details>
+        <details>
+          <summary>Ab wann kann ich bei Malva Hilfe beantragen?</summary>
+          <p>Sobald der Verein ins Vereinsregister eingetragen und vom Finanzamt als gemeinnützig anerkannt ist. Den aktuellen Stand findest du auf unserer <a href="/">Startseite</a>.</p>
+        </details>
+        <details>
+          <summary>Wer kann Unterstützung bekommen?</summary>
+          <p>Malva ist für Menschen gedacht, die psychologische Hilfe brauchen und sie sich finanziell nicht leisten können. Die genauen Voraussetzungen legen wir gerade fest und veröffentlichen sie hier, bevor der Antrag startet.</p>
+        </details>
+        <details>
+          <summary>Was passiert mit meinen Daten?</summary>
+          <p>Angaben zu deiner Gesundheit sind besonders geschützt. Bevor der Antrag startet, erklären wir hier genau, welche Daten wir brauchen, wer sie sieht und wann sie gelöscht werden.</p>
+        </details>
+        <details>
+          <summary>Ich bin in einer akuten Krise. Kann Malva mir helfen?</summary>
+          <p>Malva ist keine Notfall-Anlaufstelle. Bitte wende dich sofort an die <a href="#notfall">Notfallnummern oben</a>, zum Beispiel die 112 oder die TelefonSeelsorge unter 0800 111 0 111.</p>
+        </details>
+      </div>
+      <p>Deine Frage ist nicht dabei? Schreib uns: {{ m.email(site.email) }}</p>
+    </section>
+
+    <p class="hint">Alle Angaben ohne Gewähr, Stand {{ stand }}. Dir fehlt ein Angebot oder etwas hat sich geändert? Schreib uns gern an {{ m.email(site.email) }}.</p>
+  </div>
+</section>

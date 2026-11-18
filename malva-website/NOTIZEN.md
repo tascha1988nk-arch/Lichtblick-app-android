@@ -56,7 +56,7 @@ Text-Ideen (Quelle: Apotheken Umschau, AGES):
 
 Reihenfolge laut Natascha: erst Homepage fertig, dann Satzung fürs Finanzamt.
 
-## Reiter „Hilfe“ ausbauen (statt nur „Hilfe beantragen“)
+## Reiter „Hilfe“ – ERLEDIGT (Seite /hilfe/), offen: KEVER-Link in site.js, Antragsformular nach Eintragung
 - Antrag stellen (eigenes Online-Formular nach Eintragung, siehe oben)
 - Sofort-Hilfe: alle Notfall- und Krisennummern gesammelt (112, 116 117, TelefonSeelsorge, 116 016, 116 111 …)
 - Selbsthilfegruppen: Verweis auf Selbsthilfe-Kontaktstellen (z. B. NAKOS-Datenbank, regionale Kontaktstellen in RLP)

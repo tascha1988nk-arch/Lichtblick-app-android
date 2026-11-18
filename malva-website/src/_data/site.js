@@ -25,6 +25,9 @@ export default {
     facebook: { handle: "Malva", url: "https://www.facebook.com/share/1epeksnani/" },
   },
 
+  // Externes Werkzeug für den Kostenerstattungsantrag (nur Link, nicht eingebunden)
+  kever: "[KEVER-LINK EINFÜGEN]",
+
   spenden: {
     // Aktuell: GoFundMe. Später: Spendenkonto (siehe unten).
     gofundme: "https://gofund.me/ce77e6c6f",
@@ -61,7 +64,7 @@ export default {
     { url: "/", label: "Start" },
     { url: "/warum-malva/", label: "Warum Malva" },
     { url: "/team/", label: "Team" },
-    { url: "/hilfe-beantragen/", label: "Hilfe beantragen" },
+    { url: "/hilfe/", label: "Hilfe" },
     { url: "/partner/", label: "Partner" },
     { url: "/spenden/", label: "Spenden", button: true },
   ],
