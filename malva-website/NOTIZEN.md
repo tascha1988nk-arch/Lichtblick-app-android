@@ -72,4 +72,5 @@ Reihenfolge laut Natascha: erst Homepage fertig, dann Satzung fürs Finanzamt.
 
 ## Flyer (DIN lang, 10,5 × 21 cm) – `flyer/`
 - Digitale Version fertig (PNG vorne/hinten + PDF) zum Teilen per WhatsApp, ohne QR-Code.
+- QR-Codes liegen in `qr-code/` (geprüft, Ziel https://malva-ev.de).
 - Druckversion später: QR-Code zur Website in die Lücke über „Kontakt“ auf der Rückseite (Kommentar in `flyer.html`), „(bald online)“ entfernen, ggf. 3 mm Beschnitt je Seite für die Druckerei.

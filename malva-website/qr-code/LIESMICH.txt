@@ -1,0 +1,6 @@
+QR-Codes für https://malva-ev.de (alle mit einem Scanner geprüft).
+- malva-qr-mit-logo.png  : mit Malva-Blättern und Adresse, für Flyer/Plakate
+- malva-qr-gruen.svg/png : schlicht in Malva-Grün (SVG = beliebig skalierbar, ideal für die Druckerei)
+- malva-qr-schwarz.svg/png: schwarz, für Schwarz-Weiß-Druck
+Im Druck mindestens 2 x 2 cm groß, weißen Rand nicht abschneiden.
+Funktioniert erst, wenn die Website online ist.
