@@ -407,3 +407,13 @@ main:focus { outline: none; }
 }
 .faq details[open] summary::after { content: "–"; }
 .faq details p { padding: 0 1.25rem 1.1rem; margin: 0; }
+
+/* ---------- Zahlen ---------- */
+.stats { list-style: none; padding: 0; margin: 3rem 0 0; display: grid; gap: 1.25rem; }
+@media (min-width: 52rem) { .stats { grid-template-columns: repeat(3, 1fr); } }
+.stat { background: var(--white); border-radius: var(--radius); padding: 2rem 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.6rem; }
+.stat::before { content: ""; width: 3.5rem; height: 5px; border-radius: 3px; background: var(--malva-lilac); }
+.stat:nth-child(2)::before { background: var(--malva-sage); }
+.stat__num { font-size: clamp(3rem, 8vw, 4.25rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1; color: var(--malva-green-900); font-variant-numeric: tabular-nums; }
+.stat__label { font-weight: 500; line-height: 1.4; }
+.stat__src { font-size: 0.85rem; color: var(--malva-text-muted); margin-top: auto; }
