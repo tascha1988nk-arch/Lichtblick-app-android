@@ -63,6 +63,7 @@
   {% if p.text %}<p class="profile__text">{{ val(p.text) }}</p>{% endif %}
   {% if p.zitat2 %}<p class="profile__quote">„{{ p.zitat2 }}“{% if p.zitat2von %}<br><span class="profile__from">– {{ p.zitat2von }}</span>{% endif %}</p>{% endif %}
   {% if p.html %}<p>{{ p.html | safe }}</p>{% endif %}
+  {% if p.email %}<p><a href="mailto:{{ p.email }}" class="text-link">{{ p.email }}</a></p>{% endif %}
   {% if p.url %}<p><a href="{{ p.url }}" rel="noopener" class="text-link">Mehr erfahren →</a></p>{% endif %}
 </li>
 {% endmacro %}
