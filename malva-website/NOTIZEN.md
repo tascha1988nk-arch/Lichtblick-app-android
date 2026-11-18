@@ -62,3 +62,9 @@ Reihenfolge laut Natascha: erst Homepage fertig, dann Satzung fürs Finanzamt.
 - Selbsthilfegruppen: Verweis auf Selbsthilfe-Kontaktstellen (z. B. NAKOS-Datenbank, regionale Kontaktstellen in RLP)
 - Weitere Anlaufstellen: Beratungsstellen, Diakonie, Caritas, Frauenhäuser, Terminservicestelle 116 117
 - FAQ
+
+## Satzung – Merkpunkte
+- Tätigkeitsgebiet NICHT auf Rheinland-Pfalz beschränken (bundesweit möglich), damit später keine Satzungsänderung nötig ist. Start praktisch in RLP und online.
+- Zwecke breit fassen: Therapie, psychologische Beratung, Coaching, Sozialberatung (Anträge Krankenkasse/Ämter), Vermittlung.
+- Regel zu Vermittlungen an Vorstands-/Gründungsmitglieder (Selbstlosigkeit).
+- Idee: Kooperation statt Konkurrenz mit anderen Vereinen (z. B. Aktion Therapie, nur Therapie).
