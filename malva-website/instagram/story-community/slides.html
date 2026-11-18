@@ -35,14 +35,20 @@ h2{font-weight:600;font-size:82px;line-height:1.12;letter-spacing:-.025em}
 .st{width:1080px;height:1920px;padding:250px 96px 300px;justify-content:flex-start}
 .t{font-weight:600;font-size:150px;line-height:1;letter-spacing:-.04em}
 .p{font-size:46px;line-height:1.38;font-weight:500;margin-top:34px}
-.deen .p{font-size:40px;margin-top:28px}
-.deen .t{font-size:128px}
+.deen{padding-top:230px}
+.deen .p{font-size:37px;line-height:1.36;margin-top:18px}
+.deen .t{font-size:104px}
+.lang{margin-top:44px;display:flex;align-items:center;gap:20px}
+.lang::after{content:"";flex:1;height:2px;background:rgba(244,242,238,.25)}
+.lang__tag{display:inline-flex;align-items:center;gap:16px;font-weight:600;font-size:32px;letter-spacing:.1em;text-transform:uppercase;color:var(--sl)}
+.flag{width:60px;height:36px;border-radius:5px;box-shadow:0 0 0 2px rgba(244,242,238,.35)}
+.flag[viewBox="0 0 60 30"]{height:30px}
 .p b{font-weight:600;color:var(--ll)}
 .en{font-size:30px;line-height:1.38;opacity:.72;margin-top:12px;font-style:italic}
 .sep{display:flex;gap:14px;align-items:center;margin-top:50px}
 .sep span{width:34px} .sep svg{width:34px;height:34px}
 .thanks{font-weight:600;font-size:60px;margin-top:44px;color:var(--ll)}
-.deen .thanks{font-size:50px;margin-top:32px}
+.deen .thanks{font-size:42px;margin-top:22px}
 .heart{display:inline-block;width:.8em;height:.8em;vertical-align:-.08em}
 .logo-b{margin-top:auto;display:flex;justify-content:center}
 .logo-b .brand{position:static;font-size:64px;gap:18px}.logo-b .brand svg{height:80px}
@@ -65,14 +71,15 @@ h2{font-weight:600;font-size:82px;line-height:1.12;letter-spacing:-.025em}
   <p class="claim2">Weil Hilfe kein Luxus sein sollte. · @malva.ev</p>
 </section>
 <section class="slide dark st deen" id="deen">
-  <h1 class="t">Teilen kann<br><span class="hl">heilen.</span></h1>
-  <p class="p">Ihr seid eine wundervolle Community, und ich glaube fest daran: <b>Gemeinsam können wir unglaublich viel&nbsp;bewegen.&nbsp;<svg class="heart" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 5.3 3.2 1.7-2 3.2-3.2 5.3-3.2 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z" fill="#C3B1F2"/></svg></b></p>
-  <p class="en">You're a wonderful community, and I truly believe we can make a huge difference together.</p>
-  <p class="p">Für Malva suchen wir <b>Partner, Sponsoren</b> und Menschen, die unsere Vision teilen. Spende, folge, teile oder erzähl einfach von uns.</p>
-  <p class="en">For Malva, we're looking for partners, sponsors and people who share our vision. Donate, follow, share or spread the word.</p>
-  <p class="p">Jeder gibt nur das, was er kann. Zusammen wird daraus etwas ganz Großes.</p>
-  <p class="en">Everyone gives what they can. Together it becomes something extraordinary.</p>
+  <h1 class="t">Teilen kann <span class="hl">heilen.</span></h1>
+  <div class="lang"><span class="lang__tag"><svg class="flag" viewBox="0 0 5 3"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#DD0000"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>Deutsch</span></div>
+  <p class="p">Ihr seid eine wundervolle Community, und ich glaube fest daran: <b>Gemeinsam können wir viel&nbsp;bewegen.&nbsp;<svg class="heart" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 5.3 3.2 1.7-2 3.2-3.2 5.3-3.2 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z" fill="#C3B1F2"/></svg></b></p>
+  <p class="p">Für Malva suchen wir <b>Partner, Sponsoren</b> und Menschen, die unsere Vision teilen. Spende, folge, teile oder erzähl von uns. Jeder gibt, was er kann. Zusammen wird daraus etwas Großes.</p>
   <p class="thanks">Von Herzen danke! <svg class="heart" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 5.3 3.2 1.7-2 3.2-3.2 5.3-3.2 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z" fill="#C3B1F2"/></svg></p>
+  <div class="lang lang--en"><span class="lang__tag"><svg class="flag" viewBox="0 0 60 30"><clipPath id="ukS"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="ukT"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#ukS)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukT)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg>English</span></div>
+  <p class="p">You're a wonderful community, and I truly believe: <b>Together we can make a real difference.&nbsp;<svg class="heart" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 5.3 3.2 1.7-2 3.2-3.2 5.3-3.2 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z" fill="#C3B1F2"/></svg></b></p>
+  <p class="p">For Malva, we're looking for <b>partners, sponsors</b> and people who share our vision. Donate, follow, share or spread the word. Everyone gives what they can. Together it becomes something big.</p>
+  <p class="thanks">Thank you from my heart! <svg class="heart" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 5.3 3.2 1.7-2 3.2-3.2 5.3-3.2 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z" fill="#C3B1F2"/></svg></p>
   <div class="logo-b"><div class="brand" data-mark="d"><span>malva</span></div></div>
   <p class="claim2">Weil Hilfe kein Luxus sein sollte. · @malva.ev</p>
 </section>
