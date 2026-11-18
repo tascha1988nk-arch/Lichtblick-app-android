@@ -62,7 +62,7 @@ partnerstufen:
 
     {# ---------- Bald verfügbar ---------- #}
     <div class="soon-divider" role="separator"><span>Bald verfügbar</span></div>
-    <p class="center muted soon-intro">Sobald Malva ins Vereinsregister eingetragen und als gemeinnützig anerkannt ist, kannst du uns auch so unterstützen. Du möchtest dabei sein? Melde dich schon jetzt, wir sagen dir Bescheid, sobald es losgeht.</p>
+    <p class="center muted soon-intro">Sobald Malva ins Vereinsregister eingetragen und als gemeinnützig anerkannt ist, kannst du uns auch so unterstützen. Du möchtest dabei sein? Dann merk dich schon jetzt vor. Wir melden uns, sobald es losgeht. Die Vormerkung ist unverbindlich und kostet nichts.</p>
 
     <section class="block block--soon" aria-labelledby="h-foerder">
       <span class="soon-badge">Bald verfügbar</span>
@@ -74,7 +74,16 @@ partnerstufen:
         {% for t in privat %}<li><span class="tiers__amount">{{ t.betrag }}{% if t.betrag != "Wunschbetrag" %} im Monat{% endif %}</span>{% if t.info %}<span class="tiers__info">{{ t.info }}</span>{% endif %}</li>{% endfor %}
       </ul>
       <p class="hint">Als Fördermitglied unterstützt du Malva finanziell, ohne Pflichten im Verein. Deine Beiträge sind steuerlich absetzbar, sobald die Gemeinnützigkeit anerkannt ist.</p>
-      <p><a class="btn btn--secondary" href="mailto:{{ site.email }}?subject={{ 'Interesse Fördermitgliedschaft' | urlencode }}">Interesse melden</a></p>
+      <p><a class="btn btn--secondary" href="mailto:{{ site.email }}?subject={{ 'Vormerkung Fördermitgliedschaft' | urlencode }}&amp;body={{ 'Hallo Malva-Team,
+
+bitte merkt mich als Fördermitglied vor.
+
+Name:
+Gewünschter Beitrag pro Monat:
+
+Mir ist klar, dass die Vormerkung unverbindlich ist und noch keine Kosten entstehen.
+' | urlencode }}">Jetzt vormerken</a></p>
+      <p class="hint">Unverbindlich: Es wird noch nichts abgebucht. Wir melden uns bei dir, sobald die Fördermitgliedschaft startet.</p>
     </section>
 
     <section class="block block--soon" aria-labelledby="h-partner">
@@ -93,7 +102,17 @@ partnerstufen:
         {% endfor %}
       </ul>
       <p class="hint">Wunschbetrag frei wählbar. Zahlung jährlich, halbjährlich oder vierteljährlich.</p>
-      <p><a class="btn btn--secondary" href="mailto:{{ site.email }}?subject={{ 'Interesse Förderpartnerschaft' | urlencode }}">Interesse melden</a></p>
+      <p><a class="btn btn--secondary" href="mailto:{{ site.email }}?subject={{ 'Vormerkung Förderpartnerschaft' | urlencode }}&amp;body={{ 'Hallo Malva-Team,
+
+bitte merkt uns als Förderpartner vor.
+
+Name der Praxis / des Unternehmens:
+Ansprechperson:
+Gewünschte Stufe (Keimling, Blatt, Blüte oder Wunschbetrag):
+
+Uns ist klar, dass die Vormerkung unverbindlich ist und noch keine Kosten entstehen.
+' | urlencode }}">Jetzt vormerken</a></p>
+      <p class="hint">Unverbindlich: Es entstehen noch keine Kosten. Wir melden uns, sobald Förderpartnerschaften möglich sind.</p>
     </section>
 
     {% if not site.spenden.kontoAktiv %}
