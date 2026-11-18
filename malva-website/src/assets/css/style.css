@@ -441,3 +441,33 @@ main:focus { outline: none; }
 .choice--block { border-radius: calc(var(--radius) - 0.25rem); align-items: flex-start; padding: 1rem; }
 .choice--block input { margin-top: 0.2rem; }
 .form .btn { align-self: flex-start; font-size: 1.05rem; padding: 0.9rem 1.8rem; }
+
+/* ---------- Spenden: bald verfügbar ---------- */
+.block--highlight { background: var(--malva-green-900); color: var(--malva-cream); }
+.eyebrow--light { color: var(--malva-sage-light); }
+.hint--light { color: var(--malva-sage-light); }
+.block--highlight .placeholder { color: var(--malva-lilac-light); border-color: var(--malva-lilac-light); background: transparent; }
+.soon-divider { display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; color: var(--malva-lilac-text); font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.9rem; }
+.soon-divider::before, .soon-divider::after { content: ""; flex: 1; height: 2px; background: var(--malva-lilac); opacity: 0.5; }
+.soon-intro { max-width: 36rem; margin: 0 auto; }
+.block--soon { position: relative; border: 2px dashed var(--malva-lilac); }
+.soon-badge {
+  display: inline-block; margin-bottom: 1rem; padding: 0.25rem 0.8rem; border-radius: 999px;
+  background: var(--tint); color: var(--malva-lilac-text); font-weight: 600; font-size: 0.85rem;
+}
+.price { font-size: clamp(1.8rem, 5vw, 2.4rem); font-weight: 600; letter-spacing: -0.02em; margin: 0.5rem 0 1rem; color: var(--malva-green-900); }
+.tiers { list-style: none; padding: 0; margin: 0 0 1.25rem; }
+.tiers li { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding: 0.8rem 0; border-bottom: 1.5px dashed var(--line); }
+.tiers__amount { font-weight: 500; }
+.tiers__info { color: var(--malva-text-muted); font-size: 0.95rem; }
+.levels { list-style: none; padding: 0; margin: 1.25rem 0; display: grid; gap: 0.9rem; }
+@media (min-width: 40rem) { .levels { grid-template-columns: repeat(3, 1fr); } }
+.level { background: var(--malva-cream); border-radius: calc(var(--radius) - 0.25rem); padding: 1.25rem 1rem; text-align: center; display: flex; flex-direction: column; gap: 0.3rem; align-items: center; }
+.level__icon { font-size: 2rem; line-height: 1; }
+.level__name { font-weight: 600; font-size: 1.25rem; }
+.level__amount { font-weight: 500; color: var(--malva-green-text); }
+.level__info { font-size: 0.88rem; color: var(--malva-text-muted); }
+
+/* Förderpartner-Liste (nur Namen) */
+.sponsors { list-style: none; padding: 0; margin: 1.5rem 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+.sponsors li { background: var(--white); border-radius: 999px; padding: 0.6rem 1.2rem; font-weight: 500; }

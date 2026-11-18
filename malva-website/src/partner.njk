@@ -11,6 +11,9 @@ partner:
     rolle: "[FIRMA / TÄTIGKEIT]"
     zitat: "[ZITAT: WARUM UNTERSTÜTZT SIE MALVA?]"
     url: "https://share.google/bUGyNFybHPtcKfPZe"
+# Förderpartner: nur Namen, keine Links (Stufe: Keimling, Blatt oder Blüte)
+foerderpartner: []
+#  - { name: "Musterpraxis Bad Dürkheim", stufe: "Keimling" }
 ---
 {% import "macros.njk" as m %}
 
@@ -27,6 +30,19 @@ partner:
       {% for p in partner %}{{ m.profileCard(p) }}{% endfor %}
     {% endcall %}
     <p class="section__more">Hier entstehen in nächster Zeit noch tolle Partnerschaften.</p>
+  </div>
+</section>
+
+<section class="section section--tint">
+  <div class="container narrow center">
+    <h2>Unsere Förderpartner</h2>
+    {% if foerderpartner.length %}
+    <p>Diese Praxen, Unternehmen und Organisationen fördern Malva mit einem Jahresbeitrag. Danke!</p>
+    <ul class="sponsors">{% for f in foerderpartner %}<li>{{ f.name }}</li>{% endfor %}</ul>
+    {% else %}
+    <p>Bald stehen hier die Praxen, Unternehmen und Organisationen, die Malva mit einem Jahresbeitrag fördern.</p>
+    {% endif %}
+    <p><a href="/spenden/#h-partner" class="text-link">Förderpartner werden →</a></p>
   </div>
 </section>
 

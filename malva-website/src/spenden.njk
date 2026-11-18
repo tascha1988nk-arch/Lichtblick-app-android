@@ -2,22 +2,35 @@
 layout: base.njk
 title: Spenden
 permalink: /spenden/
-description: So kannst du Malva mit einer Spende unterstützen.
+description: So kannst du Malva unterstützen – mit einer Spende, als Fördermitglied oder als Förderpartner.
+# Beiträge – hier einfach ändern. Gelten erst nach Eintragung (siehe Beitragsordnung).
+privat:
+  - { betrag: "3 €", info: "ermäßigt, z. B. für Studierende" }
+  - { betrag: "5 €", info: "Mindestbeitrag" }
+  - { betrag: "10 €", info: "" }
+  - { betrag: "20 €", info: "" }
+  - { betrag: "Wunschbetrag", info: "frei wählbar" }
+partnerstufen:
+  - { name: "Keimling", icon: "🌱", betrag: "ab 250 €", info: "für Praxen, Selbstständige und kleine Betriebe" }
+  - { name: "Blatt", icon: "🌿", betrag: "ab 500 €", info: "" }
+  - { name: "Blüte", icon: "💜", betrag: "ab 1.000 €", info: "" }
 ---
 {% import "macros.njk" as m %}
 
 <section class="page-head">
   <div class="container narrow">
-    <h1>Spenden</h1>
-    <p class="lead">Mit deiner Spende hilfst du, Malva aufzubauen, damit psychologische Hilfe keine Frage des Geldes mehr ist.</p>
+    <h1>Jetzt unterstützen</h1>
+    <p class="lead">Mit deiner Hilfe bauen wir Malva auf, damit psychologische Hilfe keine Frage des Geldes mehr ist. Teilen kann heilen.</p>
   </div>
 </section>
 
 <section class="section section--first">
-  <div class="container narrow">
+  <div class="container narrow stack">
+
+    {# ---------- Jetzt schon möglich ---------- #}
     {% if site.spenden.kontoAktiv %}
-    <div class="panel">
-      <h2>Spendenkonto</h2>
+    <section class="block block--highlight" aria-labelledby="h-konto">
+      <h2 id="h-konto">Spendenkonto</h2>
       <dl class="data-list">
         <dt>Kontoinhaber</dt><dd>{{ m.val(site.spenden.konto.inhaber) }}</dd>
         <dt>IBAN</dt><dd>{{ m.val(site.spenden.konto.iban) }}</dd>
@@ -25,28 +38,70 @@ description: So kannst du Malva mit einer Spende unterstützen.
         <dt>Bank</dt><dd>{{ m.val(site.spenden.konto.bank) }}</dd>
         <dt>Verwendungszweck</dt><dd>{{ m.val(site.spenden.konto.verwendungszweck) }}</dd>
       </dl>
-      <p>Für deine Spende erhältst du eine Spendenquittung. Bitte gib dafür im Verwendungszweck deine Anschrift an.</p>
-    </div>
+      <p>Für deine Spende erhältst du eine Zuwendungsbestätigung. Gib dafür bitte im Verwendungszweck deinen Namen und deine Anschrift an.</p>
+    </section>
     {% else %}
-    <div class="panel">
-      <h2>Spenden über GoFundMe</h2>
-      <p>Solange Malva in Gründung ist, sammeln wir Spenden über GoFundMe.</p>
-      <p>{{ m.link(site.spenden.gofundme, "Zur GoFundMe-Seite", "btn btn--primary") }}</p>
-      <p class="hint"><strong>Gut zu wissen:</strong> Für Spenden über GoFundMe können wir keine Spendenquittung ausstellen.</p>
-    </div>
-
-    <div class="panel panel--soft">
-      <h2>Bald: Spendenkonto und Mitgliedschaft</h2>
-      <p>Sobald Malva ins Vereinsregister eingetragen und als gemeinnützig anerkannt ist, kannst du direkt auf unser Vereinskonto spenden und erhältst eine Spendenquittung. Dann kannst du auch Mitglied werden.</p>
-    </div>
+    <section class="block block--highlight" aria-labelledby="h-gofundme">
+      <p class="eyebrow eyebrow--light">Jetzt schon möglich</p>
+      <h2 id="h-gofundme">Spenden über GoFundMe</h2>
+      <p>Solange Malva in Gründung ist, sammeln wir Spenden über GoFundMe. Jeder Euro hilft uns beim Aufbau.</p>
+      <p>{{ m.link(site.spenden.gofundme, "Jetzt über GoFundMe spenden", "btn btn--light") }}</p>
+      <p class="hint hint--light"><strong>Gut zu wissen:</strong> Für Spenden über GoFundMe können wir keine Spendenquittung ausstellen.</p>
+    </section>
     {% endif %}
 
-    <h2>Weitere Wege, Malva zu unterstützen</h2>
-    <ul class="check-list">
-      <li>Erzähl anderen von Malva.</li>
-      <li>Folge uns und teile unsere Beiträge.</li>
-      <li>Du möchtest dich als Fachperson oder Organisation einbringen? <a href="/partner/">Werde Partner.</a></li>
-    </ul>
-    {{ m.socialLinks(site) }}
+    <section class="block" aria-labelledby="h-teilen">
+      <h2 id="h-teilen">Ohne Geld helfen</h2>
+      <ul class="check-list">
+        <li><strong>Weitersagen:</strong> Erzähl Freund:innen, Kolleg:innen und Familie von Malva.</li>
+        <li><strong>Teilen:</strong> Folge uns und teile unsere Beiträge.</li>
+        <li><strong>Mitmachen:</strong> Du bist Fachperson? <a href="/fachleute/">Werde Teil des Netzwerks.</a></li>
+      </ul>
+      {{ m.socialLinks(site) }}
+    </section>
+
+    {# ---------- Bald verfügbar ---------- #}
+    <div class="soon-divider" role="separator"><span>Bald verfügbar</span></div>
+    <p class="center muted soon-intro">Sobald Malva ins Vereinsregister eingetragen und als gemeinnützig anerkannt ist, kannst du uns auch so unterstützen. Du möchtest dabei sein? Melde dich schon jetzt, wir sagen dir Bescheid, sobald es losgeht.</p>
+
+    <section class="block block--soon" aria-labelledby="h-foerder">
+      <span class="soon-badge">Bald verfügbar</span>
+      <p class="eyebrow">Für Privatpersonen</p>
+      <h2 id="h-foerder">Fördermitglied werden</h2>
+      <p>Mit einem regelmäßigen Beitrag machst du unsere Arbeit planbar. So können wir Kosten für Therapie, Beratung und Coaching verlässlich zusagen.</p>
+      <p class="price">Monatlich ab 5 €</p>
+      <ul class="tiers">
+        {% for t in privat %}<li><span class="tiers__amount">{{ t.betrag }}{% if t.betrag != "Wunschbetrag" %} im Monat{% endif %}</span>{% if t.info %}<span class="tiers__info">{{ t.info }}</span>{% endif %}</li>{% endfor %}
+      </ul>
+      <p class="hint">Als Fördermitglied unterstützt du Malva finanziell, ohne Pflichten im Verein. Deine Beiträge sind steuerlich absetzbar, sobald die Gemeinnützigkeit anerkannt ist.</p>
+      <p><a class="btn btn--secondary" href="mailto:{{ site.email }}?subject={{ 'Interesse Fördermitgliedschaft' | urlencode }}">Interesse melden</a></p>
+    </section>
+
+    <section class="block block--soon" aria-labelledby="h-partner">
+      <span class="soon-badge">Bald verfügbar</span>
+      <p class="eyebrow">Für Praxen, Unternehmen und Organisationen</p>
+      <h2 id="h-partner">Förderpartner werden</h2>
+      <p>Mit einem Jahresbeitrag hilfst du, Malva in der Region aufzubauen. Auf Wunsch nennen wir dich auf unserer Website als Förderpartner.</p>
+      <ul class="levels">
+        {% for s in partnerstufen %}
+        <li class="level">
+          <span class="level__icon" aria-hidden="true">{{ s.icon }}</span>
+          <span class="level__name">{{ s.name }}</span>
+          <span class="level__amount">{{ s.betrag }} im Jahr</span>
+          {% if s.info %}<span class="level__info">{{ s.info }}</span>{% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+      <p class="hint">Wunschbetrag frei wählbar. Zahlung jährlich, halbjährlich oder vierteljährlich.</p>
+      <p><a class="btn btn--secondary" href="mailto:{{ site.email }}?subject={{ 'Interesse Förderpartnerschaft' | urlencode }}">Interesse melden</a></p>
+    </section>
+
+    {% if not site.spenden.kontoAktiv %}
+    <section class="block block--soon" aria-labelledby="h-bald-konto">
+      <span class="soon-badge">Bald verfügbar</span>
+      <h2 id="h-bald-konto">Spendenkonto mit Spendenquittung</h2>
+      <p>Bald kannst du direkt auf unser Vereinskonto spenden, ganz einfach auch per QR-Code in deiner Banking-App. Für deine Spende bekommst du dann eine Zuwendungsbestätigung fürs Finanzamt.</p>
+    </section>
+    {% endif %}
   </div>
 </section>

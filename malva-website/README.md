@@ -20,7 +20,8 @@ Keine Cookies, kein Tracking, Schrift lokal eingebunden.
 - **Fast alles Wichtige** steht in `src/_data/site.js`: E-Mail, Social-Links, GoFundMe-Link, Spendenkonto, Fahrplan-Status, Impressumsdaten.
 - **Nach der Eintragung ins Vereinsregister:** in `site.js` `eingetragen = true` setzen. Dann steht überall „Malva e. V.“, und das Impressum zeigt Vorstand und Register.
 - **Spendenkonto statt GoFundMe:** in `site.js` `kontoAktiv: true` setzen und IBAN usw. eintragen.
-- **Gründungsmitglieder / Partner:** oben in `src/team.njk` bzw. `src/partner.njk` (Liste im Kopf der Datei).
+- **Gründungsmitglieder / Partner / Förderpartner:** oben in `src/team.njk` bzw. `src/partner.njk` (Liste im Kopf der Datei). Förderpartner werden nur mit Namen genannt, ohne Link.
+- **Beiträge Fördermitglieder / Förderpartner:** oben in `src/spenden.njk`.
 - **Fotos:** als `.webp` nach `src/assets/img/` legen.
 - **Farben und Gestaltung:** `src/assets/css/style.css`.
 
