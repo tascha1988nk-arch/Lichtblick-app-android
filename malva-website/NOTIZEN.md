@@ -50,7 +50,7 @@ Text-Ideen (Quelle: Apotheken Umschau, AGES):
 2. **Suche für Hilfesuchende**: filterbares Verzeichnis (Berufsgruppe, Schwerpunkt, Ort, online). Plan: Bewerbungen prüft Malva, freigegebene Einträge kommen in eine Datendatei, die Website erzeugt daraus die Liste mit Filtern – ohne Datenbank und Login.
 3. **FAQ** unten auf den Seiten (aufklappbare Fragen).
 4. **Zahlen auf der Startseite** mit Hochzähl-Animation (z. B. Wartezeit auf Therapieplatz) – nur echte Zahlen mit Quelle (z. B. Bundespsychotherapeutenkammer), Animation abschaltbar für Menschen mit Bewegungsempfindlichkeit.
-5. **Newsletter** und **Quartalsbericht „Stand der Dinge“**: Newsletter braucht einen DSGVO-konformen Anbieter mit Double-Opt-in (EU/DE), Quartalsbericht als News-Seite auf der Website.
+5. Quartalsbericht ERLEDIGT als Seite /stand-der-dinge/ mit PDF-Download. Newsletter erst 2027 (dann Anbieter mit EU-Servern + Double-Opt-in, z. B. CleverReach, rapidmail, Brevo; Datenschutzerklärung ergänzen) – **Newsletter** und **Quartalsbericht „Stand der Dinge“**: Newsletter braucht einen DSGVO-konformen Anbieter mit Double-Opt-in (EU/DE), Quartalsbericht als News-Seite auf der Website.
 6. **Interner Bereich für Fachkolleg:innen**: vorerst nicht, braucht Login und Server. Später prüfen.
 7. **Satzung** als PDF auf der Website veröffentlichen, sobald sie fertig ist (Transparenz).
 

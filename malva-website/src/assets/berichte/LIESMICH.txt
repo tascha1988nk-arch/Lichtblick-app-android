@@ -1,0 +1,2 @@
+Hier die Quartalsberichte als PDF ablegen, z. B. 2027-Q1-stand-der-dinge.pdf,
+und oben in src/stand-der-dinge.njk in die Liste "berichte" eintragen.
