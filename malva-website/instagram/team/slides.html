@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Outfit;font-weight:400;src:url(../../src/assets/fonts/outfit-latin-400-normal.woff2)}
+@font-face{font-family:Outfit;font-weight:500;src:url(../../src/assets/fonts/outfit-latin-500-normal.woff2)}
+@font-face{font-family:Outfit;font-weight:600;src:url(../../src/assets/fonts/outfit-latin-600-normal.woff2)}
+:root{--g:#1F3D33;--c:#F4F2EE;--m:#4E5A55;--ll:#C3B1F2;--lt:#7B5CD6;--sl:#9CCBA8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Outfit,sans-serif;background:#888}
+.slide{width:1080px;height:1350px;position:relative;overflow:hidden;padding:0 100px 150px;display:flex;flex-direction:column;justify-content:center}
+.story{height:1920px}
+.dark{background:var(--g);color:var(--c)} .light{background:var(--c);color:var(--g)}
+.hl{color:var(--ll)} .light .hl{color:var(--lt)}
+.kicker{font-weight:600;font-size:36px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:40px;color:var(--ll)}
+.light .kicker{color:var(--lt)}
+h1{font-weight:600;font-size:150px;line-height:1.02;letter-spacing:-.035em}
+h2{font-weight:600;font-size:82px;line-height:1.12;letter-spacing:-.025em}
+.body{font-size:44px;line-height:1.45;margin-top:56px;font-weight:500}
+.dark .body{color:#E4E8E2} .light .body{color:var(--m)}
+.sage{color:var(--sl);font-weight:600;font-size:52px;line-height:1.3;margin-top:56px}
+.light .sage{color:#2F6B48}
+.sig{color:var(--ll);font-size:40px;font-weight:500;margin-top:22px}
+.foot{position:absolute;left:100px;right:96px;bottom:84px;display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:22px;font-weight:600;font-size:44px;letter-spacing:-.03em}
+.brand svg{height:58px;width:auto}
+.num{font-size:38px;font-weight:500;opacity:.75}
+.more{font-size:40px;font-weight:500;color:var(--ll)}
+.light .more{color:var(--lt)}
+.list{list-style:none;margin-top:30px;display:flex;flex-direction:column;gap:64px}
+.list li{font-size:50px;line-height:1.3;font-weight:500;display:grid;grid-template-columns:56px 1fr;gap:44px;align-items:start}
+.list li svg{width:56px;height:56px;margin-top:2px}
+.photo{width:240px;height:240px;border-radius:50%;object-fit:cover;border:6px solid var(--sl);margin-bottom:56px}
+.mark-top{width:200px;margin-bottom:90px}
+.center{text-align:center;align-items:center}
+.m{padding:0 96px 170px;justify-content:center;align-items:center;text-align:center}
+.pic{width:380px;height:380px;border-radius:50%;object-fit:cover;border:10px solid var(--sl);margin-bottom:44px}
+.light .pic{border-color:var(--s)}
+.nm{font-weight:600;font-size:76px;letter-spacing:-.02em;line-height:1.05}
+.rl{font-weight:600;font-size:28px;letter-spacing:.1em;text-transform:uppercase;color:var(--sl);margin-top:18px;line-height:1.4}
+.light .rl{color:#2F6B48}
+.q{font-size:40px;line-height:1.45;font-weight:500;margin-top:40px;max-width:860px}
+.dark .q{color:#E4E8E2} .light .q{color:var(--m)}
+.faces{display:grid;grid-template-columns:repeat(4,170px);gap:26px;margin-top:70px}
+.faces img{width:170px;height:170px;border-radius:50%;object-fit:cover;border:5px solid var(--sl)}
+</style></head><body>
+<template id="mark-d"><svg viewBox="0 0 200 200"><path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#C3B1F2" fill-opacity=".92"/><path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#9CCBA8" fill-opacity=".85"/></svg></template>
+<template id="mark-h"><svg viewBox="0 0 200 200"><path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#A58BEA" fill-opacity=".9"/><path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#7FAF8E" fill-opacity=".82"/></svg></template>
+
+<section class="slide dark center" id="s01">
+  <p class="kicker">Das Team hinter Malva</p>
+  <h1 style="font-size:120px">Gemeinsam für<br><span class="hl">mentale Gesundheit.</span></h1>
+  <div class="faces"><img src="../../src/assets/img/natascha-helbig-rund.webp" alt=""><img src="../../src/assets/img/jennifer-rebelein-rund.webp" alt=""><img src="../../src/assets/img/christine-franz-rund.webp" alt=""><img src="../../src/assets/img/marco-kraft-rund.webp" alt=""><img src="../../src/assets/img/natascha-pusch-rund.webp" alt=""><img src="../../src/assets/img/christina-schifferer-rund.webp" alt=""><img src="../../src/assets/img/helmut-vohl-rund.webp" alt=""><img src="../../src/assets/img/florian-wittmann-rund.webp" alt=""></div>
+  <div class="foot"><div class="brand" data-mark="d"><span>malva</span></div><span class="more">Lern uns kennen →</span></div>
+</section>
+<section class="slide dark m" id="s02">
+  <img class="pic" src="../../src/assets/img/natascha-helbig-rund.webp" alt="">
+  <p class="nm">Natascha Helbig</p>
+  <p class="rl">Gründerin · Vorsitzende · Vergabeausschuss (geplant)</p>
+  <p class="q">„Hi, ich bin Natascha. Malva ist aus meinem Herzen entstanden. Schon immer war es mein Traum, Menschen zu helfen. Ich möchte, dass jeder, der es braucht, Zugang zu Hilfe bekommt. Mentale Gesundheit darf kein Privileg sein. Wir alle haben ein erfülltes Leben verdient und dafür kämpfe ich jeden Tag.“</p>
+  <div class="foot"><div class="brand" data-mark="d"><span>malva</span></div><span class="num">2/10</span></div>
+</section>
+<section class="slide light m" id="s03">
+  <img class="pic" src="../../src/assets/img/jennifer-rebelein-rund.webp" alt="">
+  <p class="nm">Jennifer Rebelein</p>
+  <p class="rl">Vorstand · Stellvertretende Vorsitzende (geplant)</p>
+  <p class="q">„Hi, ich bin Jenny. Als Physiotherapeutin habe ich jahrelang in der Psychiatrie gearbeitet und dort habe ich eines gelernt: Wer Hilfe braucht, hat sie verdient. Egal, wer du bist. Ich schaue nicht zu, wenn Menschen allein gelassen werden. Deshalb bin ich bei Malva, aus voller Überzeugung.“</p>
+  <div class="foot"><div class="brand" data-mark="h"><span>malva</span></div><span class="num">3/10</span></div>
+</section>
+<section class="slide dark m" id="s04">
+  <img class="pic" src="../../src/assets/img/christine-franz-rund.webp" alt="">
+  <p class="nm">Christine Franz</p>
+  <p class="rl">Vorstand · Kassenwartin · Vergabeausschuss (geplant)</p>
+  <p class="q">„Hi, ich bin Tina. 35 Jahre lang war ich leitende Arzthelferin (MFA) und ich weiß, wie schwer es ist, einen Therapieplatz zu bekommen. Das darf nicht so bleiben. Bei Malva kümmere ich mich um die Kasse und bin mit vollem Herzen dabei, damit jeder Zugang zu mentaler Gesundheit erhält.“</p>
+  <div class="foot"><div class="brand" data-mark="d"><span>malva</span></div><span class="num">4/10</span></div>
+</section>
+<section class="slide light m" id="s05">
+  <img class="pic" src="../../src/assets/img/marco-kraft-rund.webp" alt="">
+  <p class="nm">Marco Kraft</p>
+  <p class="rl">Gründungsmitglied · Ansprechpartner für junge Menschen</p>
+  <p class="q">„Hi, ich bin Marco, 20 Jahre alt. In meinem Umfeld sehe ich, wie wichtig es ist, dass gerade junge Menschen früh Hilfe bekommen. Damit man nicht so viel Zeit mit Gedanken verliert, die man am Ende gar nicht braucht. Bei Malva bin ich der Ansprechpartner für alle jungen Menschen.“</p>
+  <div class="foot"><div class="brand" data-mark="h"><span>malva</span></div><span class="num">5/10</span></div>
+</section>
+<section class="slide dark m" id="s06">
+  <img class="pic" src="../../src/assets/img/natascha-pusch-rund.webp" alt="">
+  <p class="nm">Natascha Pusch</p>
+  <p class="rl">Gründungsmitglied · Vergabeausschuss (geplant)</p>
+  <p class="q">„Hi, ich bin Natascha. Ich bin dabei, weil ich fest daran glaube, dass jeder Mensch die Hilfe bekommen sollte, die er braucht. Niemand sollte in schweren Zeiten allein bleiben, nur weil das Geld fehlt. Malva ist für mich eine Herzensangelegenheit und ich unterstütze den Verein, wo ich nur kann.“</p>
+  <div class="foot"><div class="brand" data-mark="d"><span>malva</span></div><span class="num">6/10</span></div>
+</section>
+<section class="slide light m" id="s07">
+  <img class="pic" src="../../src/assets/img/christina-schifferer-rund.webp" alt="">
+  <p class="nm">Christina Schifferer</p>
+  <p class="rl">Gründungsmitglied · Vergabeausschuss (geplant)</p>
+  <p class="q">„Hi, ich bin Christina. Ich weiß, wie viel es bedeutet, im richtigen Moment Unterstützung zu bekommen. Hilfe muss genau dort ankommen, wo sie gebraucht wird und zwar für jeden. Mit Malva möchte ich dazu beitragen, dass niemand warten muss, bis es zu spät ist.“</p>
+  <div class="foot"><div class="brand" data-mark="h"><span>malva</span></div><span class="num">7/10</span></div>
+</section>
+<section class="slide dark m" id="s08">
+  <img class="pic" src="../../src/assets/img/helmut-vohl-rund.webp" alt="">
+  <p class="nm">Helmut Vohl</p>
+  <p class="rl">Gründungsmitglied</p>
+  <p class="q">„Hi, ich bin Helmut, der alte Hase im Team. Ich habe in meinem Leben gelernt: Mit Optimismus und Zusammenhalt lässt sich fast alles schaffen. Ich glaube fest an die Menschen und daran, dass wir mit Malva wirklich etwas bewegen können. Dafür bin ich mit ganzem Herzen dabei.“</p>
+  <div class="foot"><div class="brand" data-mark="d"><span>malva</span></div><span class="num">8/10</span></div>
+</section>
+<section class="slide light m" id="s09">
+  <img class="pic" src="../../src/assets/img/florian-wittmann-rund.webp" alt="">
+  <p class="nm">Florian Wittmann</p>
+  <p class="rl">Gründungsmitglied</p>
+  <p class="q">„Hi, ich bin Florian. Ich weiß aus eigener Erfahrung, wie schwer der Weg sein kann, wenn es einem psychisch nicht gut geht. Umso mehr freue ich mich, dass Menschen mit Malva endlich die Hilfe bekommen können, die sie brauchen. Genau deshalb bin ich von Anfang an dabei.“</p>
+  <div class="foot"><div class="brand" data-mark="h"><span>malva</span></div><span class="num">9/10</span></div>
+</section>
+<section class="slide dark center" id="s10">
+  <div class="mark-top" data-mark="d"></div>
+  <h1 style="font-size:130px">Teilen kann<br><span class="hl">heilen.</span></h1>
+  <p class="body">Du möchtest Teil von Malva werden?<br>Schreib uns eine DM oder an <span style="white-space:nowrap">info@malva-ev.de</span></p>
+  <div class="foot"><div class="brand" data-mark="d"><span>malva</span></div><span class="num">10/10</span></div>
+</section>
+<script>document.querySelectorAll("[data-mark]").forEach(el=>el.prepend(document.getElementById("mark-"+el.dataset.mark).content.cloneNode(true)));</script></body></html>
