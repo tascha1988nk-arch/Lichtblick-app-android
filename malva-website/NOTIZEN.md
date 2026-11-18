@@ -74,3 +74,10 @@ Reihenfolge laut Natascha: erst Homepage fertig, dann Satzung fürs Finanzamt.
 - Digitale Version fertig (PNG vorne/hinten + PDF) zum Teilen per WhatsApp, ohne QR-Code.
 - QR-Codes liegen in `qr-code/` (geprüft, Ziel https://malva-ev.de).
 - Druckversion später: QR-Code zur Website in die Lücke über „Kontakt“ auf der Rückseite (Kommentar in `flyer.html`), „(bald online)“ entfernen, ggf. 3 mm Beschnitt je Seite für die Druckerei.
+
+## Hintergrund Natascha (für spätere Texte, nicht alles öffentlich)
+- Sehr empathisch, spürt schnell, was hinter etwas liegt; viel „Weltschmerz“, möchte am liebsten allen helfen.
+- Darum viele Sozialtarife in der Praxis; lebt vegan, will keinem Menschen und keinem Tier schaden.
+- Traum schon in der MTA-Ausbildung: Organisation, die ausgemusterte Laborgeräte aus Deutschland in afrikanische Länder bringt.
+- Liebt Tiere und Kinder; sieht bei Erwachsenen in der Praxis die hilflosen kindlichen Anteile, denen sie helfen will.
+- Kernbotschaft: Malva ist aus ihrem Herzen entstanden; mentale Gesundheit darf kein Privileg von Kontostand sein; alle haben ein erfülltes Leben verdient.
