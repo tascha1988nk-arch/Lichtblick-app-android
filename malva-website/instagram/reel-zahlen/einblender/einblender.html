@@ -13,7 +13,7 @@ html,body{margin:0;background:transparent;font-family:Outfit,sans-serif}
 </style></head><body>
 <div id="list"></div>
 <script>
-const items=[["Durchschnittliche Wartezeit","142","Tage"],["Jedes Jahr psychisch erkrankt","17,8","Millionen Erwachsene"],["Frührenten wegen psychischer Erkrankung","41 %",""]];
+const items=[["Durchschnittliche Wartezeit","142","Tage"],["Jedes Jahr psychisch erkrankt","17,8","Millionen Erwachsene"],["Frührenten wegen psychischer Erkrankung","41 %",""],["Zusätzlich nötige Kassensitze","7.000","für Psychotherapie"]];
 const L=document.getElementById('list');
 items.forEach(([t,n,u],i)=>{for(const k of ['card','plain']){const w=document.createElement('div');w.className='wrap';w.id=k+i;w.innerHTML=`<div class="${k}"><div class="k">${t}</div><div class="n">${n}</div>${u?`<div class="u">${u}</div>`:""}</div>`;L.appendChild(w);L.appendChild(document.createElement('br'));}});
 </script></body></html>

@@ -15,6 +15,7 @@ Länge: ca. 45–60 Sekunden. Stichpunkte, keine fertigen Sätze. Bilder zum Ein
 - 17,8 Millionen Erwachsene haben jedes Jahr eine psychische Erkrankung, mehr als jede vierte Person.
 - Kassenplätze fehlen, privat zahlen können viele nicht.
 - Eigenes Erlebnis: Sozialtarife, Plätze suchen, Anträge schreiben – und trotzdem Sackgassen.
+- „Es gibt zu wenige Kassenplätze: Laut Bundespsychotherapeutenkammer bräuchte es 7.000 zusätzliche Praxissitze.“ (Einblender 7.000)
 - Optional Bild 4 „41 %“: „Psychische Erkrankungen sind der häufigste Grund für Frührenten.“
 
 ## 4. Die Lösung: Malva (25–42 s) · Bild 1 „Hilfe ist kein Luxus“
@@ -55,6 +56,7 @@ Quellen: Bundespsychotherapeutenkammer (Wartezeit, Daten 2019), DGPPN (17,8 Mio.
 |---|---|---|---|
 | 142 Tage (≈ 4,7 Monate) | Ø Wartezeit Erstgespräch → Therapiebeginn | BPtK, Versichertendaten 2019 | Krankenkassen rechnen anders und kommen auf kürzere Werte |
 | 17,8 Mio. / 27,8 % | Erwachsene mit psychischer Erkrankung pro Jahr | DGPPN nach RKI-Survey 2009–2012 | Erhebung ist älter, wird aber bis heute genannt |
+| 7.000 | zusätzlich nötige psychotherapeutische Kassensitze (Forderung, kein amtlicher Bedarf) | Bundespsychotherapeutenkammer, Forderungen 2023 | GKV-Spitzenverband sieht das anders; 2025 gab es 41.937 Psychotherapeut:innen mit Kassenzulassung |
 | 41 % | Anteil psychischer Erkrankungen an neuen Erwerbsminderungsrenten | Bundestag-Drucksache 21/2263, Daten 2020 | seit Jahren stabil um 40 % |
 
 Wie viele Menschen gerade insgesamt auf einen Therapieplatz warten, wird nicht offiziell gezählt – dazu gibt es keine verlässliche Zahl.
