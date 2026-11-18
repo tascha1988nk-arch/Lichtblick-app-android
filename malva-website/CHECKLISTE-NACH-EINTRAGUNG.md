@@ -87,7 +87,7 @@ Reihenfolge: **A** sofort nach der Eintragung ins Vereinsregister · **B** sobal
 - [ ] Newsletter einbauen: Anbieter mit EU-Servern und Double-Opt-in, Anmeldefeld auf Startseite/Footer, Datenschutzerklärung ergänzen (Plan in `NOTIZEN.md`).
 
 ## Immer daran denken
-- [ ] Quartalsbericht als PDF auf /stand-der-dinge/ einstellen (siehe README).
+- [ ] Quartalsbericht als PDF auf /aktuelles/ einstellen (siehe README).
 - [ ] Nach jeder Änderung bauen (`npm run build`) – die Ausgabe listet noch offene Platzhalter `[ … ]`.
 - [ ] Inhalt von `_site/` neu hochladen.
 - [ ] Datenschutzerklärung bei jeder neuen Funktion (Formular, Newsletter, Zahlungen) aktualisieren.
