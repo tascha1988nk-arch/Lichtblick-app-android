@@ -9,8 +9,13 @@
 // Dann steht überall „Malva e. V.“ statt „Malva (i. Gr.)“.
 const eingetragen = false;
 
+// Erst nach dem Bescheid des Finanzamts auf true setzen: Dann verspricht die
+// Spendenseite Zuwendungsbestätigungen (Spendenquittungen).
+const gemeinnuetzig = false;
+
 export default {
   eingetragen,
+  gemeinnuetzig,
   name: eingetragen ? "Malva e. V." : "Malva (i. Gr.)",
   nameLang: eingetragen ? "Malva e. V." : "Malva – Verein in Gründung",
   slogan: "Weil Hilfe kein Luxus sein sollte.",

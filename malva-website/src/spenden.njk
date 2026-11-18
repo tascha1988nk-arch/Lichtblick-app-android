@@ -38,7 +38,11 @@ partnerstufen:
         <dt>Bank</dt><dd>{{ m.val(site.spenden.konto.bank) }}</dd>
         <dt>Verwendungszweck</dt><dd>{{ m.val(site.spenden.konto.verwendungszweck) }}</dd>
       </dl>
+      {% if site.gemeinnuetzig %}
       <p>Für deine Spende erhältst du eine Zuwendungsbestätigung. Gib dafür bitte im Verwendungszweck deinen Namen und deine Anschrift an.</p>
+      {% else %}
+      <p class="hint hint--light">Die Anerkennung als gemeinnütziger Verein läuft noch. Bis dahin können wir leider keine Spendenquittungen ausstellen.</p>
+      {% endif %}
     </section>
     {% else %}
     <section class="block block--highlight" aria-labelledby="h-gofundme">
