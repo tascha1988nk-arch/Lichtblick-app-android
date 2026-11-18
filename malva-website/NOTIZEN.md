@@ -46,7 +46,7 @@ Text-Ideen (Quelle: Apotheken Umschau, AGES):
 - Text steht auch auf der Website unter „Warum Malva“ → „Warum der Name Malva?“
 
 ## Neue Ideen für die Website (Vorbild: Verein aus Karlsruhe, nur als Inspiration, nichts übernehmen)
-1. **Bewerbung für Fachkolleg:innen** (Therapie, Coaching, Beratung, Sozialberatung): Formular mit Beruf/Qualifikation, Schwerpunkten, Ort, vor Ort/online, Kontakt.
+1. ERLEDIGT (/fachleute/, vorerst per E-Mail; später Formular-Dienst mit EU-Servern in site.js `formFachleute` eintragen) – **Bewerbung für Fachkolleg:innen** (Therapie, Coaching, Beratung, Sozialberatung): Formular mit Beruf/Qualifikation, Schwerpunkten, Ort, vor Ort/online, Kontakt.
 2. **Suche für Hilfesuchende**: filterbares Verzeichnis (Berufsgruppe, Schwerpunkt, Ort, online). Plan: Bewerbungen prüft Malva, freigegebene Einträge kommen in eine Datendatei, die Website erzeugt daraus die Liste mit Filtern – ohne Datenbank und Login.
 3. **FAQ** unten auf den Seiten (aufklappbare Fragen).
 4. **Zahlen auf der Startseite** mit Hochzähl-Animation (z. B. Wartezeit auf Therapieplatz) – nur echte Zahlen mit Quelle (z. B. Bundespsychotherapeutenkammer), Animation abschaltbar für Menschen mit Bewegungsempfindlichkeit.

@@ -25,6 +25,10 @@ export default {
     facebook: { handle: "Malva", url: "https://www.facebook.com/share/1epeksnani/" },
   },
 
+  // Bewerbungsformular für Fachkolleg:innen: Adresse eines Formular-Dienstes (EU-Server).
+  // Leer lassen = das Formular erstellt eine E-Mail an info@malva-ev.de.
+  formFachleute: "",
+
   // Externes Werkzeug für den Kostenerstattungsantrag (nur Link, nicht eingebunden)
   kever: "https://derkever.de/",
 
@@ -66,6 +70,7 @@ export default {
     { url: "/team/", label: "Team" },
     { url: "/hilfe/", label: "Hilfe" },
     { url: "/partner/", label: "Partner" },
+    { url: "/fachleute/", label: "Für Fachleute" },
     { url: "/spenden/", label: "Spenden", button: true },
   ],
 };

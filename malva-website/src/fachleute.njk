@@ -1,0 +1,175 @@
+---
+layout: base.njk
+title: Für Fachleute
+permalink: /fachleute/
+description: Werde Teil des Malva-Netzwerks – für Psychotherapeut:innen, Heilpraktiker:innen für Psychotherapie, Berater:innen und Coaches.
+# Auswahllisten des Formulars – hier einfach ergänzen oder ändern.
+berufe:
+  - "Approbierte:r Psychotherapeut:in"
+  - "Kinder- und Jugendlichenpsychotherapeut:in"
+  - "Heilpraktiker:in für Psychotherapie"
+  - "Psychologische:r Berater:in"
+  - "Coach"
+  - "Sozialberatung"
+  - "Andere"
+schwerpunkte:
+  - "Ängste und Sorgen"
+  - "Depressive Verstimmung"
+  - "Stress und Burnout"
+  - "Lebenskrisen und Umbrüche"
+  - "Trauer und Verlust"
+  - "Paare und Beziehung"
+  - "Familie und Erziehung"
+  - "Selbstwert"
+  - "Arbeit und Beruf"
+  - "Anträge, Ämter, Krankenkasse"
+zielgruppen:
+  - "Erwachsene"
+  - "Kinder und Jugendliche"
+  - "Paare"
+  - "Familien"
+---
+{% import "macros.njk" as m %}
+
+{% macro checks(name, items) %}
+<div class="choices">
+  {% for it in items %}
+  <label class="choice"><input type="checkbox" name="{{ name }}" value="{{ it }}"><span>{{ it }}</span></label>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+<section class="page-head">
+  <div class="container narrow">
+    <p class="eyebrow">Für Fachkolleg:innen</p>
+    <h1>Werde Teil des Malva-Netzwerks</h1>
+    <p class="lead">Du begleitest Menschen in schweren Zeiten und möchtest, dass Hilfe nicht am Geld scheitert? Dann trag dich hier ein. Wir bauen ein Netzwerk in Rheinland-Pfalz und online auf.</p>
+  </div>
+</section>
+
+<section class="section section--first">
+  <div class="container narrow stack">
+
+    <section class="block" aria-labelledby="h-wer">
+      <h2 id="h-wer">Wen wir suchen</h2>
+      <ul class="check-list">
+        <li><strong>Psychotherapeut:innen</strong> mit Privatpraxis, für Erwachsene sowie Kinder und Jugendliche</li>
+        <li><strong>Heilpraktiker:innen für Psychotherapie</strong></li>
+        <li><strong>Berater:innen und Coaches</strong> mit unterschiedlichen Schwerpunkten</li>
+        <li><strong>Sozialberatung</strong> für Anträge bei Krankenkasse und Ämtern</li>
+      </ul>
+    </section>
+
+    <section class="block" aria-labelledby="h-ablauf">
+      <h2 id="h-ablauf">So läuft es ab</h2>
+      <ol class="steps-num">
+        <li><strong>Formular ausfüllen.</strong> Wir fragen nur, was wir für ein erstes Kennenlernen brauchen.</li>
+        <li><strong>Wir melden uns.</strong> In einem kurzen Gespräch klären wir, wie die Zusammenarbeit aussehen kann.</li>
+        <li><strong>Nachweise schicken.</strong> Je nach Beruf zum Beispiel Approbation, Erlaubnis nach dem Heilpraktikergesetz oder Ausbildungszertifikat sowie einen Nachweis der Berufshaftpflicht.</li>
+        <li><strong>Teil des Netzwerks werden.</strong> Später können Hilfesuchende dich über unsere Suche nach Schwerpunkt, Ort und Online-Angebot finden.</li>
+      </ol>
+      <p class="hint">Malva ist ein Verein in Gründung. Deine Anmeldung ist deshalb erst einmal unverbindlich: Vermittlungen und Kostenübernahmen starten, sobald der Verein eingetragen und als gemeinnützig anerkannt ist.</p>
+    </section>
+
+    <section class="block" aria-labelledby="h-form">
+      <h2 id="h-form">Anmeldung</h2>
+      <p>Pflichtfelder sind mit <span aria-hidden="true">*</span><span class="sr-only">Stern</span> markiert.</p>
+
+      <form class="form" id="fachleute-form"
+        {% if site.formFachleute %}action="{{ site.formFachleute }}" method="post"{% else %}action="mailto:{{ site.email }}?subject=Anmeldung%20Fachkolleg%3Ainnen" method="post" enctype="text/plain" data-mailto="{{ site.email }}"{% endif %}>
+
+        <fieldset>
+          <legend>Über dich</legend>
+          <div class="field"><label for="f-name">Vor- und Nachname, ggf. mit Titel *</label><input id="f-name" name="Name" required autocomplete="name"></div>
+          <div class="field"><label for="f-beruf">Berufsgruppe *</label>
+            <select id="f-beruf" name="Berufsgruppe" required>
+              <option value="">Bitte auswählen</option>
+              {% for b in berufe %}<option>{{ b }}</option>{% endfor %}
+            </select>
+          </div>
+          <div class="field"><label for="f-quali">Qualifikation und Ausbildung *</label><textarea id="f-quali" name="Qualifikation" rows="3" required placeholder="z. B. Approbation seit 2018, Verhaltenstherapie / Ausbildung zur systemischen Beraterin"></textarea></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Schwerpunkte</legend>
+          <p class="field__hint">Mehrfachauswahl möglich</p>
+          {{ checks("Schwerpunkte", schwerpunkte) }}
+          <div class="field"><label for="f-weitere">Weitere Schwerpunkte oder Methoden</label><input id="f-weitere" name="Weitere Schwerpunkte" placeholder="z. B. Achtsamkeit, systemische Arbeit"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Für wen bist du da? *</legend>
+          {{ checks("Zielgruppen", zielgruppen) }}
+        </fieldset>
+
+        <fieldset>
+          <legend>Wie arbeitest du? *</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="Arbeitsform" value="vor Ort" required><span>vor Ort</span></label>
+            <label class="choice"><input type="radio" name="Arbeitsform" value="online"><span>online</span></label>
+            <label class="choice"><input type="radio" name="Arbeitsform" value="vor Ort und online"><span>vor Ort und online</span></label>
+          </div>
+          <div class="field"><label for="f-praxis">Praxisname und Straße</label><input id="f-praxis" name="Praxis" autocomplete="street-address"></div>
+          <div class="field-row">
+            <div class="field"><label for="f-plz">PLZ *</label><input id="f-plz" name="PLZ" required inputmode="numeric" autocomplete="postal-code" maxlength="5"></div>
+            <div class="field"><label for="f-ort">Ort *</label><input id="f-ort" name="Ort" required autocomplete="address-level2"></div>
+          </div>
+          <p class="field__hint">Barrierefreiheit der Praxis</p>
+          {{ checks("Barrierefreiheit", ["stufenlos erreichbar", "Aufzug", "barrierefreies WC"]) }}
+          <div class="field"><label for="f-sprachen">Sprachen</label><input id="f-sprachen" name="Sprachen" placeholder="z. B. Deutsch, Englisch, Türkisch"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Abrechnung</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="Kassenzulassung" value="ja"><span>Ich habe eine Kassenzulassung</span></label>
+            <label class="choice"><input type="radio" name="Kassenzulassung" value="nein"><span>Ich arbeite privat</span></label>
+          </div>
+          <div class="field"><label for="f-honorar">Honorar pro Sitzung (optional)</label><input id="f-honorar" name="Honorar" placeholder="z. B. 90 € für 50 Minuten"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Kontakt</legend>
+          <div class="field"><label for="f-mail">E-Mail-Adresse *</label><input id="f-mail" name="E-Mail" type="email" required autocomplete="email"></div>
+          <div class="field"><label for="f-tel">Telefon (optional)</label><input id="f-tel" name="Telefon" type="tel" autocomplete="tel"></div>
+          <div class="field"><label for="f-nachricht">Möchtest du uns noch etwas sagen?</label><textarea id="f-nachricht" name="Nachricht" rows="4"></textarea></div>
+        </fieldset>
+
+        <fieldset>
+          <legend class="sr-only">Einverständnis</legend>
+          <label class="choice choice--block"><input type="checkbox" name="Einwilligung" value="ja" required><span>Ich bin einverstanden, dass Malva meine Angaben speichert, um mit mir Kontakt aufzunehmen und meine Aufnahme ins Netzwerk zu prüfen. Ich kann das jederzeit per E-Mail widerrufen. Mehr in der <a href="/datenschutz/">Datenschutzerklärung</a>. *</span></label>
+        </fieldset>
+
+        <button type="submit" class="btn btn--primary">Anmeldung absenden</button>
+        {% if not site.formFachleute %}
+        <p class="hint">Beim Absenden öffnet sich dein E-Mail-Programm mit einer fertigen Nachricht an {{ site.email }}. Du musst sie nur noch abschicken.</p>
+        {% endif %}
+      </form>
+    </section>
+
+    <section class="block" aria-labelledby="h-fragen">
+      <h2 id="h-fragen">Häufige Fragen</h2>
+      <div class="faq">
+        <details>
+          <summary>Wer bezahlt meine Arbeit?</summary>
+          <p>Malva will die Kosten für Klient:innen übernehmen, die sie selbst nicht tragen können. Wie genau abgerechnet wird, legen wir vor dem Start gemeinsam mit dem Vorstand und dem Finanzamt fest und besprechen es mit dir persönlich.</p>
+        </details>
+        <details>
+          <summary>Muss ich eine Mindestzahl an Klient:innen aufnehmen?</summary>
+          <p>Nein. Du entscheidest selbst, ob und wann du Kapazitäten hast.</p>
+        </details>
+        <details>
+          <summary>Werde ich öffentlich auf der Website angezeigt?</summary>
+          <p>Nur, wenn du zustimmst. Später soll es eine Suche geben, über die Hilfesuchende passende Fachleute finden. Welche Angaben dort erscheinen, besprechen wir vorher mit dir.</p>
+        </details>
+        <details>
+          <summary>Ich bin Berater:in oder Coach, keine Therapeut:in. Passe ich trotzdem?</summary>
+          <p>Ja, unbedingt. Malva unterstützt nicht nur Psychotherapie, sondern auch Beratung und Coaching. Wichtig ist, dass du innerhalb deiner Qualifikation arbeitest.</p>
+        </details>
+      </div>
+      <p>Noch Fragen? Schreib uns: {{ m.email(site.email) }}</p>
+    </section>
+  </div>
+</section>
+
+<script src="/assets/js/form-mailto.js" defer></script>
