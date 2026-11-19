@@ -84,7 +84,6 @@ Reihenfolge: **A** sofort nach der Eintragung ins Vereinsregister · **B** sobal
 ---
 
 ## Sobald es weitere Postfächer gibt
-- [ ] Eigene E-Mail-Adresse für Marco (Ansprechpartner junge Menschen) in `src/team.njk` unter `email:` eintragen.
 
 ## Später (2027)
 - [ ] Newsletter einbauen: Anbieter mit EU-Servern und Double-Opt-in, Anmeldefeld auf Startseite/Footer, Datenschutzerklärung ergänzen (Plan in `NOTIZEN.md`).
