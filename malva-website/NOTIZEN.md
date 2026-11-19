@@ -83,6 +83,6 @@ Reihenfolge laut Natascha: erst Homepage fertig, dann Satzung fürs Finanzamt.
 - Kernbotschaft: Malva ist aus ihrem Herzen entstanden; mentale Gesundheit darf kein Privileg von Kontostand sein; alle haben ein erfülltes Leben verdient.
 
 ## Vergabeausschuss (Satzung § 11a, Stand 18.11.2026)
-- Bisher fest: Natascha Helbig (Vorsitz), Christine Franz (Kasse), Jennifer Rebelein (stellv. Vorsitz) – Satzung § 11a muss dafür angepasst werden. OFFEN: 2–3 Mitglieder ohne Vorstandsamt (laut Satzung § 11a nötig). Satzung § 11a: Vorsitz + Kasse + 2–3 weitere ohne Vorstandsamt (von der Mitgliederversammlung gewählt). Bei Gleichstand: abgelehnt bzw. neu beraten.
+- 4 Personen: Natascha Helbig (Vorsitz), Jennifer Rebelein (stellv. Vorsitz), Christine Franz (Kasse), Marco Kraft (ohne Vorstandsamt). Satzung § 11a angepasst. Satzung § 11a: Vorsitz + Kasse + 2–3 weitere ohne Vorstandsamt (von der Mitgliederversammlung gewählt). Bei Gleichstand: abgelehnt bzw. neu beraten.
 - Mehrheit; jede Bewilligung braucht mindestens eine Zustimmung von außerhalb des Vorstands. Befangene wirken nicht mit. Schweigepflicht schriftlich.
 - Vorstand macht Vergaberichtlinien und zahlt aus.
