@@ -56,11 +56,13 @@
       </ol>
       <p class="hint">Malva ist ein Verein in Gründung. Deine Anmeldung ist deshalb erst einmal unverbindlich: Vermittlungen und Kostenübernahmen starten, sobald der Verein eingetragen und als gemeinnützig anerkannt ist.</p>
     </section>
-    <section class="block" aria-labelledby="h-form">
+    <section class="block" id="anmeldung" aria-labelledby="h-form">
       <h2 id="h-form">Anmeldung</h2>
       <p>Pflichtfelder sind mit <span aria-hidden="true">*</span><span class="sr-only">Stern</span> markiert.</p>
       <form class="form" id="fachleute-form"
-        data-mailto="info@malva-ev.de">
+        action="" method="post">
+        <input type="hidden" name="malva_formular" value="fachleute">
+        <div class="hp" aria-hidden="true"><label>Website <input type="text" name="malva_website" tabindex="-1" autocomplete="off"></label></div>
         <fieldset>
           <legend>Über dich</legend>
           <div class="field"><label for="f-name">Vor- und Nachname, ggf. mit Titel *</label><input id="f-name" name="Name" required autocomplete="name"></div>
@@ -76,26 +78,26 @@
           <legend>Schwerpunkte</legend>
           <p class="field__hint">Mehrfachauswahl möglich</p>
 <div class="choices">
-  <label class="choice"><input type="checkbox" name="Schwerpunkte" value="Ängste und Sorgen"><span>Ängste und Sorgen</span></label>
-  <label class="choice"><input type="checkbox" name="Schwerpunkte" value="Depressive Verstimmung"><span>Depressive Verstimmung</span></label>
-  <label class="choice"><input type="checkbox" name="Schwerpunkte" value="Stress und Burnout"><span>Stress und Burnout</span></label>
-  <label class="choice"><input type="checkbox" name="Schwerpunkte" value="Lebenskrisen und Umbrüche"><span>Lebenskrisen und Umbrüche</span></label>
-  <label class="choice"><input type="checkbox" name="Schwerpunkte" value="Trauer und Verlust"><span>Trauer und Verlust</span></label>
-  <label class="choice"><input type="checkbox" name="Schwerpunkte" value="Paare und Beziehung"><span>Paare und Beziehung</span></label>
-  <label class="choice"><input type="checkbox" name="Schwerpunkte" value="Familie und Erziehung"><span>Familie und Erziehung</span></label>
-  <label class="choice"><input type="checkbox" name="Schwerpunkte" value="Selbstwert"><span>Selbstwert</span></label>
-  <label class="choice"><input type="checkbox" name="Schwerpunkte" value="Arbeit und Beruf"><span>Arbeit und Beruf</span></label>
-  <label class="choice"><input type="checkbox" name="Schwerpunkte" value="Anträge, Ämter, Krankenkasse"><span>Anträge, Ämter, Krankenkasse</span></label>
+  <label class="choice"><input type="checkbox" name="Schwerpunkte[]" value="Ängste und Sorgen"><span>Ängste und Sorgen</span></label>
+  <label class="choice"><input type="checkbox" name="Schwerpunkte[]" value="Depressive Verstimmung"><span>Depressive Verstimmung</span></label>
+  <label class="choice"><input type="checkbox" name="Schwerpunkte[]" value="Stress und Burnout"><span>Stress und Burnout</span></label>
+  <label class="choice"><input type="checkbox" name="Schwerpunkte[]" value="Lebenskrisen und Umbrüche"><span>Lebenskrisen und Umbrüche</span></label>
+  <label class="choice"><input type="checkbox" name="Schwerpunkte[]" value="Trauer und Verlust"><span>Trauer und Verlust</span></label>
+  <label class="choice"><input type="checkbox" name="Schwerpunkte[]" value="Paare und Beziehung"><span>Paare und Beziehung</span></label>
+  <label class="choice"><input type="checkbox" name="Schwerpunkte[]" value="Familie und Erziehung"><span>Familie und Erziehung</span></label>
+  <label class="choice"><input type="checkbox" name="Schwerpunkte[]" value="Selbstwert"><span>Selbstwert</span></label>
+  <label class="choice"><input type="checkbox" name="Schwerpunkte[]" value="Arbeit und Beruf"><span>Arbeit und Beruf</span></label>
+  <label class="choice"><input type="checkbox" name="Schwerpunkte[]" value="Anträge, Ämter, Krankenkasse"><span>Anträge, Ämter, Krankenkasse</span></label>
 </div>
           <div class="field"><label for="f-weitere">Weitere Schwerpunkte oder Methoden</label><input id="f-weitere" name="Weitere Schwerpunkte" placeholder="z. B. Achtsamkeit, systemische Arbeit"></div>
         </fieldset>
         <fieldset>
           <legend>Für wen bist du da? *</legend>
 <div class="choices">
-  <label class="choice"><input type="checkbox" name="Zielgruppen" value="Erwachsene"><span>Erwachsene</span></label>
-  <label class="choice"><input type="checkbox" name="Zielgruppen" value="Kinder und Jugendliche"><span>Kinder und Jugendliche</span></label>
-  <label class="choice"><input type="checkbox" name="Zielgruppen" value="Paare"><span>Paare</span></label>
-  <label class="choice"><input type="checkbox" name="Zielgruppen" value="Familien"><span>Familien</span></label>
+  <label class="choice"><input type="checkbox" name="Zielgruppen[]" value="Erwachsene"><span>Erwachsene</span></label>
+  <label class="choice"><input type="checkbox" name="Zielgruppen[]" value="Kinder und Jugendliche"><span>Kinder und Jugendliche</span></label>
+  <label class="choice"><input type="checkbox" name="Zielgruppen[]" value="Paare"><span>Paare</span></label>
+  <label class="choice"><input type="checkbox" name="Zielgruppen[]" value="Familien"><span>Familien</span></label>
 </div>
         </fieldset>
         <fieldset>
@@ -112,9 +114,9 @@
           </div>
           <p class="field__hint">Barrierefreiheit der Praxis</p>
 <div class="choices">
-  <label class="choice"><input type="checkbox" name="Barrierefreiheit" value="stufenlos erreichbar"><span>stufenlos erreichbar</span></label>
-  <label class="choice"><input type="checkbox" name="Barrierefreiheit" value="Aufzug"><span>Aufzug</span></label>
-  <label class="choice"><input type="checkbox" name="Barrierefreiheit" value="barrierefreies WC"><span>barrierefreies WC</span></label>
+  <label class="choice"><input type="checkbox" name="Barrierefreiheit[]" value="stufenlos erreichbar"><span>stufenlos erreichbar</span></label>
+  <label class="choice"><input type="checkbox" name="Barrierefreiheit[]" value="Aufzug"><span>Aufzug</span></label>
+  <label class="choice"><input type="checkbox" name="Barrierefreiheit[]" value="barrierefreies WC"><span>barrierefreies WC</span></label>
 </div>
           <div class="field"><label for="f-sprachen">Sprachen</label><input id="f-sprachen" name="Sprachen" placeholder="z. B. Deutsch, Englisch, Türkisch"></div>
         </fieldset>
@@ -137,7 +139,6 @@
           <label class="choice choice--block"><input type="checkbox" name="Einwilligung" value="ja" required><span>Ich bin einverstanden, dass Malva meine Angaben speichert, um mit mir Kontakt aufzunehmen und meine Aufnahme ins Netzwerk zu prüfen. Ich kann das jederzeit per E-Mail widerrufen. Mehr in der <a href="/datenschutz/">Datenschutzerklärung</a>. *</span></label>
         </fieldset>
         <button type="submit" class="btn btn--primary">Anmeldung absenden</button>
-        <p class="hint">Beim Absenden öffnet sich dein E-Mail-Programm mit einer fertigen Nachricht an info@malva-ev.de. Du musst sie nur noch abschicken.</p>
       </form>
     </section>
     <section class="block" aria-labelledby="h-fragen">
@@ -164,6 +165,22 @@
     </section>
   </div>
 </section>
+<script>
+(function () {
+  var m = /[?&]anmeldung=(danke|fehler)/.exec(location.search);
+  if (!m) return;
+  var form = document.getElementById("fachleute-form");
+  if (!form) return;
+  var box = document.createElement("div");
+  box.className = "form-msg form-msg--" + m[1];
+  box.setAttribute("role", "status");
+  box.innerHTML = m[1] === "danke"
+    ? "<h3>Danke für deine Anmeldung!</h3><p>Deine Angaben sind bei uns angekommen. Wir melden uns persönlich bei dir.</p>"
+    : "<h3>Das hat leider nicht geklappt.</h3><p>Bitte prüfe deine Angaben und versuche es noch einmal, oder schreib uns an info@malva-ev.de.</p>";
+  if (m[1] === "danke") { form.replaceWith(box); } else { form.parentNode.insertBefore(box, form); }
+  box.scrollIntoView({ block: "center" });
+})();
+</script>
   </main>
   <footer class="site-footer">
     <div class="container site-footer__grid">
@@ -225,30 +242,6 @@
       nav.classList.remove("is-open");
       btn.focus();
     }
-  });
-})();
-
-</script>
-<script>
-// Solange kein Formular-Dienst eingetragen ist, baut dieses Skript aus dem
-// Formular eine gut lesbare E-Mail und öffnet das E-Mail-Programm.
-(function () {
-  var form = document.querySelector("form[data-mailto]");
-  if (!form) return;
-  form.addEventListener("submit", function (e) {
-    if (!form.checkValidity()) return; // Browser zeigt die fehlenden Pflichtfelder
-    e.preventDefault();
-    var data = new FormData(form), lines = [], seen = {};
-    data.forEach(function (value, key) {
-      if (!String(value).trim()) return;
-      if (seen[key] !== undefined) { lines[seen[key]] += ", " + value; return; }
-      seen[key] = lines.length;
-      lines.push(key + ": " + value);
-    });
-    var body = "Hallo Malva-Team,\n\nhier meine Anmeldung für das Netzwerk:\n\n" + lines.join("\n") + "\n";
-    var subject = "Anmeldung Fachkolleg:innen – " + (data.get("Name") || "");
-    window.location.href = "mailto:" + form.dataset.mailto +
-      "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
   });
 })();
 

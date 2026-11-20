@@ -65,6 +65,19 @@ panels.append(f'''<section class="panel" data-step="0">
     </div>
   </div>
   <div class="card">
+    <span class="num">⚙</span>
+    <div class="card__body">
+      <h3>Plugin „Malva Formulare“ installieren (einmal)</h3>
+      <p>Damit kommt die Anmeldung für Fachleute direkt als E-Mail bei info@malva-ev.de an, ohne E-Mail-Programm der Person. Es speichert nichts in der Datenbank.</p>
+      <ol class="how">
+        <li>Die Datei <b>malva-formulare.zip</b> aus dem Chat herunterladen (nicht entpacken).</li>
+        <li><span class="ui">Plugins → Neues Plugin hinzufügen → Plugin hochladen</span> → Datei wählen → <span class="ui">Jetzt installieren</span>.</li>
+        <li><span class="ui">Plugin aktivieren</span>.</li>
+        <li>Seite „Für Fachleute“ mit dem neuen Code aktualisieren und einmal eine Test-Anmeldung abschicken.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="card">
     <span class="num">✉</span>
     <div class="card__body">
       <h3>Kontaktformular einrichten (einmal)</h3>

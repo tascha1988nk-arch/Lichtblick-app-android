@@ -381,6 +381,12 @@
 .malva .form-box .wpforms-submit:hover{background: var(--malva-green-900) !important;}
 .malva .form-box .wpforms-error,.malva .form-box label.wpforms-error{color: #A3243B !important; font-size: .9rem !important;}
 .malva .form-box .wpforms-confirmation-container-full{background: #E3EEE6 !important; border: 0 !important; border-radius: .6rem; color: var(--malva-green-900) !important;}
+.malva .hp{position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden;}
+.malva .form-msg{border-radius: calc(var(--radius) - .25rem); padding: 1.25rem 1.5rem; margin: 1rem 0;}
+.malva .form-msg h3{margin: 0 0 .4rem; font-size: 1.25rem;}
+.malva .form-msg p{margin: 0;}
+.malva .form-msg--danke{background: #E3EEE6; border-left: 5px solid var(--malva-green-text);}
+.malva .form-msg--fehler{background: #F8E7EA; border-left: 5px solid #A3243B;}
 
 /* ===== Anpassung an WordPress: Theme-Kopf/Fuß und Abstände ausblenden ===== */
 body:has(.malva){background:#F4F2EE;margin:0}
