@@ -50,6 +50,16 @@ panels.append(f'''<section class="panel" data-step="0">
       <p class="tip">Falls du Schrift oder Stil schon unter „Zusätzliches CSS“ eingefügt hast: Das darfst du drin lassen, es stört nicht.</p>
     </div>
   </div>
+  <div class="card">
+    <span class="num">?</span>
+    <div class="card__body">
+      <h3>Seite bleibt schwarz-weiß? Stil-Code als Zusätzliches CSS</h3>
+      <ol class="how"><li><span class="ui">Design → Editor → Stile → ⋮ → Zusätzliches CSS</span></li>
+      <li>Alles darin löschen, nur diesen Stil-Code einfügen, <span class="ui">Speichern</span>.</li>
+      <li>Seite neu laden.</li></ol>
+      {copybox('c-stil', 'Stil-Code', stil, 'Ohne Schrift-Code. Die Seite nutzt dann vorerst die Standardschrift.')}
+    </div>
+  </div>
 </section>''')
 
 for n, (pid, title, slug, _, extra) in enumerate(pages, 1):
