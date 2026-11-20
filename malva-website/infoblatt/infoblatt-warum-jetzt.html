@@ -24,7 +24,7 @@ h1 .hl{color:var(--ll)}
 .deco{position:absolute;right:-22mm;bottom:-32mm;width:90mm;opacity:.13}
 
 /* Zeitungsraster */
-.grid{flex:1;padding:4.5mm 14mm 0;display:grid;grid-template-columns:repeat(6,1fr);gap:3mm;align-content:start}
+.grid{flex:1;padding:4mm 14mm 0;display:grid;grid-template-columns:repeat(6,1fr);gap:3mm;align-content:start}
 .art{border-radius:4mm;padding:4mm 4.5mm}
 .art h2{font-weight:600;font-size:4.6mm;line-height:1.12;letter-spacing:-.02em;margin-bottom:1.6mm}
 .art p{font-size:2.85mm;line-height:1.42;margin-bottom:1.3mm;hyphens:auto;text-align:justify}
@@ -39,7 +39,7 @@ h1 .hl{color:var(--ll)}
 .salbei{background:var(--sage)}
 .dunkel{background:var(--g);color:var(--c)}
 .dunkel .kicker{color:var(--sl)}
-.dunkel p{color:#DCE6DF}
+.dunkel p{color:#DCE6DF;text-align:left}
 .lila .kicker{color:var(--lt)}
 .salbei .kicker{color:var(--gt)}
 
@@ -50,12 +50,12 @@ h1 .hl{color:var(--ll)}
 .four svg{width:100%;height:auto}
 .four figcaption{grid-column:1/-1;text-align:center;font-size:2.5mm;color:var(--m);margin-top:.6mm}
 
-.list{list-style:none;display:flex;flex-direction:column;gap:1.4mm;margin-top:1mm}
+.list{list-style:none;display:flex;flex-direction:column;gap:1mm;margin-top:.8mm}
 .list li{font-size:2.85mm;line-height:1.4;padding-left:4mm;position:relative}
 .list li::before{content:"";position:absolute;left:0;top:1.3mm;width:1.8mm;height:1.8mm;border-radius:50%;background:var(--l)}
 .dunkel .list li::before{background:var(--sl)}
 
-.foot{flex:none;padding:3.5mm 14mm 5mm;font-size:2.3mm;line-height:1.45;color:var(--m)}
+.foot{flex:none;padding:3mm 14mm 4mm;font-size:2.3mm;line-height:1.45;color:var(--m)}
 .foot b{font-weight:600;color:var(--g)}
 
 /* Seite 2: Brief */
@@ -119,13 +119,14 @@ h1 .hl{color:var(--ll)}
     <article class="art dunkel w2">
       <p class="kicker">Ausnahmen</p>
       <h2>Nicht für alle</h2>
-      <p>Im Oktober hat der Bundestag nachgebessert. Ausgenommen werden sollen:</p>
+      <p>Am 20.11.2026 billigte der Bundesrat Ausnahmen. Ungedeckelt bleiben:</p>
       <ul class="list">
         <li>Kinder und Jugendliche</li>
         <li>schwer psychisch Erkrankte</li>
-        <li>dringende Akutfälle</li>
+        <li>Akutfälle über die 116 117, bis 600 Min. im Jahr</li>
+        <li>vor 2027 genehmigte Therapien</li>
       </ul>
-      <p style="margin-top:1.8mm">Für die meisten Erwachsenen bleibt es beim Deckel.</p>
+      <p style="margin-top:1.8mm">Alle anderen Erwachsenen, auch in Gruppen, trifft der Deckel.</p>
     </article>
 
     <article class="art salbei w3">
@@ -153,7 +154,7 @@ h1 .hl{color:var(--ll)}
   </main>
 
   <footer class="foot">
-    <b>Quellen:</b> COPSY-Studie, Universitätsklinikum Hamburg-Eppendorf (17.11.2026) · Bundespsychotherapeutenkammer: Wartezeiten und Forderungen zur Bedarfsplanung · GKV-Beitragssatzstabilisierungsgesetz (Bundestag und Bundesrat, Juli 2026) und Änderungen vom Oktober 2026, nach Angaben von DGVT-BV, DPtV und Kassenärztlicher Vereinigung Hamburg · § 13 Abs. 3 SGB V.<br>
+    <b>Quellen:</b> COPSY-Studie, Universitätsklinikum Hamburg-Eppendorf (17.11.2026) · Bundespsychotherapeutenkammer: Wartezeiten und Forderungen zur Bedarfsplanung · GKV-Beitragssatzstabilisierungsgesetz (Juli 2026) und Korrekturen im Rahmen der Notfallreform (Bundestag 15.10.2026, Bundesrat 20.11.2026), nach Angaben von BPtK, Bundesgesundheitsministerium, Ärzteblatt und Deutschlandfunk · § 13 Abs. 3 SGB V.<br>
     <b>Infoblatt vom 21. November 2026,</b> herausgegeben von Malva (Verein in Gründung), Bad Dürkheim. Alle Angaben nach bestem Wissen, ohne Gewähr.
   </footer>
 </div>
@@ -173,6 +174,7 @@ h1 .hl{color:var(--ll)}
     <p>Sehr geehrte Damen und Herren,</p>
     <p>stellen Sie sich vor, Sie haben endlich den Mut gefunden, sich Hilfe zu holen. Sie telefonieren, schreiben E-Mails und setzen sich auf Wartelisten. Und dann hören Sie: frühestens in fünf Monaten. So geht es heute vielen Menschen in Deutschland. Kinder und Jugendliche warten sogar rund sieben Monate auf einen Therapieplatz, obwohl fast jedes vierte Kind psychisch belastet ist.</p>
     <p>Ab Januar 2027 wird ambulante Psychotherapie für Erwachsene wieder gedeckelt. Fachleute befürchten, dass Praxen dann weniger neue Patientinnen und Patienten aufnehmen können. Für alle, die sich keine private Behandlung leisten können, heißt das: noch länger warten. Für manche wird diese Zeit zur Zerreißprobe.</p>
+    <p>Dass Kinder und Jugendliche, schwer Erkrankte und Akutfälle ausgenommen werden, ist ein wichtiger Schritt. Für alle anderen Erwachsenen bleibt es aber beim Deckel.</p>
     <p>Seelische Gesundheit darf keine Frage des Geldbeutels sein. Wer Hilfe braucht, muss sie bekommen, und zwar dann, wenn sie gebraucht wird.</p>
     <p>Ich bitte Sie deshalb von Herzen:</p>
     <ul>
