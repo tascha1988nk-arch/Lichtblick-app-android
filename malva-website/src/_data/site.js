@@ -35,7 +35,7 @@ export default {
   formFachleute: "",
 
   // Shortcode des Kontaktformulars aus WordPress (WPForms → Alle Formulare → Shortcode)
-  formKontakt: '[wpforms id="FORMULAR-ID" title="false"]',
+  formKontakt: '[wpforms id="47" title="false"]',
 
   // Externes Werkzeug für den Kostenerstattungsantrag (nur Link, nicht eingebunden)
   kever: "https://derkever.de/",
