@@ -20,7 +20,7 @@ pages = [
     ('05-partner', 'Partner', 'partner', None, ''),
     ('06-fachleute', 'Für Fachleute', 'fachleute', None, 'Anmeldungen kommen als E-Mail an info@malva-ev.de. Du prüfst und gibst frei, erst dann kommt jemand in die Suche.'),
     ('07-spenden', 'Unterstütze uns', 'spenden', None, '<b>Umbenannt.</b> Bisherige Seite „Spenden“ öffnen und den Titel auf <b>Unterstütze uns</b> ändern. Der Link bleibt <b>spenden</b>. Die Vormerk-Formulare brauchen das Plugin <b>Malva Formulare</b> ab Version 1.1 (siehe Vorab).'),
-    ('08-neuigkeiten', 'Neuigkeiten', 'neuigkeiten', None, '<b>Umbenannt.</b> Deine bisherige Seite „Aktuelles“ öffnen, Titel auf <b>Neuigkeiten</b> und den Link auf <b>neuigkeiten</b> ändern, dann den Code ersetzen.<br><b>Vorher das Infoblatt hochladen:</b> <span class="ui">Medien → Datei hinzufügen</span> → <code>malva-infoblatt-warum-jetzt.pdf</code> (Dateiname nicht ändern, Download unten). Sonst führt der Download-Button ins Leere.'),
+    ('08-neuigkeiten', 'Neuigkeiten', 'neuigkeiten', None, '<b>Umbenannt.</b> Deine bisherige Seite „Aktuelles“ öffnen, Titel auf <b>Neuigkeiten</b> und den Link auf <b>neuigkeiten</b> ändern, dann den Code ersetzen.<br><b>Vorher das Infoblatt hochladen:</b> <span class="ui">Medien → Datei hinzufügen</span> → <code>malva-infoblatt-warum-jetzt.pdf</code> (Dateiname nicht ändern, die PDF habe ich dir im Chat geschickt). Sonst führt der Download-Button ins Leere.'),
     ('09-kontakt', 'Kontakt', 'kontakt', None, 'Vorher WPForms einrichten (siehe Vorab) und mir die Formular-Zahl schicken. Bis dahin steht dort nur der Platzhalter.'),
     ('10-impressum', 'Impressum', 'impressum', None, ''),
     ('11-datenschutz', 'Datenschutz', 'datenschutz', None, 'Übergangsfassung. Nach der Eintragung professionell prüfen lassen.'),
@@ -109,8 +109,6 @@ panels.append(f'''<section class="panel" data-step="0">
 </section>''')
 
 for n, (pid, title, slug, _, extra) in enumerate(pages, 1):
-    if pid == '08-neuigkeiten':
-        extra += ' <a class="dlbtn" download="malva-infoblatt-warum-jetzt.pdf" href="' + b64('/home/user/Lichtblick-app-android/malva-website/infoblatt/malva-infoblatt-warum-jetzt.pdf', 'application/pdf') + '">Infoblatt-PDF herunterladen</a>'
     code = open(W + pid + '.html').read()
     # Bilder direkt in den Code schreiben (kein Hochladen nötig)
     block = code.strip()
