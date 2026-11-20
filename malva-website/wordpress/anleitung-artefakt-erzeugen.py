@@ -34,33 +34,20 @@ def copybox(cid, label, text, note):
 </div>'''
 
 tabs, panels = [], []
-tabs.append('<button type="button" class="tab" data-step="0" aria-selected="true">Design</button>')
+tabs.append('<button type="button" class="tab" data-step="0" aria-selected="true">Vorab</button>')
 panels.append(f'''<section class="panel" data-step="0">
-  <p class="eyebrow">Schritt 0 · nur einmal</p>
-  <h2>Design einrichten</h2>
-  <p class="lead">Schrift und Stil gelten für alle Malva-Seiten. Beides kommt in dasselbe Feld, die Schrift zuerst.</p>
+  <p class="eyebrow">Wichtig vorab</p>
+  <h2>Das Design steckt jetzt in jeder Seite</h2>
+  <p class="lead">Schrift und Stil sind direkt im Seiten-Code enthalten. Du musst nichts mehr unter „Zusätzliches CSS“ einfügen. So sieht jede Seite sofort richtig aus.</p>
   <div class="card">
-    <span class="num">1</span>
+    <span class="num">!</span>
     <div class="card__body">
-      <h3>Zusätzliches CSS öffnen</h3>
-      <ol class="how"><li><span class="ui">Design → Editor → Stile → ⋮ → Zusätzliches CSS</span></li>
-      <li>Steht dort schon etwas vom Theme, lass es stehen und füge darunter ein.</li></ol>
-    </div>
-  </div>
-  <div class="card">
-    <span class="num">2</span>
-    <div class="card__body">
-      <h3>Schrift einfügen</h3>
-      <p>Die Schrift Outfit ist direkt im Code. Es wird nichts von Google geladen, das ist gut für den Datenschutz.</p>
-      {copybox('c-schrift', 'Schrift-Code', schrift, 'Etwa 54 kB, das ist normal.')}
-    </div>
-  </div>
-  <div class="card">
-    <span class="num">3</span>
-    <div class="card__body">
-      <h3>Stil einfügen und speichern</h3>
-      <p>Direkt unter den Schrift-Code. Er blendet auf Malva-Seiten auch Kopf und Fuß des Themes aus, weil jede Seite ihr eigenes Menü mitbringt.</p>
-      {copybox('c-stil', 'Stil-Code', stil, 'Danach <span class="ui">Speichern</span>.')}
+      <h3>Seiten, die du schon angelegt hast</h3>
+      <ol class="how"><li>Seite öffnen, <span class="ui">⋮ → Code-Editor</span>.</li>
+      <li>Alles im großen Feld markieren und löschen (Strg+A, Entf).</li>
+      <li>Den neuen Seiten-Code aus dem passenden Schritt einfügen.</li>
+      <li><span class="ui">Code-Editor verlassen</span>, Bilder in die leeren Bildfelder setzen, <span class="ui">Aktualisieren</span>.</li></ol>
+      <p class="tip">Falls du Schrift oder Stil schon unter „Zusätzliches CSS“ eingefügt hast: Das darfst du drin lassen, es stört nicht.</p>
     </div>
   </div>
 </section>''')
@@ -76,7 +63,7 @@ for n, (pid, title, slug, _, extra) in enumerate(pages, 1):
             block += '<!-- /wp:html -->\n\n<!-- wp:image -->\n<figure class="wp-block-image"><img alt="' + alt + '"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:html -->\n'
         else:
             block += part
-    block = '<!-- wp:html -->\n' + block + '\n<!-- /wp:html -->\n'
+    block = '<!-- wp:html -->\n<style>\n' + schrift + stil + '</style>\n' + block + '\n<!-- /wp:html -->\n'
     nimg = len(re.findall(r'<img ', code))
     imgs = sorted(set(re.findall(r'/wp-content/uploads/2026/11/([\w\-.]+)', code)))
     pc = b64(f'{P}{pid}-pc.jpg', 'image/jpeg')
@@ -187,7 +174,7 @@ textarea{{display:block;width:100%;height:170px;resize:vertical;font:12.5px/1.5 
 </style>
 <header class="top"><div class="top__in">
   <div class="brand"><svg viewBox="0 0 200 200" aria-hidden="true"><path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#C3B1F2" fill-opacity=".92"/><path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#9CCBA8" fill-opacity=".85"/></svg><h1>Malva in WordPress einbauen</h1></div>
-  <p>Erst einmal das Design, dann Seite für Seite: Code kopieren, einfügen, veröffentlichen.</p>
+  <p>Seite für Seite: Code kopieren, im Code-Editor einfügen, Bilder setzen, veröffentlichen.</p>
   <nav class="tabs" aria-label="Schritte">{''.join(tabs)}</nav>
 </div></header>
 <main class="wrap">
