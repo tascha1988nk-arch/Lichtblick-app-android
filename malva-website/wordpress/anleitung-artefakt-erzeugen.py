@@ -19,7 +19,7 @@ pages = [
     ('04-hilfe', 'Hilfe', 'hilfe', None, ''),
     ('05-partner', 'Partner', 'partner', None, ''),
     ('06-fachleute', 'Für Fachleute', 'fachleute', None, 'Anmeldungen kommen als E-Mail an info@malva-ev.de. Du prüfst und gibst frei, erst dann kommt jemand in die Suche.'),
-    ('07-spenden', 'Spenden', 'spenden', None, ''),
+    ('07-spenden', 'Spenden', 'spenden', None, 'Die Vormerk-Formulare brauchen das Plugin <b>Malva Formulare</b> ab Version 1.1 (siehe Vorab).'),
     ('08-aktuelles', 'Aktuelles', 'aktuelles', None, 'Neue Meilensteine schickst du mir einfach, ich schreibe sie in den Code.'),
     ('09-kontakt', 'Kontakt', 'kontakt', None, 'Vorher WPForms einrichten (siehe Vorab) und mir die Formular-Zahl schicken. Bis dahin steht dort nur der Platzhalter.'),
     ('10-impressum', 'Impressum', 'impressum', None, ''),
@@ -68,12 +68,13 @@ panels.append(f'''<section class="panel" data-step="0">
     <span class="num">⚙</span>
     <div class="card__body">
       <h3>Plugin „Malva Formulare“ installieren (einmal)</h3>
-      <p>Damit kommt die Anmeldung für Fachleute direkt als E-Mail bei info@malva-ev.de an, ohne E-Mail-Programm der Person. Es speichert nichts in der Datenbank.</p>
+      <p>Damit kommen die Anmeldung für Fachleute und die Vormerkungen auf der Spendenseite direkt als E-Mail bei info@malva-ev.de an, ohne E-Mail-Programm der Person. Es speichert nichts in der Datenbank.</p>
       <ol class="how">
         <li>Die Datei <b>malva-formulare.zip</b> aus dem Chat herunterladen (nicht entpacken).</li>
         <li><span class="ui">Plugins → Neues Plugin hinzufügen → Plugin hochladen</span> → Datei wählen → <span class="ui">Jetzt installieren</span>.</li>
         <li><span class="ui">Plugin aktivieren</span>.</li>
-        <li>Seite „Für Fachleute“ mit dem neuen Code aktualisieren und einmal eine Test-Anmeldung abschicken.</li>
+        <li>Hast du schon Version 1.0: Plugin vorher unter <span class="ui">Plugins</span> deaktivieren und löschen, dann die neue Datei hochladen.</li>
+        <li>Seiten „Für Fachleute“ und „Spenden“ mit dem neuen Code aktualisieren und jeweils eine Test-Nachricht abschicken.</li>
       </ol>
     </div>
   </div>

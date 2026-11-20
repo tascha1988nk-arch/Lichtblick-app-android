@@ -84,7 +84,19 @@ partnerstufen:
       </ul>
       <p>{{ privat_frei }}</p>
       <p class="hint">Als Fördermitglied unterstützt du Malva finanziell, ohne Pflichten im Verein. Deine Beiträge sind steuerlich absetzbar, sobald die Gemeinnützigkeit anerkannt ist.</p>
-      <p><a class="btn btn--secondary" href="/kontakt/#formular">Jetzt vormerken</a></p>
+      <details class="vm" id="vormerken-mitglied">
+        <summary class="btn btn--secondary">Jetzt vormerken</summary>
+        <form class="form vm__form" action="" method="post">
+          <input type="hidden" name="malva_formular" value="vormerkung">
+          <input type="hidden" name="Art" value="Fördermitglied">
+          <div class="hp" aria-hidden="true"><label>Website <input type="text" name="malva_website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="field"><label for="v-mitglied-name">Dein Name *</label><input id="v-mitglied-name" name="Name" required autocomplete="name"></div>
+          <div class="field"><label for="v-mitglied-mail">E-Mail-Adresse *</label><input id="v-mitglied-mail" name="E-Mail" type="email" required autocomplete="email"></div>
+          <div class="field"><label for="v-mitglied-stufe">Gewünschter Beitrag</label><select id="v-mitglied-stufe" name="Wunsch"><option value="">Bitte auswählen …</option><option>Wegbegleiter:in – 4 € im Monat</option><option>Mutmacher:in – 9 € im Monat</option><option>Herzensmensch – 15 € im Monat</option><option>Eigener Betrag (ab 2 € im Monat)</option><option>Weiß ich noch nicht</option></select></div>
+          <label class="choice choice--block"><input type="checkbox" name="Einwilligung" value="ja" required><span>Ich bin einverstanden, dass Malva meine Angaben speichert, um mich zu informieren, sobald es losgeht. Unverbindlich und jederzeit per E-Mail widerrufbar. Mehr in der <a href="/datenschutz/">Datenschutzerklärung</a>. *</span></label>
+          <button type="submit" class="btn btn--primary">Unverbindlich vormerken</button>
+        </form>
+      </details>
       <p class="hint">Unverbindlich: Es wird noch nichts abgebucht. Wir melden uns bei dir, sobald die Fördermitgliedschaft startet.</p>
     </section>
 
@@ -105,7 +117,20 @@ partnerstufen:
         {% endfor %}
       </ul>
       <p class="hint">Eigener Betrag möglich. Zahlung jährlich oder monatlich.</p>
-      <p><a class="btn btn--secondary" href="/kontakt/#formular">Jetzt vormerken</a></p>
+      <details class="vm" id="vormerken-partner">
+        <summary class="btn btn--secondary">Jetzt vormerken</summary>
+        <form class="form vm__form" action="" method="post">
+          <input type="hidden" name="malva_formular" value="vormerkung">
+          <input type="hidden" name="Art" value="Förderpartner / Sponsor">
+          <div class="hp" aria-hidden="true"><label>Website <input type="text" name="malva_website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="field"><label for="v-partner-firma">Praxis / Unternehmen / Organisation *</label><input id="v-partner-firma" name="Organisation" required autocomplete="organization"></div>
+          <div class="field"><label for="v-partner-name">Ansprechperson *</label><input id="v-partner-name" name="Name" required autocomplete="name"></div>
+          <div class="field"><label for="v-partner-mail">E-Mail-Adresse *</label><input id="v-partner-mail" name="E-Mail" type="email" required autocomplete="email"></div>
+          <div class="field"><label for="v-partner-stufe">Gewünschte Stufe</label><select id="v-partner-stufe" name="Wunsch"><option value="">Bitte auswählen …</option><option>Keimling – ab 300 € im Jahr</option><option>Blatt – ab 600 € im Jahr</option><option>Blüte – ab 1.200 € im Jahr</option><option>Eigener Betrag</option><option>Weiß ich noch nicht</option></select></div>
+          <label class="choice choice--block"><input type="checkbox" name="Einwilligung" value="ja" required><span>Ich bin einverstanden, dass Malva meine Angaben speichert, um mich zu informieren, sobald es losgeht. Unverbindlich und jederzeit per E-Mail widerrufbar. Mehr in der <a href="/datenschutz/">Datenschutzerklärung</a>. *</span></label>
+          <button type="submit" class="btn btn--primary">Unverbindlich vormerken</button>
+        </form>
+      </details>
       <p class="hint">Unverbindlich: Es entstehen noch keine Kosten. Wir melden uns, sobald Förderpartnerschaften möglich sind.</p>
     </section>
 
@@ -118,3 +143,22 @@ partnerstufen:
     {% endif %}
   </div>
 </section>
+
+<script>
+(function () {
+  var r = /[?&]vormerkung=(danke|fehler)/.exec(location.search);
+  if (!r) return;
+  var t = /[?&]art=(mitglied|partner)/.exec(location.search);
+  var m = [null, r[1]];
+  var box = document.getElementById("vormerken-" + (t ? t[1] : "mitglied"));
+  if (!box) return;
+  var msg = document.createElement("div");
+  msg.className = "form-msg form-msg--" + m[1];
+  msg.setAttribute("role", "status");
+  msg.innerHTML = m[1] === "danke"
+    ? "<h3>Danke, du bist vorgemerkt!</h3><p>Wir melden uns bei dir, sobald es losgeht. Bis dahin entstehen keine Kosten.</p>"
+    : "<h3>Das hat leider nicht geklappt.</h3><p>Bitte versuche es noch einmal oder schreib uns an info@malva-ev.de.</p>";
+  if (m[1] === "danke") { box.replaceWith(msg); } else { box.open = true; box.parentNode.insertBefore(msg, box); }
+  msg.scrollIntoView({ block: "center" });
+})();
+</script>

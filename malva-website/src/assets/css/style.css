@@ -529,3 +529,15 @@ main:focus { outline: none; }
 .form-msg p { margin: 0; }
 .form-msg--danke { background: #E3EEE6; border-left: 5px solid var(--malva-green-text); }
 .form-msg--fehler { background: #F8E7EA; border-left: 5px solid #A3243B; }
+
+/* Vormerken: aufklappbares Formular auf der Spendenseite */
+.vm { margin: 0 0 .75rem; }
+.vm > summary { list-style: none; display: inline-block; }
+.vm > summary::-webkit-details-marker { display: none; }
+.vm[open] > summary { background: var(--malva-green-900); color: var(--malva-cream); }
+.vm__form { margin-top: 1.25rem; padding: 1.25rem; border-radius: calc(var(--radius) - .25rem); background: var(--malva-cream); gap: 1rem; }
+.vm__form .field input, .vm__form .field select { background-color: var(--white) !important; }
+.vm__form select { -webkit-appearance: none; appearance: none; cursor: pointer; padding-right: 2.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' fill='none' stroke='%232F6B48' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right .9rem center; background-size: 1.2rem; }
+.vm__form .choice--block { background: var(--white); }
