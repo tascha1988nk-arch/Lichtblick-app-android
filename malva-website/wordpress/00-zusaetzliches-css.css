@@ -343,6 +343,8 @@
 .malva .report h2{margin-bottom: 0.5rem;}
 .malva .profile__text{font-size: 0.98rem; line-height: 1.55;}
 .malva .profile__from{font-size: 0.9rem; color: var(--malva-lilac-text); font-weight: 500;}
+.malva .malve-art{margin: 0;}
+.malva .malve-art svg{display: block; width: 100%; max-width: 420px; height: auto; margin: 0 auto; border-radius: var(--radius);}
 
 /* ===== Anpassung an WordPress: Theme-Kopf/Fuß und Abstände ausblenden ===== */
 body:has(.malva){background:#F4F2EE;margin:0}
