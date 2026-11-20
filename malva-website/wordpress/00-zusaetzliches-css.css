@@ -364,19 +364,19 @@
 .malva .growth__next-h{margin: 0 0 1.25rem;}
 .malva .growth--next .growth__item{padding-bottom: 1.25rem;}
 .malva .growth--next .growth__title{font-size: 1.1rem; font-weight: 500; color: var(--malva-text-muted); margin: 0;}
-.malva .cf7-box .wpcf7-form{display: flex; flex-direction: column; gap: 1rem;}
-.malva .cf7-box .wpcf7-form p{margin: 0;}
-.malva .cf7-box label{display: flex; flex-direction: column; gap: .35rem; font-weight: 500;}
-.malva .cf7-box input[type=text],.malva .cf7-box input[type=email],.malva .cf7-box select,.malva .cf7-box textarea{font: inherit; color: var(--malva-green-900); background: var(--malva-cream); width: 100%;
-  border: 1.5px solid #B9B4A8; border-radius: .6rem; padding: .7rem .85rem;}
-.malva .cf7-box textarea{min-height: 9rem; resize: vertical;}
-.malva .cf7-box input:focus-visible,.malva .cf7-box select:focus-visible,.malva .cf7-box textarea:focus-visible{outline: 3px solid var(--malva-lilac-text); outline-offset: 1px;}
-.malva .cf7-box .wpcf7-acceptance label{flex-direction: row; align-items: flex-start; gap: .6rem; font-weight: 400;}
-.malva .cf7-box input[type=checkbox]{width: 1.15rem; height: 1.15rem; margin-top: .2rem; accent-color: var(--malva-green-text);}
-.malva .cf7-box input[type=submit]{align-self: flex-start; font: inherit; font-weight: 600; background: var(--malva-green-text); color: #fff; border: 0; border-radius: 999px; padding: .9rem 1.8rem; cursor: pointer;}
-.malva .cf7-box input[type=submit]:hover{background: var(--malva-green-900);}
-.malva .cf7-box .wpcf7-not-valid-tip{color: #A3243B; font-size: .9rem;}
-.malva .cf7-box .wpcf7-response-output{margin: .5rem 0 0 !important; border-radius: .6rem; padding: .8rem 1rem !important;}
+.malva .form-box .wpforms-container{margin: 0 !important;}
+.malva .form-box .wpforms-field{padding: 0 0 1rem !important;}
+.malva .form-box .wpforms-field-label{font-weight: 500 !important; color: var(--malva-green-900) !important; font-size: 1rem !important; margin-bottom: .35rem !important;}
+.malva .form-box input[type=text],.malva .form-box input[type=email],.malva .form-box select,.malva .form-box textarea{font: inherit !important; color: var(--malva-green-900) !important; background: var(--malva-cream) !important; width: 100% !important; max-width: none !important;
+  border: 1.5px solid #B9B4A8 !important; border-radius: .6rem !important; padding: .7rem .85rem !important; height: auto !important; box-shadow: none !important;}
+.malva .form-box textarea{min-height: 9rem !important;}
+.malva .form-box input:focus,.malva .form-box select:focus,.malva .form-box textarea:focus{outline: 3px solid var(--malva-lilac-text) !important; outline-offset: 1px; border-color: var(--malva-lilac-text) !important;}
+.malva .form-box input[type=checkbox]{width: 1.15rem; height: 1.15rem; accent-color: var(--malva-green-text);}
+.malva .form-box .wpforms-field-gdpr-checkbox label,.malva .form-box .wpforms-field-checkbox label{font-weight: 400 !important;}
+.malva .form-box button[type=submit],.malva .form-box .wpforms-submit{font: inherit !important; font-weight: 600 !important; background: var(--malva-green-text) !important; color: #fff !important; border: 0 !important; border-radius: 999px !important; padding: .9rem 1.8rem !important; height: auto !important; cursor: pointer;}
+.malva .form-box .wpforms-submit:hover{background: var(--malva-green-900) !important;}
+.malva .form-box .wpforms-error,.malva .form-box label.wpforms-error{color: #A3243B !important; font-size: .9rem !important;}
+.malva .form-box .wpforms-confirmation-container-full{background: #E3EEE6 !important; border: 0 !important; border-radius: .6rem; color: var(--malva-green-900) !important;}
 
 /* ===== Anpassung an WordPress: Theme-Kopf/Fuß und Abstände ausblenden ===== */
 body:has(.malva){background:#F4F2EE;margin:0}

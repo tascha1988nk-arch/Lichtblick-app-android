@@ -17,7 +17,7 @@ description: Schreib Malva eine Nachricht – für Fragen, Vormerkungen und Part
   <div class="container narrow stack">
     <section class="block" id="formular" aria-labelledby="h-form">
       <h2 id="h-form">Deine Nachricht</h2>
-      <div class="cf7-box">[contact-form-7 id="{{ site.formKontaktId }}" title="Kontakt Malva"]</div>
+      <div class="form-box">{{ site.formKontakt | safe }}</div>
       <p class="hint">Bitte schick uns über dieses Formular keine Angaben zu deiner Gesundheit.</p>
     </section>
 

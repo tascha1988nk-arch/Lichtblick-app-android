@@ -21,7 +21,7 @@ pages = [
     ('06-fachleute', 'Für Fachleute', 'fachleute', None, 'Anmeldungen kommen als E-Mail an info@malva-ev.de. Du prüfst und gibst frei, erst dann kommt jemand in die Suche.'),
     ('07-spenden', 'Spenden', 'spenden', None, ''),
     ('08-aktuelles', 'Aktuelles', 'aktuelles', None, 'Neue Meilensteine schickst du mir einfach, ich schreibe sie in den Code.'),
-    ('09-kontakt', 'Kontakt', 'kontakt', None, 'Vorher Contact Form 7 einrichten (siehe Schritt Vorab) und mir die Formular-ID schicken.'),
+    ('09-kontakt', 'Kontakt', 'kontakt', None, 'Vorher WPForms einrichten (siehe Vorab) und mir die Formular-Zahl schicken. Bis dahin steht dort nur der Platzhalter.'),
     ('10-impressum', 'Impressum', 'impressum', None, ''),
     ('11-datenschutz', 'Datenschutz', 'datenschutz', None, 'Übergangsfassung. Nach der Eintragung professionell prüfen lassen.'),
 ]
@@ -68,16 +68,27 @@ panels.append(f'''<section class="panel" data-step="0">
     <span class="num">✉</span>
     <div class="card__body">
       <h3>Kontaktformular einrichten (einmal)</h3>
+      <p>Contact Form 7 passt nicht zu deinem Strato-Paket, deshalb nehmen wir <b>WPForms Lite</b>. Kostenlos, die Nachrichten kommen per E-Mail an dich.</p>
       <ol class="how">
-        <li><span class="ui">Plugins → Installieren</span>, nach <b>Contact Form 7</b> suchen, installieren und aktivieren.</li>
-        <li>Gegen Spam zusätzlich <b>Honeypot for Contact Form 7</b> installieren (ohne Google).</li>
-        <li><span class="ui">Kontakt → Neues Formular</span>, Titel <b>Kontakt Malva</b>.</li>
-        <li>Reiter <span class="ui">Formular</span>: alles löschen, Formular-Code unten einfügen. Ganz unten vor [submit] noch <code>[honeypot website]</code> einsetzen.</li>
-        <li>Reiter <span class="ui">E-Mail</span>: Felder wie im E-Mail-Code unten ausfüllen. <span class="ui">Speichern</span>.</li>
-        <li>Oben steht ein Shortcode wie <code>[contact-form-7 id="a1b2c3d" …]</code>. <b>Schick mir die ID</b>, dann trage ich sie in die Kontaktseite ein.</li>
+        <li><span class="ui">Plugins → Installieren</span>, nach <b>WPForms</b> suchen, <b>WPForms Lite</b> installieren und aktivieren. Angebote für die Bezahlversion kannst du überspringen.</li>
+        <li><span class="ui">WPForms → Einstellungen → Allgemein</span>: <b>DSGVO-Verbesserungen</b> einschalten, darunter <b>Benutzer-Cookies deaktivieren</b> und <b>Benutzerdetails deaktivieren</b> anhaken. Speichern.</li>
+        <li><span class="ui">WPForms → Neu hinzufügen</span>, Name <b>Kontakt Malva</b>, Vorlage <b>Leeres Formular</b>.</li>
+        <li>Felder hineinziehen, in dieser Reihenfolge:
+          <ul class="files">
+            <li><b>Name</b> (Pflichtfeld), Format „Einfach“</li>
+            <li><b>E-Mail</b> (Pflichtfeld)</li>
+            <li><b>Dropdown</b> „Worum geht es?“ (Pflichtfeld) mit: Allgemeine Frage · Vormerkung Fördermitglied · Vormerkung Förderpartner / Sponsor · Partner werden / Netzwerk · Presse</li>
+            <li><b>Einzeiliger Text</b> „Gewünschter Beitrag (nur bei Vormerkung, freiwillig)“</li>
+            <li><b>Absatztext</b> „Deine Nachricht“ (Pflichtfeld)</li>
+            <li><b>DSGVO-Einwilligung</b> mit dem Text unten</li>
+          </ul></li>
+        <li>Unten den Button-Text auf <b>Nachricht senden</b> stellen.</li>
+        <li><span class="ui">Einstellungen → Benachrichtigungen</span>: An <b>info@malva-ev.de</b>, Betreff <b>Neue Nachricht über malva-ev.de</b>, Antworten an = Feld „E-Mail“.</li>
+        <li><span class="ui">Einstellungen → Bestätigungen</span>: Text unten einfügen. <span class="ui">Speichern</span>.</li>
+        <li>Oben auf <span class="ui">Einbetten</span> bzw. in der Formularliste steht ein Shortcode wie <code>[wpforms id="123"]</code>. <b>Schick mir die Zahl</b>, dann trage ich sie in die Kontaktseite ein.</li>
       </ol>
-      {copybox('c-cf7-form', 'Formular-Code', open('/home/user/shots/cf7_form.txt').read(), 'Für den Reiter „Formular“. Die Vormerken-Buttons wählen das passende Anliegen automatisch vor.')}
-      {copybox('c-cf7-mail', 'E-Mail-Einstellungen', open('/home/user/shots/cf7_mail.txt').read(), 'Für den Reiter „E-Mail“. Absender am besten info@malva-ev.de.')}
+      {copybox('c-wpf-dsgvo', 'Text für die DSGVO-Einwilligung', 'Ich bin einverstanden, dass Malva meine Angaben speichert, um meine Anfrage zu bearbeiten. Ich kann das jederzeit per E-Mail an info@malva-ev.de widerrufen. Mehr in der Datenschutzerklärung auf dieser Website.', 'Ins Feld „DSGVO-Einwilligung“.')}
+      {copybox('c-wpf-ok', 'Text für die Bestätigung', 'Danke für deine Nachricht! Wir melden uns so schnell wie möglich bei dir. Dein Malva-Team', 'Erscheint nach dem Absenden.')}
     </div>
   </div>
 </section>''')

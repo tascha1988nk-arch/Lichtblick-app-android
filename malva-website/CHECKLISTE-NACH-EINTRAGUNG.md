@@ -96,3 +96,7 @@ Reihenfolge: **A** sofort nach der Eintragung ins Vereinsregister · **B** sobal
 - [ ] Inhalt von `_site/` neu hochladen.
 - [ ] Datenschutzerklärung bei jeder neuen Funktion (Formular, Newsletter, Zahlungen) aktualisieren.
 - [ ] Stand-Datum auf der Hilfe-Seite (`stand:` oben in `src/hilfe.njk`) aktualisieren.
+
+## Vor dem Online-Gang (Strato, Kundenlogin → WordPress → Verwaltung)
+- [ ] **Domain zuweisen:** WordPress läuft noch unter der vorläufigen Adresse malva-x6czyn638t.live-website.com. Wenn alle Seiten stehen, hier „Domain zuweisen“ → malva-ev.de. Erst dann funktionieren QR-Code und Flyer-Adresse.
+- [ ] **E-Mail-Absender:** steht auf postmaster+…@post.webmailer.de → über den Stift auf info@malva-ev.de ändern, damit Formular-Mails nicht im Spam landen.
