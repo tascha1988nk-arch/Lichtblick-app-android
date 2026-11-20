@@ -16,7 +16,7 @@ pages = [
      'Danach: <b>Einstellungen → Lesen</b> → „Eine statische Seite“ → Homepage: <b>Startseite</b>.'),
     ('02-warum-malva', 'Warum Malva', 'warum-malva', None, ''),
     ('03-team', 'Team', 'team', None, ''),
-    ('04-hilfe', 'Hilfe', 'hilfe', None, ''),
+    ('04-hilfe', 'Hilfe finden', 'hilfe', None, ''),
     ('05-partner', 'Partner', 'partner', None, ''),
     ('06-fachleute', 'Für Fachleute', 'fachleute', None, 'Anmeldungen kommen als E-Mail an info@malva-ev.de. Du prüfst und gibst frei, erst dann kommt jemand in die Suche.'),
     ('07-spenden', 'Spenden', 'spenden', None, 'Die Vormerk-Formulare brauchen das Plugin <b>Malva Formulare</b> ab Version 1.1 (siehe Vorab).'),

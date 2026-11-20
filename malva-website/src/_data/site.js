@@ -76,7 +76,7 @@ export default {
     { url: "/", label: "Start" },
     { url: "/warum-malva/", label: "Warum Malva" },
     { url: "/team/", label: "Team" },
-    { url: "/hilfe/", label: "Hilfe" },
+    { url: "/hilfe/", label: "Hilfe finden" },
     { url: "/partner/", label: "Partner" },
     { url: "/fachleute/", label: "Für Fachleute" },
     { url: "/spenden/", label: "Spenden", button: true },
