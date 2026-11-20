@@ -98,3 +98,32 @@ Reihenfolge laut Natascha: erst Homepage fertig, dann Satzung fürs Finanzamt.
 - Zu jedem Meilenstein auf „Aktuelles“ ein kurzer Bericht, der als Bild geteilt werden kann (Instagram-Post/Story, WhatsApp).
 - Gestaltung im Stil der Seite: Stängel mit Malva-Blättern, Datum, Titel, 2–3 Sätze, evtl. Foto.
 - Auf der Website je Meilenstein optional „Mehr lesen“ bzw. das Bild zum Ansehen.
+
+## Recherche-Sammlung für späteres Infoblatt (Aktuelles) und Instagram-Posts
+Stand: 20.11.2026. Quelle: Google-KI-Zusammenfassung (Screenshots von Natascha). ACHTUNG: Vor Veröffentlichung jede Zahl an der Originalquelle prüfen, KI-Antworten können Fehler enthalten.
+
+**Kinder und Jugendliche**
+- Rund jede/r Vierte fühlt sich psychisch belastet (Deutsches Schulbarometer, Robert Bosch Stiftung; COPSY-Studie 2026). Häufig: Ängste, depressive Verstimmung, Zukunfts- und Krisenängste.
+- Besonders gefährdet: Kinder aus einkommensschwachen Familien und mit wenig familiärem Rückhalt.
+- DAK Kinder- und Jugendreport 2026: weiterer Anstieg bei ADHS-Diagnosen.
+- Wartezeit auf ambulanten Therapieplatz im Schnitt rund 28 Wochen, auf dem Land länger (BPtK 2026, bereits geprüft und auf der Startseite).
+- Nov. 2026: Gesetzentwurf (HiB) – Kinder- und Jugendlichenpsychotherapie soll eigene Gruppe in der Bedarfsplanung bekommen.
+
+**Erwachsene / Gesamt**
+- 14- bis 29-Jährige: 29 % geben an, psychologische Hilfe zu benötigen (Studie „Jugend in Deutschland 2026“, laut Ärzteblatt).
+- 142 Tage zwischen Erstgespräch und Richtlinientherapie (BPtK, Daten 2019, auf der Startseite). In einigen Regionen bis zu einem Jahr (Quelle idahealth.de – schwach, prüfen).
+- Rund 37.000 approbierte Psychotherapeut:innen, davon nur ca. 15.000 mit Kassenzulassung (VdK, Feb. 2024) – prüfen, andere Quellen nennen ~42.000 Kassenzulassungen (GKV-SV 2025)! Widerspruch klären.
+- ca. 7.000 fehlende Kassensitze (BPtK-Forderung), entspricht laut tagesschau 200.000–300.000 fehlenden Behandlungsplätzen.
+- Über die Terminservicestellen (116 117) konnten rund 54 % der Hilfesuchenden nicht fristgerecht in einen Therapieplatz vermittelt werden (tagesschau) – prüfen.
+
+**Politik / Ausblick 2027**
+- GKV-Beitragssatzstabilisierungsgesetz (BStabG), beschlossen Juli 2026, ab 1.1.2027: Psychotherapie wieder budgetiert (Deckelung in der MGV), Wegfall von Zuschlägen für erste Sitzungen der Kurzzeittherapie, Honorarkürzung ca. 4,5 %.
+- Verbände (DPtV): rund 70 % der Praxen könnten weniger Patient:innen aufnehmen.
+- Okt. 2026 nachgebessert: Ausnahmen für Kinder und Jugendliche, schwer psychisch Kranke und laufende Therapien. Für viele Erwachsene bleibt die Deckelung.
+- Einsparvolumen laut Gesetzgeber ca. 185 Mio. €.
+
+**Ideen für Inhalte**
+- Infoblatt/Meilenstein-Bericht „Warum Malva gerade jetzt wichtig ist“ (Aktuelles + PDF/Bild zum Teilen)
+- Insta-Karussell „Psychotherapie 2027: Was sich ändert“ (neutral, ohne Panik, mit Quellen)
+- Insta-Post „Jedes vierte Kind ist psychisch belastet“ (Natascha als ADHS-Coach: eigene Erfahrung mit Wartezeiten für Diagnosen)
+- Mündlich/Reel: „Fast jedes sechste Kind zeigt Hinweise auf psychische Auffälligkeiten“ (RKI KiGGS Welle 2: 16,9 %)
