@@ -11,7 +11,6 @@ namen = {
     'f-strasse': ('Strasse', 'Straße und Hausnummer'),
     'f-ort': ('PLZ_Ort', 'PLZ und Ort'),
     'f-datum': ('Ort_Datum', 'Ort, Datum'),
-    'f-eigen': ('Persoenlicher_Grund', 'Mein persönlicher Grund (freiwillig)'),
     'f-sign': ('Unterschrift_Name', 'Name (bei E-Mail)'),
 }
 
@@ -49,7 +48,7 @@ if len(sys.argv) > 1:
     t = pymupdf.open(OUT)
     werte = {'Name': 'Maria Muster', 'Strasse': 'Musterweg 1', 'PLZ_Ort': '67098 Bad Dürkheim',
              'Ort_Datum': 'Bad Dürkheim, 21.11.2026',
-             'Persoenlicher_Grund': 'Mein Sohn wartet seit acht Monaten auf einen Therapieplatz. Privat können wir das nicht bezahlen.',
+
              'Unterschrift_Name': 'Maria Muster'}
     for wd in t[1].widgets():
         wd.field_value = werte[wd.field_name]
