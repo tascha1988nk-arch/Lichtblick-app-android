@@ -8,6 +8,8 @@ Reihenfolge: **A** sofort nach der Eintragung ins Vereinsregister · **B** sobal
 
 ## A · Nach Eintragung ins Vereinsregister
 
+- [ ] **Datenschutzerklärung professionell prüfen lassen** (aktuell selbst erstellte Übergangsfassung in `src/datenschutz.njk`).
+
 ### Zentrale Einstellungen – `src/_data/site.js`
 - [ ] `const eingetragen = false;` auf **`true`** setzen → überall steht dann „Malva e. V.“ statt „Malva (i. Gr.)“ / „Malva – Verein in Gründung“ (Header-Titel, Footer, Startseiten-Badge, Impressum, Copyright).
 - [ ] Impressum-Daten eintragen:
