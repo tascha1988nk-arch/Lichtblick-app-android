@@ -46,7 +46,7 @@ panels.append(f'''<section class="panel" data-step="0">
       <ol class="how"><li>Seite öffnen, <span class="ui">⋮ → Code-Editor</span>.</li>
       <li>Alles im großen Feld markieren und löschen (Strg+A, Entf).</li>
       <li>Den neuen Seiten-Code aus dem passenden Schritt einfügen.</li>
-      <li><span class="ui">Code-Editor verlassen</span>, Bilder in die leeren Bildfelder setzen, <span class="ui">Aktualisieren</span>.</li></ol>
+      <li><span class="ui">Code-Editor verlassen</span>, <span class="ui">Aktualisieren</span>. Die Fotos sind schon im Code.</li></ol>
       <p class="tip">Falls du Schrift oder Stil schon unter „Zusätzliches CSS“ eingefügt hast: Das darfst du drin lassen, es stört nicht.</p>
     </div>
   </div>
@@ -64,17 +64,12 @@ panels.append(f'''<section class="panel" data-step="0">
 
 for n, (pid, title, slug, _, extra) in enumerate(pages, 1):
     code = open(W + pid + '.html').read()
-    # Jedes Bild wird ein eigener WordPress-Bildblock: im Editor anklicken und aus der Mediathek wählen
-    parts = re.split(r'(<img [^>]*>)', code.strip())
-    block = ''
-    for part in parts:
-        if part.startswith('<img '):
-            alt = (re.search(r'alt="([^"]*)"', part) or [None, ''])[1]
-            block += '<!-- /wp:html -->\n\n<!-- wp:image -->\n<figure class="wp-block-image"><img alt="' + alt + '"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:html -->\n'
-        else:
-            block += part
+    # Bilder direkt in den Code schreiben (kein Hochladen nötig)
+    block = code.strip()
+    for name in set(re.findall(r'/wp-content/uploads/2026/11/([\w\-.]+)', block)):
+        block = block.replace('/wp-content/uploads/2026/11/' + name, b64('/home/user/Lichtblick-app-android/malva-website/src/assets/img/' + name, 'image/webp'))
     block = '<!-- wp:html -->\n<style>\n' + schrift + stil + '</style>\n' + block + '\n<!-- /wp:html -->\n'
-    nimg = len(re.findall(r'<img ', code))
+    nimg = 0
     imgs = sorted(set(re.findall(r'/wp-content/uploads/2026/11/([\w\-.]+)', code)))
     pc = b64(f'{P}{pid}-pc.jpg', 'image/jpeg')
     ph = b64(f'{P}{pid}-handy.jpg', 'image/jpeg')
@@ -101,7 +96,7 @@ for n, (pid, title, slug, _, extra) in enumerate(pages, 1):
         <li><span class="ui">Veröffentlichen</span>.</li>
       </ol>
       {f'<p class="tip">{extra}</p>' if extra else ''}
-      {copybox('c-' + pid, 'Seiten-Code', block, 'Nur über den Code-Editor einfügen, dann werden die Bildfelder richtig angelegt.')}
+      {copybox('c-' + pid, 'Seiten-Code', block, 'Die Fotos sind direkt im Code enthalten, du musst nichts hochladen. Deshalb ist der Code etwas länger.')}
     </div>
   </div>
   <div class="card card--preview">
