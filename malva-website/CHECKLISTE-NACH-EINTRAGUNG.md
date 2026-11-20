@@ -89,7 +89,7 @@ Reihenfolge: **A** sofort nach der Eintragung ins Vereinsregister · **B** sobal
 - [ ] Newsletter einbauen: Anbieter mit EU-Servern und Double-Opt-in, Anmeldefeld auf Startseite/Footer, Datenschutzerklärung ergänzen (Plan in `NOTIZEN.md`).
 
 ## Immer daran denken
-- [ ] Neue Meilensteine auf /meilensteine/ eintragen, wenn etwas geschafft ist (z. B. Eintragung, Gemeinnützigkeit).
+- [ ] Neue Meilensteine auf /aktuelles/ eintragen, wenn etwas geschafft ist (z. B. Eintragung, Gemeinnützigkeit).
 - [ ] Nach jeder Änderung bauen (`npm run build`) – die Ausgabe listet noch offene Platzhalter `[ … ]`.
 - [ ] Inhalt von `_site/` neu hochladen.
 - [ ] Datenschutzerklärung bei jeder neuen Funktion (Formular, Newsletter, Zahlungen) aktualisieren.

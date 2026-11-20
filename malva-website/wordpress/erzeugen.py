@@ -106,7 +106,7 @@ pages = {
     'partner': 'partner/index.html',
     'fachleute': 'fachleute/index.html',
     'spenden': 'spenden/index.html',
-    'meilensteine': 'meilensteine/index.html',
+    'aktuelles': 'aktuelles/index.html',
     'impressum': 'impressum/index.html',
     'datenschutz': 'datenschutz/index.html',
 }

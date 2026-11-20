@@ -17,7 +17,7 @@ pages = [
     ('05-partner', 'Partner', 'partner', None, ''),
     ('06-fachleute', 'Für Fachleute', 'fachleute', None, 'Anmeldungen kommen als E-Mail an info@malva-ev.de. Du prüfst und gibst frei, erst dann kommt jemand in die Suche.'),
     ('07-spenden', 'Spenden', 'spenden', None, ''),
-    ('08-meilensteine', 'Meilensteine', 'meilensteine', None, 'Neue Meilensteine schickst du mir einfach, ich schreibe sie in den Code.'),
+    ('08-aktuelles', 'Aktuelles', 'aktuelles', None, 'Neue Meilensteine schickst du mir einfach, ich schreibe sie in den Code.'),
     ('09-impressum', 'Impressum', 'impressum', None, ''),
     ('10-datenschutz', 'Datenschutz', 'datenschutz', None, 'Die Datenschutzerklärung selbst fehlt noch (Platzhalter).'),
 ]
