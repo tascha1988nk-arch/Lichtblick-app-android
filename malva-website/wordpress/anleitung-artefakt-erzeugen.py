@@ -67,7 +67,17 @@ panels.append(f'''<section class="panel" data-step="0">
 
 for n, (pid, title, slug, _, extra) in enumerate(pages, 1):
     code = open(W + pid + '.html').read()
-    block = '<!-- wp:html -->\n' + code.strip() + '\n<!-- /wp:html -->\n'
+    # Jedes Bild wird ein eigener WordPress-Bildblock: im Editor anklicken und aus der Mediathek wählen
+    parts = re.split(r'(<img [^>]*>)', code.strip())
+    block = ''
+    for part in parts:
+        if part.startswith('<img '):
+            alt = (re.search(r'alt="([^"]*)"', part) or [None, ''])[1]
+            block += '<!-- /wp:html -->\n\n<!-- wp:image -->\n<figure class="wp-block-image"><img alt="' + alt + '"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:html -->\n'
+        else:
+            block += part
+    block = '<!-- wp:html -->\n' + block + '\n<!-- /wp:html -->\n'
+    nimg = len(re.findall(r'<img ', code))
     imgs = sorted(set(re.findall(r'/wp-content/uploads/2026/11/([\w\-.]+)', code)))
     pc = b64(f'{P}{pid}-pc.jpg', 'image/jpeg')
     ph = b64(f'{P}{pid}-handy.jpg', 'image/jpeg')
@@ -85,15 +95,16 @@ for n, (pid, title, slug, _, extra) in enumerate(pages, 1):
     <div class="card__body">
       <h3>Neue Seite anlegen</h3>
       <ol class="how">
-        {img_step}
         <li><span class="ui">Seiten → Neue Seite hinzufügen</span>, Titel: <b>{html.escape(title)}</b></li>
         <li>Rechts unter <span class="ui">Link</span> die Adresse auf <b>{slug}</b> stellen.</li>
         <li>Oben rechts <span class="ui">⋮ → Code-Editor</span>.</li>
         <li>Seiten-Code unten kopieren und ins große Feld unter dem Titel einfügen.</li>
-        <li><span class="ui">Code-Editor verlassen</span>, dann <span class="ui">Veröffentlichen</span>.</li>
+        <li><span class="ui">Code-Editor verlassen</span>.</li>
+        {f'<li>Im Editor erscheinen {nimg} leere Bildfelder. Jedes anklicken → <span class="ui">Mediathek</span> → Bild wählen. Welches Bild wohin gehört, siehst du unten in der Vorschau.</li>' if nimg else ''}
+        <li><span class="ui">Veröffentlichen</span>.</li>
       </ol>
       {f'<p class="tip">{extra}</p>' if extra else ''}
-      {copybox('c-' + pid, 'Seiten-Code', block, 'Ist ein Block „Individuelles HTML“. Du kannst den Code auch ohne Code-Editor direkt in so einen Block einfügen.')}
+      {copybox('c-' + pid, 'Seiten-Code', block, 'Nur über den Code-Editor einfügen, dann werden die Bildfelder richtig angelegt.')}
     </div>
   </div>
   <div class="card card--preview">
