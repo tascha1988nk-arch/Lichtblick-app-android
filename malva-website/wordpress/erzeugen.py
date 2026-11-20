@@ -110,6 +110,7 @@ pages = {
     'kontakt': 'kontakt/index.html',
     'impressum': 'impressum/index.html',
     'datenschutz': 'datenschutz/index.html',
+    'antrag-stellen': 'antrag-stellen/index.html',
 }
 imgs = set()
 for i, (slug, path) in enumerate(pages.items(), 1):

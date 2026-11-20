@@ -1,0 +1,67 @@
+---
+layout: base.njk
+title: Antrag stellen
+permalink: /antrag-stellen/
+description: Hier kannst du bald direkt bei Malva Unterstützung für Therapie, Beratung oder Coaching beantragen.
+# SPÄTER: Wenn es losgeht, kommt hier das Antragsformular hin (siehe NOTIZEN.md, Online-Antrag).
+voraussetzungen:
+  - schritt: "Der Verein ist gegründet und eingetragen"
+    status: "geplant"
+  - schritt: "Das Finanzamt erkennt Malva als gemeinnützig an"
+    status: "geplant"
+  - schritt: "Die ersten Gelder für Therapieplätze sind da"
+    status: "geplant"
+---
+{% import "macros.njk" as m %}
+
+<section class="page-head">
+  <div class="container narrow">
+    <p class="eyebrow">Bald für dich da</p>
+    <h1>Antrag stellen</h1>
+    <p class="lead">Hier kannst du bald direkt bei Malva Unterstützung beantragen, ganz einfach über ein Formular.</p>
+  </div>
+</section>
+
+<section class="section section--first">
+  <div class="container narrow stack">
+    <section class="block block--malva" aria-labelledby="h-bald">
+      <h2 id="h-bald">Noch ist es nicht so weit</h2>
+      <p>Sobald alles abgewickelt ist, der Verein steht und die ersten Gelder für Therapieplätze da sind, geht es hier los. Folge uns auf Instagram oder Facebook, dann erfährst du als Erstes, wenn du deinen Antrag stellen kannst.</p>
+      {{ m.socialLinks(site) }}
+    </section>
+
+    <section class="block" aria-labelledby="h-fehlt">
+      <h2 id="h-fehlt">Das brauchen wir noch</h2>
+      <ol class="roadmap">
+        {% for item in voraussetzungen %}
+        <li class="roadmap__item roadmap__item--{{ item.status | replace(' ', '-') }}">
+          <span class="roadmap__dot" aria-hidden="true"></span>
+          <span class="roadmap__label">{{ item.schritt }}</span>
+          <span class="roadmap__status">{{ item.status }}</span>
+        </li>
+        {% endfor %}
+      </ol>
+    </section>
+
+    <section class="block" aria-labelledby="h-wie">
+      <h2 id="h-wie">So soll es später ablaufen</h2>
+      <ol class="steps-num">
+        <li><strong>Formular ausfüllen:</strong> Du erzählst uns kurz, welche Hilfe du suchst und warum dir das Geld dafür fehlt.</li>
+        <li><strong>Wir melden uns:</strong> Wir schauen uns deinen Antrag vertraulich an und klären offene Fragen mit dir.</li>
+        <li><strong>Hilfe bekommen:</strong> Wir vermitteln dich an passende Fachleute und übernehmen die Kosten oder helfen dir beim Antrag bei der Krankenkasse.</li>
+      </ol>
+      <p class="hint">Wer genau Unterstützung bekommen kann und wie wir mit deinen Daten umgehen, veröffentlichen wir hier, bevor der Antrag startet.</p>
+    </section>
+
+    <section class="block" aria-labelledby="h-solange">
+      <h2 id="h-solange">Bis dahin</h2>
+      <p>Auf unserer Seite <a href="/hilfe/">Hilfe finden</a> zeigen wir dir, wie du schon jetzt an einen Therapieplatz kommst, zum Beispiel über die 116 117 oder die Kostenerstattung bei deiner Krankenkasse.</p>
+      <p class="btn-row"><a href="/hilfe/" class="btn btn--primary">Zu Hilfe finden</a></p>
+    </section>
+
+    <aside class="crisis" aria-labelledby="krise">
+      <h2 id="krise">Du brauchst jetzt sofort Hilfe?</h2>
+      <p>Malva ist keine Notfall-Anlaufstelle. Rund um die Uhr erreichst du den Notruf unter <a href="tel:112">112</a> und die TelefonSeelsorge unter <a href="tel:08001110111">0800 111 0 111</a>. Mehr Anlaufstellen findest du unter <a href="/hilfe/#notfall">Hilfe finden</a>.</p>
+    </aside>
+  </div>
+</section>

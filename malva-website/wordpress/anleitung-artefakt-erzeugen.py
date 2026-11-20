@@ -24,6 +24,7 @@ pages = [
     ('09-kontakt', 'Kontakt', 'kontakt', None, 'Vorher WPForms einrichten (siehe Vorab) und mir die Formular-Zahl schicken. Bis dahin steht dort nur der Platzhalter.'),
     ('10-impressum', 'Impressum', 'impressum', None, ''),
     ('11-datenschutz', 'Datenschutz', 'datenschutz', None, 'Übergangsfassung. Nach der Eintragung professionell prüfen lassen.'),
+    ('12-antrag-stellen', 'Antrag stellen', 'antrag-stellen', None, '<b>Neu.</b> Neue Seite mit dem Titel <b>Antrag stellen</b> anlegen, der Slug ist dann automatisch <b>antrag-stellen</b>. Weil das Menü einen neuen Punkt hat, bitte auch alle anderen Seiten-Codes neu einfügen.'),
 ]
 import re
 
