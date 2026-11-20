@@ -67,7 +67,7 @@ Reihenfolge laut Natascha: erst Homepage fertig, dann Satzung fürs Finanzamt.
 - Tätigkeitsgebiet NICHT auf Rheinland-Pfalz beschränken (bundesweit möglich), damit später keine Satzungsänderung nötig ist. Start praktisch in RLP und online.
 - Zwecke breit fassen: Therapie, psychologische Beratung, Coaching, Sozialberatung (Anträge Krankenkasse/Ämter), Vermittlung.
 - Regel zu Vermittlungen an Vorstands-/Gründungsmitglieder (Selbstlosigkeit).
-- Fördermitglieder (ohne Stimmrecht) aufnehmen; Beiträge in eigener Beitragsordnung (privat ab 5 €/Monat, ermäßigt 3 €; Förderpartner Keimling ab 250 €, Blatt ab 500 €, Blüte ab 1.000 €/Jahr). Förderpartner nur namentlich nennen, keine Links (Sponsoring-Steuerfrage mit Finanzamt klären).
+- Fördermitglieder (ohne Stimmrecht) aufnehmen; Beiträge in eigener Beitragsordnung (privat: Wegbegleiter:in 4 €, Mutmacher:in 9 €, Herzensmensch 15 € oder frei ab 2 €/Monat; Förderpartner Keimling ab 300 €, Blatt ab 600 €, Blüte ab 1.200 €/Jahr = 25/50/100 €/Monat). Förderpartner nur namentlich nennen, keine Links (Sponsoring-Steuerfrage mit Finanzamt klären).
 - Idee: Kooperation statt Konkurrenz mit anderen Vereinen (z. B. Aktion Therapie, nur Therapie).
 
 ## Flyer (DIN lang, 10,5 × 21 cm) – `flyer/`

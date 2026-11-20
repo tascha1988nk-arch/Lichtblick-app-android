@@ -60,11 +60,11 @@ Reihenfolge: **A** sofort nach der Eintragung ins Vereinsregister · **B** sobal
 - [ ] **Fördermitgliedschaft** – `src/spenden.njk`:
   - [ ] „Bald verfügbar“-Schild, gestrichelten Rahmen und Trenner „Bald verfügbar“ entfernen.
   - [ ] Button „Jetzt vormerken“ → „Jetzt Fördermitglied werden“ mit echtem Weg (Formular, SEPA-Mandat oder Mitgliedsantrag als PDF).
-  - [ ] Beiträge mit der beschlossenen **Beitragsordnung** abgleichen (aktuell: 3 € ermäßigt, 5 €, 10 €, 20 €, Wunschbetrag pro Monat).
+  - [ ] Beiträge mit der beschlossenen **Beitragsordnung** abgleichen (aktuell: Wegbegleiter:in 4 €, Mutmacher:in 9 €, Herzensmensch 15 €, frei ab 2 € pro Monat).
   - [ ] Satz „steuerlich absetzbar, sobald die Gemeinnützigkeit anerkannt ist“ → „steuerlich absetzbar“.
 - [ ] **Förderpartner** – `src/spenden.njk`:
   - [ ] „Bald verfügbar“ entfernen, Button „Jetzt vormerken“ → „Förderpartner werden“.
-  - [ ] Stufen mit Beitragsordnung abgleichen (Keimling ab 250 €, Blatt ab 500 €, Blüte ab 1.000 € pro Jahr).
+  - [ ] Stufen mit Beitragsordnung abgleichen (Keimling ab 300 €, Blatt ab 600 €, Blüte ab 1.200 € pro Jahr).
   - [ ] Vorher mit Finanzamt/Steuerberatung klären: Nennung ohne Link = Spende/Duldung, kein Werbesponsoring.
 - [ ] **Vorgemerkte Personen** (E-Mails „Vormerkung Fördermitgliedschaft“ / „Vormerkung Förderpartnerschaft“ in info@malva-ev.de) anschreiben.
 - [ ] Förderpartner auf `src/partner.njk` unter `foerderpartner:` eintragen (nur Namen, keine Links).

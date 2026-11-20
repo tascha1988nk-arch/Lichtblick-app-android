@@ -5,15 +5,14 @@ permalink: /spenden/
 description: So kannst du Malva unterstützen – mit einer Spende, als Fördermitglied oder als Förderpartner.
 # Beiträge – hier einfach ändern. Gelten erst nach Eintragung (siehe Beitragsordnung).
 privat:
-  - { betrag: "3 €", info: "ermäßigt, z. B. für Studierende" }
-  - { betrag: "5 €", info: "Mindestbeitrag" }
-  - { betrag: "10 €", info: "" }
-  - { betrag: "20 €", info: "" }
-  - { betrag: "Wunschbetrag", info: "frei wählbar" }
+  - { name: "Wegbegleiter:in", icon: "🌱", betrag: "4 €", info: "begleitet Malva von Anfang an" }
+  - { name: "Mutmacher:in", icon: "🌿", betrag: "9 €", info: "macht Hilfe planbar" }
+  - { name: "Herzensmensch", icon: "💜", betrag: "15 €", info: "trägt Malva mit ganzem Herzen" }
+privat_frei: "Oder dein eigener Betrag, schon ab 2 € im Monat. Jeder Beitrag zählt, auch wenn es gerade knapp ist."
 partnerstufen:
-  - { name: "Keimling", icon: "🌱", betrag: "ab 250 €", info: "für Praxen, Selbstständige und kleine Betriebe" }
-  - { name: "Blatt", icon: "🌿", betrag: "ab 500 €", info: "" }
-  - { name: "Blüte", icon: "💜", betrag: "ab 1.000 €", info: "" }
+  - { name: "Keimling", icon: "🌱", betrag: "ab 300 €", monat: "25 €", info: "für Praxen, Selbstständige und kleine Betriebe" }
+  - { name: "Blatt", icon: "🌿", betrag: "ab 600 €", monat: "50 €", info: "" }
+  - { name: "Blüte", icon: "💜", betrag: "ab 1.200 €", monat: "100 €", info: "" }
 ---
 {% import "macros.njk" as m %}
 
@@ -73,10 +72,17 @@ partnerstufen:
       <p class="eyebrow">Für Privatpersonen</p>
       <h2 id="h-foerder">Fördermitglied werden</h2>
       <p>Mit einem regelmäßigen Beitrag machst du unsere Arbeit planbar. So können wir Kosten für Therapie, Beratung und Coaching verlässlich zusagen.</p>
-      <p class="price">Monatlich ab 5 €</p>
-      <ul class="tiers">
-        {% for t in privat %}<li><span class="tiers__amount">{{ t.betrag }}{% if t.betrag != "Wunschbetrag" %} im Monat{% endif %}</span>{% if t.info %}<span class="tiers__info">{{ t.info }}</span>{% endif %}</li>{% endfor %}
+      <ul class="levels">
+        {% for t in privat %}
+        <li class="level">
+          <span class="level__icon" aria-hidden="true">{{ t.icon }}</span>
+          <span class="level__name">{{ t.name }}</span>
+          <span class="level__amount">{{ t.betrag }} im Monat</span>
+          {% if t.info %}<span class="level__info">{{ t.info }}</span>{% endif %}
+        </li>
+        {% endfor %}
       </ul>
+      <p>{{ privat_frei }}</p>
       <p class="hint">Als Fördermitglied unterstützt du Malva finanziell, ohne Pflichten im Verein. Deine Beiträge sind steuerlich absetzbar, sobald die Gemeinnützigkeit anerkannt ist.</p>
       <p><a class="btn btn--secondary" href="mailto:{{ site.email }}?subject={{ 'Vormerkung Fördermitgliedschaft' | urlencode }}&amp;body={{ 'Hallo Malva-Team,
 
@@ -101,11 +107,12 @@ Mir ist klar, dass die Vormerkung unverbindlich ist und noch keine Kosten entste
           <span class="level__icon" aria-hidden="true">{{ s.icon }}</span>
           <span class="level__name">{{ s.name }}</span>
           <span class="level__amount">{{ s.betrag }} im Jahr</span>
+          <span class="level__info">das sind {{ s.monat }} im Monat</span>
           {% if s.info %}<span class="level__info">{{ s.info }}</span>{% endif %}
         </li>
         {% endfor %}
       </ul>
-      <p class="hint">Wunschbetrag frei wählbar. Zahlung jährlich, halbjährlich oder vierteljährlich.</p>
+      <p class="hint">Eigener Betrag möglich. Zahlung jährlich oder monatlich.</p>
       <p><a class="btn btn--secondary" href="mailto:{{ site.email }}?subject={{ 'Vormerkung Förderpartnerschaft' | urlencode }}&amp;body={{ 'Hallo Malva-Team,
 
 bitte merkt uns als Förderpartner vor.
