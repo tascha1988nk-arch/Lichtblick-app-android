@@ -19,8 +19,8 @@ pages = [
     ('04-hilfe', 'Hilfe finden', 'hilfe', None, ''),
     ('05-partner', 'Partner', 'partner', None, ''),
     ('06-fachleute', 'Für Fachleute', 'fachleute', None, 'Anmeldungen kommen als E-Mail an info@malva-ev.de. Du prüfst und gibst frei, erst dann kommt jemand in die Suche.'),
-    ('07-spenden', 'Spenden', 'spenden', None, 'Die Vormerk-Formulare brauchen das Plugin <b>Malva Formulare</b> ab Version 1.1 (siehe Vorab).'),
-    ('08-neuigkeiten', 'Neuigkeiten', 'neuigkeiten', None, '<b>Umbenannt.</b> Deine bisherige Seite „Aktuelles“ öffnen, Titel auf <b>Neuigkeiten</b> und den Link auf <b>neuigkeiten</b> ändern, dann den Code ersetzen. Neue Meilensteine und Infoblätter schickst du mir einfach.'),
+    ('07-spenden', 'Unterstütze uns', 'spenden', None, '<b>Umbenannt.</b> Bisherige Seite „Spenden“ öffnen und den Titel auf <b>Unterstütze uns</b> ändern. Der Link bleibt <b>spenden</b>. Die Vormerk-Formulare brauchen das Plugin <b>Malva Formulare</b> ab Version 1.1 (siehe Vorab).'),
+    ('08-neuigkeiten', 'Neuigkeiten', 'neuigkeiten', None, '<b>Umbenannt.</b> Deine bisherige Seite „Aktuelles“ öffnen, Titel auf <b>Neuigkeiten</b> und den Link auf <b>neuigkeiten</b> ändern, dann den Code ersetzen.<br><b>Vorher das Infoblatt hochladen:</b> <span class="ui">Medien → Datei hinzufügen</span> → <code>malva-infoblatt-warum-jetzt.pdf</code> (Dateiname nicht ändern, Download unten). Sonst führt der Download-Button ins Leere.'),
     ('09-kontakt', 'Kontakt', 'kontakt', None, 'Vorher WPForms einrichten (siehe Vorab) und mir die Formular-Zahl schicken. Bis dahin steht dort nur der Platzhalter.'),
     ('10-impressum', 'Impressum', 'impressum', None, ''),
     ('11-datenschutz', 'Datenschutz', 'datenschutz', None, 'Übergangsfassung. Nach der Eintragung professionell prüfen lassen.'),
@@ -109,14 +109,16 @@ panels.append(f'''<section class="panel" data-step="0">
 </section>''')
 
 for n, (pid, title, slug, _, extra) in enumerate(pages, 1):
+    if pid == '08-neuigkeiten':
+        extra += ' <a class="dlbtn" download="malva-infoblatt-warum-jetzt.pdf" href="' + b64('/home/user/Lichtblick-app-android/malva-website/infoblatt/malva-infoblatt-warum-jetzt.pdf', 'application/pdf') + '">Infoblatt-PDF herunterladen</a>'
     code = open(W + pid + '.html').read()
     # Bilder direkt in den Code schreiben (kein Hochladen nötig)
     block = code.strip()
-    for name in set(re.findall(r'/wp-content/uploads/2026/11/([\w\-.]+)', block)):
+    for name in set(re.findall(r'/wp-content/uploads/2026/11/([\w\-.]+\.(?:webp|jpg|png))', block)):
         block = block.replace('/wp-content/uploads/2026/11/' + name, b64('/home/user/Lichtblick-app-android/malva-website/src/assets/img/' + name, 'image/webp'))
     block = '<!-- wp:html -->\n<style>\n' + schrift + stil + '</style>\n' + block + '\n<!-- /wp:html -->\n'
     nimg = 0
-    imgs = sorted(set(re.findall(r'/wp-content/uploads/2026/11/([\w\-.]+)', code)))
+    imgs = sorted(set(re.findall(r'/wp-content/uploads/2026/11/([\w\-.]+\.(?:webp|jpg|png))', code)))
     pc = b64(f'{P}{pid}-pc.jpg', 'image/jpeg')
     ph = b64(f'{P}{pid}-handy.jpg', 'image/jpeg')
     img_step = ''
@@ -201,6 +203,7 @@ h4{{margin:0;font-size:16px;font-weight:600}}
 .files{{margin:6px 0 2px;padding-left:18px}}
 .ui{{background:var(--chip);color:var(--ink);border-radius:7px;padding:1px 7px;font-weight:500;white-space:nowrap}}
 code{{font-family:var(--mono);font-size:.86em;background:var(--code-bg);border:1px solid var(--line);border-radius:6px;padding:1px 6px}}
+.dlbtn{{display:inline-block;margin-top:8px;background:var(--green,#2F6B48);color:#fff;padding:8px 14px;border-radius:99px;text-decoration:none;font-weight:600}}
 .tip{{border-left:3px solid var(--lilac);padding:4px 0 4px 12px;color:var(--muted)}}
 .codebox{{border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--code-bg);margin-top:6px}}
 .codebox__head{{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}}

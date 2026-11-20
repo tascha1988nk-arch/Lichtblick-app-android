@@ -40,6 +40,13 @@ export default {
   // Externes Werkzeug für den Kostenerstattungsantrag (nur Link, nicht eingebunden)
   kever: "https://derkever.de/",
 
+  // Infoblätter: PDF in WordPress unter Medien hochladen (Dateiname nicht ändern)
+  infoblatt: {
+    titel: "Warum Malva gerade jetzt wichtig ist",
+    datum: "21. November 2026",
+    pdf: "/wp-content/uploads/2026/11/malva-infoblatt-warum-jetzt.pdf",
+  },
+
   spenden: {
     // Aktuell: GoFundMe. Später: Spendenkonto (siehe unten).
     gofundme: "https://gofund.me/ce77e6c6f",
@@ -76,10 +83,11 @@ export default {
     { url: "/", label: "Start" },
     { url: "/warum-malva/", label: "Warum Malva" },
     { url: "/team/", label: "Team" },
+    { url: "/neuigkeiten/", label: "Neuigkeiten" },
     { url: "/hilfe/", label: "Hilfe finden" },
     { url: "/antrag-stellen/", label: "Antrag stellen" },
     { url: "/partner/", label: "Partner" },
     { url: "/fachleute/", label: "Für Fachleute" },
-    { url: "/spenden/", label: "Spenden", button: true },
+    { url: "/spenden/", label: "Unterstütze uns", button: true },
   ],
 };

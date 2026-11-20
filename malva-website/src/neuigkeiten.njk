@@ -47,39 +47,17 @@ als_naechstes:
 
 <section class="section section--first">
   <div class="container narrow">
-    <article class="news" id="warum-jetzt" aria-labelledby="h-warum-jetzt">
-      <p class="news__label">Infoblatt · November 2026</p>
-      <h2 id="h-warum-jetzt">Warum Malva gerade jetzt wichtig ist</h2>
-      <p class="news__intro">Psychische Belastungen nehmen zu, die Wartezeiten auf einen Therapieplatz sind lang und ab 2027 wird es für viele Erwachsene noch schwerer. Diese Zahlen zeigen, warum es Malva braucht.</p>
-
-      <ul class="facts">
-        <li class="fact">
-          <span class="fact__num">24&nbsp;%</span>
-          <span class="fact__text">der Kinder und Jugendlichen zeigen Hinweise auf psychische Auffälligkeiten, also etwa jedes vierte Kind. Vor der Pandemie waren es 18&nbsp;%.<span class="fact__src">COPSY-Studie, UKE Hamburg, November 2026</span></span>
-        </li>
-        <li class="fact">
-          <span class="fact__num">28&nbsp;Wochen</span>
-          <span class="fact__text">warten Kinder und Jugendliche im Schnitt auf einen Therapieplatz, das sind rund sieben Monate.<span class="fact__src">Bundespsychotherapeutenkammer, 2026</span></span>
-        </li>
-        <li class="fact">
-          <span class="fact__num">142&nbsp;Tage</span>
-          <span class="fact__text">liegen bei Erwachsenen im Schnitt zwischen Erstgespräch und Therapiebeginn, das sind fast fünf Monate.<span class="fact__src">Bundespsychotherapeutenkammer, Daten 2019</span></span>
-        </li>
-        <li class="fact">
-          <span class="fact__num">17,8&nbsp;Mio.</span>
-          <span class="fact__text">Erwachsene sind in Deutschland jedes Jahr von einer psychischen Erkrankung betroffen.<span class="fact__src">DGPPN, Basisdaten nach RKI-Gesundheitssurvey</span></span>
-        </li>
-      </ul>
-
-      <h3>Was sich 2027 ändert</h3>
-      <p>Ab Januar 2027 wird ambulante Psychotherapie für Erwachsene wieder aus einem gedeckelten Budget bezahlt. So steht es im neuen Spargesetz der Krankenkassen. Fachverbände befürchten, dass Praxen dadurch weniger neue Patient:innen aufnehmen können und die Wartezeiten noch länger werden. Für Kinder und Jugendliche sind Ausnahmen vorgesehen.</p>
-      <p class="fact__src">Quelle: Deutsche Gesellschaft für Verhaltenstherapie, Berufsverband (DGVT-BV), 2026</p>
-
-      <h3>Was Malva tut</h3>
-      <p>Genau hier setzen wir an. Malva will die Kosten für Therapie, Beratung und Coaching übernehmen, wenn das Geld fehlt, bei Anträgen helfen und an passende Fachleute vermitteln. Damit Hilfe nicht vom Geldbeutel abhängt.</p>
-      <div class="btn-row">
-        <a href="/spenden/" class="btn btn--primary">Malva unterstützen</a>
-        <a href="/hilfe/" class="btn btn--secondary">Hilfe finden</a>
+    <article class="dl" id="infoblatt" aria-labelledby="h-infoblatt">
+      <a class="dl__preview" href="{{ site.infoblatt.pdf }}" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="/assets/img/infoblatt-warum-jetzt-vorschau.webp" alt="" width="636" height="900" loading="lazy">
+      </a>
+      <div class="dl__text">
+        <p class="news__label">Infoblatt · {{ site.infoblatt.datum }}</p>
+        <h2 id="h-infoblatt">{{ site.infoblatt.titel }}</h2>
+        <p>Jedes vierte Kind ist psychisch belastet, die Wartezeiten sind lang und ab 2027 wird Psychotherapie für viele Erwachsene gedeckelt. Auf einer Seite fassen wir zusammen, was das bedeutet und welche Ausnahmen der Bundesrat beschlossen hat.</p>
+        <p><strong>Auf Seite 2:</strong> ein Brief an das Bundesgesundheitsministerium. Du kannst ihn direkt am Computer ausfüllen oder ausdrucken und abschicken. Je mehr Menschen schreiben, desto stärker die Wirkung.</p>
+        <p class="btn-row"><a href="{{ site.infoblatt.pdf }}" class="btn btn--primary" download>Infoblatt herunterladen (PDF)</a></p>
+        <p class="dl__hint">PDF, 2 Seiten. Gern ausdrucken, auslegen und weiterschicken.</p>
       </div>
     </article>
 

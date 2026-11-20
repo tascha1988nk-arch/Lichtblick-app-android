@@ -154,10 +154,10 @@ main:focus { outline: none; }
 .site-nav a[aria-current="page"]:not(.btn) { color: var(--malva-lilac-text); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.35em; }
 .site-nav .btn { margin-top: 0.5rem; text-align: center; }
 
-@media (min-width: 56rem) {
+@media (min-width: 73rem) {
   .nav-toggle { display: none; }
   .site-nav, .js .site-nav { display: block; flex-basis: auto; }
-  .site-nav ul { flex-direction: row; align-items: center; gap: 1.4rem; padding: 0; }
+  .site-nav ul { flex-direction: row; align-items: center; gap: 1.15rem; padding: 0; }
   .site-nav a:not(.btn) { padding: 0.25rem 0; }
   .site-nav .btn { margin-top: 0; }
 }
@@ -556,3 +556,13 @@ main:focus { outline: none; }
 .fact__src { display: block; margin-top: .5rem; font-size: .8rem; color: var(--malva-text-muted); }
 .news .btn-row { margin-top: 1.25rem; }
 .news__section-h { margin: 0 0 1.75rem; }
+
+/* Neuigkeiten: Infoblatt zum Herunterladen */
+.dl { background: var(--white); border-radius: var(--radius); padding: clamp(1.25rem, 4vw, 2.25rem); margin-bottom: 3.5rem; display: grid; gap: 1.5rem; box-shadow: inset 0 6px 0 var(--malva-lilac); }
+@media (min-width: 40rem) { .dl { grid-template-columns: 13rem 1fr; align-items: start; gap: 2rem; } }
+.dl__preview { display: block; max-width: 13rem; margin: 0 auto; border-radius: .6rem; overflow: hidden; box-shadow: 0 10px 30px rgba(31, 61, 51, .18); transform: rotate(-2deg); transition: transform .2s ease; }
+.dl__preview:hover { transform: rotate(0deg) scale(1.02); }
+.dl__preview img { display: block; width: 100%; height: auto; }
+.dl h2 { margin-top: 0; }
+.dl__text p { color: var(--malva-text-muted); }
+.dl__hint { font-size: .9rem; margin-top: .5rem; }
