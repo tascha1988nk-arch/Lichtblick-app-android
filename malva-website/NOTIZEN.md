@@ -86,3 +86,10 @@ Reihenfolge laut Natascha: erst Homepage fertig, dann Satzung fürs Finanzamt.
 - 4 Personen: Natascha Helbig (Vorsitz), Jennifer Rebelein (stellv. Vorsitz), Christine Franz (Kasse), Marco Kraft (ohne Vorstandsamt). Satzung § 11a angepasst. Satzung § 11a: Vorsitz + Kasse + 2–3 weitere ohne Vorstandsamt (von der Mitgliederversammlung gewählt). Bei Gleichstand: abgelehnt bzw. neu beraten.
 - Mehrheit; jede Bewilligung braucht mindestens eine Zustimmung von außerhalb des Vorstands. Befangene wirken nicht mit. Schweigepflicht schriftlich.
 - Vorstand macht Vergaberichtlinien und zahlt aus.
+
+## Ablauf Fachleute/Partner-Verzeichnis (Vorgabe Natascha, 20.11.2026)
+1. Fachleute tragen sich über das Formular auf /fachleute/ ein (Beruf, Schwerpunkte, Zielgruppen, vor Ort/online, Ort …).
+2. Die Anfrage geht NUR an Natascha (info@malva-ev.de) – nichts wird automatisch veröffentlicht.
+3. Natascha prüft (Qualifikation, Nachweise, Gespräch) und gibt frei.
+4. Erst danach trägt Natascha die Person mit ihren Filtern ein und sie erscheint in der Suche für Hilfesuchende.
+→ Für die Suche: freigegebene Einträge in einer Datenliste pflegen; die Website baut daraus die filterbare Liste (Beruf, Schwerpunkt, Zielgruppe, Ort, online).
