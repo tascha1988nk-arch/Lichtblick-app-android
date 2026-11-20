@@ -6,14 +6,13 @@ description: Partner und Unterstützer von Malva.
 # Partner: einfach weitere Einträge ergänzen.
 # name = Ansprechperson, firma = Unternehmen/Organisation (optional),
 # foto und logo optional (Pfad in src/assets/img/), zitat = warum sie Malva unterstützen.
-partner:
-  - name: "[NAME DER PARTNERIN]"
-    rolle: "[FIRMA / TÄTIGKEIT]"
-    zitat: "[ZITAT: WARUM UNTERSTÜTZT SIE MALVA?]"
-    url: "https://share.google/bUGyNFybHPtcKfPZe"
-# Förderpartner: nur Namen, keine Links (Stufe: Keimling, Blatt oder Blüte)
+partner: []
+#  - name: "Vorname Nachname"
+#    rolle: "Praxis / Tätigkeit"
+#    zitat: "Warum ich Malva unterstütze …"
+# Sponsoren / Förderpartner: nur Namen, keine Links (Stufe: Keimling, Blatt oder Blüte)
 foerderpartner: []
-#  - { name: "Musterpraxis Bad Dürkheim", stufe: "Keimling" }
+#  - { name: "Musterpraxis Bad Dürkheim", rolle: "Förderpartner · Keimling" }
 ---
 {% import "macros.njk" as m %}
 
@@ -26,23 +25,23 @@ foerderpartner: []
 
 <section class="section section--first">
   <div class="container">
+    <h2>Unsere Partner:innen</h2>
+    <p>Fachleute und Organisationen, die mit Malva zusammenarbeiten. Hier entstehen in nächster Zeit tolle Partnerschaften.</p>
     {% call m.carousel("Partner", "partner-karussell") %}
       {% for p in partner %}{{ m.profileCard(p) }}{% endfor %}
+      {{ m.profileCard({ name: "Hier könntest du stehen", einladung: true, html: "Du bist Therapeut:in, Berater:in, Coach oder arbeitest in einer Beratungsstelle? <a href=\"/fachleute/\">Werde Teil unseres Netzwerks.</a>" }) }}
     {% endcall %}
-    <p class="section__more">Hier entstehen in nächster Zeit noch tolle Partnerschaften.</p>
   </div>
 </section>
 
 <section class="section section--tint">
-  <div class="container narrow center">
-    <h2>Unsere Förderpartner</h2>
-    {% if foerderpartner.length %}
-    <p>Diese Praxen, Unternehmen und Organisationen fördern Malva mit einem Jahresbeitrag. Danke!</p>
-    <ul class="sponsors">{% for f in foerderpartner %}<li>{{ f.name }}</li>{% endfor %}</ul>
-    {% else %}
-    <p>Bald stehen hier die Praxen, Unternehmen und Organisationen, die Malva mit einem Jahresbeitrag fördern.</p>
-    {% endif %}
-    <p><a href="/spenden/#h-partner" class="text-link">Förderpartner werden →</a></p>
+  <div class="container">
+    <h2>Unsere Sponsoren</h2>
+    <p>Praxen, Unternehmen und Organisationen, die Malva mit einem Beitrag fördern. Danke, dass ihr Hilfe möglich macht!</p>
+    {% call m.carousel("Sponsoren", "sponsoren-karussell") %}
+      {% for f in foerderpartner %}{{ m.profileCard({ name: f.name, rolle: f.rolle, einladung: true }) }}{% endfor %}
+      {{ m.profileCard({ name: "Hier könnte dein Unternehmen stehen", einladung: true, html: "Oder deine Praxis, dein Verein, dein Laden … Du möchtest Malva fördern? <a href=\"/spenden/#h-partner\">Werde Sponsor.</a>" }) }}
+    {% endcall %}
   </div>
 </section>
 
