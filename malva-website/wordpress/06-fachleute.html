@@ -1,0 +1,254 @@
+<!-- MALVA · Seite „fachleute“ · in einen Block „Individuelles HTML“ einfügen -->
+<div class="malva">
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="/" class="malva-logo malva-logo--header" aria-label="Malva – zur Startseite">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+  <path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#A58BEA" fill-opacity="0.9"/>
+  <path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#7FAF8E" fill-opacity="0.82"/>
+</svg>
+        <span class="malva-logo__text"><span class="malva-logo__name">malva</span></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="hauptmenue">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span class="nav-toggle__label">Menü</span>
+      </button>
+      <nav id="hauptmenue" class="site-nav" aria-label="Hauptmenü">
+        <ul>
+          <li><a href="/" class="">Start</a></li>
+          <li><a href="/warum-malva/" class="">Warum Malva</a></li>
+          <li><a href="/team/" class="">Team</a></li>
+          <li><a href="/hilfe/" class="">Hilfe</a></li>
+          <li><a href="/partner/" class="">Partner</a></li>
+          <li><a href="/fachleute/" class="" aria-current="page">Für Fachleute</a></li>
+          <li><a href="/spenden/" class="btn btn--primary btn--small">Spenden</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="inhalt" tabindex="-1">
+<section class="page-head">
+  <div class="container narrow">
+    <p class="eyebrow">Für Fachkolleg:innen</p>
+    <h1>Werde Teil des Malva-Netzwerks</h1>
+    <p class="lead">Du begleitest Menschen in schweren Zeiten und möchtest, dass Hilfe nicht am Geld scheitert? Dann trag dich hier ein. Wir bauen ein Netzwerk in Rheinland-Pfalz und online auf.</p>
+  </div>
+</section>
+<section class="section section--first">
+  <div class="container narrow stack">
+    <section class="block" aria-labelledby="h-wer">
+      <h2 id="h-wer">Wen wir suchen</h2>
+      <ul class="check-list">
+        <li><strong>Psychotherapeut:innen</strong> mit Privatpraxis, für Erwachsene sowie Kinder und Jugendliche</li>
+        <li><strong>Heilpraktiker:innen für Psychotherapie</strong></li>
+        <li><strong>Berater:innen und Coaches</strong> mit unterschiedlichen Schwerpunkten</li>
+        <li><strong>Sozialberatung</strong> für Anträge bei Krankenkasse und Ämtern</li>
+      </ul>
+    </section>
+    <section class="block" aria-labelledby="h-ablauf">
+      <h2 id="h-ablauf">So läuft es ab</h2>
+      <ol class="steps-num">
+        <li><strong>Formular ausfüllen.</strong> Wir fragen nur, was wir für ein erstes Kennenlernen brauchen.</li>
+        <li><strong>Wir melden uns.</strong> In einem kurzen Gespräch klären wir, wie die Zusammenarbeit aussehen kann.</li>
+        <li><strong>Nachweise schicken.</strong> Je nach Beruf zum Beispiel Approbation, Erlaubnis nach dem Heilpraktikergesetz oder Ausbildungszertifikat sowie einen Nachweis der Berufshaftpflicht.</li>
+        <li><strong>Teil des Netzwerks werden.</strong> Später können Hilfesuchende dich über unsere Suche nach Schwerpunkt, Ort und Online-Angebot finden.</li>
+      </ol>
+      <p class="hint">Malva ist ein Verein in Gründung. Deine Anmeldung ist deshalb erst einmal unverbindlich: Vermittlungen und Kostenübernahmen starten, sobald der Verein eingetragen und als gemeinnützig anerkannt ist.</p>
+    </section>
+    <section class="block" aria-labelledby="h-form">
+      <h2 id="h-form">Anmeldung</h2>
+      <p>Pflichtfelder sind mit <span aria-hidden="true">*</span><span class="sr-only">Stern</span> markiert.</p>
+      <form class="form" id="fachleute-form"
+        action="mailto:info@malva-ev.de?subject=Anmeldung%20Fachkolleg%3Ainnen" method="post" enctype="text/plain" data-mailto="info@malva-ev.de">
+        <fieldset>
+          <legend>Über dich</legend>
+          <div class="field"><label for="f-name">Vor- und Nachname, ggf. mit Titel *</label><input id="f-name" name="Name" required autocomplete="name"></div>
+          <div class="field"><label for="f-beruf">Berufsgruppe *</label>
+            <select id="f-beruf" name="Berufsgruppe" required>
+              <option value="">Bitte auswählen</option>
+              <option>Approbierte:r Psychotherapeut:in</option><option>Kinder- und Jugendlichenpsychotherapeut:in</option><option>Heilpraktiker:in für Psychotherapie</option><option>Psychologische:r Berater:in</option><option>Coach</option><option>Sozialberatung</option><option>Andere</option>
+            </select>
+          </div>
+          <div class="field"><label for="f-quali">Qualifikation und Ausbildung *</label><textarea id="f-quali" name="Qualifikation" rows="3" required placeholder="z. B. Approbation seit 2018, Verhaltenstherapie / Ausbildung zur systemischen Beraterin"></textarea></div>
+        </fieldset>
+        <fieldset>
+          <legend>Schwerpunkte</legend>
+          <p class="field__hint">Mehrfachauswahl möglich</p>
+<div class="choices">
+  <label class="choice"><input type="checkbox" name="Schwerpunkte" value="Ängste und Sorgen"><span>Ängste und Sorgen</span></label>
+  <label class="choice"><input type="checkbox" name="Schwerpunkte" value="Depressive Verstimmung"><span>Depressive Verstimmung</span></label>
+  <label class="choice"><input type="checkbox" name="Schwerpunkte" value="Stress und Burnout"><span>Stress und Burnout</span></label>
+  <label class="choice"><input type="checkbox" name="Schwerpunkte" value="Lebenskrisen und Umbrüche"><span>Lebenskrisen und Umbrüche</span></label>
+  <label class="choice"><input type="checkbox" name="Schwerpunkte" value="Trauer und Verlust"><span>Trauer und Verlust</span></label>
+  <label class="choice"><input type="checkbox" name="Schwerpunkte" value="Paare und Beziehung"><span>Paare und Beziehung</span></label>
+  <label class="choice"><input type="checkbox" name="Schwerpunkte" value="Familie und Erziehung"><span>Familie und Erziehung</span></label>
+  <label class="choice"><input type="checkbox" name="Schwerpunkte" value="Selbstwert"><span>Selbstwert</span></label>
+  <label class="choice"><input type="checkbox" name="Schwerpunkte" value="Arbeit und Beruf"><span>Arbeit und Beruf</span></label>
+  <label class="choice"><input type="checkbox" name="Schwerpunkte" value="Anträge, Ämter, Krankenkasse"><span>Anträge, Ämter, Krankenkasse</span></label>
+</div>
+          <div class="field"><label for="f-weitere">Weitere Schwerpunkte oder Methoden</label><input id="f-weitere" name="Weitere Schwerpunkte" placeholder="z. B. Achtsamkeit, systemische Arbeit"></div>
+        </fieldset>
+        <fieldset>
+          <legend>Für wen bist du da? *</legend>
+<div class="choices">
+  <label class="choice"><input type="checkbox" name="Zielgruppen" value="Erwachsene"><span>Erwachsene</span></label>
+  <label class="choice"><input type="checkbox" name="Zielgruppen" value="Kinder und Jugendliche"><span>Kinder und Jugendliche</span></label>
+  <label class="choice"><input type="checkbox" name="Zielgruppen" value="Paare"><span>Paare</span></label>
+  <label class="choice"><input type="checkbox" name="Zielgruppen" value="Familien"><span>Familien</span></label>
+</div>
+        </fieldset>
+        <fieldset>
+          <legend>Wie arbeitest du? *</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="Arbeitsform" value="vor Ort" required><span>vor Ort</span></label>
+            <label class="choice"><input type="radio" name="Arbeitsform" value="online"><span>online</span></label>
+            <label class="choice"><input type="radio" name="Arbeitsform" value="vor Ort und online"><span>vor Ort und online</span></label>
+          </div>
+          <div class="field"><label for="f-praxis">Praxisname und Straße</label><input id="f-praxis" name="Praxis" autocomplete="street-address"></div>
+          <div class="field-row">
+            <div class="field"><label for="f-plz">PLZ *</label><input id="f-plz" name="PLZ" required inputmode="numeric" autocomplete="postal-code" maxlength="5"></div>
+            <div class="field"><label for="f-ort">Ort *</label><input id="f-ort" name="Ort" required autocomplete="address-level2"></div>
+          </div>
+          <p class="field__hint">Barrierefreiheit der Praxis</p>
+<div class="choices">
+  <label class="choice"><input type="checkbox" name="Barrierefreiheit" value="stufenlos erreichbar"><span>stufenlos erreichbar</span></label>
+  <label class="choice"><input type="checkbox" name="Barrierefreiheit" value="Aufzug"><span>Aufzug</span></label>
+  <label class="choice"><input type="checkbox" name="Barrierefreiheit" value="barrierefreies WC"><span>barrierefreies WC</span></label>
+</div>
+          <div class="field"><label for="f-sprachen">Sprachen</label><input id="f-sprachen" name="Sprachen" placeholder="z. B. Deutsch, Englisch, Türkisch"></div>
+        </fieldset>
+        <fieldset>
+          <legend>Abrechnung</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="Kassenzulassung" value="ja"><span>Ich habe eine Kassenzulassung</span></label>
+            <label class="choice"><input type="radio" name="Kassenzulassung" value="nein"><span>Ich arbeite privat</span></label>
+          </div>
+          <div class="field"><label for="f-honorar">Honorar pro Sitzung (optional)</label><input id="f-honorar" name="Honorar" placeholder="z. B. 90 € für 50 Minuten"></div>
+        </fieldset>
+        <fieldset>
+          <legend>Kontakt</legend>
+          <div class="field"><label for="f-mail">E-Mail-Adresse *</label><input id="f-mail" name="E-Mail" type="email" required autocomplete="email"></div>
+          <div class="field"><label for="f-tel">Telefon (optional)</label><input id="f-tel" name="Telefon" type="tel" autocomplete="tel"></div>
+          <div class="field"><label for="f-nachricht">Möchtest du uns noch etwas sagen?</label><textarea id="f-nachricht" name="Nachricht" rows="4"></textarea></div>
+        </fieldset>
+        <fieldset>
+          <legend class="sr-only">Einverständnis</legend>
+          <label class="choice choice--block"><input type="checkbox" name="Einwilligung" value="ja" required><span>Ich bin einverstanden, dass Malva meine Angaben speichert, um mit mir Kontakt aufzunehmen und meine Aufnahme ins Netzwerk zu prüfen. Ich kann das jederzeit per E-Mail widerrufen. Mehr in der <a href="/datenschutz/">Datenschutzerklärung</a>. *</span></label>
+        </fieldset>
+        <button type="submit" class="btn btn--primary">Anmeldung absenden</button>
+        <p class="hint">Beim Absenden öffnet sich dein E-Mail-Programm mit einer fertigen Nachricht an info@malva-ev.de. Du musst sie nur noch abschicken.</p>
+      </form>
+    </section>
+    <section class="block" aria-labelledby="h-fragen">
+      <h2 id="h-fragen">Häufige Fragen</h2>
+      <div class="faq">
+        <details>
+          <summary>Wer bezahlt meine Arbeit?</summary>
+          <p>Malva will die Kosten für Klient:innen übernehmen, die sie selbst nicht tragen können. Wie genau abgerechnet wird, legen wir vor dem Start gemeinsam mit dem Vorstand und dem Finanzamt fest und besprechen es mit dir persönlich.</p>
+        </details>
+        <details>
+          <summary>Muss ich eine Mindestzahl an Klient:innen aufnehmen?</summary>
+          <p>Nein. Du entscheidest selbst, ob und wann du Kapazitäten hast.</p>
+        </details>
+        <details>
+          <summary>Werde ich öffentlich auf der Website angezeigt?</summary>
+          <p>Nur, wenn du zustimmst. Später soll es eine Suche geben, über die Hilfesuchende passende Fachleute finden. Welche Angaben dort erscheinen, besprechen wir vorher mit dir.</p>
+        </details>
+        <details>
+          <summary>Ich bin Berater:in oder Coach, keine Therapeut:in. Passe ich trotzdem?</summary>
+          <p>Ja, unbedingt. Malva unterstützt nicht nur Psychotherapie, sondern auch Beratung und Coaching. Wichtig ist, dass du innerhalb deiner Qualifikation arbeitest.</p>
+        </details>
+      </div>
+      <p>Noch Fragen? Schreib uns: <a href="mailto:info@malva-ev.de">info@malva-ev.de</a></p>
+    </section>
+  </div>
+</section>
+  </main>
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div>
+        <a href="/" class="malva-logo malva-logo--footer" aria-label="Malva – zur Startseite">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+  <path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#C3B1F2" fill-opacity="0.92"/>
+  <path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#9CCBA8" fill-opacity="0.85"/>
+</svg>
+          <span class="malva-logo__text">
+            <span class="malva-logo__name">malva</span>
+            <span class="malva-logo__claim">Weil Hilfe kein Luxus sein sollte.</span>
+          </span>
+        </a>
+        <p class="site-footer__status">Malva – Verein in Gründung · Bad Dürkheim, Rheinland-Pfalz</p>
+      </div>
+      <nav aria-label="Weitere Seiten">
+        <h2 class="site-footer__heading">Seiten</h2>
+        <ul class="site-footer__links">
+          <li><a href="/">Start</a></li><li><a href="/warum-malva/">Warum Malva</a></li><li><a href="/team/">Team</a></li><li><a href="/hilfe/">Hilfe</a></li><li><a href="/partner/">Partner</a></li><li><a href="/fachleute/">Für Fachleute</a></li><li><a href="/spenden/">Spenden</a></li>
+          <li><a href="/aktuelles/">Aktuelles</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2 class="site-footer__heading">Folge uns</h2>
+<ul class="social social--footer">
+  <li><a href="https://www.instagram.com/malva.ev/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg><span>Instagram <span class="social__handle">@malva.ev</span></span></a></li>
+  <li><a href="https://www.facebook.com/share/1epeksnani/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H8v3h2.5V21h3Z" fill="currentColor"/></svg><span>Facebook <span class="social__handle">Malva</span></span></a></li>
+</ul>
+        <h2 class="site-footer__heading">Kontakt</h2>
+        <p><a href="mailto:info@malva-ev.de">info@malva-ev.de</a></p>
+      </div>
+    </div>
+    <div class="container site-footer__legal">
+      <p>© 2026 Malva (i. Gr.)</p>
+      <ul>
+        <li><a href="/impressum/">Impressum</a></li>
+        <li><a href="/datenschutz/">Datenschutz</a></li>
+      </ul>
+    </div>
+  </footer>
+</div>
+<script>
+// Mobiles Menü auf- und zuklappen
+(function () {
+  var btn = document.querySelector(".nav-toggle");
+  var nav = document.getElementById("hauptmenue");
+  if (!btn || !nav) return;
+  var w=document.querySelector(".malva");if(w)w.classList.add("js");
+  btn.addEventListener("click", function () {
+    var open = btn.getAttribute("aria-expanded") === "true";
+    btn.setAttribute("aria-expanded", String(!open));
+    nav.classList.toggle("is-open", !open);
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && nav.classList.contains("is-open")) {
+      btn.setAttribute("aria-expanded", "false");
+      nav.classList.remove("is-open");
+      btn.focus();
+    }
+  });
+})();
+
+</script>
+<script>
+// Solange kein Formular-Dienst eingetragen ist, baut dieses Skript aus dem
+// Formular eine gut lesbare E-Mail und öffnet das E-Mail-Programm.
+(function () {
+  var form = document.querySelector("form[data-mailto]");
+  if (!form) return;
+  form.addEventListener("submit", function (e) {
+    if (!form.checkValidity()) return; // Browser zeigt die fehlenden Pflichtfelder
+    e.preventDefault();
+    var data = new FormData(form), lines = [], seen = {};
+    data.forEach(function (value, key) {
+      if (!String(value).trim()) return;
+      if (seen[key] !== undefined) { lines[seen[key]] += ", " + value; return; }
+      seen[key] = lines.length;
+      lines.push(key + ": " + value);
+    });
+    var body = "Hallo Malva-Team,\n\nhier meine Anmeldung für das Netzwerk:\n\n" + lines.join("\n") + "\n";
+    var subject = "Anmeldung Fachkolleg:innen – " + (data.get("Name") || "");
+    window.location.href = "mailto:" + form.dataset.mailto +
+      "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  });
+})();
+
+</script>
