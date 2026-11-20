@@ -21,8 +21,9 @@ pages = [
     ('06-fachleute', 'Für Fachleute', 'fachleute', None, 'Anmeldungen kommen als E-Mail an info@malva-ev.de. Du prüfst und gibst frei, erst dann kommt jemand in die Suche.'),
     ('07-spenden', 'Spenden', 'spenden', None, ''),
     ('08-aktuelles', 'Aktuelles', 'aktuelles', None, 'Neue Meilensteine schickst du mir einfach, ich schreibe sie in den Code.'),
-    ('09-impressum', 'Impressum', 'impressum', None, ''),
-    ('10-datenschutz', 'Datenschutz', 'datenschutz', None, 'Die Datenschutzerklärung selbst fehlt noch (Platzhalter).'),
+    ('09-kontakt', 'Kontakt', 'kontakt', None, 'Vorher Contact Form 7 einrichten (siehe Schritt Vorab) und mir die Formular-ID schicken.'),
+    ('10-impressum', 'Impressum', 'impressum', None, ''),
+    ('11-datenschutz', 'Datenschutz', 'datenschutz', None, 'Übergangsfassung. Nach der Eintragung professionell prüfen lassen.'),
 ]
 import re
 
@@ -61,6 +62,22 @@ panels.append(f'''<section class="panel" data-step="0">
       <li>Alles darin löschen, nur diesen Stil-Code einfügen, <span class="ui">Speichern</span>.</li>
       <li>Seite neu laden.</li></ol>
       {copybox('c-stil', 'Stil-Code', stil, 'Ohne Schrift-Code. Die Seite nutzt dann vorerst die Standardschrift.')}
+    </div>
+  </div>
+  <div class="card">
+    <span class="num">✉</span>
+    <div class="card__body">
+      <h3>Kontaktformular einrichten (einmal)</h3>
+      <ol class="how">
+        <li><span class="ui">Plugins → Installieren</span>, nach <b>Contact Form 7</b> suchen, installieren und aktivieren.</li>
+        <li>Gegen Spam zusätzlich <b>Honeypot for Contact Form 7</b> installieren (ohne Google).</li>
+        <li><span class="ui">Kontakt → Neues Formular</span>, Titel <b>Kontakt Malva</b>.</li>
+        <li>Reiter <span class="ui">Formular</span>: alles löschen, Formular-Code unten einfügen. Ganz unten vor [submit] noch <code>[honeypot website]</code> einsetzen.</li>
+        <li>Reiter <span class="ui">E-Mail</span>: Felder wie im E-Mail-Code unten ausfüllen. <span class="ui">Speichern</span>.</li>
+        <li>Oben steht ein Shortcode wie <code>[contact-form-7 id="a1b2c3d" …]</code>. <b>Schick mir die ID</b>, dann trage ich sie in die Kontaktseite ein.</li>
+      </ol>
+      {copybox('c-cf7-form', 'Formular-Code', open('/home/user/shots/cf7_form.txt').read(), 'Für den Reiter „Formular“. Die Vormerken-Buttons wählen das passende Anliegen automatisch vor.')}
+      {copybox('c-cf7-mail', 'E-Mail-Einstellungen', open('/home/user/shots/cf7_mail.txt').read(), 'Für den Reiter „E-Mail“. Absender am besten info@malva-ev.de.')}
     </div>
   </div>
 </section>''')

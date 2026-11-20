@@ -1,0 +1,17 @@
+An:          info@malva-ev.de
+Von:         Malva Website <wordpress@[_site_url] ändern auf eine Adresse deiner Domain, z. B. info@malva-ev.de>
+Betreff:     [anliegen] – [dein-name]
+Zusätzliche Header:  Reply-To: [deine-email]
+
+Nachrichtentext:
+Neue Nachricht über das Kontaktformular
+
+Name: [dein-name]
+E-Mail: [deine-email]
+Anliegen: [anliegen]
+Beitrag: [beitrag]
+
+Nachricht:
+[nachricht]
+
+Einwilligung Datenschutz: ja

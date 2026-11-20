@@ -34,6 +34,9 @@ export default {
   // Leer lassen = das Formular erstellt eine E-Mail an info@malva-ev.de.
   formFachleute: "",
 
+  // Contact Form 7: ID des Kontaktformulars aus WordPress (Kontakt → Kontaktformulare → Shortcode)
+  formKontaktId: "[FORMULAR-ID]",
+
   // Externes Werkzeug für den Kostenerstattungsantrag (nur Link, nicht eingebunden)
   kever: "https://derkever.de/",
 

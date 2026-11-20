@@ -107,6 +107,7 @@ pages = {
     'fachleute': 'fachleute/index.html',
     'spenden': 'spenden/index.html',
     'aktuelles': 'aktuelles/index.html',
+    'kontakt': 'kontakt/index.html',
     'impressum': 'impressum/index.html',
     'datenschutz': 'datenschutz/index.html',
 }

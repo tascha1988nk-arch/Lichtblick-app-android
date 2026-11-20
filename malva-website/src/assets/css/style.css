@@ -501,3 +501,19 @@ main:focus { outline: none; }
 .growth__next-h { margin: 0 0 1.25rem; }
 .growth--next .growth__item { padding-bottom: 1.25rem; }
 .growth--next .growth__title { font-size: 1.1rem; font-weight: 500; color: var(--malva-text-muted); margin: 0; }
+
+/* ---------- Kontaktformular (Contact Form 7) ---------- */
+.cf7-box .wpcf7-form { display: flex; flex-direction: column; gap: 1rem; }
+.cf7-box .wpcf7-form p { margin: 0; }
+.cf7-box label { display: flex; flex-direction: column; gap: .35rem; font-weight: 500; }
+.cf7-box input[type=text], .cf7-box input[type=email], .cf7-box select, .cf7-box textarea {
+  font: inherit; color: var(--malva-green-900); background: var(--malva-cream); width: 100%;
+  border: 1.5px solid #B9B4A8; border-radius: .6rem; padding: .7rem .85rem; }
+.cf7-box textarea { min-height: 9rem; resize: vertical; }
+.cf7-box input:focus-visible, .cf7-box select:focus-visible, .cf7-box textarea:focus-visible { outline: 3px solid var(--malva-lilac-text); outline-offset: 1px; }
+.cf7-box .wpcf7-acceptance label { flex-direction: row; align-items: flex-start; gap: .6rem; font-weight: 400; }
+.cf7-box input[type=checkbox] { width: 1.15rem; height: 1.15rem; margin-top: .2rem; accent-color: var(--malva-green-text); }
+.cf7-box input[type=submit] { align-self: flex-start; font: inherit; font-weight: 600; background: var(--malva-green-text); color: #fff; border: 0; border-radius: 999px; padding: .9rem 1.8rem; cursor: pointer; }
+.cf7-box input[type=submit]:hover { background: var(--malva-green-900); }
+.cf7-box .wpcf7-not-valid-tip { color: #A3243B; font-size: .9rem; }
+.cf7-box .wpcf7-response-output { margin: .5rem 0 0 !important; border-radius: .6rem; padding: .8rem 1rem !important; }

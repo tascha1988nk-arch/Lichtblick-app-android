@@ -1,0 +1,18 @@
+<label> Dein Name *
+    [text* dein-name autocomplete:name] </label>
+
+<label> Deine E-Mail-Adresse *
+    [email* deine-email autocomplete:email] </label>
+
+<label> Worum geht es? *
+    [select* anliegen default:get "Allgemeine Frage" "Vormerkung Fördermitglied" "Vormerkung Förderpartner / Sponsor" "Partner werden / Netzwerk" "Presse"] </label>
+
+<label> Gewünschter Beitrag (nur bei Vormerkung, freiwillig)
+    [text beitrag placeholder "z. B. 9 € im Monat"] </label>
+
+<label> Deine Nachricht *
+    [textarea* nachricht] </label>
+
+[acceptance datenschutz] Ich bin einverstanden, dass Malva meine Angaben speichert, um meine Anfrage zu bearbeiten. Mehr in der <a href="/datenschutz/">Datenschutzerklärung</a>. [/acceptance]
+
+[submit "Nachricht senden"]
