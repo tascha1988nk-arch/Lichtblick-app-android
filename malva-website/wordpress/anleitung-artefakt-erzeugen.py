@@ -17,7 +17,7 @@ pages = [
     ('02-warum-malva', 'Warum Malva', 'warum-malva', None, ''),
     ('03-team', 'Team', 'team', None, ''),
     ('04-hilfe', 'Hilfe finden', 'hilfe', None, ''),
-    ('05-partner', 'Partner', 'partner', None, ''),
+    ('05-partner', 'Partner', 'partner', None, '<b>Pausiert.</b> Die Seite bleibt in WordPress als Entwurf und steht nicht im Menü. Sobald es die ersten Partner:innen gibt, nehmen wir sie wieder rein.'),
     ('06-fachleute', 'Für Fachleute', 'fachleute', None, 'Anmeldungen kommen als E-Mail an info@malva-ev.de. Du prüfst und gibst frei, erst dann kommt jemand in die Suche.'),
     ('07-spenden', 'Unterstütze uns', 'spenden', None, '<b>Umbenannt.</b> Bisherige Seite „Spenden“ öffnen und den Titel auf <b>Unterstütze uns</b> ändern. Der Link bleibt <b>spenden</b>. Die Vormerk-Formulare brauchen das Plugin <b>Malva Formulare</b> ab Version 1.1 (siehe Vorab).'),
     ('08-neuigkeiten', 'Neuigkeiten', 'neuigkeiten', None, '<b>Umbenannt.</b> Deine bisherige Seite „Aktuelles“ öffnen, Titel auf <b>Neuigkeiten</b> und den Link auf <b>neuigkeiten</b> ändern, dann den Code ersetzen.<br><b>Vorher das Infoblatt hochladen:</b> <span class="ui">Medien → Datei hinzufügen</span> → <code>malva-infoblatt-warum-jetzt.pdf</code> (Dateiname nicht ändern, die PDF habe ich dir im Chat geschickt). Sonst führt der Download-Button ins Leere.'),
