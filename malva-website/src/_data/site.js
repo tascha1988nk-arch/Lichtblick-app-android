@@ -86,7 +86,7 @@ export default {
     { url: "/neuigkeiten/", label: "Neuigkeiten" },
     { url: "/hilfe/", label: "Hilfe finden" },
     { url: "/antrag-stellen/", label: "Antrag stellen" },
-    // { url: "/partner/", label: "Partner" },  // pausiert, bis es Partner:innen gibt (Seite in WordPress auf Entwurf)
+    { url: "/partner/", label: "Partner" },
     { url: "/fachleute/", label: "Für Fachleute" },
     { url: "/spenden/", label: "Unterstütze uns", button: true },
   ],
