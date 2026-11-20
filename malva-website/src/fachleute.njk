@@ -76,7 +76,7 @@ zielgruppen:
       <p>Pflichtfelder sind mit <span aria-hidden="true">*</span><span class="sr-only">Stern</span> markiert.</p>
 
       <form class="form" id="fachleute-form"
-        {% if site.formFachleute %}action="{{ site.formFachleute }}" method="post"{% else %}action="mailto:{{ site.email }}?subject=Anmeldung%20Fachkolleg%3Ainnen" method="post" enctype="text/plain" data-mailto="{{ site.email }}"{% endif %}>
+        {% if site.formFachleute %}action="{{ site.formFachleute }}" method="post"{% else %}data-mailto="{{ site.email }}"{% endif %}>
 
         <fieldset>
           <legend>Über dich</legend>
