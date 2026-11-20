@@ -4,8 +4,11 @@ P = '/home/user/shots/prev/'
 OUT = '/tmp/claude-0/-home-user-Lichtblick-app-android/7c7936ef-22cc-5b68-84de-c5a0e99af8ee/scratchpad/malva-wordpress-einbauen.html'
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
 
-schrift = open(W + '00a-schrift.css').read()
-stil = open(W + '00b-stil.css').read()
+_css = open(W + '00-zusaetzliches-css.css').read()   # immer frisch aus dem Erzeuger
+schrift = '/* MALVA – Schrift (Outfit, lokal eingebettet) */\n' + '\n'.join(l for l in _css.splitlines() if l.startswith('@font-face')) + '\n'
+stil = '/* MALVA – Stil */\n' + '\n'.join(l for l in _css.splitlines() if not l.startswith('@font-face') and not l.startswith('/* MALVA')) + '\n'
+open(W + '00a-schrift.css', 'w').write(schrift)
+open(W + '00b-stil.css', 'w').write(stil)
 font_faces = schrift.split('\n', 1)[1]  # für die Seite selbst
 
 pages = [
