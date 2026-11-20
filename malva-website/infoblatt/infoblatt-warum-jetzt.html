@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<title>Malva Infoblatt: Warum Malva gerade jetzt wichtig ist</title>
+<style>
+@font-face{font-family:Outfit;font-weight:400;src:url(../src/assets/fonts/outfit-latin-400-normal.woff2)}
+@font-face{font-family:Outfit;font-weight:500;src:url(../src/assets/fonts/outfit-latin-500-normal.woff2)}
+@font-face{font-family:Outfit;font-weight:600;src:url(../src/assets/fonts/outfit-latin-600-normal.woff2)}
+@page{size:210mm 297mm;margin:0}
+:root{--g:#1F3D33;--c:#F4F2EE;--m:#4E5A55;--l:#A58BEA;--ll:#C3B1F2;--lt:#6A4BC4;--s:#7FAF8E;--sl:#9CCBA8;--gt:#2F6B48;--tint:#ECE9F6;--line:#D9D5CC}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:Outfit,sans-serif;color:var(--g);background:#fff}
+.page{width:210mm;height:297mm;position:relative;overflow:hidden;background:var(--c);display:flex;flex-direction:column}
+.head{flex:none;background:var(--g);color:var(--c);padding:9mm 16mm 8mm;position:relative;overflow:hidden}
+.top{display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:2.4mm}
+.logo svg{height:12mm;width:auto}
+.logo .name{font-weight:600;font-size:9mm;letter-spacing:-.03em;line-height:.9}
+.logo .claim{font-weight:500;font-size:2.9mm;margin-top:1mm;color:var(--sl)}
+.chip{border:.35mm solid var(--sl);color:var(--sl);border-radius:99px;padding:1.3mm 3.6mm;font-size:3mm;font-weight:500;letter-spacing:.02em}
+h1{font-weight:600;font-size:11.5mm;line-height:1.02;letter-spacing:-.035em;margin-top:7mm;max-width:178mm}
+h1 .hl{color:var(--ll)}
+.sub{font-size:4mm;line-height:1.45;margin-top:4mm;max-width:172mm;color:#DCE6DF}
+.deco{position:absolute;right:-22mm;bottom:-30mm;width:95mm;opacity:.14}
+.body{padding:5.5mm 16mm 4.5mm;flex:1;display:flex;flex-direction:column;gap:4mm}
+.kicker{font-weight:600;font-size:2.8mm;letter-spacing:.14em;text-transform:uppercase;color:var(--lt);margin-bottom:2.5mm}
+.src{display:block;font-size:2.5mm;color:var(--m);margin-top:1.3mm;line-height:1.35}
+.hero{display:grid;grid-template-columns:1fr 50mm;gap:8mm;align-items:center;background:#fff;border-radius:5mm;padding:5.5mm 8mm}
+.hero .big{font-weight:600;font-size:11.5mm;letter-spacing:-.04em;line-height:1}
+.hero .big small{font-size:7mm;letter-spacing:-.02em}
+.hero p{font-size:3.8mm;line-height:1.45;margin-top:2mm}
+.four{display:grid;grid-template-columns:repeat(4,1fr);gap:2mm}
+.four svg{width:100%;height:auto}
+.four figcaption{grid-column:1/-1;text-align:center;font-size:2.8mm;color:var(--m);margin-top:1mm}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}
+.stat{background:#fff;border-radius:4mm;padding:4.5mm}
+.stat .num{font-weight:600;font-size:8.5mm;letter-spacing:-.03em;line-height:1}
+.stat .num small{font-size:4.6mm;font-weight:500}
+.stat p{font-size:3.15mm;line-height:1.42;margin-top:1.6mm}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:4mm}
+.box{border-radius:4mm;padding:5mm 5.5mm}
+.box h2{font-weight:600;font-size:5mm;letter-spacing:-.02em;line-height:1.15;margin-bottom:2.5mm}
+.box p{font-size:3.15mm;line-height:1.42}
+.box--lila{background:var(--tint)}
+.box--weiss{background:#fff}
+.list{list-style:none;display:flex;flex-direction:column;gap:2.2mm}
+.list li{display:grid;grid-template-columns:5mm 1fr;gap:2.4mm;font-size:3.2mm;line-height:1.4}
+.list svg{width:5mm;height:5mm;margin-top:.1mm}
+.list b{font-weight:600}
+.foot{flex:none;background:var(--g);color:var(--c);margin-top:auto;padding:6.5mm 16mm 5.5mm}
+.footrow{display:grid;grid-template-columns:1fr auto;gap:8mm;align-items:center}
+.foot h2{font-weight:600;font-size:6.6mm;letter-spacing:-.02em;line-height:1.1}
+.foot h2 .hl{color:var(--ll)}
+.ways{display:flex;gap:2.5mm;margin-top:4mm;flex-wrap:wrap}
+.ways span{border:.35mm solid var(--sl);border-radius:99px;padding:1.4mm 3.4mm;font-size:3.1mm;font-weight:500}
+.contact{margin-top:4mm;font-size:3.5mm;font-weight:500;display:flex;gap:6mm}
+.contact span{color:var(--sl)}
+.qr{background:#fff;border-radius:3mm;padding:2.2mm;width:26mm}
+.qr img{width:100%;display:block}
+.qr p{font-size:2.5mm;color:var(--g);text-align:center;margin-top:1mm;font-weight:500}
+.sources b{color:var(--c);font-weight:500;font-size:3mm}
+.sources{font-size:2.35mm;line-height:1.45;color:#B9C7BF;margin-top:4.5mm;border-top:.25mm solid rgba(244,242,238,.2);padding-top:3mm}
+
+/* Seite 2: Brief */
+.letter{background:#fff;padding:16mm 20mm 12mm 25mm;color:#1b1b1b;display:block}
+.letter .note{position:absolute;top:6mm;left:25mm;right:20mm;font-size:2.6mm;color:var(--m);display:flex;justify-content:space-between;gap:6mm}
+.letter .note span:last-child{white-space:nowrap}
+.letter .note b{color:var(--lt);font-weight:600}
+.lhead{margin-top:4mm;width:85mm}
+.field{border-bottom:.25mm solid #9a9a9a;height:6.2mm;margin-bottom:1.2mm}
+.lbl{font-size:2.4mm;color:var(--m);margin-bottom:.6mm;display:block}
+.to{margin-top:10mm;font-size:3.9mm;line-height:1.45}
+.datum{display:flex;justify-content:flex-end;align-items:flex-end;gap:2mm;margin-top:6mm;font-size:3.6mm}
+.datum .field{width:62mm;margin:0}
+.betreff{font-weight:600;font-size:4mm;margin-top:8mm;line-height:1.35}
+.ltext{font-size:3.55mm;line-height:1.5;margin-top:5mm}
+.ltext p{margin-bottom:2.8mm}
+.ltext ul{margin:0 0 2.8mm 5mm}
+.ltext li{margin-bottom:.8mm}
+.own{border:.25mm dashed #9a9a9a;border-radius:2mm;height:30mm;margin:1mm 0 3.5mm;position:relative}
+.own span{position:absolute;left:3mm;top:-2.2mm;background:#fff;padding:0 1mm;font-size:2.5mm;color:#6a6a6a}
+.sign{margin-top:12mm;width:75mm;border-top:.25mm solid #9a9a9a;font-size:2.4mm;color:var(--m);padding-top:1mm}
+.lfoot{position:absolute;left:25mm;right:20mm;bottom:8mm;font-size:2.3mm;color:#8a8a8a;display:flex;justify-content:space-between;gap:6mm}
+</style></head><body>
+<div class="page">
+  <header class="head">
+    <div class="top">
+      <div class="logo">
+        <svg viewBox="0 0 200 200"><path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#C3B1F2" fill-opacity=".92"/><path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#9CCBA8" fill-opacity=".85"/></svg>
+        <div><div class="name">malva</div><div class="claim">Weil Hilfe kein Luxus sein sollte.</div></div>
+      </div>
+      <span class="chip">Infoblatt · Stand November 2026</span>
+    </div>
+    <h1>Warum Malva <span class="hl">gerade jetzt</span> wichtig ist</h1>
+    <p class="sub">Immer mehr Menschen brauchen psychologische Hilfe, doch die Wartezeiten sind lang und ab 2027 wird es für viele noch schwerer. Wer wenig Geld hat, bleibt dabei oft ganz ohne Hilfe.</p>
+    <svg class="deco" viewBox="0 0 200 200"><path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#C3B1F2"/><path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#9CCBA8"/></svg>
+  </header>
+
+  <main class="body">
+    <section class="hero">
+      <div>
+        <p class="kicker">Kinder und Jugendliche</p>
+        <div class="big">Jedes 4.<small> Kind</small></div>
+        <p>24 % der Kinder und Jugendlichen zeigen Hinweise auf psychische Auffälligkeiten. Vor der Pandemie waren es 18 %.</p>
+        <span class="src">COPSY-Studie, Universitätsklinikum Hamburg-Eppendorf, November 2026</span>
+      </div>
+      <figure class="four" aria-hidden="true">
+        <svg viewBox="0 0 40 60"><circle cx="20" cy="12" r="9" fill="#A58BEA"/><path d="M4 58 C4 34 36 34 36 58 Z" fill="#A58BEA"/></svg>
+        <svg viewBox="0 0 40 60"><circle cx="20" cy="12" r="9" fill="#D9D5CC"/><path d="M4 58 C4 34 36 34 36 58 Z" fill="#D9D5CC"/></svg>
+        <svg viewBox="0 0 40 60"><circle cx="20" cy="12" r="9" fill="#D9D5CC"/><path d="M4 58 C4 34 36 34 36 58 Z" fill="#D9D5CC"/></svg>
+        <svg viewBox="0 0 40 60"><circle cx="20" cy="12" r="9" fill="#D9D5CC"/><path d="M4 58 C4 34 36 34 36 58 Z" fill="#D9D5CC"/></svg>
+        <figcaption>1 von 4</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <p class="kicker">Warten auf Hilfe</p>
+      <div class="stats">
+        <div class="stat"><div class="num">28 <small>Wochen</small></div><p>warten Kinder und Jugendliche im Schnitt auf einen Therapieplatz, rund sieben Monate.</p><span class="src">Bundespsychotherapeutenkammer, 2026</span></div>
+        <div class="stat"><div class="num">142 <small>Tage</small></div><p>liegen bei Erwachsenen im Schnitt zwischen Erstgespräch und Therapiebeginn.</p><span class="src">Bundespsychotherapeutenkammer, Daten 2019</span></div>
+        <div class="stat"><div class="num">17,8 <small>Mio.</small></div><p>Erwachsene sind in Deutschland jedes Jahr von einer psychischen Erkrankung betroffen.</p><span class="src">DGPPN, nach RKI-Gesundheitssurvey</span></div>
+      </div>
+    </section>
+
+    <section class="two">
+      <div class="box box--lila">
+        <p class="kicker">Ausblick</p>
+        <h2>Was sich 2027 ändert</h2>
+        <p>Ab Januar 2027 wird ambulante Psychotherapie für Erwachsene wieder aus einem gedeckelten Budget bezahlt. Fachverbände befürchten, dass Praxen dadurch weniger neue Patient:innen aufnehmen und die Wartezeiten noch länger werden. Für Kinder und Jugendliche sind Ausnahmen vorgesehen.</p>
+        <span class="src">Deutsche Gesellschaft für Verhaltenstherapie, Berufsverband, 2026</span>
+      </div>
+      <div class="box box--weiss">
+        <p class="kicker">Unsere Antwort</p>
+        <h2>Was Malva tut</h2>
+        <ul class="list">
+          <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#9CCBA8"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#1F3D33" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Kosten übernehmen</b> für Therapie, Beratung und Coaching, wenn das Geld fehlt</span></li>
+          <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#9CCBA8"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#1F3D33" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Bei Anträgen helfen,</b> zum Beispiel bei der Krankenkasse</span></li>
+          <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#9CCBA8"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#1F3D33" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>An passende Fachleute vermitteln,</b> die zu dir und deinem Anliegen passen</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="footrow">
+      <div>
+        <h2>Hilfe darf kein Luxus sein. <span class="hl">Hilf mit!</span></h2>
+        <div class="ways"><span>Spenden</span><span>Fördermitglied werden</span><span>Teilen</span><span>Brief an die Politik (Seite 2)</span></div>
+      </div>
+      <div class="qr"><img src="qr.svg" alt="QR-Code zu malva-ev.de"><p>malva-ev.de</p></div>
+    </div>
+    <p class="sources"><b>malva-ev.de · @malva.ev · info@malva-ev.de</b><br>Quellen: COPSY-Studie, UKE Hamburg (11/2026) · Bundespsychotherapeutenkammer: Wartezeiten 2026 und Auswertung 2019 · DGPPN Basisdaten psychische Erkrankungen · DGVT-BV zum GKV-Spargesetz (2026). Malva ist ein Verein in Gründung aus Bad Dürkheim, Rheinland-Pfalz.</p>
+  </footer>
+</div>
+
+<div class="page letter">
+  <div class="note"><span><b>Zum Ausfüllen:</b> am Computer ausfüllen oder ausdrucken, unterschreiben und per Post schicken. Oder per E-Mail an poststelle@bmg.bund.de</span><span>Vorlage von Malva · malva-ev.de</span></div>
+  <div class="lhead">
+    <span class="lbl">Absender:in</span>
+    <div class="field" id="f-name"></div>
+    <div class="field" id="f-strasse"></div>
+    <div class="field" id="f-ort"></div>
+    <div class="to">Bundesministerium für Gesundheit<br>11055 Berlin</div>
+  </div>
+  <div class="datum">Ort, Datum: <div class="field" id="f-datum"></div></div>
+  <div class="betreff">Psychotherapie muss für alle erreichbar bleiben:<br>Bitte nehmen Sie die Budgetierung ab 2027 zurück</div>
+  <div class="ltext">
+    <p>Sehr geehrte Damen und Herren,</p>
+    <p>ich schreibe Ihnen, weil ich mir Sorgen um die psychotherapeutische Versorgung in Deutschland mache.</p>
+    <p>Schon heute warten Erwachsene im Schnitt fast fünf Monate vom Erstgespräch bis zum Beginn einer Therapie, Kinder und Jugendliche rund sieben Monate. Gleichzeitig zeigt laut der aktuellen COPSY-Studie fast jedes vierte Kind Hinweise auf psychische Auffälligkeiten.</p>
+    <p>Ab Januar 2027 soll ambulante Psychotherapie für Erwachsene wieder budgetiert werden. Fachverbände warnen, dass Praxen dann weniger neue Patientinnen und Patienten aufnehmen können. Für Menschen mit wenig Geld, die sich keine private Behandlung leisten können, heißt das: noch länger warten oder gar keine Hilfe bekommen.</p>
+    <div class="own" id="f-eigen"><span>Mein persönlicher Grund (freiwillig)</span></div>
+    <p>Ich bitte Sie deshalb:</p>
+    <ul>
+      <li>die Budgetierung der ambulanten Psychotherapie zurückzunehmen,</li>
+      <li>mehr Kassensitze für Psychotherapie zu schaffen, besonders auf dem Land,</li>
+      <li>dafür zu sorgen, dass psychische Gesundheit keine Frage des Geldes ist.</li>
+    </ul>
+    <p>Über eine Antwort freue ich mich.</p>
+    <p>Mit freundlichen Grüßen</p>
+  </div>
+  <div class="sign" id="f-sign">Unterschrift (bei E-Mail: dein Name)</div>
+  <div class="lfoot"><span>Quellen: Bundespsychotherapeutenkammer (Wartezeiten) · COPSY-Studie, UKE Hamburg 11/2026 · DGVT-BV 2026</span><span>Stand November 2026</span></div>
+</div>
+</body></html>
