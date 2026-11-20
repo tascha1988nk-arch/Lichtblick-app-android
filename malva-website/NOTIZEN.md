@@ -93,3 +93,8 @@ Reihenfolge laut Natascha: erst Homepage fertig, dann Satzung fürs Finanzamt.
 3. Natascha prüft (Qualifikation, Nachweise, Gespräch) und gibt frei.
 4. Erst danach trägt Natascha die Person mit ihren Filtern ein und sie erscheint in der Suche für Hilfesuchende.
 → Für die Suche: freigegebene Einträge in einer Datenliste pflegen; die Website baut daraus die filterbare Liste (Beruf, Schwerpunkt, Zielgruppe, Ort, online).
+
+## Idee für später: Meilenstein-Bericht als Bild
+- Zu jedem Meilenstein auf „Aktuelles“ ein kurzer Bericht, der als Bild geteilt werden kann (Instagram-Post/Story, WhatsApp).
+- Gestaltung im Stil der Seite: Stängel mit Malva-Blättern, Datum, Titel, 2–3 Sätze, evtl. Foto.
+- Auf der Website je Meilenstein optional „Mehr lesen“ bzw. das Bild zum Ansehen.
