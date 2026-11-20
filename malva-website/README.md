@@ -23,7 +23,7 @@ Keine Cookies, kein Tracking, Schrift lokal eingebunden.
 - **Spendenkonto statt GoFundMe:** in `site.js` `kontoAktiv: true` setzen und IBAN usw. eintragen.
 - **Gründungsmitglieder / Partner / Förderpartner:** oben in `src/team.njk` bzw. `src/partner.njk` (Liste im Kopf der Datei). Förderpartner werden nur mit Namen genannt, ohne Link.
 - **Beiträge Fördermitglieder / Förderpartner:** oben in `src/spenden.njk`.
-- **Quartalsbericht „Aktuelles“:** PDF nach `src/assets/berichte/` legen und oben in `src/aktuelles.njk` eintragen (neuester zuerst). Erscheint auf /aktuelles/, verlinkt auf der Startseite und im Footer.
+- **Meilensteine:** neuen Eintrag oben in `src/meilensteine.njk` unter `geschafft` ergänzen (älteste oben). Kein fester Rhythmus.
 - **Fotos:** als `.webp` nach `src/assets/img/` legen.
 - **Farben und Gestaltung:** `src/assets/css/style.css`.
 

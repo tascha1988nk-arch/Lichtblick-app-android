@@ -1,2 +1,0 @@
-Hier die Quartalsberichte als PDF ablegen, z. B. 2027-Q1-aktuelles.pdf,
-und oben in src/aktuelles.njk in die Liste "berichte" eintragen.
