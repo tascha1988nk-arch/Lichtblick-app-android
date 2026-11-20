@@ -20,7 +20,7 @@ pages = [
     ('05-partner', 'Partner', 'partner', None, ''),
     ('06-fachleute', 'Für Fachleute', 'fachleute', None, 'Anmeldungen kommen als E-Mail an info@malva-ev.de. Du prüfst und gibst frei, erst dann kommt jemand in die Suche.'),
     ('07-spenden', 'Spenden', 'spenden', None, 'Die Vormerk-Formulare brauchen das Plugin <b>Malva Formulare</b> ab Version 1.1 (siehe Vorab).'),
-    ('08-aktuelles', 'Aktuelles', 'aktuelles', None, 'Neue Meilensteine schickst du mir einfach, ich schreibe sie in den Code.'),
+    ('08-neuigkeiten', 'Neuigkeiten', 'neuigkeiten', None, '<b>Umbenannt.</b> Deine bisherige Seite „Aktuelles“ öffnen, Titel auf <b>Neuigkeiten</b> und den Link auf <b>neuigkeiten</b> ändern, dann den Code ersetzen. Neue Meilensteine und Infoblätter schickst du mir einfach.'),
     ('09-kontakt', 'Kontakt', 'kontakt', None, 'Vorher WPForms einrichten (siehe Vorab) und mir die Formular-Zahl schicken. Bis dahin steht dort nur der Platzhalter.'),
     ('10-impressum', 'Impressum', 'impressum', None, ''),
     ('11-datenschutz', 'Datenschutz', 'datenschutz', None, 'Übergangsfassung. Nach der Eintragung professionell prüfen lassen.'),
