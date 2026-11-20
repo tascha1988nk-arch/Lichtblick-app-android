@@ -14,17 +14,16 @@ font_faces = schrift.split('\n', 1)[1]  # für die Seite selbst
 pages = [
     ('01-startseite', 'Startseite', 'startseite', ['natascha-helbig-sw.webp'],
      'Danach: <b>Einstellungen → Lesen</b> → „Eine statische Seite“ → Homepage: <b>Startseite</b>.'),
-    ('02-warum-malva', 'Warum Malva', 'warum-malva', None, ''),
-    ('03-team', 'Team', 'team', None, ''),
+    ('02-warum-malva', 'Warum Malva', 'warum-malva', None, '<b>Neu:</b> Das Team-Karussell steht jetzt hier. Die Seite <b>Team</b> in WordPress auf <b>Entwurf</b> stellen.'),
+    ('03-neuigkeiten', 'Neuigkeiten', 'neuigkeiten', None, '<b>Umbenannt.</b> Deine bisherige Seite „Aktuelles“ öffnen, Titel auf <b>Neuigkeiten</b> und den Link auf <b>neuigkeiten</b> ändern, dann den Code ersetzen.<br><b>Vorher das Infoblatt hochladen:</b> <span class="ui">Medien → Datei hinzufügen</span> → <code>malva-infoblatt-warum-jetzt.pdf</code> (Dateiname nicht ändern, die PDF habe ich dir im Chat geschickt). Sonst führt der Download-Button ins Leere.'),
     ('04-hilfe', 'Hilfe finden', 'hilfe', None, ''),
-    ('05-partner', 'Partner', 'partner', None, ''),
-    ('06-fachleute', 'Für Fachleute', 'fachleute', None, 'Anmeldungen kommen als E-Mail an info@malva-ev.de. Du prüfst und gibst frei, erst dann kommt jemand in die Suche.'),
-    ('07-spenden', 'Unterstütze uns', 'spenden', None, '<b>Umbenannt.</b> Bisherige Seite „Spenden“ öffnen und den Titel auf <b>Unterstütze uns</b> ändern. Der Link bleibt <b>spenden</b>. Die Vormerk-Formulare brauchen das Plugin <b>Malva Formulare</b> ab Version 1.1 (siehe Vorab).'),
-    ('08-neuigkeiten', 'Neuigkeiten', 'neuigkeiten', None, '<b>Umbenannt.</b> Deine bisherige Seite „Aktuelles“ öffnen, Titel auf <b>Neuigkeiten</b> und den Link auf <b>neuigkeiten</b> ändern, dann den Code ersetzen.<br><b>Vorher das Infoblatt hochladen:</b> <span class="ui">Medien → Datei hinzufügen</span> → <code>malva-infoblatt-warum-jetzt.pdf</code> (Dateiname nicht ändern, die PDF habe ich dir im Chat geschickt). Sonst führt der Download-Button ins Leere.'),
+    ('05-antrag-stellen', 'Antrag stellen', 'antrag-stellen', None, '<b>Neu.</b> Neue Seite mit dem Titel <b>Antrag stellen</b> anlegen, der Link ist dann automatisch <b>antrag-stellen</b>.'),
+    ('06-partner', 'Partner', 'partner', None, ''),
+    ('07-fachleute', 'Für Fachleute', 'fachleute', None, 'Anmeldungen kommen als E-Mail an info@malva-ev.de. Du prüfst und gibst frei, erst dann kommt jemand in die Suche.'),
+    ('08-spenden', 'Unterstütze uns', 'spenden', None, '<b>Umbenannt.</b> Bisherige Seite „Spenden“ öffnen und den Titel auf <b>Unterstütze uns</b> ändern. Der Link bleibt <b>spenden</b>. Die Vormerk-Formulare brauchen das Plugin <b>Malva Formulare</b> ab Version 1.1 (siehe Vorab).'),
     ('09-kontakt', 'Kontakt', 'kontakt', None, 'Vorher WPForms einrichten (siehe Vorab) und mir die Formular-Zahl schicken. Bis dahin steht dort nur der Platzhalter.'),
     ('10-impressum', 'Impressum', 'impressum', None, ''),
     ('11-datenschutz', 'Datenschutz', 'datenschutz', None, 'Übergangsfassung. Nach der Eintragung professionell prüfen lassen.'),
-    ('12-antrag-stellen', 'Antrag stellen', 'antrag-stellen', None, '<b>Neu.</b> Neue Seite mit dem Titel <b>Antrag stellen</b> anlegen, der Slug ist dann automatisch <b>antrag-stellen</b>. Weil das Menü einen neuen Punkt hat, bitte auch alle anderen Seiten-Codes neu einfügen.'),
 ]
 import re
 

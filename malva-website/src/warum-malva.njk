@@ -3,6 +3,42 @@ layout: base.njk
 title: Warum Malva
 permalink: /warum-malva/
 description: Die Idee hinter Malva und warum psychologische Hilfe kein Luxus sein sollte.
+# Gründungsmitglieder: einfach weitere Einträge ergänzen.
+# foto: quadratisches Bild in src/assets/img/ (am besten .webp), z. B. /assets/img/jennifer.webp
+# zitat: ein, zwei Sätze, warum die Person bei Malva dabei ist.
+mitglieder:
+  - name: "Natascha Helbig"
+    rolle: "Gründerin · Vorsitzende · Vergabeausschuss (geplant)"
+    foto: "/assets/img/natascha-helbig-studio2-rund.webp"
+    zitat: "Hi, ich bin Natascha. Malva ist aus meinem Herzen entstanden. Schon immer war es mein Traum, Menschen zu helfen. Ich möchte, dass jeder, der es braucht, Zugang zu Hilfe bekommt. Mentale Gesundheit darf kein Privileg sein. Wir alle haben ein erfülltes Leben verdient und dafür kämpfe ich jeden Tag."
+  - name: "Jennifer Rebelein"
+    rolle: "Vorstand · Stellvertretende Vorsitzende · Vergabeausschuss (geplant)"
+    foto: "/assets/img/jennifer-rebelein-rund.webp"
+    zitat: "Hi, ich bin Jenny. Als Physiotherapeutin habe ich jahrelang in der Psychiatrie gearbeitet und dort habe ich eines gelernt: Wer Hilfe braucht, hat sie verdient. Egal, wer du bist. Ich schaue nicht zu, wenn Menschen allein gelassen werden. Deshalb bin ich bei Malva, aus voller Überzeugung."
+  - name: "Christine Franz"
+    rolle: "Vorstand · Kassenwartin · Vergabeausschuss (geplant)"
+    foto: "/assets/img/christine-franz-rund.webp"
+    zitat: "Hi, ich bin Tina. 35 Jahre lang war ich leitende Arzthelferin (MFA) und ich weiß, wie schwer es ist, einen Therapieplatz zu bekommen. Das darf nicht so bleiben. Bei Malva kümmere ich mich um die Kasse und bin mit vollem Herzen dabei, damit jeder Zugang zu mentaler Gesundheit erhält."
+  - name: "Marco Kraft"
+    rolle: "Gründungsmitglied · Vergabeausschuss (geplant)"
+    foto: "/assets/img/marco-kraft-rund.webp"
+    zitat: "Hi, ich bin Marco, 20 Jahre alt. In meinem Umfeld sehe ich, wie wichtig es ist, dass gerade junge Menschen früh Hilfe bekommen. Damit man nicht so viel Zeit mit Gedanken verliert, die man am Ende gar nicht braucht. Dafür setze ich mich bei Malva ein, für alle jungen Menschen."
+  - name: "Natascha Pusch"
+    rolle: "Gründungsmitglied"
+    foto: "/assets/img/natascha-pusch-rund.webp"
+    zitat: "Hi, ich bin Natascha. Ich bin dabei, weil ich fest daran glaube, dass jeder Mensch die Hilfe bekommen sollte, die er braucht. Niemand sollte in schweren Zeiten allein bleiben, nur weil das Geld fehlt. Malva ist für mich eine Herzensangelegenheit und ich unterstütze den Verein, wo ich nur kann."
+  - name: "Christina Schifferer"
+    rolle: "Gründungsmitglied"
+    foto: "/assets/img/christina-schifferer-rund.webp"
+    zitat: "Hi, ich bin Christina. Ich weiß, wie viel es bedeutet, im richtigen Moment Unterstützung zu bekommen. Hilfe muss genau dort ankommen, wo sie gebraucht wird und zwar für jeden. Mit Malva möchte ich dazu beitragen, dass niemand warten muss, bis es zu spät ist."
+  - name: "Helmut Vohl"
+    rolle: "Gründungsmitglied"
+    foto: "/assets/img/helmut-vohl-rund.webp"
+    zitat: "Hi, ich bin Helmut, der alte Hase im Team. Ich habe in meinem Leben gelernt: Mit Optimismus und Zusammenhalt lässt sich fast alles schaffen. Ich glaube fest an die Menschen und daran, dass wir mit Malva wirklich etwas bewegen können. Dafür bin ich mit ganzem Herzen dabei."
+  - name: "Florian Wittmann"
+    rolle: "Gründungsmitglied"
+    foto: "/assets/img/florian-wittmann-rund.webp"
+    zitat: "Hi, ich bin Florian. Ich weiß aus eigener Erfahrung, wie schwer der Weg sein kann, wenn es einem psychisch nicht gut geht. Umso mehr freue ich mich, dass Menschen mit Malva endlich die Hilfe bekommen können, die sie brauchen. Genau deshalb bin ich von Anfang an dabei."
 ---
 {% import "macros.njk" as m %}
 
@@ -71,7 +107,18 @@ description: Die Idee hinter Malva und warum psychologische Hilfe kein Luxus sei
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="team">
+  <div class="container">
+    <h2>Wer hinter Malva steht</h2>
+    <p class="lead">Hinter Malva stehen Menschen, die finden: Psychische Gesundheit darf keine Frage des Geldes sein. Das sind unsere Gründungsmitglieder.</p>
+    {% call m.carousel("Gründungsmitglieder", "team-karussell") %}
+      {% for p in mitglieder %}{{ m.profileCard(p) }}{% endfor %}
+      {{ m.profileCard({ name: "Hier könntest du stehen", einladung: true, html: "Du möchtest Malva mitgründen? Wir freuen uns über deine E-Mail an " + m.email(site.email) + "." }) }}
+    {% endcall %}
+  </div>
+</section>
+
+<section class="section section--tint">
   <div class="container split">
     <div>
       <h2>Warum der Name Malva?</h2>
@@ -84,12 +131,12 @@ description: Die Idee hinter Malva und warum psychologische Hilfe kein Luxus sei
   </div>
 </section>
 
-<section class="section section--tint">
+<section class="section">
   <div class="container narrow center">
     <h2>Mach mit</h2>
-    <p>Lerne das Team kennen oder unterstütze Malva mit einer Spende.</p>
+    <p>Bleib auf dem Laufenden oder unterstütze Malva mit einer Spende.</p>
     <div class="btn-row btn-row--center">
-      <a href="/team/" class="btn btn--secondary">Zum Team</a>
+      <a href="/neuigkeiten/" class="btn btn--secondary">Zu den Neuigkeiten</a>
       <a href="/spenden/" class="btn btn--primary">Jetzt unterstützen</a>
     </div>
   </div>

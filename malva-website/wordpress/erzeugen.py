@@ -101,16 +101,15 @@ js = {
 pages = {
     'startseite': 'index.html',
     'warum-malva': 'warum-malva/index.html',
-    'team': 'team/index.html',
+    'neuigkeiten': 'neuigkeiten/index.html',
     'hilfe': 'hilfe/index.html',
+    'antrag-stellen': 'antrag-stellen/index.html',
     'partner': 'partner/index.html',
     'fachleute': 'fachleute/index.html',
     'spenden': 'spenden/index.html',
-    'neuigkeiten': 'neuigkeiten/index.html',
     'kontakt': 'kontakt/index.html',
     'impressum': 'impressum/index.html',
     'datenschutz': 'datenschutz/index.html',
-    'antrag-stellen': 'antrag-stellen/index.html',
 }
 imgs = set()
 for i, (slug, path) in enumerate(pages.items(), 1):
