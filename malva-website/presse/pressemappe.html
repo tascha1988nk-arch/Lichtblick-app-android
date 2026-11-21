@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<title>Pressemappe Malva</title>
+<style>
+@font-face{font-family:Outfit;font-weight:400;src:url(../src/assets/fonts/outfit-latin-400-normal.woff2)}
+@font-face{font-family:Outfit;font-weight:500;src:url(../src/assets/fonts/outfit-latin-500-normal.woff2)}
+@font-face{font-family:Outfit;font-weight:600;src:url(../src/assets/fonts/outfit-latin-600-normal.woff2)}
+@page{size:210mm 297mm;margin:0}
+:root{--g:#1F3D33;--c:#F4F2EE;--m:#4E5A55;--l:#A58BEA;--ll:#C3B1F2;--lt:#6A4BC4;--sl:#9CCBA8;--gt:#2F6B48;--tint:#ECE9F6;--sage:#E3EEE6}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:Outfit,sans-serif;color:var(--g);background:#fff}
+.page{width:210mm;height:297mm;position:relative;overflow:hidden;background:var(--c);display:flex;flex-direction:column;page-break-after:always}
+.head{flex:none;background:var(--g);color:var(--c);padding:9mm 16mm 8mm;position:relative;overflow:hidden}
+.top{display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:2.2mm}
+.logo svg{height:11mm;width:auto}
+.logo .name{font-weight:600;font-size:8.5mm;letter-spacing:-.03em;line-height:.9}
+.logo .claim{font-weight:500;font-size:2.8mm;margin-top:1mm;color:var(--sl)}
+.chip{border:.35mm solid var(--sl);color:var(--sl);border-radius:99px;padding:1.2mm 3.4mm;font-size:2.9mm;font-weight:500}
+h1{font-weight:600;font-size:12mm;line-height:1.02;letter-spacing:-.035em;margin-top:8mm}
+h1 .hl{color:var(--ll)}
+.sub{font-size:3.9mm;line-height:1.45;margin-top:3mm;color:#DCE6DF;max-width:170mm}
+.deco{position:absolute;right:-22mm;bottom:-30mm;width:85mm;opacity:.12}
+.body{flex:1;padding:6mm 16mm 0;display:grid;grid-template-columns:repeat(6,1fr);gap:3.5mm;align-content:start}
+.box{border-radius:4mm;padding:5mm 5.5mm}
+.w6{grid-column:span 6}.w4{grid-column:span 4}.w3{grid-column:span 3}.w2{grid-column:span 2}
+.weiss{background:#fff}.lila{background:var(--tint)}.salbei{background:var(--sage)}.dunkel{background:var(--g);color:var(--c)}
+.kicker{font-weight:600;font-size:2.5mm;letter-spacing:.14em;text-transform:uppercase;color:var(--lt);margin-bottom:1.5mm}
+.salbei .kicker{color:var(--gt)} .dunkel .kicker{color:var(--sl)}
+h2{font-weight:600;font-size:5mm;line-height:1.15;letter-spacing:-.02em;margin-bottom:2mm}
+p{font-size:3.15mm;line-height:1.5;margin-bottom:1.6mm}
+p:last-child{margin-bottom:0}
+.dunkel p{color:#DCE6DF}
+b{font-weight:600}
+.list{list-style:none;display:flex;flex-direction:column;gap:1.6mm}
+.list li{font-size:3.15mm;line-height:1.42;padding-left:4mm;position:relative}
+.list li::before{content:"";position:absolute;left:0;top:1.4mm;width:1.8mm;height:1.8mm;border-radius:50%;background:var(--l)}
+.dunkel .list li::before{background:var(--sl)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin-top:1mm}
+.fact{background:var(--c);border-radius:3mm;padding:3.5mm}
+.fact .n{font-weight:600;font-size:7mm;letter-spacing:-.03em;line-height:1}
+.fact .n small{font-size:3.6mm;font-weight:500}
+.fact p{font-size:2.8mm;line-height:1.4;margin-top:1.2mm}
+.src{font-size:2.3mm;color:var(--m);display:block;margin-top:1mm;line-height:1.3}
+.quote{font-size:4.3mm;line-height:1.45;font-weight:500;color:var(--c)}
+.quote-by{font-size:2.9mm;color:var(--sl);margin-top:2.5mm}
+.portrait{display:grid;grid-template-columns:30mm 1fr;gap:5mm;align-items:center}
+.portrait img{width:30mm;height:37.5mm;object-fit:cover;border-radius:3mm}
+.steck{display:grid;grid-template-columns:19mm 1fr;gap:1.2mm 3mm;font-size:2.95mm;line-height:1.38}
+.steck dt{font-weight:600}
+.steck dd{color:var(--m)}
+.press p{font-size:3.1mm;line-height:1.55}
+.press .ttl{font-weight:600;font-size:4.6mm;line-height:1.25;margin-bottom:1mm}
+.press .tease{font-weight:600;font-size:3.3mm;color:var(--m);margin-bottom:2.5mm}
+.foot{flex:none;padding:3.5mm 16mm 5mm;font-size:2.4mm;line-height:1.45;color:var(--m)}
+</style></head><body>
+
+<!-- SEITE 1 -->
+<div class="page">
+  <header class="head">
+    <div class="top">
+      <div class="logo">
+        <svg viewBox="0 0 200 200"><path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#C3B1F2" fill-opacity=".92"/><path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#9CCBA8" fill-opacity=".85"/></svg>
+        <div><div class="name">malva</div><div class="claim">Weil Hilfe kein Luxus sein sollte.</div></div>
+      </div>
+      <span class="chip">Pressemappe · Stand November 2026</span>
+    </div>
+    <h1>Psychische Gesundheit darf <span class="hl">keine Frage des Geldes</span> sein.</h1>
+    <p class="sub">Malva ist ein gemeinnütziger Verein in Gründung aus Bad Dürkheim. Er will Menschen mit wenig Geld den Zugang zu Psychotherapie, Beratung und Coaching ermöglichen.</p>
+    <svg class="deco" viewBox="0 0 200 200"><path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#C3B1F2"/><path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#9CCBA8"/></svg>
+  </header>
+
+  <main class="body">
+    <section class="box weiss w6">
+      <p class="kicker">Kurz gesagt</p>
+      <h2>Wer Geld hat, zahlt privat. Wer wenig hat, wartet.</h2>
+      <p>Wer in Deutschland einen Therapieplatz sucht, wartet oft fünf Monate und länger. Wer es sich leisten kann, weicht auf eine private Behandlung aus. Menschen mit wenig Geld bleiben dagegen häufig ganz ohne Hilfe. Ab Januar 2027 wird die ambulante Psychotherapie für Erwachsene zudem wieder budgetiert, Fachverbände befürchten noch längere Wartezeiten.</p>
+      <p><b>Malva will diese Lücke schließen:</b> Der Verein will Kosten übernehmen, bei Anträgen helfen und an qualifizierte Fachleute vermitteln. Damit Hilfe nicht am Kontostand scheitert.</p>
+    </section>
+
+    <section class="box lila w6">
+      <p class="kicker">Die Lage in Zahlen</p>
+      <div class="facts">
+        <div class="fact"><div class="n">142 <small>Tage</small></div><p>warten Erwachsene im Schnitt zwischen Erstgespräch und Therapiebeginn.</p><span class="src">Bundespsychotherapeutenkammer, Daten 2019</span></div>
+        <div class="fact"><div class="n">28 <small>Wochen</small></div><p>warten Kinder und Jugendliche im Schnitt auf einen Therapieplatz.</p><span class="src">Bundespsychotherapeutenkammer, 2026</span></div>
+        <div class="fact"><div class="n">24 <small>%</small></div><p>der Kinder und Jugendlichen zeigen Hinweise auf psychische Auffälligkeiten.</p><span class="src">COPSY-Studie, UKE Hamburg, 11/2026</span></div>
+      </div>
+    </section>
+
+    <section class="box salbei w3">
+      <p class="kicker">Was Malva tut</p>
+      <h2>Drei Wege zur Hilfe</h2>
+      <ul class="list">
+        <li><b>Kosten übernehmen</b> für Psychotherapie, psychologische Beratung und Coaching, wenn das Geld fehlt</li>
+        <li><b>Bei Anträgen helfen</b>, zum Beispiel bei der Kostenerstattung durch die Krankenkasse</li>
+        <li><b>An Fachleute vermitteln</b>, über ein wachsendes Netzwerk qualifizierter Therapeut:innen und Berater:innen</li>
+      </ul>
+      <p style="margin-top:2mm">Malva bietet selbst keine Behandlung an. Über jede Förderung entscheidet ein Vergabeausschuss nach klaren Regeln, vertraulich und unabhängig.</p>
+    </section>
+
+    <section class="box weiss w3">
+      <p class="kicker">Steckbrief</p>
+      <dl class="steck">
+        <dt>Name</dt><dd>Malva (Verein in Gründung, später Malva e. V.)</dd>
+        <dt>Sitz</dt><dd>Bad Dürkheim, Rheinland-Pfalz</dd>
+        <dt>Start</dt><dd>Pilotprojekt in Rheinland-Pfalz, später bundesweit</dd>
+        <dt>Team</dt><dd>8 Gründungsmitglieder, alle ehrenamtlich</dd>
+        <dt>Vorstand</dt><dd>Natascha Helbig (Vorsitz), Jennifer Rebelein (Stellvertretung), Christine Franz (Kasse)</dd>
+        <dt>Status</dt><dd>Satzung beim Finanzamt zur Prüfung, Gründungsversammlung in Vorbereitung</dd>
+        <dt>Der Name</dt><dd>Die Wilde Malve, eine alte Heilpflanze am Wegrand, für alle zugänglich</dd>
+      </dl>
+    </section>
+  </main>
+  <footer class="foot">Malva · Verein in Gründung · Bad Dürkheim · malva-ev.de · info@malva-ev.de · Instagram @malva.ev</footer>
+</div>
+
+<!-- SEITE 2 -->
+<div class="page">
+  <main class="body" style="padding-top:12mm">
+    <section class="box dunkel w6">
+      <div class="portrait">
+        <img src="../src/assets/img/natascha-helbig.webp" alt="">
+        <div>
+          <p class="kicker">Die Gründerin</p>
+          <p class="quote">„Eine Hilfsorganisation zu gründen, war schon immer mein Traum. In meiner Praxis erlebe ich immer öfter, dass Menschen aus finanziellen Gründen keine Hilfe bekommen. Das möchte ich ändern.“</p>
+          <p class="quote-by">Natascha Helbig, psychologische Beraterin und Gründerin von Malva</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="box weiss w6 press">
+      <p class="kicker">Pressetext zur freien Verwendung</p>
+      <p class="ttl">Damit Hilfe nicht am Geld scheitert: Bad Dürkheimerin gründet Verein für psychologische Unterstützung</p>
+      <p class="tease">Monatelange Wartezeiten, private Behandlung zu teuer: Der neue Verein Malva will Menschen mit wenig Geld den Weg zu Therapie, Beratung und Coaching ebnen.</p>
+      <p>Bad Dürkheim. Wer in Deutschland psychotherapeutische Hilfe sucht, braucht vor allem eines: Geduld. Im Schnitt vergehen rund 142 Tage zwischen dem Erstgespräch und dem Beginn einer Therapie, Kinder und Jugendliche warten sogar rund sieben Monate. Wer es sich leisten kann, zahlt privat. Wer wenig Geld hat, wartet oder gibt auf.</p>
+      <p>„In meiner Praxis erlebe ich immer öfter, dass Menschen aus finanziellen Gründen keine Hilfe bekommen“, sagt Natascha Helbig, psychologische Beraterin aus Bad Dürkheim. Gemeinsam mit sieben Mitstreiterinnen und Mitstreitern gründet sie deshalb den gemeinnützigen Verein Malva. Er will die Kosten für Psychotherapie, psychologische Beratung und Coaching übernehmen, wenn das Geld fehlt, Betroffene bei Anträgen an die Krankenkasse unterstützen und sie an qualifizierte Fachleute vermitteln.</p>
+      <p>Der Zeitpunkt ist kein Zufall: Ab Januar 2027 wird die ambulante Psychotherapie für Erwachsene wieder budgetiert. Fachverbände befürchten, dass Praxen dann weniger neue Patientinnen und Patienten aufnehmen können. „Wir wollen kein weiteres Versprechen sein, auf das Menschen warten müssen“, sagt Helbig. „Sobald der Verein steht, wollen wir direkt helfen können.“</p>
+      <p>Malva startet als Pilotprojekt in Rheinland-Pfalz, Online-Angebote sollen auch Menschen in anderen Regionen erreichen. Über jede Förderung entscheidet ein unabhängiger Vergabeausschuss, vertraulich und nach festen Regeln. Der Name stammt von der Wilden Malve, einer alten Heilpflanze, die am Wegrand wächst und für alle da ist. Derzeit liegt die Satzung dem Finanzamt zur Prüfung vor, die Gründungsversammlung ist in Vorbereitung. Unterstützen kann man Malva schon jetzt: durch Spenden, als Fördermitglied oder einfach durchs Weitersagen.</p>
+      <p><b>Mehr Informationen:</b> malva-ev.de · Instagram @malva.ev</p>
+    </section>
+
+    <section class="box lila w3">
+      <p class="kicker">Pressekontakt</p>
+      <p><b>Natascha Helbig</b><br>Gründerin und Vorsitzende<br>Kurbrunnenstraße 11, 67098 Bad Dürkheim<br>info@malva-ev.de<br>[Telefonnummer]</p>
+      <p>Gern stehen wir für Interviews, Hintergrundgespräche und Drehtermine zur Verfügung.</p>
+    </section>
+
+    <section class="box salbei w3">
+      <p class="kicker">Bildmaterial</p>
+      <p>Porträtfotos von Natascha Helbig, Teamfotos und das Malva-Logo in hoher Auflösung schicken wir Ihnen gern auf Anfrage.</p>
+      <p>Weitere Hintergründe zur Budgetierung 2027 finden Sie in unserem Infoblatt auf malva-ev.de/neuigkeiten.</p>
+    </section>
+  </main>
+  <footer class="foot">Quellen: Bundespsychotherapeutenkammer (Wartezeiten) · COPSY-Studie, Universitätsklinikum Hamburg-Eppendorf (11/2026) · GKV-Beitragssatzstabilisierungsgesetz (2026).</footer>
+</div>
+</body></html>
