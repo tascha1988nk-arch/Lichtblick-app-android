@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Outfit;font-weight:400;src:url(../../src/assets/fonts/outfit-latin-400-normal.woff2)}
+@font-face{font-family:Outfit;font-weight:500;src:url(../../src/assets/fonts/outfit-latin-500-normal.woff2)}
+@font-face{font-family:Outfit;font-weight:600;src:url(../../src/assets/fonts/outfit-latin-600-normal.woff2)}
+:root{--g:#1F3D33;--c:#F4F2EE;--ll:#C3B1F2;--l:#A58BEA;--sl:#9CCBA8}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:transparent;font-family:Outfit,sans-serif}
+.st{width:1080px;height:1920px;position:relative;overflow:hidden}
+.full{background:var(--g);color:var(--c);padding:230px 100px 300px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.deco{position:absolute;right:-150px;top:-110px;width:640px;opacity:.10}
+.chip{border:3px solid var(--sl);color:var(--sl);border-radius:999px;padding:10px 30px;font-size:32px;font-weight:600;letter-spacing:.04em}
+h1{font-weight:600;font-size:96px;line-height:1.05;letter-spacing:-.035em;margin-top:50px}
+h1 .hl{color:var(--ll)}
+.de{font-size:34px;line-height:1.4;color:#C9D6CE;margin-top:26px;font-weight:500}
+.ring{position:relative;width:560px;height:560px;margin-top:70px}
+.ring svg.r{width:100%;height:100%;transform:rotate(-90deg)}
+.ring .mid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .mid svg{width:150px;height:150px}
+.amt{font-weight:600;font-size:92px;letter-spacing:-.04em;line-height:1;margin-top:10px}
+.of{font-size:36px;color:var(--sl);font-weight:500;margin-top:8px}
+.gift{margin-top:60px;display:inline-flex;align-items:center;gap:22px;background:rgba(244,242,238,.08);border:1px solid rgba(244,242,238,.2);border-radius:999px;padding:22px 38px;font-size:36px;font-weight:600}
+.hint{font-size:34px;color:var(--sl);margin-top:40px;font-weight:500}
+.linkspace{position:absolute;left:0;right:0;bottom:300px;text-align:center;font-size:32px;color:rgba(244,242,238,.55);font-weight:500}
+.foot{position:absolute;left:100px;right:96px;bottom:110px;display:flex;justify-content:space-between;align-items:center;color:var(--c)}
+.brand{display:flex;align-items:center;gap:20px;font-weight:600;font-size:42px;letter-spacing:-.03em}
+.brand svg{height:56px;width:auto}
+.handle{font-size:36px;font-weight:600;color:var(--sl)}
+/* Overlay-Karte für die Song-Story */
+.ov{background:transparent}
+.card{position:absolute;left:70px;right:70px;bottom:260px;background:var(--g);color:var(--c);border-radius:44px;padding:44px 50px;display:flex;align-items:center;gap:36px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.card .big{font-weight:600;font-size:120px;line-height:.9;letter-spacing:-.04em;color:var(--ll);flex:none;text-align:center;min-width:150px}
+.card .big small{display:block;font-size:30px;letter-spacing:.02em;color:var(--sl);margin-top:10px}
+.card .t{font-size:40px;line-height:1.25;font-weight:600}
+.card .t span{display:block;font-size:30px;font-weight:500;color:#C9D6CE;margin-top:10px;line-height:1.35}
+</style></head><body>
+<template id="mark-d"><svg viewBox="0 0 200 200"><path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#C3B1F2" fill-opacity=".92"/><path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#9CCBA8" fill-opacity=".85"/></svg></template>
+<div id="root"></div>
+<script>
+const P = new URLSearchParams(location.search);
+const kind = P.get('k'); const amount = +(P.get('a')||0); const goal = 500;
+const mark = () => document.getElementById('mark-d').innerHTML;
+const foot = `<div class="foot"><div class="brand">${mark()}<span>malva</span></div><span class="handle">@malva.ev</span></div>`;
+function ring(a){
+  const r=250, C=2*Math.PI*r, f=Math.min(a/goal,1);
+  return `<div class="ring"><svg class="r" viewBox="0 0 560 560"><circle cx="280" cy="280" r="${r}" fill="none" stroke="rgba(244,242,238,.12)" stroke-width="34"/>
+  ${f>0?`<circle cx="280" cy="280" r="${r}" fill="none" stroke="#C3B1F2" stroke-width="34" stroke-linecap="round" stroke-dasharray="${C*f} ${C}"/>`:''}</svg>
+  <div class="mid">${mark()}<div class="amt">${a} €</div><div class="of">of ${goal} € · von ${goal} €</div></div></div>`;
+}
+let h='';
+if(kind==='ov29'||kind==='ov30'){
+  const n = kind==='ov29' ? '2' : '1';
+  const t = kind==='ov29' ? 'days until Giving Tuesday for Malva 💜' : 'Tomorrow is Giving Tuesday for Malva 💜';
+  const d = kind==='ov29' ? 'Noch 2 Tage bis zum Spendentag · Dec 1st' : 'Morgen ist Spendentag · every donor gets a thank-you song';
+  h=`<div class="st ov"><div class="card"><div class="big">${n}<small>${kind==='ov29'?'DAYS':'DAY'}</small></div><div class="t">${t}<span>${d}</span></div></div></div>`;
+} else if(kind==='start'){
+  h=`<div class="st full"><span class="deco">${mark()}</span><span class="chip">Giving Tuesday · December 1st</span>
+  <h1>Today we raise money for <span class="hl">therapy.</span></h1>
+  <p class="de">Heute sammeln wir für Therapie für Menschen, die sie sich nicht leisten können.</p>
+  ${ring(0)}
+  <div class="gift">🎁 Every donor gets a thank-you song</div>
+  <p class="hint">Send me a screenshot of your donation via DM</p>
+  ${foot}</div>`;
+} else if(kind==='meter'){
+  h=`<div class="st full"><span class="deco">${mark()}</span><span class="chip">Giving Tuesday · Update</span>
+  <h1>We're growing! <span class="hl">Thank you.</span></h1>
+  <p class="de">Danke an alle, die schon gespendet haben!</p>
+  ${ring(amount)}
+  <p class="hint" style="margin-top:60px">Help us reach ${goal} € · Hilf mit!</p>
+  ${foot}</div>`;
+} else if(kind==='goal'){
+  h=`<div class="st full"><span class="deco">${mark()}</span><span class="chip">Giving Tuesday · Goal reached</span>
+  <h1>We did it! <span class="hl">${goal} €</span> for therapy.</h1>
+  <p class="de">Wir haben es geschafft! Danke von ganzem Herzen.</p>
+  ${ring(goal)}
+  <p class="hint" style="margin-top:60px">Every donation from now on helps even more 💜</p>${foot}</div>`;
+} else if(kind==='thanks'){
+  h=`<div class="st full" style="justify-content:center"><span class="deco">${mark()}</span>
+  <div style="width:220px">${mark()}</div>
+  <h1>Thank you <span class="hl">so much.</span></h1>
+  <p class="de" style="font-size:40px;margin-top:40px">Every euro, every share, every message means the world to us.</p>
+  <p class="de">Danke für jeden Euro, jedes Teilen und jede Nachricht. Teilen kann heilen.</p>
+  <p class="hint" style="margin-top:70px">Your thank-you song is on its way 🎁</p>${foot}</div>`;
+}
+document.getElementById('root').innerHTML=h;
+</script></body></html>
