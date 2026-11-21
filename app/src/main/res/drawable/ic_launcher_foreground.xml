@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- App-Symbol: schlichte Sonne im Stil des Lichtblick-Logos (Kreis mit 12 kurzen Strahlen). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FCE7D2"
+        android:pathData="M40,54 a14,14 0 1,0 28,0 a14,14 0 1,0 -28,0" />
+    <path
+        android:strokeColor="#A27330"
+        android:strokeWidth="2.2"
+        android:pathData="M40,54 a14,14 0 1,0 28,0 a14,14 0 1,0 -28,0" />
+    <path
+        android:strokeColor="#A27330"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:pathData="M54.00,35.00 L54.00,29.50 M63.50,37.55 L66.25,32.78 M70.45,44.50 L75.22,41.75 M73.00,54.00 L78.50,54.00 M70.45,63.50 L75.22,66.25 M63.50,70.45 L66.25,75.22 M54.00,73.00 L54.00,78.50 M44.50,70.45 L41.75,75.22 M37.55,63.50 L32.78,66.25 M35.00,54.00 L29.50,54.00 M37.55,44.50 L32.78,41.75 M44.50,37.55 L41.75,32.78" />
+</vector>
