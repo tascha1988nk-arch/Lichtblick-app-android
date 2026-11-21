@@ -47,7 +47,7 @@ Wenn du in der App auf „Termin vereinbaren“ oder auf den Link zur Website ti
 
 ## 7. Google Play
 
-Du lädst die App über Google Play herunter. Dabei verarbeitet Google Daten in eigener Verantwortung, zum Beispiel die Daten deines Google-Kontos und Angaben zum Download. Darauf habe ich keinen Einfluss. Mehr dazu findest du in der Datenschutzerklärung von Google: https://policies.google.com/privacy
+Du lädst die App über Google Play herunter bzw. kaufst sie dort. Dabei verarbeitet Google Daten in eigener Verantwortung, zum Beispiel die Daten deines Google-Kontos und Angaben zum Download. Darauf habe ich keinen Einfluss. Wenn du die App kaufst, wickelt Google Play die Bezahlung ab. Deine Zahlungsdaten verarbeitet nur Google. Ich bekomme sie nicht. Mehr dazu findest du in der Datenschutzerklärung von Google: https://policies.google.com/privacy
 
 Wenn du in den Einstellungen deines Geräts erlaubt hast, Diagnosedaten an Google zu senden, kann Google mir zusammengefasste Statistiken bereitstellen, zum Beispiel über Abstürze der App. Daraus kann ich keine einzelnen Personen erkennen.
 

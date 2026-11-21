@@ -80,7 +80,8 @@ object LegalContent {
         LegalSection(
             "Google Play",
             "Beim Herunterladen über Google Play verarbeitet Google Daten in eigener Verantwortung, " +
-                "z. B. die Daten deines Google-Kontos. Wenn du in deinem Gerät erlaubt hast, Diagnosedaten " +
+                "z. B. die Daten deines Google-Kontos. Den Kauf der App wickelt Google Play ab; deine Zahlungsdaten " +
+                "erhält nur Google, nicht Lichtblick. Wenn du in deinem Gerät erlaubt hast, Diagnosedaten " +
                 "an Google zu senden, kann Google zusammengefasste Statistiken, etwa zu Abstürzen, " +
                 "bereitstellen. Daraus lassen sich keine einzelnen Personen erkennen.",
         ),
