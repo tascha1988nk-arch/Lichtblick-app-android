@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Outfit;font-weight:400;src:url(../../src/assets/fonts/outfit-latin-400-normal.woff2)}
+@font-face{font-family:Outfit;font-weight:500;src:url(../../src/assets/fonts/outfit-latin-500-normal.woff2)}
+@font-face{font-family:Outfit;font-weight:600;src:url(../../src/assets/fonts/outfit-latin-600-normal.woff2)}
+:root{--g:#1F3D33;--c:#F4F2EE;--m:#4E5A55;--l:#A58BEA;--ll:#C3B1F2;--lt:#7B5CD6;--sl:#9CCBA8;--gt:#2F6B48;--tint:#ECE9F6;--sage:#E3EEE6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Outfit,sans-serif;background:#888}
+.slide{width:1080px;height:1350px;position:relative;overflow:hidden;padding:110px 100px 180px;display:flex;flex-direction:column;justify-content:center}
+.dark{background:var(--g);color:var(--c)} .light{background:var(--c);color:var(--g)}
+.hl{color:var(--ll)} .light .hl{color:var(--lt)}
+.kicker{font-weight:600;font-size:34px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:36px;color:var(--sl)}
+.light .kicker{color:var(--lt)}
+h1{font-weight:600;font-size:122px;line-height:1.02;letter-spacing:-.035em}
+h2{font-weight:600;font-size:84px;line-height:1.06;letter-spacing:-.03em}
+.body{font-size:44px;line-height:1.42;margin-top:44px;font-weight:500}
+.dark .body{color:#E4E8E2} .light .body{color:var(--m)}
+.src{position:absolute;left:100px;right:100px;bottom:150px;font-size:24px;line-height:1.35;opacity:.7}
+.foot{position:absolute;left:100px;right:96px;bottom:70px;display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:20px;font-weight:600;font-size:42px;letter-spacing:-.03em}
+.brand svg{height:56px;width:auto}
+.num{font-size:34px;font-weight:500;opacity:.7}
+.swipe{font-size:38px;font-weight:600;color:var(--ll)}
+.light .swipe{color:var(--lt)}
+.deco{position:absolute;right:-140px;top:-120px;width:620px;opacity:.10}
+
+/* Kacheln */
+.tiles{display:grid;gap:28px;margin-top:50px}
+.tile{border-radius:36px;padding:40px 44px}
+.tile .n{font-weight:600;font-size:96px;letter-spacing:-.04em;line-height:1}
+.tile .n small{font-size:48px;font-weight:500;letter-spacing:-.02em}
+.tile p{font-size:36px;line-height:1.38;margin-top:12px;font-weight:500}
+.t-white{background:#fff}
+.t-lila{background:var(--tint)}
+.t-sage{background:var(--sage)}
+.t-dark{background:rgba(244,242,238,.08);border:1px solid rgba(244,242,238,.18)}
+.t-dark p{color:#E4E8E2}
+
+.list{list-style:none;display:flex;flex-direction:column;gap:30px;margin-top:44px}
+.list li{font-size:42px;line-height:1.3;font-weight:500;display:grid;grid-template-columns:52px 1fr;gap:30px;align-items:start}
+.list li svg{width:52px;height:52px;margin-top:2px}
+.list b{font-weight:600}
+.list .small{display:block;font-size:32px;line-height:1.35;font-weight:400;opacity:.85;margin-top:6px}
+.note{margin-top:44px;padding:30px 38px;border-radius:30px;font-size:38px;line-height:1.35;font-weight:600}
+.light .note{background:var(--g);color:var(--c)}
+.dark .note{background:var(--ll);color:var(--g)}
+
+.four{display:flex;gap:26px;margin:10px 0 56px}
+.four svg{width:120px;height:auto}
+
+.cta{display:flex;flex-direction:column;gap:22px;margin-top:50px}
+.cta div{display:flex;align-items:center;gap:30px;background:rgba(244,242,238,.08);border:1px solid rgba(244,242,238,.2);border-radius:999px;padding:24px 40px;font-size:44px;font-weight:600}
+.cta span.ic{width:74px;height:74px;border-radius:50%;background:var(--ll);color:var(--g);display:grid;place-items:center;font-size:36px;flex:none}
+.big-sage{color:var(--sl);font-weight:600;font-size:64px;line-height:1.15;margin-top:56px;letter-spacing:-.02em}
+.handle{display:inline-block;margin-top:50px;background:var(--g);color:var(--c);border-radius:999px;padding:26px 52px;font-size:56px;font-weight:600;letter-spacing:-.02em}
+.mark-big{width:230px;margin-bottom:60px}
+</style></head><body>
+<template id="mark-d"><svg viewBox="0 0 200 200"><path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#C3B1F2" fill-opacity=".92"/><path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#9CCBA8" fill-opacity=".85"/></svg></template>
+<template id="mark-h"><svg viewBox="0 0 200 200"><path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#A58BEA" fill-opacity=".9"/><path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#7FAF8E" fill-opacity=".82"/></svg></template>
+
+<!-- 1 Einstieg -->
+<section class="slide dark" id="s1">
+  <span class="deco" data-mark="d"></span>
+  <p class="kicker">Psychotherapie 2027</p>
+  <div class="four">
+    <svg viewBox="0 0 40 60"><circle cx="20" cy="12" r="9" fill="#C3B1F2"/><path d="M4 58 C4 34 36 34 36 58 Z" fill="#C3B1F2"/></svg>
+    <svg viewBox="0 0 40 60"><circle cx="20" cy="12" r="9" fill="#3E5A50"/><path d="M4 58 C4 34 36 34 36 58 Z" fill="#3E5A50"/></svg>
+    <svg viewBox="0 0 40 60"><circle cx="20" cy="12" r="9" fill="#3E5A50"/><path d="M4 58 C4 34 36 34 36 58 Z" fill="#3E5A50"/></svg>
+    <svg viewBox="0 0 40 60"><circle cx="20" cy="12" r="9" fill="#3E5A50"/><path d="M4 58 C4 34 36 34 36 58 Z" fill="#3E5A50"/></svg>
+  </div>
+  <h1>Jedes <span class="hl">4. Kind</span> ist psychisch belastet.</h1>
+  <p class="body">Und ab Januar 2027 wird es für viele Erwachsene noch schwerer, einen Therapieplatz zu bekommen.</p>
+  <p class="src">COPSY-Studie, Universitätsklinikum Hamburg-Eppendorf, November 2026</p>
+  <div class="foot"><div class="brand" data-mark="d"><span>malva</span></div><span class="swipe">Wischen →</span></div>
+</section>
+
+<!-- 2 Wartezeiten -->
+<section class="slide light" id="s2">
+  <p class="kicker">Schon heute</p>
+  <h2>Monatelang warten auf Hilfe</h2>
+  <div class="tiles">
+    <div class="tile t-white"><div class="n">142 <small>Tage</small></div><p>warten Erwachsene im Schnitt zwischen Erstgespräch und Therapiebeginn. Fast fünf Monate.</p></div>
+    <div class="tile t-lila"><div class="n">28 <small>Wochen</small></div><p>warten Kinder und Jugendliche im Schnitt auf einen Therapieplatz. Rund sieben Monate.</p></div>
+  </div>
+  <p class="src">Bundespsychotherapeutenkammer (Daten 2019 und 2026)</p>
+  <div class="foot"><div class="brand" data-mark="h"><span>malva</span></div><span class="num">2 / 8</span></div>
+</section>
+
+<!-- 3 Der Deckel -->
+<section class="slide dark" id="s3">
+  <p class="kicker">Neues Spargesetz</p>
+  <h2>Ab 1. Januar 2027 kommt der <span class="hl">Deckel</span></h2>
+  <p class="body">Ambulante Psychotherapie für Erwachsene wird wieder aus einem festen Topf bezahlt.</p>
+  <ul class="list">
+    <li><span data-mark="d"></span><span><b>Der Topf ist begrenzt</b><span class="small">Er richtet sich nach der Menge von 2025</span></span></li>
+    <li><span data-mark="d"></span><span><b>Mehr Behandlungen, weniger Geld pro Stunde</b><span class="small">Werden mehr Menschen behandelt, sinkt der Wert jeder Stunde</span></span></li>
+    <li><span data-mark="d"></span><span><b>Zuschläge fallen weg</b><span class="small">für Kurzzeittherapien, also gerade für den schnellen Einstieg</span></span></li>
+  </ul>
+  <p class="src">GKV-Beitragssatzstabilisierungsgesetz, beschlossen im Juli 2026</p>
+  <div class="foot"><div class="brand" data-mark="d"><span>malva</span></div><span class="num">3 / 8</span></div>
+</section>
+
+<!-- 4 Ausnahmen -->
+<section class="slide light" id="s4">
+  <p class="kicker">Bundesrat, 20. November 2026</p>
+  <h2>Ausnahmen, aber nicht für alle</h2>
+  <p class="body">Ungedeckelt bleiben:</p>
+  <ul class="list" style="margin-top:28px">
+    <li><span data-mark="h"></span><span>Therapien für Kinder und Jugendliche</span></li>
+    <li><span data-mark="h"></span><span>schwer psychisch Erkrankte</span></li>
+    <li><span data-mark="h"></span><span>dringende Akutbehandlungen über die 116&nbsp;117</span></li>
+    <li><span data-mark="h"></span><span>Therapien, die vor 2027 genehmigt wurden</span></li>
+  </ul>
+  <p class="note">Für alle anderen Erwachsenen gilt der Deckel.</p>
+  <p class="src">Bundesrat, 20.11.2026, nach Angaben von BPtK und Ärzteblatt</p>
+  <div class="foot"><div class="brand" data-mark="h"><span>malva</span></div><span class="num">4 / 8</span></div>
+</section>
+
+<!-- 5 Folgen -->
+<section class="slide dark" id="s5">
+  <p class="kicker">Was das bedeutet</p>
+  <h2>Wer Geld hat, zahlt privat.<br><span class="hl">Wer wenig hat, wartet.</span></h2>
+  <p class="body">Fachverbände warnen, dass Praxen mit dem Deckel weniger neue Patientinnen und Patienten aufnehmen können. Die Wartezeiten werden noch länger.</p>
+  <p class="body">Und je länger eine seelische Erkrankung unbehandelt bleibt, desto schwerer wird sie oft.</p>
+  <div class="foot"><div class="brand" data-mark="d"><span>malva</span></div><span class="num">5 / 8</span></div>
+</section>
+
+<!-- 6 Was Malva tut -->
+<section class="slide light" id="s6">
+  <p class="kicker">Genau hier setzen wir an</p>
+  <h2>Das macht <span class="hl">Malva</span></h2>
+  <div class="tiles">
+    <div class="tile t-white"><p style="margin:0"><b style="font-weight:600;font-size:44px">Kosten übernehmen</b><br>für Therapie, Beratung und Coaching, wenn das Geld fehlt</p></div>
+    <div class="tile t-lila"><p style="margin:0"><b style="font-weight:600;font-size:44px">Bei Anträgen helfen</b><br>zum Beispiel bei der Krankenkasse</p></div>
+    <div class="tile t-sage"><p style="margin:0"><b style="font-weight:600;font-size:44px">Passende Fachleute vermitteln</b><br>die zu dir und deinem Anliegen passen</p></div>
+  </div>
+  <p class="body" style="font-size:34px;margin-top:36px">Ein gemeinnütziger Verein in Gründung aus Bad Dürkheim. Wir starten in Rheinland-Pfalz.</p>
+  <div class="foot"><div class="brand" data-mark="h"><span>malva</span></div><span class="num">6 / 8</span></div>
+</section>
+
+<!-- 7 Aufruf -->
+<section class="slide dark" id="s7">
+  <span class="deco" data-mark="d"></span>
+  <p class="kicker">Bitte unterstütze uns</p>
+  <h2>Damit alle Hilfe bekommen, <span class="hl">die sie brauchen.</span></h2>
+  <div class="cta">
+    <div><span class="ic">1 €</span>Spenden, jeder Euro zählt</div>
+    <div><span class="ic">↗</span>Diesen Beitrag einmal teilen</div>
+    <div><span class="ic">💬</span>Weitersagen</div>
+  </div>
+  <p class="big-sage">Alles hilft.<br>Teilen kann heilen.</p>
+  <div class="foot"><div class="brand" data-mark="d"><span>malva</span></div><span class="num">7 / 8</span></div>
+</section>
+
+<!-- 8 Folgen -->
+<section class="slide light" id="s8" style="text-align:center;align-items:center">
+  <span class="mark-big" data-mark="h"></span>
+  <h2>Folge uns für mehr Neuigkeiten rund um Psychotherapie</h2>
+  <span class="handle">@malva.ev</span>
+  <p class="body" style="font-size:36px;margin-top:56px">Das ganze Infoblatt mit Brief an die Politik<br>findest du auf <b style="color:var(--g);font-weight:600">malva-ev.de/neuigkeiten</b></p>
+  <div class="foot"><div class="brand" data-mark="h"><span>malva</span></div><span class="num">8 / 8</span></div>
+</section>
+
+<script>document.querySelectorAll("[data-mark]").forEach(el=>el.prepend(document.getElementById("mark-"+el.dataset.mark).content.cloneNode(true)));</script></body></html>
