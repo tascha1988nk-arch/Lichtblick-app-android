@@ -15,6 +15,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 40
+    env:
+      HAS_UPLOAD_KEY: ${{ secrets.UPLOAD_KEYSTORE_BASE64 != '' }}
     steps:
       - name: Code holen
         uses: actions/checkout@v4
@@ -50,3 +52,24 @@ jobs:
             core/build/reports/tests/
             app/build/reports/tests/
           retention-days: 14
+
+      # Nur wenn der geheime Hochlade-Schlüssel bei GitHub hinterlegt ist:
+      # signierte Play-Store-Version (.aab) bauen.
+      - name: Play-Store-Version (AAB) bauen
+        if: env.HAS_UPLOAD_KEY == 'true'
+        env:
+          UPLOAD_KEYSTORE_BASE64: ${{ secrets.UPLOAD_KEYSTORE_BASE64 }}
+          LICHTBLICK_UPLOAD_PASSWORD: ${{ secrets.UPLOAD_KEYSTORE_PASSWORD }}
+          LICHTBLICK_VERSION_CODE: ${{ github.run_number }}
+        run: |
+          echo "$UPLOAD_KEYSTORE_BASE64" | base64 -d > "$RUNNER_TEMP/upload.jks"
+          LICHTBLICK_UPLOAD_KEYSTORE="$RUNNER_TEMP/upload.jks" ./gradlew :app:bundleRelease --stacktrace
+          rm -f "$RUNNER_TEMP/upload.jks"
+
+      - name: Play-Store-Version bereitstellen
+        if: env.HAS_UPLOAD_KEY == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: lichtblick-playstore-aab
+          path: app/build/outputs/bundle/release/*.aab
+          retention-days: 30

@@ -13,8 +13,9 @@ android {
         applicationId = "de.lichtblickraum.app"
         minSdk = 26
         targetSdk = 36
-        versionCode = 1
-        versionName = "0.1.0"
+        // Jede Version für den Play Store braucht eine höhere Nummer – GitHub zählt sie automatisch hoch.
+        versionCode = (System.getenv("LICHTBLICK_VERSION_CODE") ?: "1").toInt()
+        versionName = "1.0"
     }
 
     signingConfigs {
@@ -27,6 +28,17 @@ android {
             keyAlias = "androiddebugkey"
             keyPassword = "android"
         }
+        // Geheimer Hochlade-Schlüssel für den Play Store. Er liegt NICHT im Projekt, sondern nur
+        // als verschlüsseltes „Secret“ bei GitHub und wird beim Bauen von dort übergeben.
+        val uploadStore = System.getenv("LICHTBLICK_UPLOAD_KEYSTORE")
+        if (uploadStore != null) {
+            create("upload") {
+                storeFile = file(uploadStore)
+                storePassword = System.getenv("LICHTBLICK_UPLOAD_PASSWORD")
+                keyAlias = "lichtblick-upload"
+                keyPassword = System.getenv("LICHTBLICK_UPLOAD_PASSWORD")
+            }
+        }
     }
 
     buildTypes {
@@ -34,9 +46,9 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
         release {
-            isMinifyEnabled = true
-            isShrinkResources = true
+            isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfigs.findByName("upload")?.let { signingConfig = it }
         }
     }
 
