@@ -49,7 +49,7 @@ export default {
 
   spenden: {
     // Aktuell: GoFundMe. Später: Spendenkonto (siehe unten).
-    gofundme: "https://gofund.me/ce77e6c6f",
+    gofundme: "https://gofund.me/5e52cc660",
     // Sobald es das Vereinskonto gibt, auf true setzen und Daten eintragen.
     kontoAktiv: false,
     konto: {
