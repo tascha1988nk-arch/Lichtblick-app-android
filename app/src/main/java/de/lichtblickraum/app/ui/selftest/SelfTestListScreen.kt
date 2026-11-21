@@ -33,7 +33,9 @@ fun SelfTestListScreen(container: AppContainer, onStart: (String) -> Unit, onOpe
         val upcoming = SelfTestCatalog.all.filterNot { it.isAvailable }
 
         SectionTitle("Zum Ausprobieren")
+        // Alle Tests stehen untereinander; die Ergebnisse folgen gesammelt darunter.
         available.forEach { q ->
+            val last = SelfTestResults.history(entries, q.id).lastOrNull()
             LichtblickCard(onClick = { onStart(q.id) }, highlighted = true) {
                 if (q.isExample) {
                     Text("BEISPIEL · unverbindliche Reflexion", style = MaterialTheme.typography.labelMedium, color = LichtblickColors.Placeholder)
@@ -41,10 +43,17 @@ fun SelfTestListScreen(container: AppContainer, onStart: (String) -> Unit, onOpe
                 Text(q.title, style = MaterialTheme.typography.titleLarge)
                 Text(q.shortDescription, style = MaterialTheme.typography.bodyMedium, color = LichtblickColors.TextMuted)
                 Text("ca. ${q.estimatedMinutes} Minuten · ${q.questions.size} Aussagen", style = MaterialTheme.typography.labelMedium, color = LichtblickColors.GoldDark)
+                if (last != null) {
+                    Text("Zuletzt gemacht: ${formatDate(last.date)}", style = MaterialTheme.typography.labelMedium, color = LichtblickColors.TextMuted)
+                }
             }
-            val history = SelfTestResults.history(entries, q.id)
-            if (history.isNotEmpty()) {
-                Text("Deine Ergebnisse", style = MaterialTheme.typography.titleMedium)
+        }
+
+        val withResults = available.map { it to SelfTestResults.history(entries, it.id) }.filter { it.second.isNotEmpty() }
+        if (withResults.isNotEmpty()) {
+            SectionTitle("Deine Ergebnisse")
+            withResults.forEach { (q, history) ->
+                Text("Ergebnisse: ${q.title}", style = MaterialTheme.typography.titleMedium)
                 history.reversed().forEach { e ->
                     QuietButton("Ergebnis vom ${formatDate(e.date)} ansehen", { onOpenResult(e.id) })
                 }
