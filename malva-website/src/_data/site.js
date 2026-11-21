@@ -44,7 +44,7 @@ export default {
   infoblatt: {
     titel: "Warum Malva gerade jetzt wichtig ist",
     datum: "21. November 2026",
-    pdf: "/wp-content/uploads/2026/11/malva-infoblatt-warum-jetzt.pdf",
+    pdf: "https://malva-ev.de/wp-content/uploads/2026/11/malva-infoblatt-warum-jetzt.pdf",
   },
 
   spenden: {
