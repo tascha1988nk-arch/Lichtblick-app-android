@@ -67,6 +67,17 @@ h1 .hl{color:var(--ll)}
 .mid1 .tier .t{font-size:40px}
 .mid1 .tier .t span{font-size:30px}
 .mid1 .how{font-size:33px;margin-top:30px}
+
+.lightv{background:#FFFFFF !important;color:var(--g) !important}
+.lightv .deco{opacity:.18}
+.lightv .chip{border-color:#2F6B48;color:#2F6B48}
+.lightv h1 .hl{color:#6A4BC4}
+.lightv .de{color:#4E5A55 !important}
+.lightv .de[style*="font-weight:600"]{color:var(--g) !important}
+.lightv .sos2{background:#ECE9F6;border-color:#ECE9F6;color:#4E5A55}
+.lightv .sos2 b{color:var(--g)}
+.lightv .foot{color:var(--g)}
+.lightv .handle{color:#2F6B48}
 </style></head><body>
 <template id="mark-d"><svg viewBox="0 0 200 200"><path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#C3B1F2" fill-opacity=".92"/><path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#9CCBA8" fill-opacity=".85"/></svg></template>
 <div id="root"></div>
@@ -129,10 +140,10 @@ if(kind==='count'){
   <p class="excl" style="font-size:52px;margin-top:50px;line-height:1.3">That's why I'm raising money<br>on December 1st 💜</p>
   ${foot}</div>`;
 } else if(kind==='talk'){
-  h=`<div class="st full" style="justify-content:center;padding-top:190px;padding-bottom:250px"><span class="deco">${mark()}</span><span class="chip">You are not alone</span>
+  h=`<div class="st full lightv" style="justify-content:center;padding-top:190px;padding-bottom:250px"><span class="deco">${mark()}</span><span class="chip">You are not alone</span>
   <h1 style="font-size:124px">Need someone <span class="hl">to talk to?</span></h1>
   <p class="de" style="font-size:60px;margin-top:56px;color:var(--c);font-weight:600">Send me a DM. For free. 💜</p>
-  <p class="de" style="font-size:46px;margin-top:46px;line-height:1.4">I can't replace therapy, but we can talk about how you're doing. I know that in many countries it's even harder to get any help at all.</p>
+  <p class="de" style="font-size:46px;margin-top:46px;line-height:1.4">I can't replace therapy, but we can talk about how you're doing. I know that in many countries it's even harder to get any help.</p>
   <p class="de" style="font-size:46px;margin-top:34px;line-height:1.4">I answer every message when I have time. Sometimes it takes a little while, but I will get back to you.</p>
   <div class="sos2">In an emergency, please call your local emergency number or find a crisis line near you: <b>findahelpline.com</b></div>
   ${foot}</div>`;
