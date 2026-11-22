@@ -27,6 +27,9 @@ h1 .hl{color:var(--ll)}
 .raised{font-weight:600;font-size:220px;letter-spacing:-.05em;line-height:1;margin-top:70px;color:var(--ll)}
 .blank{width:760px;height:240px;margin-top:70px;border:4px dashed rgba(195,177,242,.5);border-radius:40px;display:grid;place-items:center;font-size:30px;color:rgba(244,242,238,.45)}
 .lbl{font-size:44px;font-weight:600;margin-top:20px}
+.countdown{margin-top:50px;display:flex;align-items:baseline;gap:24px;justify-content:center}
+.countdown .num{font-weight:600;font-size:170px;line-height:.9;letter-spacing:-.05em;color:var(--ll)}
+.countdown .txt{font-weight:600;font-size:64px;letter-spacing:-.03em}
 .foot{position:absolute;left:90px;right:90px;bottom:110px;display:flex;justify-content:space-between;align-items:center;color:var(--c)}
 .brand{display:flex;align-items:center;gap:20px;font-weight:600;font-size:42px;letter-spacing:-.03em}
 .brand svg{height:56px;width:auto}
@@ -46,22 +49,26 @@ const kind = P.get('k'); const amount = P.get('a');
 const mark = () => document.getElementById('mark-d').innerHTML;
 const foot = `<div class="foot"><div class="brand">${mark()}<span>malva</span></div><span class="handle">@malva.ev</span></div>`;
 const tiers = `<div class="tiers">
-  <div class="tier"><div class="price">10 €</div><div class="t">“The Truth”<span>An unreleased song in my usual style · ein unveröffentlichter Song</span></div></div>
-  <div class="tier"><div class="price">20 €</div><div class="t">“The Truth” + “Coming Home to Me”<span>Plus an empowering song with my personal flavour · plus ein Song, der dich stärkt</span></div></div>
-  <div class="tier top"><div class="price">30 €</div><div class="t">Both + YOUR personal song<span>Written by hand after a personal chat, tailored until you love it · dein eigener Song, angepasst, bis du ihn feierst</span></div></div>
+  <div class="tier"><div class="price">10 €</div><div class="t">“The Truth”<span>An unreleased song in my signature style</span></div></div>
+  <div class="tier"><div class="price">20 €</div><div class="t">“The Truth” + “Coming Home to Me”<span>Plus an empowering song with my personal flavour</span></div></div>
+  <div class="tier top"><div class="price">30 €</div><div class="t">Both + YOUR personal song<span>Written by hand after a personal chat and tailored until you love it. Ready within one week.</span></div></div>
 </div>`;
 let h='';
-if(kind==='ov29'||kind==='ov30'){
-  const n = kind==='ov29' ? '2' : '1';
-  const t = kind==='ov29' ? 'days until Giving Tuesday for Malva 💜' : 'Tomorrow is Giving Tuesday for Malva 💜';
-  const d = kind==='ov29' ? 'Exclusive thank-you songs nobody else will ever hear · Dec 1st' : 'Exklusive Dankeschön-Songs, die sonst niemand bekommt';
-  h=`<div class="st ov"><div class="card"><div class="big">${n}<small>${kind==='ov29'?'DAYS':'DAY'}</small></div><div class="t">${t}<span>${d}</span></div></div></div>`;
-} else if(kind==='start'){
-  h=`<div class="st full"><span class="deco">${mark()}</span><span class="chip">Giving Tuesday · December 1st</span>
-  <h1>Songs nobody else <span class="hl">will ever hear.</span></h1>
-  <p class="de">Donate for therapy and get exclusive thank-you songs · Spende für Therapie und bekomme exklusive Dankeschön-Songs</p>
+if(kind==='count'){
+  const n=+amount;
+  h=`<div class="st full" style="padding-top:150px"><span class="deco">${mark()}</span><span class="chip">Giving Tuesday · December 1st</span>
+  <h1 style="font-size:84px">Give a little. <span class="hl">Get something really cool back.</span></h1>
+  <p class="de" style="font-size:31px">On December 1st I'm raising money for my non-profit Malva, so people who can't afford therapy can finally get help. Every euro counts. And you get songs nobody else will ever hear:</p>
   ${tiers}
-  <p class="how">Donate via the link, then email your screenshot to <b>info@malva-ev.de</b><br>Subject: Song 10, Song 20 or Song 30</p>
+  <div class="countdown"><span class="num">${n}</span><span class="txt">${n===1?'day':'days'} to go</span></div>
+  <p class="how" style="margin-top:14px">All day long, wherever you are in the world 🌍</p>
+  ${foot}</div>`;
+} else if(kind==='start'){
+  h=`<div class="st full"><span class="deco">${mark()}</span><span class="chip">Giving Tuesday · It's today!</span>
+  <h1>Songs nobody else <span class="hl">will ever hear.</span></h1>
+  <p class="de">Donate for therapy and get exclusive thank-you songs. Every euro counts.</p>
+  ${tiers}
+  <p class="how">1. Donate via the link<br>2. Email your screenshot to <b>info@malva-ev.de</b><br>Subject: Song 10, Song 20 or Song 30</p>
   ${foot}</div>`;
 } else if(kind==='raised'){
   const big = amount ? `<div class="raised">${amount} €</div>` : `<div style="height:240px;margin-top:70px"></div>`;
@@ -69,15 +76,20 @@ if(kind==='ov29'||kind==='ov30'){
   <h1>Thank you! <span class="hl">We're growing.</span></h1>
   ${big}
   <p class="lbl">raised for therapy so far</p>
-  <p class="de">schon für Therapie gesammelt. Danke!</p>
   <p class="excl" style="margin-top:60px">Your exclusive songs are still waiting 🎁</p>
+  <p class="how">There's still time, wherever you are 🌍</p>
+  ${foot}</div>`;
+} else if(kind==='last'){
+  h=`<div class="st full" style="justify-content:center"><span class="deco">${mark()}</span><span class="chip">Giving Tuesday · Last chance</span>
+  <h1>Last call for your <span class="hl">exclusive songs.</span></h1>
+  <p class="de" style="font-size:36px">America, it's still Giving Tuesday for you! Donate now and get songs nobody else will ever hear.</p>
+  ${tiers}
   ${foot}</div>`;
 } else if(kind==='thanks'){
   h=`<div class="st full" style="justify-content:center"><span class="deco">${mark()}</span>
   <div style="width:220px">${mark()}</div>
   <h1>Thank you <span class="hl">so much.</span></h1>
-  <p class="de" style="font-size:40px;margin-top:40px">Every euro, every share, every message means the world to us.</p>
-  <p class="de">Danke für jeden Euro, jedes Teilen und jede Nachricht. Teilen kann heilen.</p>
+  <p class="de" style="font-size:40px;margin-top:40px">Every euro, every share, every message means the world to me. Together we're helping people get the therapy they need.</p>
   <p class="excl" style="margin-top:70px">Your songs are on their way 🎁</p>${foot}</div>`;
 }
 document.getElementById('root').innerHTML=h;
