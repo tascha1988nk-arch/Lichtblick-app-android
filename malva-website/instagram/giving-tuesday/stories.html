@@ -40,6 +40,29 @@ h1 .hl{color:var(--ll)}
 .card .big small{display:block;font-size:30px;letter-spacing:.02em;color:var(--sl);margin-top:10px}
 .card .t{font-size:40px;line-height:1.25;font-weight:600}
 .card .t span{display:block;font-size:30px;font-weight:500;color:#C9D6CE;margin-top:10px;line-height:1.35}
+
+/* größere Variante: Countdown füllt die ganze Story */
+.big1{justify-content:flex-start;padding-top:190px;padding-bottom:250px}
+.big1 h1{font-size:94px !important}
+.big1 .de{font-size:35px !important;line-height:1.42}
+.big1 .tiers{gap:24px;margin-top:50px}
+.big1 .tier{grid-template-columns:180px 1fr;padding:32px 36px;border-radius:40px}
+.big1 .price{font-size:80px}
+.big1 .tier .t{font-size:39px}
+.big1 .tier .t span{font-size:29px}
+.big1 .countdown{margin-top:56px}
+.big1 .countdown .num{font-size:200px}
+.big1 .countdown .txt{font-size:70px}
+.big1 .how{font-size:33px !important}
+/* mittlere Variante: Platz für den Link-Sticker bleibt */
+.mid1{padding-top:170px}
+.mid1 h1{font-size:98px}
+.mid1 .de{font-size:36px !important}
+.mid1 .tier{padding:32px 38px}
+.mid1 .price{font-size:82px}
+.mid1 .tier .t{font-size:40px}
+.mid1 .tier .t span{font-size:30px}
+.mid1 .how{font-size:33px;margin-top:30px}
 </style></head><body>
 <template id="mark-d"><svg viewBox="0 0 200 200"><path transform="translate(84 104) rotate(-26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#C3B1F2" fill-opacity=".92"/><path transform="translate(116 104) rotate(26)" d="M0 -62 C34 -30 34 30 0 62 C-34 30 -34 -30 0 -62 Z" fill="#9CCBA8" fill-opacity=".85"/></svg></template>
 <div id="root"></div>
@@ -56,15 +79,14 @@ const tiers = `<div class="tiers">
 let h='';
 if(kind==='count'){
   const n=+amount;
-  h=`<div class="st full" style="padding-top:150px"><span class="deco">${mark()}</span><span class="chip">Giving Tuesday · December 1st</span>
+  h=`<div class="st full big1"><span class="deco">${mark()}</span><span class="chip">Giving Tuesday · December 1st</span>
   <h1 style="font-size:84px">Give a little. <span class="hl">Get something really cool back.</span></h1>
-  <p class="de" style="font-size:31px">On December 1st I'm raising money for my non-profit Malva, so people who can't afford therapy can finally get help. Every euro counts. And you get songs nobody else will ever hear:</p>
+  <p class="de" style="font-size:31px">On December 1st I'm raising money for my non-profit Malva, so people who can't afford therapy can get help. And you get songs nobody else will ever hear:</p>
   ${tiers}
   <div class="countdown"><span class="num">${n}</span><span class="txt">${n===1?'day':'days'} to go</span></div>
-  <p class="how" style="margin-top:14px">All day long, wherever you are in the world 🌍</p>
-  ${foot}</div>`;
+    ${foot}</div>`;
 } else if(kind==='start'){
-  h=`<div class="st full"><span class="deco">${mark()}</span><span class="chip">Giving Tuesday · It's today!</span>
+  h=`<div class="st full mid1"><span class="deco">${mark()}</span><span class="chip">Giving Tuesday · It's today!</span>
   <h1>Songs nobody else <span class="hl">will ever hear.</span></h1>
   <p class="de">Donate for therapy and get exclusive thank-you songs. Every euro counts.</p>
   ${tiers}
@@ -80,13 +102,13 @@ if(kind==='count'){
   <p class="how">There's still time, wherever you are 🌍</p>
   ${foot}</div>`;
 } else if(kind==='last'){
-  h=`<div class="st full" style="justify-content:center"><span class="deco">${mark()}</span><span class="chip">Giving Tuesday · Last chance</span>
+  h=`<div class="st full mid1" style="justify-content:center"><span class="deco">${mark()}</span><span class="chip">Giving Tuesday · Last chance</span>
   <h1>Last call for your <span class="hl">exclusive songs.</span></h1>
   <p class="de" style="font-size:36px">America, it's still Giving Tuesday for you! Donate now and get songs nobody else will ever hear.</p>
   ${tiers}
   ${foot}</div>`;
 } else if(kind==='extended'){
-  h=`<div class="st full"><span class="deco">${mark()}</span><span class="chip">Giving Tuesday · Extended!</span>
+  h=`<div class="st full mid1"><span class="deco">${mark()}</span><span class="chip">Giving Tuesday · Extended!</span>
   <h1>You asked, <span class="hl">we extended.</span></h1>
   <p class="de" style="font-size:36px">Your exclusive songs are available until <b style="color:var(--c)">Wednesday, December 2nd</b>, wherever you are in the world 🌍</p>
   ${tiers}
