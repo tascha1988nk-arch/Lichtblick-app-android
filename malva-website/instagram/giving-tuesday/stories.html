@@ -85,6 +85,13 @@ if(kind==='count'){
   <p class="de" style="font-size:36px">America, it's still Giving Tuesday for you! Donate now and get songs nobody else will ever hear.</p>
   ${tiers}
   ${foot}</div>`;
+} else if(kind==='extended'){
+  h=`<div class="st full"><span class="deco">${mark()}</span><span class="chip">Giving Tuesday · Extended!</span>
+  <h1>You asked, <span class="hl">we extended.</span></h1>
+  <p class="de" style="font-size:36px">Your exclusive songs are available until <b style="color:var(--c)">Wednesday, December 2nd</b>, wherever you are in the world 🌍</p>
+  ${tiers}
+  <p class="how">1. Donate via the link<br>2. Send me your screenshot<br>to <b>info@malva-ev.de</b> or via <b>DM</b><br>3. Get your exclusive songs 🎁</p>
+  ${foot}</div>`;
 } else if(kind==='thanks'){
   h=`<div class="st full" style="justify-content:center"><span class="deco">${mark()}</span>
   <div style="width:220px">${mark()}</div>
