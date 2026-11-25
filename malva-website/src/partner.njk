@@ -31,7 +31,7 @@ foerderpartner: []
 <section class="section section--first">
   <div class="container">
     <h2>Unsere Partner:innen</h2>
-    <p>Fachleute und Organisationen, die mit Malva zusammenarbeiten. Unsere erste Partnerin ist da, weitere folgen bald.</p>
+    <p>Fachleute und Organisationen, die mit Malva zusammenarbeiten.</p>
     {% call m.carousel("Partner", "partner-karussell") %}
       {% for p in partner %}{{ m.profileCard(p) }}{% endfor %}
       {{ m.profileCard({ name: "Hier könntest du stehen", einladung: true, html: "Du bist Therapeut:in, Berater:in, Coach oder arbeitest in einer Beratungsstelle? <a href=\"/fachleute/\">Werde Teil unseres Netzwerks.</a>" }) }}
