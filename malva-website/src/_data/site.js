@@ -63,10 +63,9 @@ export default {
 
   // Fahrplan auf der Startseite. Status: "erledigt", "in Arbeit" oder "geplant".
   fahrplan: [
-    { schritt: "Satzung erarbeiten", status: "geplant" },
-    { schritt: "Gründungsversammlung", status: "geplant" },
     { schritt: "Eintragung ins Vereinsregister", status: "geplant" },
     { schritt: "Anerkennung der Gemeinnützigkeit", status: "geplant" },
+    { schritt: "Fördermittel beantragen", status: "geplant" },
     { schritt: "Pilotprojekt in Rheinland-Pfalz", status: "geplant" },
   ],
 
