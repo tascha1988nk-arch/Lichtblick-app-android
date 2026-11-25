@@ -6,7 +6,12 @@ description: Partner und Unterstützer von Malva.
 # Partner: einfach weitere Einträge ergänzen.
 # name = Ansprechperson, firma = Unternehmen/Organisation (optional),
 # foto und logo optional (Pfad in src/assets/img/), zitat = warum sie Malva unterstützen.
-partner: []
+partner:
+  - name: "Sarah Lexis"
+    rolle: "Heilpraktikerin für Psychotherapie · Speyer · vor Ort und online"
+    foto: "/assets/img/sarah-lexis-rund.webp"
+    zitat: "Ich finde die Idee hinter Malva großartig. Psychotherapeutische Unterstützung sollte nicht an finanziellen Möglichkeiten scheitern. In meiner Praxis erlebe ich immer wieder, wie wichtig es ist, in schwierigen Lebensphasen die passende Begleitung zu bekommen."
+    text: "Schwerpunkte: Ängste und Sorgen, Paare und Beziehung, systemische Therapie"
 #  - name: "Vorname Nachname"
 #    rolle: "Praxis / Tätigkeit"
 #    zitat: "Warum ich Malva unterstütze …"
@@ -26,7 +31,7 @@ foerderpartner: []
 <section class="section section--first">
   <div class="container">
     <h2>Unsere Partner:innen</h2>
-    <p>Fachleute und Organisationen, die mit Malva zusammenarbeiten. Hier entstehen in nächster Zeit tolle Partnerschaften.</p>
+    <p>Fachleute und Organisationen, die mit Malva zusammenarbeiten. Unsere erste Partnerin ist da, weitere folgen bald.</p>
     {% call m.carousel("Partner", "partner-karussell") %}
       {% for p in partner %}{{ m.profileCard(p) }}{% endfor %}
       {{ m.profileCard({ name: "Hier könntest du stehen", einladung: true, html: "Du bist Therapeut:in, Berater:in, Coach oder arbeitest in einer Beratungsstelle? <a href=\"/fachleute/\">Werde Teil unseres Netzwerks.</a>" }) }}
